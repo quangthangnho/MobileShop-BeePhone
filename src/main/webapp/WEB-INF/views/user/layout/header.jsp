@@ -34,9 +34,14 @@
                     <a><strong>Chào </strong>${userLogin}</a>
                   </li>                  
                   </c:if>
-                  <li class="hidden-xs"><a href="/home/logout">Đăng xuất</a></li>
-                  <li class="hidden-xs"><a href="registration">Đăng ký</a></li>
+                  <c:if test="${!empty userLogin}">
+                  	<li class="hidden-xs"><a href="/home/logout">Đăng xuất</a></li>
+                  </c:if>
+                   <c:if test="${empty userLogin}">
+                  	<li class="hidden-xs"><a href="registration">Đăng ký</a></li>
                   <li><a href="login">Đăng nhập</a></li>
+                  </c:if>
+                  
                   <!--  data-toggle="modal" data-target="#login-modal" -->
                 </ul>
               </div>
