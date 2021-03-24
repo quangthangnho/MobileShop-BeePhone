@@ -31,7 +31,13 @@
                 <ul class="aa-head-top-nav-right">
                   <c:if test="${!empty userLogin}">
 					<li>
-                    <a><strong>Chào </strong>${userLogin}</a>
+                    <%-- <a><strong>Chào </strong>${userLogin}</a> --%>
+                    <ul>
+                    	<li>Tài khoản</li>
+                    	<li>Đổi mật khẩu</li>
+                    	<li>Đổi thông tin</li>
+                    </ul>
+                    
                   </li>                  
                   </c:if>
                   <c:if test="${!empty userLogin}">
