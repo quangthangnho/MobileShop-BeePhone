@@ -32,11 +32,23 @@
                   <c:if test="${!empty userLogin}">
 					<li>
                     <%-- <a><strong>Chào </strong>${userLogin}</a> --%>
-                    <ul>
-                    	<li>Tài khoản</li>
-                    	<li>Đổi mật khẩu</li>
-                    	<li>Đổi thông tin</li>
-                    </ul>
+                    <div class="dropdown">
+						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Xin chào: <strong>${userLogin}</strong>
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						    
+						    <c:if test="${role == true}">
+						    	<a class="dropdown-item" href="#">Đổi mật khẩu</a>
+						    <a class="dropdown-item" href="#">Cập nhập tài khoản</a>
+						    <a class="dropdown-item" href="#">Trang quản trị</a>
+						    </c:if>
+						    <c:if test="${role == false}">
+						    	<a class="dropdown-item" href="#">Đổi mật khẩu</a>
+						    <a class="dropdown-item" href="#">Cập nhập tài khoản</a>
+						    </c:if>
+						  </div>
+						</div>
                     
                   </li>                  
                   </c:if>

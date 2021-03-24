@@ -47,6 +47,7 @@ public class LoginController {
 				
 			}else {
 				CookieUtil.addCookie(response, acModel);
+				SessionUtil.getInstance().putValue(request, "USER_LOGIN", acModel);
 			}
 			return "redirect:/home/index";
 		}

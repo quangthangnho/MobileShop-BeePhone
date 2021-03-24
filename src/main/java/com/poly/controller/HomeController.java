@@ -19,10 +19,9 @@ public class HomeController {
 		String username = CookieUtil.checkCookie(request);
 		if(accountModel != null) {
 			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
 		}
-		if(username.length() >= 1) {
-			model.addAttribute("userLogin", username);
-		}
+		
 		return "home/index";
 	}
 	
