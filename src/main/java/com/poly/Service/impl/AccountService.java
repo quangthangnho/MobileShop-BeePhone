@@ -59,7 +59,12 @@ public class AccountService implements IAccountService {
 		AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
 		AccountEntity accountEntity = accountModelAndEntityConvert.convertToEntity(accountModel);
 		accountEntity = accountDAO.findByUsername(accountEntity.getUsername());
-		return accountModelAndEntityConvert.convertToModel(accountEntity);
+		if(accountEntity != null) {
+			return new AccountModelAndEntityConvert().convertToModel(accountEntity);
+		}else {
+			return null;
+		}
+		
 	}
 
 	@Override
