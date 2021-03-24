@@ -2,6 +2,7 @@ package com.poly.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,9 +33,13 @@ public class AccountEntity {
 	private Long id;
 
 	@Column(name = "username", nullable = false)
+	@NotNull
+	@Size(min = 1, message = "Tên đăng nhập không được để trống")
 	private String username;
 
 	@Column(name = "password" , nullable = false)
+	@NotNull
+	@Size(min = 1, message = "Mật khẩu không được để trống")
 	private String password;
 
 	@Column(name = "fullname" , nullable = false)
@@ -43,12 +51,13 @@ public class AccountEntity {
 	@Column(name = "image")
 	private String image;
 
-	private int status;
+	@Column(name = "status", columnDefinition = "boolean default false")
+	private Boolean status;
 
 	@Column(name = "role", columnDefinition = "boolean default false")
 	private Boolean role;
 
-	@OneToMany(mappedBy = "accountEntity")
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "accountEntity")
 	private List<NewEntity> news;
 
 	@OneToMany(mappedBy = "accountOrder")

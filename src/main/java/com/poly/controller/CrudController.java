@@ -8,13 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.poly.dao.CategoryDAO;
+import com.poly.dao.OrderDAO;
 import com.poly.dao.ProductDAO;
+import com.poly.entity.OrderEntity;
 import com.poly.entity.ProductEntity;
 
 @Controller
 public class CrudController {
 	@Autowired
 	ProductDAO dao;
+	
+	@Autowired
+	OrderDAO odao;
 	
 	@ResponseBody
 	@RequestMapping("/crud/find-all")
@@ -61,17 +66,19 @@ public class CrudController {
 //		dao.save(entity);
 //	}
 //	
-//	@ResponseBody
-//	@RequestMapping("/crud/update")
-//	public void update() {
-//		ProductEntity entity = dao.getOne(1008);
-//		entity.setName("Bông hoa");
-//		dao.save(entity);
-//	}
+	@ResponseBody
+	@RequestMapping("/crud/update")
+	public void update() {
+		long a =1;
+		OrderEntity entity = odao.getOne(a);
+		entity.setAddress("139 Esch Junction 123");
+		odao.save(entity);
+	}
 //	
-//	@ResponseBody
-//	@RequestMapping("/crud/delete")
-//	public void delete() {
-//		dao.deleteById(1008);
-//	}
+	@ResponseBody
+	@RequestMapping("/crud/delete")
+	public void delete() {
+		long id =15;
+		odao.deleteById(id);
+	}
 }

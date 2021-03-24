@@ -1,6 +1,5 @@
 <%@ page pageEncoding="utf-8"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <header id="aa-header">
     <!-- start header top  -->
     <div class="aa-header-top">
@@ -29,25 +28,12 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <c:if test="${!empty userLogin}">
-					<li>
-                    <%-- <a><strong>Chào </strong>${userLogin}</a> --%>
-                    <ul>
-                    	<li>Tài khoản</li>
-                    	<li>Đổi mật khẩu</li>
-                    	<li>Đổi thông tin</li>
-                    </ul>
-                    
-                  </li>                  
-                  </c:if>
-                  <c:if test="${!empty userLogin}">
-                  	<li class="hidden-xs"><a href="/home/logout">Đăng xuất</a></li>
-                  </c:if>
-                   <c:if test="${empty userLogin}">
-                  	<li class="hidden-xs"><a href="registration">Đăng ký</a></li>
-                  <li><a href="login">Đăng nhập</a></li>
-                  </c:if>
-                  
+                  <li>
+                    <a><strong>Chào </strong>Khải</a>
+                  </li>
+                  <li class="hidden-xs"><a href="">Đăng xuất</a></li>
+                  <li class="hidden-xs"><a href="/account/registration">Đăng ký</a></li>
+                  <li><a href="/account/login">Đăng nhập</a></li>
                   <!--  data-toggle="modal" data-target="#login-modal" -->
                 </ul>
               </div>
@@ -68,7 +54,7 @@
               <div class="aa-logo">
                 <!-- Text based logo -->
                 <!-- img based logo -->
-                <a href="index.html"><img src="/static/assets/images/logo1.png" alt="logo img" width="100%"></a>
+                <a href="index"><img src="/static/assets/images/logo1.png" alt="logo img" width="100%"></a>
               </div>
               <!-- / logo  -->
               <!-- Shipping service -->

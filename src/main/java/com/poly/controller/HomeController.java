@@ -1,28 +1,13 @@
 package com.poly.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.poly.model.AccountModel;
-import com.poly.utils.CookieUtil;
-import com.poly.utils.SessionUtil;
 
 @Controller
 public class HomeController {
 	//*******customer**********///
 	@RequestMapping("/home/index")//trangchu
-	public String indexcustomer(Model model, HttpServletRequest request) {
-		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
-		String username = CookieUtil.checkCookie(request);
-		if(accountModel != null) {
-			model.addAttribute("userLogin", accountModel.getUsername());
-		}
-		if(username.length() >= 1) {
-			model.addAttribute("userLogin", username);
-		}
+	public String indexcustomer() {
 		return "home/index";
 	}
 	
@@ -36,10 +21,10 @@ public class HomeController {
 //		return "home/product";
 //	}
 	
-	@RequestMapping("/home/product-detail")//chi tiet sanpham
-	public String productDetail() {
-		return "home/product-detail";
-	}
+//	@RequestMapping("/home/product-detail")//chi tiet sanpham
+//	public String productDetail() {
+//		return "home/product-detail";
+//	}
 	
 	@RequestMapping("/home/news")//tintuc
 	public String news() {
@@ -61,15 +46,15 @@ public class HomeController {
 		return "home/contact";
 	}
 	
-	@RequestMapping("/home/login")//dang nhap 
-	public String login() {
-		return "home/login";
-	}
-	
-	@RequestMapping("/home/registration")//dang ky 
-	public String registration() {
-		return "home/registration";
-	}
+//	@RequestMapping("/home/login")//dang nhap 
+//	public String login() {
+//		return "home/login";
+//	}
+//	
+//	@RequestMapping("/home/registration")//dang ky 
+//	public String registration() {
+//		return "home/registration";
+//	}
 	
 	
 	@RequestMapping("/home/checkout")//checkout thanh toán
@@ -123,10 +108,10 @@ public class HomeController {
 //	}
 //		
 	//dơn hàng
-	@RequestMapping("/admin/order/index")
-	public String order() {
-		return "admin/order/index";
-	}
+//	@RequestMapping("/admin/order/index")
+//	public String order() {
+//		return "admin/order/index";
+//	}
 		
 	//quản lý bản tin
 	@RequestMapping("/admin/news/index")
