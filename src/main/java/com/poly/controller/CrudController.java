@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.poly.dao.CategoryDAO;
 import com.poly.dao.OrderDAO;
 import com.poly.dao.ProductDAO;
 import com.poly.entity.OrderEntity;

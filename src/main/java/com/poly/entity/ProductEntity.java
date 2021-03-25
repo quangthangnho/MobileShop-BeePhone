@@ -87,6 +87,9 @@ public class ProductEntity {
 	@Column(columnDefinition = "int default 1")
 	private int status;
 	
+	@Column
+	private double discount;
+	
 	@OneToMany(mappedBy = "productOrderDetail")
 	private List<OrderDetailEntity> products;
 

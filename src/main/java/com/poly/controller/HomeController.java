@@ -1,12 +1,19 @@
 package com.poly.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.poly.model.AccountModel;
+import com.poly.utils.CookieUtil;
+import com.poly.utils.SessionUtil;
 
 @Controller
 public class HomeController {
 	//*******customer**********///
-	@RequestMapping("/home/index")//trangchu
+	@RequestMapping("/home/index")
 	public String indexcustomer(Model model, HttpServletRequest request) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		String username = CookieUtil.checkCookie(request);
