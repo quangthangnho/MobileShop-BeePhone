@@ -7,7 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 	//*******customer**********///
 	@RequestMapping("/home/index")//trangchu
-	public String indexcustomer() {
+	public String indexcustomer(Model model, HttpServletRequest request) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		String username = CookieUtil.checkCookie(request);
+		if(accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
+		
 		return "home/index";
 	}
 	
