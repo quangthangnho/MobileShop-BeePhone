@@ -1,14 +1,7 @@
 package com.poly.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.poly.model.AccountModel;
-import com.poly.utils.CookieUtil;
-import com.poly.utils.SessionUtil;
 
 @Controller
 public class HomeController {
@@ -35,10 +28,10 @@ public class HomeController {
 //		return "home/product";
 //	}
 	
-	@RequestMapping("/home/product-detail")//chi tiet sanpham
-	public String productDetail() {
-		return "home/product-detail";
-	}
+//	@RequestMapping("/home/product-detail")//chi tiet sanpham
+//	public String productDetail() {
+//		return "home/product-detail";
+//	}
 	
 	@RequestMapping("/home/news")//tintuc
 	public String news() {
@@ -60,15 +53,15 @@ public class HomeController {
 		return "home/contact";
 	}
 	
-	@RequestMapping("/home/login")//dang nhap 
-	public String login() {
-		return "home/login";
-	}
-	
-	@RequestMapping("/home/registration")//dang ky 
-	public String registration() {
-		return "home/registration";
-	}
+//	@RequestMapping("/home/login")//dang nhap 
+//	public String login() {
+//		return "home/login";
+//	}
+//	
+//	@RequestMapping("/home/registration")//dang ky 
+//	public String registration() {
+//		return "home/registration";
+//	}
 	
 	
 	@RequestMapping("/home/checkout")//checkout thanh toán
@@ -122,10 +115,10 @@ public class HomeController {
 //	}
 //		
 	//dơn hàng
-	@RequestMapping("/admin/order/index")
-	public String order() {
-		return "admin/order/index";
-	}
+//	@RequestMapping("/admin/order/index")
+//	public String order() {
+//		return "admin/order/index";
+//	}
 		
 	//quản lý bản tin
 	@RequestMapping("/admin/news/index")

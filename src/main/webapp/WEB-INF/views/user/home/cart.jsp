@@ -42,7 +42,7 @@
                 
                     <tr>
                       <td><a class="remove" href=""><fa class="fa fa-close"></fa></a></td>
-                      <td><a href=""><img src="assets/images/rau_mui.jpg"></a></td>
+                      <td><a href=""><img src=""></a></td>
                       <td><a class="aa-cart-title" href="">name </a></td>
                       <td>100 VNĐ</td>
                       <td><input class="aa-cart-quantity" type="number" name="" value="1" min=1></td>

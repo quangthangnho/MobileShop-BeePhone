@@ -18,20 +18,51 @@ public class ProductController {
 	@Autowired
 	CategoryDAO cdao;
 	
-	@RequestMapping("/home/product")
-	public String index(Model model) {
+	@RequestMapping("/product/list")
+	public String product() {//sanpham
+		return "product/list";
+	}
+	@RequestMapping("/layout/category")
+	public String index(Model model) {// hiện danh mục trang sản phẩm
 		model.addAttribute("cates", cdao.findAll());
-		return "home/product"; 
+		return "user/layout/category"; 
 	}
 	
+	
+//	@RequestMapping("/layout/spganday")
+//	public String spgangay(Model model) {// sanpham gan day
+//		model.addAttribute("cates", cdao.findAll());
+//		return "user/layout/spganday"; 
+//	}
+//	
 	//lấy sản phẩm theo id
-		@RequestMapping("/product/list-by-category/{id}")
-		public String list(Model model, @PathVariable("id") Long id) {
-			List<ProductEntity> list = cdao.getOne(id).getProducts();
-			model.addAttribute("list", list);
-			return "product/list";
-		}
+	@RequestMapping("/product/list-by-category/{id}")
+	public String list(Model model, @PathVariable("id") Long id) {
+		List<ProductEntity> list = cdao.getOne(id).getProducts();
+		model.addAttribute("list", list);
+		return "product/list";
+	}
+	
+	
+//	 thanh tìm kiếm
+	@Autowired
+	ProductDAO pdao;
+	
+	@RequestMapping("/product/list-by-keywords")
+	public String list(Model model,
+			@RequestParam("keywords") String keywords) {
+		List<ProductEntity> list = pdao.findByKeywords(keywords);
+		model.addAttribute("list", list);
+		return "product/list";
 		
-		
+	}
+
+	// chuyển sang trang product detail
+	@RequestMapping("/product/detail/{id}")
+	public String detail(Model model, @PathVariable("id") Long id) {
+		ProductEntity product = pdao.getOne(id);
+		model.addAttribute("prod", product);
+		return "product/detail";
+	}
 
 }
