@@ -94,11 +94,7 @@ public class AccountAdminController {
     			}else {
     				model.addAttribute("message", "Các trường không được để trống!");
     			}
-    			
-    			
-    			
-    			
-    			
+    				
     		}
     	    	
     	model.addAttribute("listAdmin", accountService.findAllByRole(true));
