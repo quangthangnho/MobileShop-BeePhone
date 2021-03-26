@@ -39,7 +39,7 @@
 						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						    
 						    <c:if test="${role == true}">
-						    	<a class="dropdown-item" href="#">Đổi mật khẩu</a>
+						    	<a class="dropdown-item" href="/home/changepassword">Đổi mật khẩu</a>
 						    <a class="dropdown-item" href="#">Cập nhập tài khoản</a>
 						    <a class="dropdown-item" href="#">Trang quản trị</a>
 						    </c:if>
