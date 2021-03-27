@@ -1254,6 +1254,17 @@ a.aa-product-img img {
   -o-transition: all 0.5s;
   transition: all 0.5s;
 }
+  /*giam gia  http://localhost:8086/product/detail/1*/
+span.aa-product-price.abc{
+    font-size: 1.75rem;
+    color: #fff;
+    text-transform: uppercase;
+    background: #ee4d2d;
+    border-radius: 2px;
+    padding: 2px 4px;
+    font-weight: 600;
+    line-height: 1;
+}
 .aa-product-catg li .aa-product-price {
   font-weight: bold;
   letter-spacing: 0.5px;
@@ -4372,5 +4383,7 @@ a.aa-product-img img {
   #aa-header .aa-header-top .aa-header-top-right .aa-head-top-nav-right li a {   
     padding: 5px 2px;
   }
+
 }
+
 

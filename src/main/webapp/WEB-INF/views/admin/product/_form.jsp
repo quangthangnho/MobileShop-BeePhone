@@ -21,8 +21,7 @@
 			    </div>    		
 	    	</div>
 	    	<div class="col-sm-8">
-				        <label>id</label>
-				        <form:input path="id" class="form-control"/>
+				        <form:hidden path="id"/>
 		
 				<div class="row">
 		
@@ -41,9 +40,13 @@
 				        <label>CAMERA TRƯỚC</label>
 				        <form:input path="cameraTruoc" class="form-control"/>
 				    </div>
-				    <div class="form-group col-sm-6">
+				    <div class="form-group col-sm-3">
 				        <label>CAMERA SAU</label>
 				        <form:input path="cameraSau" class="form-control"/>
+				    </div>
+				    <div class="form-group col-sm-3">
+				        <label>Giảm giá(%)</label>
+				        <form:input path="discount" class="form-control"/>
 				    </div>
 			    </div>
 			    
