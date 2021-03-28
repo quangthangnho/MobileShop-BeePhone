@@ -33,13 +33,9 @@ public class AccountEntity {
 	private Long id;
 
 	@Column(name = "username", nullable = false)
-	@NotNull
-	@Size(min = 1, message = "Tên đăng nhập không được để trống")
 	private String username;
 
 	@Column(name = "password" , nullable = false)
-	@NotNull
-	@Size(min = 1, message = "Mật khẩu không được để trống")
 	private String password;
 
 	@Column(name = "fullname" , nullable = false)
@@ -57,7 +53,7 @@ public class AccountEntity {
 	@Column(name = "role", columnDefinition = "boolean default false")
 	private Boolean role;
 
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "accountEntity")
+	@OneToMany(mappedBy = "accountEntity")
 	private List<NewEntity> news;
 
 	@OneToMany(mappedBy = "accountOrder")

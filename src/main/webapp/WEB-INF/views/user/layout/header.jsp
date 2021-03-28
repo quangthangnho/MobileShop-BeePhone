@@ -28,12 +28,37 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li>
-                    <a><strong>Chào </strong>Khải</a>
-                  </li>
-                  <li class="hidden-xs"><a href="">Đăng xuất</a></li>
-                  <li class="hidden-xs"><a href="/account/registration">Đăng ký</a></li>
-                  <li><a href="/account/login">Đăng nhập</a></li>
+                  <c:if test="${!empty userLogin}">
+					<li>
+                    <%-- <a><strong>Chào </strong>${userLogin}</a> --%>
+                    <div class="dropdown">
+						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Xin chào: <strong>${userLogin}</strong>
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						    
+						    <c:if test="${role == true}">
+						    	<a class="dropdown-item" href="/home/changepassword">Đổi mật khẩu</a>
+						    <a class="dropdown-item" href="#">Cập nhập tài khoản</a>
+						    <a class="dropdown-item" href="#">Trang quản trị</a>
+						    </c:if>
+						    <c:if test="${role == false}">
+						    	<a class="dropdown-item" href="#">Đổi mật khẩu</a>
+						    <a class="dropdown-item" href="#">Cập nhập tài khoản</a>
+						    </c:if>
+						  </div>
+						</div>
+                    
+                  </li>                  
+                  </c:if>
+                  <c:if test="${!empty userLogin}">
+                  	<li class="hidden-xs"><a href="/home/logout">Đăng xuất</a></li>
+                  </c:if>
+                   <c:if test="${empty userLogin}">
+                  	<li class="hidden-xs"><a href="registration">Đăng ký</a></li>
+                  <li><a href="login">Đăng nhập</a></li>
+                  </c:if>
+                  
                   <!--  data-toggle="modal" data-target="#login-modal" -->
                 </ul>
               </div>

@@ -89,6 +89,7 @@ public class ProductEntity {
 	
 	@Column
 	private int discount;
+
 	
 	@OneToMany(mappedBy = "productOrderDetail")
 	private List<OrderDetailEntity> products;
