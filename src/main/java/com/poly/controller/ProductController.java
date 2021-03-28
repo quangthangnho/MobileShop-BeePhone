@@ -64,5 +64,7 @@ public class ProductController {
 		model.addAttribute("prod", product);
 		return "product/detail";
 	}
+	
+	
 
 }

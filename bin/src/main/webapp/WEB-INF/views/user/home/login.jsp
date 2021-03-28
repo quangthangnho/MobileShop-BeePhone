@@ -1,4 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!--  content -->
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
@@ -27,18 +29,18 @@
             <div class="col-md-8 col-md-push-2">
               <div class="aa-myaccount-login">
               <h4>Đăng nhập</h4>
-               <form class="aa-login-form" name="loginform" onsubmit="validate();" action="" method="post">
+               <form:form class="aa-login-form" name="loginform"  action="/home/login" method="post" modelAttribute="formLogin"> 
                 <label for="">Username<span>*</span></label>
-                 <input type="text" placeholder="Username" name="username">
+                 <input type="text"  name="username">
                  <label for="">Mật khẩu<span>*</span></label>
-                  <input type="password" placeholder="Password" name="password">
-                  <p class="rememberme" style="display: block"><input type="checkbox" id="rememberme"> Ghi nhớ </p> 
+                  <input type="password"  name="password">
+ 
+                  <p class="rememberme" style="display: block"><input type="checkbox" name="remember" id="rememberme"> Ghi nhớ </p> 
    
-                  <p style="color:red; display:block">Thông báo lỗi
-                  </p>
+                  <c:if test="${!empty message}"><p>${message}</p></c:if>
                    <button type="submit" class="aa-browse-btn">Đăng nhập</button>
                       
-                </form>
+                </form:form>
               </div>
             </div>
           </div>          

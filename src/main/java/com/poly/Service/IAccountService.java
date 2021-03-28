@@ -1,7 +1,6 @@
 package com.poly.Service;
 
 import com.poly.model.AccountModel;
-import com.poly.model.LoginModel;
 
 import java.util.List;
 
@@ -16,7 +15,7 @@ public interface IAccountService {
     
     AccountModel findByUsername(AccountModel accountModel);
     
-    AccountModel findByUsernameAndPassword(LoginModel loginModel);
+    AccountModel findByUsernameAndPassword(AccountModel accountModel);
     
     
 }

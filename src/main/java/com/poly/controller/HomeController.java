@@ -16,8 +16,7 @@ import com.poly.utils.SessionUtil;
 
 @Controller
 public class HomeController {
-
-	private final IAccountService accountService;
+private final IAccountService accountService;
 
 	public HomeController(IAccountService accountService) {
 		this.accountService = accountService;
@@ -133,6 +132,16 @@ public class HomeController {
 		return "admin/layout";
 	}
 
+	
+//	//trang tổng quan
+//	@RequestMapping("/admin/home/index-a")
+//	public String index2() {
+//		return "admin/home/index-a";
+//	}
+	
+	//quản lý admin
+
+
 	// trang tổng quan
 	@RequestMapping("/admin/home/index-a")
 	public String index2() {
@@ -140,6 +149,7 @@ public class HomeController {
 	}
 
 	// quản lý admin
+
 	@RequestMapping("/admin/master/index")
 	public String admin() {
 		return "admin/master/index";
