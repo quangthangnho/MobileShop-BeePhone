@@ -83,11 +83,11 @@ public class HomeController {
 		return "admin/layout";
 	}
 	
-	//trang tổng quan
-	@RequestMapping("/admin/home/index-a")
-	public String index2() {
-		return "admin/home/index-a";
-	}
+//	//trang tổng quan
+//	@RequestMapping("/admin/home/index-a")
+//	public String index2() {
+//		return "admin/home/index-a";
+//	}
 	
 	//quản lý admin
 	@RequestMapping("/admin/master/index")
