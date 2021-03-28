@@ -76,10 +76,6 @@ public class HomeController {
 		return "home/login";
 	}
 
-	@RequestMapping("/home/registration") // dang ky
-	public String registration() {
-		return "home/registration";
-	}
 
 	@RequestMapping("/home/checkout") // checkout thanh toán
 	public String checkout() {

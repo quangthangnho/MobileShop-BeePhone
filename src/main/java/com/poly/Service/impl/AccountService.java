@@ -78,13 +78,20 @@ public class AccountService implements IAccountService {
 		}else {
 			return null;
 		}
+			
 		
-		
-		
-		
-		
-		
-		
+	}
+
+	@Override
+	public AccountModel findByEmail(AccountModel accountModel) {
+		AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
+		AccountEntity accountEntity = accountModelAndEntityConvert.convertToEntity(accountModel);
+		accountEntity = accountDAO.findByUsername(accountEntity.getEmail());
+		if(accountEntity != null) {
+			return new AccountModelAndEntityConvert().convertToModel(accountEntity);
+		}else {
+			return null;
+		}
 	}
 
 	
