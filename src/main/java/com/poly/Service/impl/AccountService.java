@@ -61,11 +61,30 @@ public class AccountService implements IAccountService {
 	}
 
 	@Override
-	public AccountModel findByUsernameAndPassword(AccountModel accountModel) {
+	public AccountModel findByUsernameAndPassword(LoginModel loginModel) {
 		// TODO Auto-generated method stub
-		AccountEntity accountEntity = accountDAO.findByUsernameAndPassword(accountModel.getUsername(), accountModel.getPassword());
+		AccountEntity accountEntity = new AccountEntity();
+		accountEntity = accountDAO.findByUsernameAndPassword(loginModel.getUsername(), loginModel.getPassword());
+		if(accountEntity != null) {
+			AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
+			return accountModelAndEntityConvert.convertToModel(accountEntity);
+		}else {
+			return null;
+		}
+			
 		
-		return new AccountModelAndEntityConvert().convertToModel(accountEntity);
+	}
+
+	@Override
+	public AccountModel findByEmail(AccountModel accountModel) {
+		AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
+		AccountEntity accountEntity = accountModelAndEntityConvert.convertToEntity(accountModel);
+		accountEntity = accountDAO.findByUsername(accountEntity.getEmail());
+		if(accountEntity != null) {
+			return new AccountModelAndEntityConvert().convertToModel(accountEntity);
+		}else {
+			return null;
+		}
 	}
 
 	

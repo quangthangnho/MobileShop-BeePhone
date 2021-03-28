@@ -11,6 +11,7 @@
 			<th>TÀI KHOẢN</th>
 			<th>MẬT KHẨU</th>
 			<th>EMAIL</th>
+			<th>SỐ ĐIỆN THOẠI</th>
 			<th>TRẠNG THÁI</th>
 			<th>QUYỀN</th>
 			<th>IMAGE</th>
@@ -25,6 +26,7 @@
 				<td>${item.getUsername()}</td>
 				<td>${item.getPassword()}</td>
 				<td>${item.getEmail()}</td>
+				<td>${item.getPhoneNumber()}</td>
 				<td><span class="badge badge-primary">${item.getStatus() >= 1 ? "Đã kích hoạt" : "Chưa kích hoạt"}</span></td>
 				<td><span class="badge badge-info">${item.getRole() ? "Admin" : "Customer"}</span></td>
 				<td>${item.getImage()}</td>

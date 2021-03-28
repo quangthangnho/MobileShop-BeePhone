@@ -32,7 +32,7 @@ public class AccountEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "username", nullable = false)
+	@Column(name = "username", nullable = true)
 	private String username;
 
 	@Column(name = "password" , nullable = false)
@@ -46,6 +46,9 @@ public class AccountEntity {
 
 	@Column(name = "image")
 	private String image;
+	
+	@Column(name = "phoneNumber")
+	private String phoneNumber;
 
 	@Column(name = "status", columnDefinition = "boolean default false")
 	private Boolean status;

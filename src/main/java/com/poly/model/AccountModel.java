@@ -18,4 +18,5 @@ public class AccountModel {
     private String image;
     private int status;
     private Boolean role;
+    private String phoneNumber;
 }
