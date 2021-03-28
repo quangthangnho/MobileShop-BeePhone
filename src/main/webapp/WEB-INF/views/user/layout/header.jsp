@@ -1,6 +1,5 @@
 <%@ page pageEncoding="utf-8"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <header id="aa-header">
     <!-- start header top  -->
     <div class="aa-header-top">
@@ -80,7 +79,7 @@
               <div class="aa-logo">
                 <!-- Text based logo -->
                 <!-- img based logo -->
-                <a href="index.html"><img src="/static/assets/images/logo1.png" alt="logo img" width="100%"></a>
+                <a href="/home/index"><img src="/static/assets/images/logo1.png" alt="logo img" width="100%"></a>
               </div>
               <!-- / logo  -->
               <!-- Shipping service -->

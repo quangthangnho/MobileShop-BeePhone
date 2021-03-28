@@ -57,7 +57,8 @@
 <!--End of Tawk.to Script-->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	
+	<!-- Poly js-->
+	<script src="/static/assets/js/poly.js"></script>
 </head>
 
 <body>
@@ -101,8 +102,7 @@
 
 	
 	
-	<!-- Poly js-->
-	<script src="/static/assets/js/poly.js"></script>
+	
 	
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
@@ -132,12 +132,13 @@
 	<script type="text/javascript"
 		src="/static/assets/js/jquery.simpleLens.js"></script>
 	<!-- slick slider -->
-	<script type="text/javascript" src="/static/assets/js/slick.js"></script>
+	<script type="text/javascript" src="/static/assets/js/slick.js"></script> <!-- onload -->
 	<!-- Price picker slider -->
 	<script type="text/javascript" src="/static/assets/js/nouislider.js"></script>
 	<script type="text/javascript" src="/static/assets/js/validate.js"></script>
 	<!-- Custom js -->
 	<script type="text/javascript" src="/static/assets/js/custom.js"></script>
+	
 
 </body>
 
