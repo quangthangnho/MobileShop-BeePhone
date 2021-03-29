@@ -21,9 +21,9 @@ public class AccountService implements IAccountService {
     }
 
     @Override
-    public List<AccountModel> findAllByRole(boolean role) {
+    public List<AccountModel> findAllByRole(String role) {
         // TODO Auto-generated method stub
-        return accountDAO.findAllByRole(role).stream()
+        return accountDAO.findByRole(role).stream()
                 .map(element -> new AccountModelAndEntityConvert().convertToModel(element))
                 .collect(Collectors.toList());
 
@@ -33,8 +33,12 @@ public class AccountService implements IAccountService {
     @Override
     public AccountModel findById(Long id) {
         AccountEntity accountEntity = accountDAO.findById(id).get();
-        AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
-        return accountModelAndEntityConvert.convertToModel(accountEntity);
+        AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();     
+        if(accountEntity != null) {
+        	return accountModelAndEntityConvert.convertToModel(accountEntity);
+		}else {
+			return null;
+		}
     }
 
 	@Override
@@ -42,7 +46,11 @@ public class AccountService implements IAccountService {
 		// TODO Auto-generated method stub
 		AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
 		AccountEntity  accountEntity =  accountModelAndEntityConvert.convertToEntity(accountModel);
-		return accountModelAndEntityConvert.convertToModel(accountDAO.save(accountEntity));
+		if(accountEntity != null) {
+			return accountModelAndEntityConvert.convertToModel(accountDAO.save(accountEntity));
+		}else {
+			return null;
+		}
 	}
 
 	@Override
@@ -58,8 +66,12 @@ public class AccountService implements IAccountService {
 		// TODO Auto-generated method stub
 		AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
 		AccountEntity accountEntity = accountModelAndEntityConvert.convertToEntity(accountModel);
-		accountEntity = accountDAO.findByUsername(accountEntity.getUsername());
-		return accountModelAndEntityConvert.convertToModel(accountEntity);
+		accountEntity = accountDAO.findByUsername(accountEntity.getUsername());	
+		if(accountEntity != null) {
+			return accountModelAndEntityConvert.convertToModel(accountEntity);
+		}else {
+			return null;
+		}
 	}
 
 	@Override

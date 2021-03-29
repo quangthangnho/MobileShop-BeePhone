@@ -27,8 +27,8 @@
                 <td>${item.getPassword()}</td>
                 <td>${item.getEmail()}</td>
                 <td>${item.getPhoneNumber()}</td>
-                <td><span class="badge badge-primary">${item.getStatus() >= 1 ? "Đã kích hoạt" : "Chưa kích hoạt"}</span></td>
-                <td><span class="badge badge-info">${item.getRole() ? "Admin" : "Customer"}</span></td>
+                <td><span class="badge badge-primary">${item.getStatus() >=1 ? "Đã kích hoạt" : "Chưa kích hoạt"}</span></td>
+                <td><span class="badge badge-info">${item.getRole() == 'ADMIN' ? "Admin" : "Customer"}</span></td>
                 <td>${item.getImage()}</td>
                 <td class="td-actions text-right">
                     <a href = "<c:url value = "/admin/master/detail?id=${item.getId()}"/>" class="btn btn-sm btn-warning" title="Detail">

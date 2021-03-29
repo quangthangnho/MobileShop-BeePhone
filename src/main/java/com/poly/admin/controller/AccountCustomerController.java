@@ -32,7 +32,7 @@ public class AccountCustomerController {
 
 	@GetMapping("/index")
 	public String homeCustomer(Model model) {
-		List<AccountModel> listCustomer = accountService.findAllByRole(false);
+		List<AccountModel> listCustomer = accountService.findAllByRole("USER");
 		model.addAttribute("listCustomer", listCustomer);
 		return "admin/customer/index";
 	}
@@ -40,7 +40,7 @@ public class AccountCustomerController {
 	@GetMapping("/detail")
     public String adminDetail(Model model, @RequestParam("id") Long id){
        model.addAttribute("indexForm", accountService.findById(id));
-        model.addAttribute("listCustomer", accountService.findAllByRole(false));
+        model.addAttribute("listCustomer", accountService.findAllByRole("USER"));
         return "admin/customer/index";
     }
 
@@ -56,7 +56,7 @@ public class AccountCustomerController {
     	model.addAttribute("message", "Cập nhập tài khoản thành công!");
     	accountService.save(accountModel);
     	
-    	model.addAttribute("listCustomer", accountService.findAllByRole(false));
+    	model.addAttribute("listCustomer", accountService.findAllByRole("USER"));
     	return "admin/customer/index";
     	
     }
@@ -66,7 +66,7 @@ public class AccountCustomerController {
     	try {
     		accountService.delete(accountModel);
     		model.addAttribute("message", "Xoá khách hàng thành công!");
-    	model.addAttribute("listCustomer", accountService.findAllByRole(false));
+    	model.addAttribute("listCustomer", accountService.findAllByRole("USER"));
 		} catch (Exception e) {
 			model.addAttribute("message", "Khách hàng này không xóa được!");
 		}
@@ -84,7 +84,7 @@ public class AccountCustomerController {
     	 accountService.save(accountModel);
     	model.addAttribute("message", "Thêm tài khoản thành công!");
 	
-    	model.addAttribute("listCustomer", accountService.findAllByRole(false));
+    	model.addAttribute("listCustomer", accountService.findAllByRole("USER"));
 		return "admin/customer/index";
     }
 
