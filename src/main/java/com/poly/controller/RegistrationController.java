@@ -43,13 +43,14 @@ public class RegistrationController {
 				String body = "Click to <a href='"+activateUrl+"'>Activate</a> your account!";
 				mailer.send(to, subject, body);
 			} catch (Exception e) {
-				message = "Lỗi, không gửi được email kích hoạt!";
+				e.printStackTrace();
+				message = "Lỗi, không gửi được email kích hoạt!";			
 			}
 		}else {
 			model.addAttribute("message", message);
 			return "home/registration";
 		}
-		return "home/login";
+		return "redirect:/home/login";
 	}
 
 }

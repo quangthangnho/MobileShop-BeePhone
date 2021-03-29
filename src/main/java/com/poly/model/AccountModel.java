@@ -17,6 +17,6 @@ public class AccountModel {
     private String email;
     private String image;
     private int status;
-    private Boolean role;
+    private String role;
     private String phoneNumber;
 }

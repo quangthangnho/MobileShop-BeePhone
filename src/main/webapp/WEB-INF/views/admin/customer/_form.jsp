@@ -75,9 +75,9 @@
 						<div class="form-group col-sm-3">
 							<label>Is Admin?</label>
 							<div class="form-control">
-								<input type="radio" name="role" value="true"
+								<input type="radio" name="role" value="ADMIN"
 									class="form-check-input">Yes <input type="radio"
-									name="role" value="false" class="form-check-input"
+									name="role" value="USER" class="form-check-input"
 									checked="checked">No
 							</div>
 						</div>

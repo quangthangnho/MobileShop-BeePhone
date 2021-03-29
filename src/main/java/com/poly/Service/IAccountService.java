@@ -6,7 +6,7 @@ import com.poly.model.LoginModel;
 import java.util.List;
 
 public interface IAccountService {
-    List<AccountModel> findAllByRole(boolean role);
+    List<AccountModel> findAllByRole(String role);
 
     AccountModel findById(Long id);
     
