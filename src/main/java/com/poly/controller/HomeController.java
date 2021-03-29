@@ -91,36 +91,7 @@ private final IAccountService accountService;
 		return "home/cart";
 	}
 
-	@RequestMapping("/home/changepassword") // cart chitietdathang
-	public String doimatkhau() {
-		return "home/changepassword";
-	}
-
-	@PostMapping("/home/changepassword")
-	public String changePass(Model model, @ModelAttribute("changePass") ChangePasswordModel changePasswordModel,
-			HttpServletRequest request) {
-		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
-		if (accountModel != null) {
-			if (changePasswordModel.getPasswordOld().length() >= 1 && changePasswordModel.getPasswordNew().length() >= 1
-					&& changePasswordModel.getPasswordNewAgain().length() >= 1) {
-				if (accountModel.getPassword().equals(changePasswordModel.getPasswordOld())) {
-					if (changePasswordModel.getPasswordNew().equals(changePasswordModel.getPasswordNewAgain())) {
-						accountModel.setPassword(changePasswordModel.getPasswordNew());
-						accountService.save(accountModel);
-						return "redirect:/home/logout";
-					} else {
-						model.addAttribute("message", "Mật khẩu mới và nhập lại mật khẩu không trùng khớp!");
-					}
-				} else {
-					model.addAttribute("message", "Mật khẩu cũ không đúng");
-				}
-			} else {
-				model.addAttribute("message", "Các trường không được để trống");
-			}
-		}
-		return "home/changepassword";
-
-	}
+	
 
 	// *******admin**********///
 	@RequestMapping("/admin/layout")

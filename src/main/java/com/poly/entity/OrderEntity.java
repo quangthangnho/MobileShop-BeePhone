@@ -46,7 +46,7 @@ public class OrderEntity {
 
 
 	@ManyToOne
-	@JoinColumn(name = "account_id")
+	@JoinColumn(name = "account_id" , nullable = false)
 	private AccountEntity accountOrder;
 
 	@OneToMany(mappedBy = "orderEntity")

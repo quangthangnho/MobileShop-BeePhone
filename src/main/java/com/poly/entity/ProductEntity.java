@@ -91,11 +91,11 @@ public class ProductEntity implements Serializable{
 	private List<OrderDetailEntity> products;
 
 	@ManyToOne
-	@JoinColumn(name = "category_id")
+	@JoinColumn(name = "category_id" , nullable = false)
 	private CategoryEntity categoryProduct;
 
 	@ManyToOne
-	@JoinColumn(name = "new_id")
+	@JoinColumn(name = "new_id" , nullable = false)
 	private NewEntity newEntity;
 
 	

@@ -55,7 +55,7 @@ public class NewEntity  implements Serializable{
 	LocalDate endDate;
 
 	@ManyToOne
-	@JoinColumn(name = "account_id")
+	@JoinColumn(name = "account_id" , nullable = false)
 	private AccountEntity accountEntity;
 
 	@OneToMany(mappedBy = "newEntity")
