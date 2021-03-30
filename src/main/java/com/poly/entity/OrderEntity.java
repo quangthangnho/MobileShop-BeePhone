@@ -1,6 +1,7 @@
 package com.poly.entity;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
@@ -33,7 +33,14 @@ public class OrderEntity {
 	private Long id; 
 	
 	@Column(name = "order_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	private LocalDate orderDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date orderDate;
+	
+	@Column(nullable = false)
+	private String receiver;
+	
+	@Column(nullable = false)
+	private String phone;
 
 	@Column(nullable = false)
 	private String address;

@@ -15,12 +15,23 @@
 				    <div class="form-group col-sm-6">
 				        <label>KHÁCH HÀNG</label>
 				        <div class="form-control">${form.accountOrder.username}</div>
-	            		<form:hidden path="accountOrder.username"/>
+	            		<form:hidden path="id"/>
 				    </div>
-				    
+			
 				    <div class="form-group col-sm-6">
 				        <label>NGÀY ĐẶT</label>
 				        <div class="form-control">${form.orderDate}</div>
+				    </div>
+		    	
+		    	</div>
+		    </div>
+		    
+		    <div class="col-sm-12">
+		    	<div class="row">
+			
+				    <div class="form-group col-sm-6">
+				        <label>Số điện thoại</label>
+				        <div class="form-control">${form.phone}</div>
 				    </div>
 		    	
 		    	</div>
@@ -32,7 +43,7 @@
 				    <div class="form-group col-sm-6">
 				        <label>TỔNG TIỀN</label>
 				       <div class="form-control">
-			            	$<fmt:formatNumber value="${form.amount}" maxFractionDigits="2"/>
+			            	<fmt:formatNumber value="${form.amount}" maxFractionDigits="2"/> VNĐ
 			            </div>
 			            <form:hidden path="amount"/>
 				    </div>
@@ -82,11 +93,11 @@
 			    <td>${item.productOrderDetail.id}</td>
 			    <td>${item.productOrderDetail.name}</td>
 			    <td>
-			    	$<fmt:formatNumber value="${item.unitPrice}"/>
+			    	<fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> VNĐ
 			    </td>
 			    <td>${item.quatity}</td>
 			    <td>
-			    	$<fmt:formatNumber value="${item.unitPrice*item.quatity}"/>
+			    	<fmt:formatNumber value="${(item.unitPrice*item.quatity *100)/100 * (100 - item.productOrderDetail.discount)/100}" minFractionDigits="0"/> VNĐ
 			    </td>
 			</tr>
 		</c:forEach>

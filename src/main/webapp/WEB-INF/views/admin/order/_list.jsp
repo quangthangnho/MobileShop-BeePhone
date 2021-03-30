@@ -24,7 +24,7 @@
 					<td>${item.id}</td>
 					<td>${item.orderDate}</td>
 					<td>${item.address}</td>
-					<td>$<fmt:formatNumber value="${item.amount}" minFractionDigits="2"/></td>
+					<td><fmt:formatNumber value="${item.amount}" minFractionDigits="2"/> VNĐ</td>
 					<td>
 				    	<c:choose>
 				    		<c:when test="${item.status == 0}"><label class="label label-primary">CHƯA HOÀN THÀNH</label></c:when>

@@ -57,10 +57,10 @@ public class HomeController {
 //	}
 	
 	
-	@RequestMapping("/home/checkout")//checkout thanh toán
-	public String checkout() {
-		return "home/checkout";
-	}
+//	@RequestMapping("/order/checkout")//checkout thanh toán
+//	public String checkout() {
+//		return "order/checkout";
+//	}
 	
 	@RequestMapping("/home/hdanDatHang")//
 	public String hddathang() {
@@ -71,6 +71,7 @@ public class HomeController {
 	public String cart() {
 		return "home/cart";
 	}
+	
 	
 	
 	

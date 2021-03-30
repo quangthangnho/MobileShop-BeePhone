@@ -1284,7 +1284,7 @@ span.aa-product-price.\33 e_UQT {
 .aa-product-catg li .aa-product-price {
   font-weight: bold;
   letter-spacing: 0.5px;
-  font-size: 16px;
+  font-size: 13px;
 }
 .aa-product-catg li .aa-product-price del {
   margin-left: 15px;
@@ -4581,6 +4581,10 @@ span.psw {
   }
 }
 
-/**/
+/*gia tien chuan http://localhost:8086/cart/index*/
+.cart-item__unit-price--before {
+    color: rgba(0,0,0,.54);
+    text-decoration: line-through;
+}
 
 

@@ -7,10 +7,8 @@
          <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
              <thead>
              <tr>
-				<th>ID</th>
 				<th>HÌNH</th>
 				<th>TÊN SẢN PHẨM</th>
-				<th>DANH MỤC</th>
 				<th>GIÁ</th>
 				<th>SỐ LƯỢNG</th>
 				<th class="disabled-sorting text-right">HÀNH ĐỘNG</th>
@@ -20,12 +18,9 @@
              <tbody>
              <c:forEach var="item" items="${list}">
              <tr>
-             
-                 <td>${item.id}</td>
-                 <td>${item.image} </td>
+                 <td><img src="/static/assets-a/assets/images/products/${item.image}" style="width:60px; height: 60px;"></td>
                  <td>${item.name}</td>
-                 <td>${item.categoryProduct}</td>
-                 <td>${item.unitPrice}</td>
+                 <td>${item.unitPrice} VNĐ</td>
                  <td>${item.stock}</td>
             
                  <td class="td-actions text-right">

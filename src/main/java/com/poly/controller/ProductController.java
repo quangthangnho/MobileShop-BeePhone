@@ -1,5 +1,6 @@
 package com.poly.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,26 +16,26 @@ import com.poly.entity.ProductEntity;
 
 @Controller
 public class ProductController {
+	
 	@Autowired
 	CategoryDAO cdao;
 	
 	@RequestMapping("/product/list")
-	public String product() {//sanpham
+	public String product(Model model) {//sanpham
+	model.addAttribute("list", pdao.findAll());
 		return "product/list";
 	}
+	
+	
+	
 	@RequestMapping("/layout/category")
-	public String index(Model model) {// hiện danh mục trang sản phẩm
+	public String index(Model model) {// hiện danh mục trang sản phẩm 
 		model.addAttribute("cates", cdao.findAll());
 		return "user/layout/category"; 
 	}
 	
 	
-//	@RequestMapping("/layout/spganday")
-//	public String spgangay(Model model) {// sanpham gan day
-//		model.addAttribute("cates", cdao.findAll());
-//		return "user/layout/spganday"; 
-//	}
-//	
+	
 	//lấy sản phẩm theo id
 	@RequestMapping("/product/list-by-category/{id}")
 	public String list(Model model, @PathVariable("id") Long id) {

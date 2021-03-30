@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 
 <header id="aa-header">
     <!-- start header top  -->
@@ -28,13 +29,35 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
+                
                   <li>
-                    <a><strong>Chào </strong>Khải</a>
+                 	 
+                   <a><strong>${empty sessionScope.user ? '' : sessionScope.user.username}</strong></a>
                   </li>
-                  <li class="hidden-xs"><a href="">Đăng xuất</a></li>
-                  <li class="hidden-xs"><a href="/account/registration">Đăng ký</a></li>
-                  <li><a href="/account/login">Đăng nhập</a></li>
+                  <c:choose>
+                  	<c:when test="${empty sessionScope.user}">
+	                  <li><a href="/account/login">Đăng nhập</a></li>
+	                  <li class="hidden-xs"><a href="/account/registration">Đăng ký</a></li>
+	                  <li class="hidden-xs"><a href="">Quên mật khẩu</a></li>
+	                </c:when> 
+	                <c:otherwise>
+	                	<li><a href="/account/logoff">Đăng xuất</a></li>
+	                  	<li><a href="">Đổi mật khẩu</a></li>
+	                  	<li><a href="">Cập nhập tài khoản</a></li>
+	                  	<li><a href="">Đơn đặt hàng</a></li>
+	                 <c:if test="${sessionScope.user.role}">
+	                  	<li><a href="/admin/report/inventory-by-category">Quản trị website</a></li>
+	                 </c:if>  
+	                 </c:otherwise> 
+                  </c:choose>
                   <!--  data-toggle="modal" data-target="#login-modal" -->
+                  
+                  <!--  -->
+   
+                  
+                  <!--  -->
+                 
+                  
                 </ul>
               </div>
             </div>

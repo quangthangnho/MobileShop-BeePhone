@@ -57,8 +57,9 @@
 <!--End of Tawk.to Script-->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<!-- Poly js-->
+		<!-- Poly js-->
 	<script src="/static/assets/js/poly.js"></script>
+	
 </head>
 
 <body>
@@ -74,11 +75,7 @@
 
 
 	<!-- wpf loader Two -->
-	<div id="wpf-loader-two">
-		<div class="wpf-loader-two-inner">
-			<span>Loading...</span>
-		</div>
-	</div>
+
 
 	<!-- SCROLL TOP BUTTON -->
 	<a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
@@ -102,7 +99,7 @@
 
 	
 	
-	
+
 	
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
@@ -131,15 +128,14 @@
 		src="/static/assets/js/jquery.simpleGallery.js"></script>
 	<script type="text/javascript"
 		src="/static/assets/js/jquery.simpleLens.js"></script>
-	<!-- slick slider -->
-	<script type="text/javascript" src="/static/assets/js/slick.js"></script> <!-- onload -->
+	<!-- slick slider <script type="text/javascript" src="/static/assets/js/slick.js"></script> --><!-- onload -->
+	 
 	<!-- Price picker slider -->
 	<script type="text/javascript" src="/static/assets/js/nouislider.js"></script>
 	<script type="text/javascript" src="/static/assets/js/validate.js"></script>
 	<!-- Custom js -->
 	<script type="text/javascript" src="/static/assets/js/custom.js"></script>
 	
-
 </body>
 
 </html>

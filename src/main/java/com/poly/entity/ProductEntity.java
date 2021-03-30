@@ -22,6 +22,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "product")
@@ -44,6 +45,7 @@ public class ProductEntity {
 
 	@Column(name = "unit_price" ,nullable = false)
 	private Double unitPrice;
+
 
 	@Column(nullable = false)
 	private Integer stock;
@@ -101,6 +103,5 @@ public class ProductEntity {
 	@JoinColumn(name = "new_id")
 	private NewEntity newEntity;
 
-	
 
 }
