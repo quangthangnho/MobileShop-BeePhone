@@ -166,5 +166,3 @@ dung_luong_pin, he_dieu_hanh, image, man_hinh, name, ram, stock, unit_price, cat
 values ('322222GB', '16MP', '8MB', 1,
  'Snapdragon 450', '2021-02-05', 15,'admin', 'molestie nibhotenti cras in purus eu',
  3500, 'Android', 'product-4_auto_x2.jpg', 'HD', 'Xiaomi Redmi 12X', '2GB', 878, 4000000,5,4);
- 
- new
