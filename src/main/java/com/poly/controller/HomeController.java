@@ -36,7 +36,14 @@ private final IAccountService accountService;
 	}
 
 	@RequestMapping("/home/about") // gioithieu
-	public String about() {
+	public String about(HttpServletRequest request, Model model) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		String username = CookieUtil.checkCookie(request);
+		if (accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
+
 		return "home/about";
 	}
 
@@ -51,27 +58,62 @@ private final IAccountService accountService;
 //	}
 
 	@RequestMapping("/home/news") // tintuc
-	public String news() {
+	public String news(Model model, HttpServletRequest request) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		String username = CookieUtil.checkCookie(request);
+		if (accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
+
 		return "home/news";
 	}
 
 	@RequestMapping("/home/new-detail") // new sanpham
-	public String newDetail() {
+	public String newDetail(HttpServletRequest request, Model model) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		String username = CookieUtil.checkCookie(request);
+		if (accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
+
 		return "home/new-detail";
 	}
 
 	@RequestMapping("/home/policy") // chính sach
-	public String policy() {
+	public String policy(HttpServletRequest request, Model model) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		String username = CookieUtil.checkCookie(request);
+		if (accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
+
 		return "home/policy";
 	}
 
 	@RequestMapping("/home/contact") // lienhe
-	public String contact() {
+	public String contact(Model model, HttpServletRequest request) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		String username = CookieUtil.checkCookie(request);
+		if (accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
+
 		return "home/contact";
 	}
 
 	@RequestMapping("/home/login") // dang nhap
-	public String login() {
+	public String login(HttpServletRequest request, Model model) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		String username = CookieUtil.checkCookie(request);
+		if (accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
+
 		return "home/login";
 	}
 
