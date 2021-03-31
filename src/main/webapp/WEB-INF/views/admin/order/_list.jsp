@@ -27,10 +27,10 @@
 					<td><fmt:formatNumber value="${item.amount}" minFractionDigits="2"/> VNĐ</td>
 					<td>
 				    	<c:choose>
-				    		<c:when test="${item.status == 0}"><label class="label label-primary">CHƯA HOÀN THÀNH</label></c:when>
-				    		<c:when test="${item.status == 1}"><label class="label label-info">TRONG TIẾN TRÌNH</label></c:when>
-				    		<c:when test="${item.status == 2}"><label class="label label-success">ĐÃ HOÀN THÀNH</label></c:when>
-				    		<c:when test="${item.status == -1}"><label class="label label-danger">ĐÃ HỦY</label></c:when>
+				    		<c:when test="${item.status == 0}"><label class="label label-primary">Chưa hoàn thành</label></c:when>
+				    		<c:when test="${item.status == 1}"><label class="label label-info">Đang xử lý</label></c:when>
+				    		<c:when test="${item.status == 2}"><label class="label label-success">Đã hoàn thành</label></c:when>
+				    		<c:when test="${item.status == -1}"><label class="label label-danger">Hủy</label></c:when>
 				    	</c:choose>
 				    </td>
 					<td class="td-actions text-right">

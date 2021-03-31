@@ -75,8 +75,10 @@ cart = {
 								<input value="${item.quantity}" onchange="cart.update(${item.id}, this.value)" type="number" min="1" style="width:60px;">
 							</td>
 							<td>${Math.round(item.price*item.quantity* 100)/100 * (100 - item.discount)/100} VNĐ</td>	
+							
 
 						</tr>	
+						
 				`;
 				$("tbody.cart-items").append(tr);
 			}

@@ -36,10 +36,10 @@ public class OrderEntity {
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date orderDate;
 	
-	@Column(nullable = false)
+	@Column()
 	private String receiver;
 	
-	@Column(nullable = false)
+	@Column()
 	private String phone;
 
 	@Column(nullable = false)

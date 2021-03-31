@@ -44,7 +44,7 @@
 	                	<li><a href="/account/logoff">Đăng xuất</a></li>
 	                  	<li><a href="">Đổi mật khẩu</a></li>
 	                  	<li><a href="">Cập nhập tài khoản</a></li>
-	                  	<li><a href="">Đơn đặt hàng</a></li>
+	                  	<li><a href="/order/list">Đơn đặt hàng</a></li>
 	                 <c:if test="${sessionScope.user.role}">
 	                  	<li><a href="/admin/report/inventory-by-category">Quản trị website</a></li>
 	                 </c:if>  

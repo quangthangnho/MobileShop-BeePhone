@@ -13,52 +13,59 @@
 
 						<div class="panel panel-success">
 							<div class="panel-heading">
-								<div class="panel-title">YOUR ORDER LIST</div>
+								<div class="panel-title">TẤT CẢ ĐƠN HÀNG</div>
 							</div>
 							<table class="table table-hover">
 								<thead class="bg-danger">
 									<tr>
-										<th>Id</th>
-										<th>Order Date</th>
-										<th>Address</th>
-										<th>Amount</th>
-										<th>Status</th>
+										<th>Ngày đặt</th>
+										<th>Địa chỉ nhận hàng</th>
+										<th>Tổng tiền</th>
+										<th>Trạng thái</th>
 										<th></th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="item" items="${orders}">
 										<tr>
-											<td>${item.id}</td>
 											<td>${item.orderDate}</td>
 											<td>${item.address}</td>
-											<td>$<fmt:formatNumber value="${item.amount}"
-													minFractionDigits="2" /></td>
+											<td><fmt:formatNumber value="${item.amount}" minFractionDigits="0" /> VNĐ
+											</td>
+													
 											<td><c:choose>
 													<c:when test="${item.status == 0}">
-														<label class="label label-primary">Not Yet(chưa)</label>
+														<label class="label label-primary">Chưa hoàn thành</label>
 													</c:when>
 													<c:when test="${item.status == 1}">
-														<label class="label label-info">In Progress(đang
-															xử lý)</label>
+														<label class="label label-info">Đang xử lý</label>
 													</c:when>
 													<c:when test="${item.status == 2}">
-														<label class="label label-success">Completed(đã xử
-															lý xong)</label>
+														<label class="label label-success">Đã hoàn thành
+														</label>
 													</c:when>
 													<c:when test="${item.status == -1}">
-														<label class="label label-danger">Canceled(hủy)</label>
+														<label class="label label-danger">Hủy</label>
 													</c:when>
 												</c:choose></td>
-											<td class="text-right"><c:if test="${item.status <= 0}">
+												
+											<td class="text-right">
+												
+												<c:if test="${item.status <= 0}">
 													<a href="/order/cancel/${item.id}"
 														class="btn btn-sm btn-danger"> <span
 														class="glyphicon glyphicon-trash"></span>
 													</a>
-												</c:if> <a href="/order/detail/${item.id}"
+													
+												</c:if> 
+												<a href="/order/detail/${item.id}"
 												class="btn btn-sm btn-success"> <span
 													class="glyphicon glyphicon-search"></span>
-											</a></td>
+												</a>
+												
+											</td>
+												
+											
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -77,3 +84,4 @@
 		</div>
 	</div>
 </section>
+

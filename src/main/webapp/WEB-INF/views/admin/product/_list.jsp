@@ -20,7 +20,7 @@
              <tr>
                  <td><img src="/static/assets-a/assets/images/products/${item.image}" style="width:60px; height: 60px;"></td>
                  <td>${item.name}</td>
-                 <td>${item.unitPrice} VNĐ</td>
+                 <td>${(item.unitPrice *100)/100} VNĐ</td>
                  <td>${item.stock}</td>
             
                  <td class="td-actions text-right">

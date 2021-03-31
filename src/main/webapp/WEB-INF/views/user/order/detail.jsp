@@ -20,43 +20,45 @@
 						    <div class="panel-body">
 						    	<div class="row">
 							        <div class="form-group col-sm-6">
-							            <label>Order Id</label>
-							            <div class="form-control">${order.id}</div>
-							        </div>   
-							        <div class="form-group col-sm-6">
-							            <label>ID tài khoản</label>
-							            <div class="form-control">${order.accountOrder.id}</div>
-							        </div>  
-							        <div class="form-group col-sm-6">
 							            <label>Tên tài khoản</label>
 							            <div class="form-control">${order.accountOrder.username}</div>
 							        </div>  
-							    </div>  
-							    <div class="row">
 							        <div class="form-group col-sm-6">
-							            <label>Order Date</label>
+							            <label>Ngày đặt</label>
 							            <div class="form-control">${order.orderDate}</div>
 							        </div>
+							    </div>  
+							    <div class="row">
+							    	<div class="form-group col-sm-6">
+							            <label>Họ và tên</label>
+							            <div class="form-control">${order.receiver}</div>
+							        </div>
+							        
+							        <div class="form-group col-sm-6">
+							            <label>Số điện thoại</label>
+							            <div class="form-control">${order.phone}</div>
+							        </div>
+							        
 							        <div class="form-group col-sm-6">
 							            <label>Tổng tiền</label>
 							            <div class="form-control">${order.amount} VNĐ</div>
 							        </div>
-							    </div>
-							    <div class="row">
-							    	<div class="form-group col-sm-6">
-							            <label>Order Status</label>
+							        <div class="form-group col-sm-6">
+							            <label>Trạng thái</label>
 							            <div class="form-control">
 							           <c:choose>
-									    	<c:when test="${order.status == 0}"><label class="label label-primary">Not Yet(chưa)</label></c:when>
-									    	<c:when test="${order.status == 1}"><label class="label label-info">In Progress(đang xử lý)</label></c:when>
-									    	<c:when test="${order.status == 2}"><label class="label label-success">Completed(đã xử lý xong)</label></c:when>
-									    	<c:when test="${order.status == -1}"><label class="label label-danger">Canceled(hủy)</label></c:when>
+									    	<c:when test="${order.status == 0}"><label class="label label-primary">Chưa hoàn thành</label></c:when>
+									    	<c:when test="${order.status == 1}"><label class="label label-info">Đang xử lý</label></c:when>
+									    	<c:when test="${order.status == 2}"><label class="label label-success">Đã hoàn thành</label></c:when>
+									    	<c:when test="${order.status == -1}"><label class="label label-danger">Hủy</label></c:when>
 									 </c:choose>
 							            </div>
 							        </div>
-							        <div class="form-group col-sm-6">
-							            <label>Ship Address</label>
-							            <div class="form-control">${order.address}</div>
+							    </div>
+							    <div class="row">
+							        <div class="form-group col-sm-12">
+							            <label>Địa chỉ nhận hàng</label>
+							            <textarea class="form-control" id="" name="" rows="3" cols="128" disabled>${order.address}</textarea>
 							        </div>
 							    </div>
 						    </div>
@@ -67,19 +69,22 @@
 							<table class="table table-hover">
 							    <thead class="bg-danger">
 							        <tr>
-							            <th>Id</th>
-							            <th>Name</th>
-							            <th>Unit Price</th>
-							            <th>Quantity</th>
-							            <th>Amount</th>
+							    
+							            <th>Sản phẩm</th>
+							            <th>Đơn giá</th>
+							            <th>Số lượng</th>
+							            <th>Thành tiền</th>
 							        </tr>
 							    </thead>
 							    <tbody>
 							    <c:forEach var="item" items="${order.orderDetails}">
 									<tr>
-									    <td>${item.productOrderDetail.id}</td>
-									    <td>${item.productOrderDetail.name}</td>
-									    <td><fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> VNĐ</td>
+				
+									    <td><img src="/static/assets-a/assets/images/products/${item.productOrderDetail.image}" style="width:60px; height: 60px;"> ${item.productOrderDetail.name}</td>
+									    <td> 
+									    	<span class="cart-item__unit-price--before"><fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> VNĐ</span> 
+									    	<fmt:formatNumber value="${(item.unitPrice* 100)/100 * (100 - item.productOrderDetail.discount)/100}" minFractionDigits="0"/> VNĐ
+									    </td>
 									    <td>${item.quatity}</td>
 									    <td><fmt:formatNumber value="${Math.round(item.unitPrice*item.quatity* 100)/100 * (100 - item.productOrderDetail.discount)/100}" minFractionDigits="0"/> VNĐ</td>
 						
