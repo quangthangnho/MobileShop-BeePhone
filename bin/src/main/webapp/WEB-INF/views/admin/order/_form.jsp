@@ -1,6 +1,9 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 
-
+<form:form action="${ctrl}/index" modelAttribute="form">
 <div class="panel panel-danger">
     <div class="panel-heading">
         <div class="panel-title">${message}</div>
@@ -9,13 +12,15 @@
 	    <div class="row">
 	    	<div class="col-sm-12">
 		    	<div class="row">
-		    		<div class="form-group col-sm-6">
-				        <label>ID</label>
-				        <input path="id" class="form-control" readonly="true"/>
-				    </div>
 				    <div class="form-group col-sm-6">
 				        <label>KHÁCH HÀNG</label>
-				        <input path="name" class="form-control"/>
+				        <div class="form-control">${form.accountOrder.username}</div>
+	            		<form:hidden path="accountOrder.username"/>
+				    </div>
+				    
+				    <div class="form-group col-sm-6">
+				        <label>NGÀY ĐẶT</label>
+				        <div class="form-control">${form.orderDate}</div>
 				    </div>
 		    	
 		    	</div>
@@ -23,33 +28,23 @@
 		    
 		    <div class="col-sm-12">
 		    	<div class="row">
-		    		<div class="form-group col-sm-6">
-				        <label>NGÀY ĐẶT</label>
-				        <input path="id" class="form-control" readonly="true"/>
-				    </div>
+		    		
 				    <div class="form-group col-sm-6">
 				        <label>TỔNG TIỀN</label>
-				        <input path="name" class="form-control"/>
+				       <div class="form-control">
+			            	$<fmt:formatNumber value="${form.amount}" maxFractionDigits="2"/>
+			            </div>
+			            <form:hidden path="amount"/>
 				    </div>
-		    	
-		    	</div>
-		    </div>
-		    
-		    <div class="col-sm-12">
-		    	<div class="row">
-		    		<div class="form-group col-sm-6">
-				        <label>TRẠNG THÁI</label>
-				        <select name="category" id="category">
-				        	<option value="volvo">All</option>
-							<option value="volvo">Completed</option>
-							<option value="saab">In Progress</option>
-							<option value="mercedes">Canceled</option>
-							<option value="audi">Not Yet</option>
-						</select>
-				    </div>
+				    
 				    <div class="form-group col-sm-6">
-				        <label>ĐỊA CHỈ GIAO HÀNG</label>
-				        <input path="name" class="form-control"/>
+				        <label>TRẠNG THÁI</label>
+				        <form:select path="status" class="form-control">
+			            	<form:option value="0">CHƯA HOÀN THÀNH</form:option>
+			            	<form:option value="1">TRONG TIẾN TRÌNH</form:option>
+			            	<form:option value="2">ĐÃ HOÀN THÀNH</form:option>
+			            	<form:option value="-1">ĐÃ HỦY</form:option>
+			            </form:select>
 				    </div>
 		    	
 		    	</div>
@@ -59,50 +54,55 @@
 		    	<div class="row">
 				    <div class="form-group col-sm-12">
 				        <label>ĐỊA CHỈ GIAO HÀNG</label>
-				        <input path="name" class="form-control"/>
+				        <form:textarea path="address" class="form-control" rows="3"/>
 				    </div>
-		    	
 		    	</div>
-		    </div>   
+		    </div>
+		      
 		</div>
 	</div>
-</div>
-
-<h4 class="card-title">CHI TIẾT HÓA ĐƠN</h4>
-<div class="material-datatables">
-	<table id="datatables"
-		class="table table-striped table-no-bordered table-hover"
-		cellspacing="0" width="100%" style="width: 100%">
-		<thead>
-			<tr>
+	
+	
+	<div class="panel-heading">
+        <div class="panel-title">CHI TIẾT HÓA ĐƠN</div>
+    </div>
+	<table class="table table-hover">
+	    <thead class="bg-danger">
+	        <tr>
 				<th>ID</th>
 				<th>TÊN SẢN PHẨM</th>
 				<th>ĐƠN GIÁ</th>
 				<th>SỐ LƯỢNG</th>
 				<th>TỔNG TIỀN</th>
 			</tr>
-		</thead>
-
-		<tbody>
+	    </thead>
+	    <tbody>
+	    <c:forEach var="item" items="${form.orderDetails}">
 			<tr>
-				<td>1</td>
-				<td>A</td>
-				<td>$12</td>
-				<td>2</td>
-				<td>$24</td>
-				
+			    <td>${item.productOrderDetail.id}</td>
+			    <td>${item.productOrderDetail.name}</td>
+			    <td>
+			    	$<fmt:formatNumber value="${item.unitPrice}"/>
+			    </td>
+			    <td>${item.quatity}</td>
+			    <td>
+			    	$<fmt:formatNumber value="${item.unitPrice*item.quatity}"/>
+			    </td>
 			</tr>
-		</tbody>
+		</c:forEach>
+	    </tbody>
 	</table>
-	<div class="panel-footer">
-	    <button formaction="" class="btn btn-primary" title="Update" disabled="">
+    <div class="panel-footer">
+	    <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Update" disabled="${empty form.id}">
 	    	<i class="fa fa-check-circle"></i> Update
-	    </button>
-	    <button formaction="" class="btn btn-danger" title="Delete" disabled="">
+	    </form:button>
+	    <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Delete" disabled="${empty form.id}">
 	    	<i class="fa fa-trash-o"></i> Delete
-	    <button>
-	    <a href="" class="btn btn-info" title="Reset">
+	    </form:button>
+	    <a href="${ctrl}/index" class="btn btn-info" title="Reset">
 	    	<i class="fa fa-refresh"></i> Reset
 	    </a>
     </div>
+	
 </div>
+</form:form>

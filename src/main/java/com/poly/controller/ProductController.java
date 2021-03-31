@@ -1,5 +1,6 @@
 package com.poly.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,23 +16,56 @@ import com.poly.entity.ProductEntity;
 
 @Controller
 public class ProductController {
+	
 	@Autowired
 	CategoryDAO cdao;
 	
-	@RequestMapping("/home/product")
-	public String index(Model model) {
-		model.addAttribute("cates", cdao.findAll());
-		return "home/product"; 
+	@RequestMapping("/product/list")
+	public String product(Model model) {//sanpham
+	model.addAttribute("list", pdao.findAll());
+		return "product/list";
 	}
 	
+	
+	
+	@RequestMapping("/layout/category")
+	public String index(Model model) {// hiện danh mục trang sản phẩm 
+		model.addAttribute("cates", cdao.findAll());
+		return "user/layout/category"; 
+	}
+	
+	
+	
 	//lấy sản phẩm theo id
-		@RequestMapping("/product/list-by-category/{id}")
-		public String list(Model model, @PathVariable("id") Long id) {
-			List<ProductEntity> list = cdao.getOne(id).getProducts();
-			model.addAttribute("list", list);
-			return "product/list";
-		}
+	@RequestMapping("/product/list-by-category/{id}")
+	public String list(Model model, @PathVariable("id") Long id) {
+		List<ProductEntity> list = cdao.getOne(id).getProducts();
+		model.addAttribute("list", list);
+		return "product/list";
+	}
+	
+	
+//	 thanh tìm kiếm
+	@Autowired
+	ProductDAO pdao;
+	
+	@RequestMapping("/product/list-by-keywords")
+	public String list(Model model,
+			@RequestParam("keywords") String keywords) {
+		List<ProductEntity> list = pdao.findByKeywords(keywords);
+		model.addAttribute("list", list);
+		return "product/list";
 		
-		
+	}
+
+	// chuyển sang trang product detail
+	@RequestMapping("/product/detail/{id}")
+	public String detail(Model model, @PathVariable("id") Long id) {
+		ProductEntity product = pdao.getOne(id);
+		model.addAttribute("prod", product);
+		return "product/detail";
+	}
+	
+	
 
 }

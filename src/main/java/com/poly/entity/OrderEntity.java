@@ -1,6 +1,7 @@
 package com.poly.entity;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,20 +29,28 @@ import lombok.Setter;
 @NoArgsConstructor
 public class OrderEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id; 
+	
+	@Column(name = "order_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date orderDate;
+	
+	@Column()
+	private String receiver;
+	
+	@Column()
+	private String phone;
 
 	@Column(nullable = false)
 	private String address;
+	
+	@Column(name = "amount")
+	private Double amount;
 
 	@Column(columnDefinition = "int default 1", nullable = false)
 	private int status;
 
-	@Column(name = "order_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	private LocalDate orderDate;
-	
-	
 
 	@ManyToOne
 	@JoinColumn(name = "account_id")

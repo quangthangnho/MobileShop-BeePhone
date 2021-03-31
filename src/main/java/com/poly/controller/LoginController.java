@@ -1,65 +1,18 @@
 package com.poly.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.poly.Service.IAccountService;
-import com.poly.model.AccountModel;
-import com.poly.model.LoginModel;
-import com.poly.utils.CookieUtil;
-import com.poly.utils.SessionUtil;
-
 @Controller
-@RequestMapping("home")
+@RequestMapping("/home/login")
 public class LoginController {
 	
-	private final IAccountService accountService;
-	public LoginController(IAccountService accountService) {
-		this.accountService = accountService;
-	}
-
-
-
-	@PostMapping("/login")
-	public String login(Model model, @ModelAttribute("formLogin") LoginModel loginModel, HttpServletRequest request,
-			HttpServletResponse response) {
-		if(loginModel.getUsername().length() == 0 && loginModel.getPassword().length() == 0) {
-			model.addAttribute("message", "Tên đăng nhập và mật khẩu không được để trống!");
-			return "home/login";
-		}
-		AccountModel acModel = new AccountModel(); 
-		acModel = accountService.findByUsernameAndPassword(loginModel);
-		if(acModel == null) {
-			
-			model.addAttribute("message", "Tên đăng nhập hoặc mật khẩu không đúng!");
-			return "home/login";
-		}else {
-			
-			if(loginModel.getRemember() == null) {
-				SessionUtil.getInstance().putValue(request, "USER_LOGIN", acModel);
-				
-			}else {
-				CookieUtil.addCookie(response, acModel);
-			}
-			return "redirect:/home/index";
-		}
+	@PostMapping("")
+	public String login() {
+		System.out.println("day la tring login");
+		return null;
 		
 	}
-	
-	@GetMapping("/logout")
-		public String logout(HttpServletRequest request,
-				HttpServletResponse response) {
-			CookieUtil.removeCookie(response);
-			SessionUtil.getInstance().removeValue(request, "USER_LOGIN");
-			return "redirect:/home/login";
-		}
-	
 
 }

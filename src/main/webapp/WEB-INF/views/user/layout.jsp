@@ -10,7 +10,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BeeMobile - Sự lựa chọn tin cậy</title>
-
 <!-- Font awesome e -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
@@ -54,6 +53,13 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
 	rel="stylesheet">
+	
+<!--End of Tawk.to Script-->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Poly js-->
+	<script src="/static/assets/js/poly.js"></script>
+	
 </head>
 
 <body>
@@ -69,11 +75,8 @@
 
 
 	<!-- wpf loader Two -->
-	<div id="wpf-loader-two">
-		<div class="wpf-loader-two-inner">
-			<span>Loading...</span>
-		</div>
-	</div>
+
+
 	<!-- SCROLL TOP BUTTON -->
 	<a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
 	<!-- END SCROLL TOP BUTTON 
@@ -94,6 +97,10 @@
 	<!-- end footer-->
 
 
+	
+	
+
+	
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
 		var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -107,9 +114,7 @@
 			s0.parentNode.insertBefore(s1, s0);
 		})();
 	</script>
-	<!--End of Tawk.to Script-->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/static/assets/js/bootstrap.js"></script>
 	<!-- SmartMenus jQuery plugin -->
@@ -123,14 +128,14 @@
 		src="/static/assets/js/jquery.simpleGallery.js"></script>
 	<script type="text/javascript"
 		src="/static/assets/js/jquery.simpleLens.js"></script>
-	<!-- slick slider -->
-	<script type="text/javascript" src="/static/assets/js/slick.js"></script>
+	<!-- slick slider <script type="text/javascript" src="/static/assets/js/slick.js"></script> --><!-- onload -->
+	 
 	<!-- Price picker slider -->
 	<script type="text/javascript" src="/static/assets/js/nouislider.js"></script>
 	<script type="text/javascript" src="/static/assets/js/validate.js"></script>
 	<!-- Custom js -->
 	<script type="text/javascript" src="/static/assets/js/custom.js"></script>
-
+	
 </body>
 
 </html>

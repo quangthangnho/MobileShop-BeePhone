@@ -10,7 +10,7 @@ import com.poly.entity.ProductEntity;
 
 public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRepository<kiểu thực thể, kiểu dữ liệu khóa chính >
 
-//	@Query("SELECT p FROM Product p "+" WHERE p.name LIKE %:kw% OR p.category.name LIKE %:kw%")
-//	List<ProductEntity> findByKeywords(@Param("kw") String keywords); 
+	@Query("SELECT p FROM ProductEntity p "+" WHERE p.name LIKE %:kw% OR p.categoryProduct.name LIKE %:kw%")
+	List<ProductEntity> findByKeywords(@Param("kw") String keywords); 
 
 }

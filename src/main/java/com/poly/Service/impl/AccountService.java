@@ -5,8 +5,6 @@ import com.poly.convert.impl.AccountModelAndEntityConvert;
 import com.poly.dao.AccountDAO;
 import com.poly.entity.AccountEntity;
 import com.poly.model.AccountModel;
-import com.poly.model.LoginModel;
-
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -63,23 +61,11 @@ public class AccountService implements IAccountService {
 	}
 
 	@Override
-	public AccountModel findByUsernameAndPassword(LoginModel loginModel) {
+	public AccountModel findByUsernameAndPassword(AccountModel accountModel) {
 		// TODO Auto-generated method stub
-		AccountEntity accountEntity = new AccountEntity();
-		accountEntity = accountDAO.findByUsernameAndPassword(loginModel.getUsername(), loginModel.getPassword());
-		if(accountEntity != null) {
-			AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
-			return accountModelAndEntityConvert.convertToModel(accountEntity);
-		}else {
-			return null;
-		}
+		AccountEntity accountEntity = accountDAO.findByUsernameAndPassword(accountModel.getUsername(), accountModel.getPassword());
 		
-		
-		
-		
-		
-		
-		
+		return new AccountModelAndEntityConvert().convertToModel(accountEntity);
 	}
 
 	
