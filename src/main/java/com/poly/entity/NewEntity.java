@@ -1,12 +1,11 @@
 package com.poly.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,9 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,7 +25,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class NewEntity {
+public class NewEntity  implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,8 +55,7 @@ public class NewEntity {
 	LocalDate endDate;
 
 	@ManyToOne
-	@Cascade(CascadeType.ALL)
-	@JoinColumn(name = "account_id",foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT) )
+	@JoinColumn(name = "account_id" , nullable = false)
 	private AccountEntity accountEntity;
 
 	@OneToMany(mappedBy = "newEntity")

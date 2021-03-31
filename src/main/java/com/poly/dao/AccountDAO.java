@@ -10,10 +10,11 @@ import com.poly.entity.AccountEntity;
 
 
 public interface AccountDAO extends JpaRepository<AccountEntity, Long> {
-    @Query("SELECT c FROM AccountEntity  c WHERE c.role=:role")
-    List<AccountEntity> findAllByRole(@Param("role") boolean role);
+    List<AccountEntity> findByRole(String role);
     
     AccountEntity findByUsername(String username);
+    
+    AccountEntity findByEmail(String email);
     
     AccountEntity findByUsernameAndPassword(String username, String password);
 }

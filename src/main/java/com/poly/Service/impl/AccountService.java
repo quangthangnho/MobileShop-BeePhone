@@ -5,6 +5,8 @@ import com.poly.convert.impl.AccountModelAndEntityConvert;
 import com.poly.dao.AccountDAO;
 import com.poly.entity.AccountEntity;
 import com.poly.model.AccountModel;
+import com.poly.model.LoginModel;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,9 +21,9 @@ public class AccountService implements IAccountService {
     }
 
     @Override
-    public List<AccountModel> findAllByRole(boolean role) {
+    public List<AccountModel> findAllByRole(String role) {
         // TODO Auto-generated method stub
-        return accountDAO.findAllByRole(role).stream()
+        return accountDAO.findByRole(role).stream()
                 .map(element -> new AccountModelAndEntityConvert().convertToModel(element))
                 .collect(Collectors.toList());
 
@@ -31,8 +33,12 @@ public class AccountService implements IAccountService {
     @Override
     public AccountModel findById(Long id) {
         AccountEntity accountEntity = accountDAO.findById(id).get();
-        AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
-        return accountModelAndEntityConvert.convertToModel(accountEntity);
+        AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();     
+        if(accountEntity != null) {
+        	return accountModelAndEntityConvert.convertToModel(accountEntity);
+		}else {
+			return null;
+		}
     }
 
 	@Override
@@ -40,7 +46,11 @@ public class AccountService implements IAccountService {
 		// TODO Auto-generated method stub
 		AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
 		AccountEntity  accountEntity =  accountModelAndEntityConvert.convertToEntity(accountModel);
-		return accountModelAndEntityConvert.convertToModel(accountDAO.save(accountEntity));
+		if(accountEntity != null) {
+			return accountModelAndEntityConvert.convertToModel(accountDAO.save(accountEntity));
+		}else {
+			return null;
+		}
 	}
 
 	@Override
@@ -56,16 +66,39 @@ public class AccountService implements IAccountService {
 		// TODO Auto-generated method stub
 		AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
 		AccountEntity accountEntity = accountModelAndEntityConvert.convertToEntity(accountModel);
-		accountEntity = accountDAO.findByUsername(accountEntity.getUsername());
-		return accountModelAndEntityConvert.convertToModel(accountEntity);
+		accountEntity = accountDAO.findByUsername(accountEntity.getUsername());	
+		if(accountEntity != null) {
+			return accountModelAndEntityConvert.convertToModel(accountEntity);
+		}else {
+			return null;
+		}
 	}
 
 	@Override
-	public AccountModel findByUsernameAndPassword(AccountModel accountModel) {
+	public AccountModel findByUsernameAndPassword(LoginModel loginModel) {
 		// TODO Auto-generated method stub
-		AccountEntity accountEntity = accountDAO.findByUsernameAndPassword(accountModel.getUsername(), accountModel.getPassword());
+		AccountEntity accountEntity = new AccountEntity();
+		accountEntity = accountDAO.findByUsernameAndPassword(loginModel.getUsername(), loginModel.getPassword());
+		if(accountEntity != null) {
+			AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
+			return accountModelAndEntityConvert.convertToModel(accountEntity);
+		}else {
+			return null;
+		}
+			
 		
-		return new AccountModelAndEntityConvert().convertToModel(accountEntity);
+	}
+
+	@Override
+	public AccountModel findByEmail(AccountModel accountModel) {
+		AccountModelAndEntityConvert accountModelAndEntityConvert = new AccountModelAndEntityConvert();
+		AccountEntity accountEntity = accountModelAndEntityConvert.convertToEntity(accountModel);
+		accountEntity = accountDAO.findByUsername(accountEntity.getEmail());
+		if(accountEntity != null) {
+			return new AccountModelAndEntityConvert().convertToModel(accountEntity);
+		}else {
+			return null;
+		}
 	}
 
 	

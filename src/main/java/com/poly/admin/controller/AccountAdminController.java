@@ -32,7 +32,7 @@ public class AccountAdminController {
 
     @GetMapping("/index")
     public String homeAdmin(Model model) {
-        model.addAttribute("listAdmin", accountService.findAllByRole(true));
+        model.addAttribute("listAdmin", accountService.findAllByRole("ADMIN"));
         model.addAttribute("indexForm", new AccountModel());
         return "admin/master/index";
     }
@@ -40,7 +40,7 @@ public class AccountAdminController {
     @GetMapping("/detail")
     public String adminDetail(Model model, @RequestParam("id") Long id){
        model.addAttribute("indexForm", accountService.findById(id));
-        model.addAttribute("listAdmin", accountService.findAllByRole(true));
+        model.addAttribute("listAdmin", accountService.findAllByRole("ADMIN"));
         return "admin/master/index";
     }
 
@@ -56,7 +56,7 @@ public class AccountAdminController {
         	model.addAttribute("message", "Cập nhập tài khoản thành công!");
         	accountService.save(accountModel);
         	
-        	model.addAttribute("listAdmin", accountService.findAllByRole(true));
+        	model.addAttribute("listAdmin", accountService.findAllByRole("ADMIN"));
     		return "admin/master/index";
 
     	
@@ -67,7 +67,7 @@ public class AccountAdminController {
     	try {
     		accountService.delete(accountModel);
     		model.addAttribute("message", "Xoá tài khoản thành công!");
-    	model.addAttribute("listAdmin", accountService.findAllByRole(true));
+    	model.addAttribute("listAdmin", accountService.findAllByRole("ADMIN"));
 		} catch (Exception e) {
 			model.addAttribute("message", "Tài khoản này không xóa được!");
 		}
@@ -78,15 +78,26 @@ public class AccountAdminController {
     public String createAdmin(Model model, @ModelAttribute("form") AccountModel accountModel , 
     		@RequestParam("photo_file") MultipartFile imageFile) {
     		
-        	
-        	File file = upload.save(imageFile, "/static/images/account/");
-        	if(file != null) {
-        		accountModel.setImage(file.getName());
-        	}
-        	 accountService.save(accountModel);
-        	model.addAttribute("message", "Thêm tài khoản thành công!");
-    	
-    	model.addAttribute("listAdmin", accountService.findAllByRole(true));
+    	AccountModel checkUser = new AccountModel();
+    	checkUser =	accountService.findByUsername(accountModel);
+    		if(checkUser != null) {
+    			model.addAttribute("message", "Tên đăng nhập đã tồn tại!");
+    		}else {
+    			if(accountModel.getUsername().length() > 1 && accountModel.getPassword().length() > 1 && accountModel.getFullname().length() > 1 
+    					&& accountModel.getEmail().length() > 1) {
+    				File file = upload.save(imageFile, "/static/images/account/");
+                	if(file != null) {
+                		accountModel.setImage(file.getName());
+                	}
+                	 accountService.save(accountModel);
+                	model.addAttribute("message", "Thêm tài khoản thành công!");
+    			}else {
+    				model.addAttribute("message", "Các trường không được để trống!");
+    			}
+    				
+    		}
+    	    	
+    	model.addAttribute("listAdmin", accountService.findAllByRole("ADMIN"));
 		return "admin/master/index";
     }
     

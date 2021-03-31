@@ -1,6 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <header id="aa-header">
     <!-- start header top  -->
     <div class="aa-header-top">
@@ -29,35 +29,38 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                
-                  <li>
-                 	 
-                   <a><strong>${empty sessionScope.user ? '' : sessionScope.user.username}</strong></a>
-                  </li>
-                  <c:choose>
-                  	<c:when test="${empty sessionScope.user}">
-	                  <li><a href="/account/login">Đăng nhập</a></li>
-	                  <li class="hidden-xs"><a href="/account/registration">Đăng ký</a></li>
-	                  <li class="hidden-xs"><a href="">Quên mật khẩu</a></li>
-	                </c:when> 
-	                <c:otherwise>
-	                	<li><a href="/account/logoff">Đăng xuất</a></li>
-	                  	<li><a href="">Đổi mật khẩu</a></li>
-	                  	<li><a href="">Cập nhập tài khoản</a></li>
-	                  	<li><a href="/order/list">Đơn đặt hàng</a></li>
-	                 <c:if test="${sessionScope.user.role}">
-	                  	<li><a href="/admin/report/inventory-by-category">Quản trị website</a></li>
-	                 </c:if>  
-	                 </c:otherwise> 
-                  </c:choose>
+                  <c:if test="${!empty userLogin}">
+					<li>
+                    <%-- <a><strong>Chào </strong>${userLogin}</a> --%>
+                    <div class="dropdown">
+						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Xin chào: <strong>${userLogin}</strong>
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						    
+						    <c:if test="${role == 'ADMIN'}">
+						    	<a class="dropdown-item" href="/home/changepassword">Đổi mật khẩu</a>
+						    <a class="dropdown-item" href="#">Cập nhập tài khoản</a>
+						    <a class="dropdown-item" href="#">Trang quản trị</a>
+						    </c:if>
+						    <c:if test="${role == 'USER'}">
+						    	<a class="dropdown-item" href="#">Đổi mật khẩu</a>
+						    <a class="dropdown-item" href="#">Cập nhập tài khoản</a>
+						    </c:if>
+						  </div>
+						</div>
+                    
+                  </li>                  
+                  </c:if>
+                  <c:if test="${!empty userLogin}">
+                  	<li class="hidden-xs"><a href="/home/logout">Đăng xuất</a></li>
+                  </c:if>
+                   <c:if test="${empty userLogin}">
+                  	<li class="hidden-xs"><a href="registration">Đăng ký</a></li>
+                  <li><a href="login">Đăng nhập</a></li>
+                  </c:if>
+                  
                   <!--  data-toggle="modal" data-target="#login-modal" -->
-                  
-                  <!--  -->
-   
-                  
-                  <!--  -->
-                 
-                  
                 </ul>
               </div>
             </div>

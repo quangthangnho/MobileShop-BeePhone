@@ -36,11 +36,11 @@ public class OrderDetailEntity {
 	private int status;
 
 	@ManyToOne
-	@JoinColumn(name = "order_id")
+	@JoinColumn(name = "order_id" , nullable = false)
 	private OrderEntity orderEntity;
 
 	@ManyToOne
-	@JoinColumn(name = "product_id")
+	@JoinColumn(name = "product_id" , nullable = false)
 	private ProductEntity productOrderDetail;
 	
 

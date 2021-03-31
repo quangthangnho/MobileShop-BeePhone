@@ -1,19 +1,15 @@
 package com.poly.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
-
-import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,20 +22,21 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountEntity {
+public class AccountEntity implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(name = "username", nullable = false)
-	@NotNull
-	@Size(min = 1, message = "Tên đăng nhập không được để trống")
 	private String username;
 
 	@Column(name = "password" , nullable = false)
-	@NotNull
-	@Size(min = 1, message = "Mật khẩu không được để trống")
 	private String password;
 
 	@Column(name = "fullname" , nullable = false)
@@ -50,14 +47,17 @@ public class AccountEntity {
 
 	@Column(name = "image")
 	private String image;
+	
+	@Column(name = "phoneNumber")
+	private String phoneNumber;
 
 	@Column(name = "status", columnDefinition = "boolean default false")
 	private Boolean status;
 
-	@Column(name = "role", columnDefinition = "boolean default false")
-	private Boolean role;
+	@Column(name = "role", columnDefinition = "varchar(10) default 'USER'")
+	private String role;
 
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "accountEntity")
+	@OneToMany(mappedBy = "accountEntity")
 	private List<NewEntity> news;
 
 	@OneToMany(mappedBy = "accountOrder")

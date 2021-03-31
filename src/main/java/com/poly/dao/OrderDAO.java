@@ -10,7 +10,10 @@ import com.poly.entity.OrderEntity;
 
 public interface OrderDAO extends JpaRepository<OrderEntity, Long> {
 	@Query("SELECT o FROM OrderEntity o WHERE o.accountOrder.id=:uid")
+
 	List<OrderEntity> findByUsername(@Param("uid") Long id);
+
+	List<OrderEntity> findByUsername(@Param("uid") String username);
 	
 	
 	  
