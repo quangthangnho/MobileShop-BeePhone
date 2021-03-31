@@ -25,7 +25,7 @@ public class SecurityInterceptor implements HandlerInterceptor{
 		if(user == null) {
 			error = "Vui lòng đăng nhập trước khi sử dụng chức năng này!";
 		}
-		else if(user.getRole() == false && uri.startsWith("/admin/")) {
+		else if(user.getRole().equals("USER") && uri.startsWith("/admin/")) {
 			 error = "Bạn không có quyền sử dụng chức năng này!";
 		 }
 		/*-- Không lỗi -> cho phép truy xuất --*/
