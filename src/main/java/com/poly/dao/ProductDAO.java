@@ -12,5 +12,8 @@ public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRep
 
 	@Query("SELECT p FROM ProductEntity p "+" WHERE p.name LIKE %:kw% OR p.categoryProduct.name LIKE %:kw%")
 	List<ProductEntity> findByKeywords(@Param("kw") String keywords); 
+	
+	@Query("select c from ProductEntity c where c.categoryProduct.id = :categoryId order by c.discount desc")
+	List<ProductEntity> listProduct(Long categoryId);
 
 }

@@ -13,7 +13,7 @@
     	<div class="row">
     		<div class="col-sm-4 text-center">
 	    		<label for="image_file">
-	    			<img id="image" src="/static/assets-a/assets/images/products/${form.image}">
+	    			<img id="image" src="/static/images/products/${form.image}">
 	    		</label>
 			    <div class="form-group">
 			        <input onchange="upload.change(this, 'img#image')" name="image_file" id="image_file" type="file" class="form-control">

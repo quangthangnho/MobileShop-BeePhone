@@ -47,7 +47,7 @@ public class ProductAController {
 			@ModelAttribute("form") ProductEntity entity,
 			@RequestParam("image_file") MultipartFile image) {
 		try {
-			File file = upload.save(image, "/static/assets-a/assets/images/products/");
+			File file = upload.save(image, "/static/images/products/");
 			if(file != null) {
 				entity.setImage(file.getName());
 			}
@@ -72,7 +72,7 @@ public class ProductAController {
 			model.addAttribute("message", "Sản phẩm không tồn tại!");
 		}
 		else {
-			File file = upload.save(image, "/static/assets-a/assets/images/products/");
+			File file = upload.save(image, "/static/images/products/");
 			if(file != null) {
 				entity.setImage(file.getName());
 			}

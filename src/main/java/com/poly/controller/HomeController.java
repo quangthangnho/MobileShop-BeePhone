@@ -1,18 +1,36 @@
 package com.poly.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.poly.Service.IAccountService;
+import com.poly.Service.IProductService;
+import com.poly.dao.CategoryDAO;
+import com.poly.dao.ProductDAO;
+import com.poly.entity.CategoryEntity;
+import com.poly.entity.ProductEntity;
 import com.poly.model.AccountModel;
+import com.poly.model.ProductModel;
 import com.poly.utils.CookieUtil;
 import com.poly.utils.SessionUtil;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	CategoryDAO categoryDAO;
+	
+	@Autowired
+	IProductService productService;
 private final IAccountService accountService;
 
 	public HomeController(IAccountService accountService) {
@@ -28,19 +46,21 @@ private final IAccountService accountService;
 			model.addAttribute("userLogin", accountModel.getUsername());
 			model.addAttribute("role", accountModel.getRole());
 		}
-
+		
+		List<ProductModel> pr = productService.listProduct(1l);
+		model.addAttribute("listIphone", pr);
+		System.out.println(""+pr.get(0).getImage());
 		return "home/index";
 	}
 
 	@RequestMapping("/home/about") // gioithieu
 	public String about(HttpServletRequest request, Model model) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
-		String username = CookieUtil.checkCookie(request);
 		if (accountModel != null) {
 			model.addAttribute("userLogin", accountModel.getUsername());
 			model.addAttribute("role", accountModel.getRole());
 		}
-
+		
 		return "home/about";
 	}
 
