@@ -120,18 +120,6 @@ private final IAccountService accountService;
 //	}
 
 
-	@RequestMapping("/home/login") // dang nhap
-	public String login(HttpServletRequest request, Model model) {
-		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
-		String username = CookieUtil.checkCookie(request);
-		if (accountModel != null) {
-			model.addAttribute("userLogin", accountModel.getUsername());
-			model.addAttribute("role", accountModel.getRole());
-		}
-
-		return "home/login";
-	}
-
 
 	@RequestMapping("/home/checkout") // checkout thanh toán
 	public String checkout() {

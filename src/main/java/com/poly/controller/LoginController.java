@@ -17,7 +17,7 @@ import com.poly.utils.CookieUtil;
 import com.poly.utils.SessionUtil;
 
 @Controller
-@RequestMapping("home")
+@RequestMapping("account")
 public class LoginController {
 
 	private final IAccountService accountService;
@@ -26,19 +26,30 @@ public class LoginController {
 		this.accountService = accountService;
 	}
 
+	@GetMapping("/login")
+	public String login(HttpServletRequest request, Model model) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		if (accountModel != null) {
+			return "redirect:/home/index";
+			
+		}
+
+		return "account/login";
+	}
+
 	@PostMapping("/login")
 	public String login(Model model, @ModelAttribute("formLogin") LoginModel loginModel, HttpServletRequest request,
 			HttpServletResponse response) {
 		if (loginModel.getUsername().length() == 0 && loginModel.getPassword().length() == 0) {
 			model.addAttribute("message", "Tên đăng nhập và mật khẩu không được để trống!");
-			return "home/login";
+			return "account/login";
 		}
 		AccountModel acModel = new AccountModel();
 		acModel = accountService.findByUsernameAndPassword(loginModel);
 		if (acModel == null) {
 
 			model.addAttribute("message", "Tên đăng nhập hoặc mật khẩu không đúng!");
-			return "home/login";
+			return "account/login";
 		} else {
 			if(acModel.getStatus() == 1) {
 				if (loginModel.getRemember() == null) {
@@ -51,7 +62,7 @@ public class LoginController {
 				return "redirect:/home/index";
 			}else {
 				model.addAttribute("message", "Tài khoản chưa được kích hoạt!");
-				return "home/login";
+				return "account/login";
 			}
 		}
 
@@ -61,7 +72,7 @@ public class LoginController {
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		CookieUtil.removeCookie(response);
 		SessionUtil.getInstance().removeValue(request, "USER_LOGIN");
-		return "redirect:/home/login";
+		return "redirect:/account/login";
 	}
 
 }

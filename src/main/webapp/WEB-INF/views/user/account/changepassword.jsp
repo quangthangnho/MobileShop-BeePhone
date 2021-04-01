@@ -29,7 +29,7 @@
             <div class="col-md-8 col-md-push-2">
               <div class="aa-myaccount-login">
               <h4>Đổi mật khẩu</h4>
-               <form:form class="aa-login-form" name="loginform"  action="/home/changepassword" method="post" modelAttribute="changePass"> 
+               <form:form class="aa-login-form" name="loginform"  action="/account/changepassword" method="post" modelAttribute="changePass"> 
                 <label for="">Mật khẩu cũ<span>*</span></label>
                  <input type="text"  name="passwordOld">
                  

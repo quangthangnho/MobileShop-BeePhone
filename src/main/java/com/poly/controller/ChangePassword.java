@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.poly.Service.IAccountService;
 import com.poly.model.AccountModel;
 import com.poly.model.ChangePasswordModel;
+import com.poly.utils.CookieUtil;
 import com.poly.utils.SessionUtil;
 
 @Controller
@@ -22,12 +23,17 @@ public class ChangePassword {
 		this.accountService = accountService;
 	}
 
-	@RequestMapping("/home/changepassword")
-	public String doimatkhau() {
-		return "home/changepassword";
+	@RequestMapping("/account/changepassword")
+	public String doimatkhau(Model model, HttpServletRequest request) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		if (accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
+		return "account/changepassword";
 	}
 
-	@PostMapping("/home/changepassword")
+	@PostMapping("/account/changepassword")
 	public String changePass(Model model, @ModelAttribute("changePass") ChangePasswordModel changePasswordModel,
 			HttpServletRequest request) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
@@ -38,7 +44,7 @@ public class ChangePassword {
 					if (changePasswordModel.getPasswordNew().equals(changePasswordModel.getPasswordNewAgain())) {
 						accountModel.setPassword(changePasswordModel.getPasswordNew());
 						accountService.save(accountModel);
-						return "redirect:/home/logout";
+						return "redirect:/account/logout";
 					} else {
 						model.addAttribute("message", "Mật khẩu mới và nhập lại mật khẩu không trùng khớp!");
 					}
@@ -49,7 +55,7 @@ public class ChangePassword {
 				model.addAttribute("message", "Các trường không được để trống");
 			}
 		}
-		return "home/changepassword";
+		return "account/changepassword";
 
 	}
 }

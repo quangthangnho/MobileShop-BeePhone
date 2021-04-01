@@ -31,7 +31,7 @@
 						<div class="col-md-8 col-md-push-2">
 							<div class="aa-myaccount-register">
 								<h4>Cập nhập thông tin tài khoản</h4>
-								<form:form action="/home/updateInformation" method="post"
+								<form:form action="/account/updateInformation" method="post"
 									modelAttribute="formUpdateInfo" enctype="multipart/form-data">
 									<div class="col-md-4">
 										<img height="350px" width="200px" id="photo" src="/static/images/account/${updateForm.getImage()}">

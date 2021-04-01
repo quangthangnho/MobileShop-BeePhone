@@ -17,10 +17,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.poly.Service.IAccountService;
 import com.poly.Service.UploadService;
 import com.poly.model.AccountModel;
+import com.poly.utils.CookieUtil;
 import com.poly.utils.SessionUtil;
 
 @Controller
-@RequestMapping("home")
+@RequestMapping("account")
 public class UpdateInformation {
 	@Autowired
 	UploadService upload;
@@ -36,10 +37,13 @@ public class UpdateInformation {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		if(accountModel != null) {
 			model.addAttribute("updateForm", accountModel);
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
 		}else {
 			model.addAttribute("message", "chuaw login");
 		}	
-		return "home/updateInformation";
+		return "account/updateInformation";
+
 		
 	}
 	
@@ -55,13 +59,13 @@ public class UpdateInformation {
             	if(accountModel2 != null) {
             		model.addAttribute("message", "Cập nhập tài khoản thành công!");
             		SessionUtil.getInstance().putValue(request, "USER_LOGIN", accountModel2);
-            		return "redirect:/home/updateInformation";
+            		return "redirect:/account/updateInformation";
             	}
-        	return "home/updateInformation";
+        	return "account/updateInformation";
         	
 		} catch (Exception e) {
 			model.addAttribute("message", "Cập nhập tài khoản thất bại!");
-			return "home/updateInformation";
+			return "account/updateInformation";
 		}
     	
 		

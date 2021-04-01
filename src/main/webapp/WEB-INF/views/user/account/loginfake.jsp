@@ -1,6 +1,4 @@
 <%@ page pageEncoding="utf-8"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!--  content -->
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
@@ -29,19 +27,22 @@
             <div class="col-md-8 col-md-push-2">
               <div class="aa-myaccount-login">
               <h4>Đăng nhập</h4>
-               <form:form class="aa-login-form" name="loginform"  action="/account/login" method="post" modelAttribute="formLogin"> 
+               <form class="aa-login-form" name="loginform" onsubmit="validate();" action="/account/login" method="post">
                 <label for="">Username<span>*</span></label>
-                 <input type="text"  name="username">
+                 <input type="text" value="${map.id}" placeholder="Username" name="id">
                  <label for="">Mật khẩu<span>*</span></label>
-                  <input type="password"  name="password">
- 
-                  <p class="rememberme" style="display: block"><input type="checkbox" name="remember" id="rememberme"> Ghi nhớ </p> 
+                  <input type="password" value="${map.password}" placeholder="Password" name="password">
+                  <p class="rememberme" style="display: block"><input type="checkbox" id="remember"> Ghi nhớ </p> 
    
-                  <c:if test="${!empty message}"><p style="color: red">${message}</p></c:if>
-                  <c:if test="${!empty param.message}"><p style="color: red">${param.message}</p></c:if>
+                  <p style="color:red; display:block">Thông báo lỗi: ${message}${param.message}
+                  </p> 
+                  <div class="form-group">
+		            <a href="/account/forgot">Forgot Password?</a>
+			        <a href="/account/register">Register new user?</a>
+		        </div>
                    <button type="submit" class="aa-browse-btn">Đăng nhập</button>
                       
-                </form:form>
+                </form>
               </div>
             </div>
           </div>          
