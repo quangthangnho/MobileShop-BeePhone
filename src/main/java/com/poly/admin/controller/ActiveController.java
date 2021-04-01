@@ -9,7 +9,7 @@ import com.poly.Service.IAccountService;
 import com.poly.model.AccountModel;
 
 @Controller
-@RequestMapping("home")
+@RequestMapping("account")
 public class ActiveController {
 	
 	private final IAccountService accountService;
@@ -24,7 +24,7 @@ public class ActiveController {
 			accountModel.setStatus(1);
 			accountService.save(accountModel);
 		}
-		return "redirect:/home/login";
+		return "redirect:/account/login";
 		
 	}
 

@@ -39,13 +39,13 @@
 						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						    
 						    <c:if test="${role == 'ADMIN'}">
-						    	<a class="dropdown-item" href="/home/changepassword">Đổi mật khẩu</a>
-						    <a class="dropdown-item" href="#">Cập nhập tài khoản</a>
-						    <a class="dropdown-item" href="#">Trang quản trị</a>
+						    	<a class="dropdown-item" href="/account/changepassword">Đổi mật khẩu</a>
+						    <a class="dropdown-item" href="/account/updateInformation">Cập nhập tài khoản</a>
+						    <a class="dropdown-item" href="/admin/report/inventory-by-category">Trang quản trị</a>
 						    </c:if>
 						    <c:if test="${role == 'USER'}">
-						    	<a class="dropdown-item" href="#">Đổi mật khẩu</a>
-						    <a class="dropdown-item" href="#">Cập nhập tài khoản</a>
+						    	<a class="dropdown-item" href="/account/changepassword">Đổi mật khẩu</a>
+						    <a class="dropdown-item" href="/account/updateInformation">Cập nhập tài khoản</a>
 						    </c:if>
 						  </div>
 						</div>
@@ -53,11 +53,11 @@
                   </li>                  
                   </c:if>
                   <c:if test="${!empty userLogin}">
-                  	<li class="hidden-xs"><a href="/home/logout">Đăng xuất</a></li>
+                  	<li class="hidden-xs"><a href="/account/logout">Đăng xuất</a></li>
                   </c:if>
                    <c:if test="${empty userLogin}">
-                  	<li class="hidden-xs"><a href="registration">Đăng ký</a></li>
-                  <li><a href="login">Đăng nhập</a></li>
+                  	<li class="hidden-xs"><a href="/account/registration">Đăng ký</a></li>
+                  <li><a href="/account/login">Đăng nhập</a></li>
                   </c:if>
                   
                   <!--  data-toggle="modal" data-target="#login-modal" -->

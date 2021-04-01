@@ -15,7 +15,7 @@ import com.poly.mailSender.MailerService;
 import com.poly.model.AccountModel;
 
 @Controller
-@RequestMapping("home")
+@RequestMapping("account")
 public class RegistrationController {
 	
 	@Autowired
@@ -28,7 +28,7 @@ public class RegistrationController {
 
 	@GetMapping("/registration")
 	public String registration() {
-		return "home/registration";
+		return "account/registration";
 	}
 	
 	@PostMapping("/registration")
@@ -48,9 +48,9 @@ public class RegistrationController {
 			}
 		}else {
 			model.addAttribute("message", message);
-			return "home/registration";
+			return "account/registration";
 		}
-		return "redirect:/home/login";
+		return "redirect:/account/login";
 	}
 
 }

@@ -12,7 +12,7 @@
 		<c:if test="${!empty indexForm.getImage()}">
 		<div class="col-sm-3 text-center">
     		<label for="photo_file">
-    			<img id="photo" src="/static/images/account/${indexForm.getImage()}">
+    			<img style="width: 200px;height: 250px"  id="photo" src="/static/images/account/${indexForm.getImage()}">
     		</label>
     	</div>
 		</c:if>

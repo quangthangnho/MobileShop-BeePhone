@@ -8,7 +8,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.poly.entity.AccountEntity;
+import com.poly.model.AccountModel;
 import com.poly.Service.SessionService;
+import com.poly.utils.SessionUtil;
 import com.poly.utils.StrUtils;
 
 @Component
@@ -20,7 +22,7 @@ public class SecurityInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String uri = request.getRequestURI() + "?" + request.getQueryString();
-		AccountEntity user = session.getUser();
+		AccountModel user = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		String error = "";
 		if(user == null) {
 			error = "Vui lòng đăng nhập trước khi sử dụng chức năng này!";
