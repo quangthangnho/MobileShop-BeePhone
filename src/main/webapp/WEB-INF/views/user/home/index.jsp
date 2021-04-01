@@ -1,5 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
-
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!-- Start slider -->
   <section id="aa-slider">
     <div class="aa-slider-area">
@@ -133,7 +134,7 @@
               <div class="aa-product-inner">
                 <!-- start prduct navigation -->
                 <ul class="nav nav-tabs aa-products-tab">
-                  <li class="active"><a href="#iphone" data-toggle="tab">Iphone</a></li>
+                  <li class="active"><a href="#iphone" data-toggle="tab">APPLE</a></li>
                   <li><a href="#hat" data-toggle="tab">SAMSUNG</a></li>
                   <li><a href="#traicay" data-toggle="tab">XIAOMI</a></li>
                   <li><a href="#matong" data-toggle="tab">OPPO</a></li>
@@ -145,71 +146,26 @@
                   <div class="tab-pane fade in active" id="iphone">
                     <ul class="aa-product-catg">
                       <!-- start single product item -->
-
-                      <li>
-                        <figure>
-                          <a class="aa-product-img" href="product-detail"><img src="/static/assets/images/products/img-test/product-1_auto_x2.jpg"
+   
+                     <c:forEach items="${listIphone}" var="element" begin="0" end="3">
+                      	<li>
+                      		<figure>
+                          <a class="aa-product-img" href="product-detail"><img src="/static/images/products/${element.image}"
                               alt="polo shirt img"></a>
                           <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Thêm vào giỏ
                             hàng</a>
                           <figcaption>
-                            <h4 class="aa-product-title"><a href="product-detail">name </a></h4>
-                            <span class="aa-product-price">price VNĐ</span>
-                            <span class="aa-product-price"><del>price VNĐ</del></span>
+                            <h4 class="aa-product-title"><a href="product-detail">${element.name}</a></h4>
+                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> VNĐ</span>
+                            <span class="aa-product-price"><del>
+                            <fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.unitPrice}" />
+                             VNĐ</del></span>
                           </figcaption>
                         </figure>
                         <!-- product badge -->
-                        <span class="aa-badge aa-sale">- discount%</span>
-
-                      </li>
-
-                      <li>
-                        <figure>
-                          <a class="aa-product-img" href=""><img src="/static/assets/images/products/img-test/product-2_auto_x2.jpg"
-                              alt="polo shirt img"></a>
-                          <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Thêm vào giỏ
-                            hàng</a>
-                          <figcaption>
-                            <h4 class="aa-product-title"><a href="">name </a></h4>
-                            <span class="aa-product-price">price VNĐ</span>
-                            <span class="aa-product-price"><del>price VNĐ</del></span>
-                          </figcaption>
-                        </figure>
-                        <!-- product badge -->
-                        <span class="aa-badge aa-sale">- discount%</span>
-                      </li>
-
-                      <li>
-                        <figure>
-                          <a class="aa-product-img" href=""><img src="/static/assets/images/products/img-test/product-3_auto_x2.jpg"
-                              alt="polo shirt img"></a>
-                          <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Thêm vào giỏ
-                            hàng</a>
-                          <figcaption>
-                            <h4 class="aa-product-title"><a href="">name </a></h4>
-                            <span class="aa-product-price">price VNĐ</span>
-                            <span class="aa-product-price"><del>price VNĐ</del></span>
-                          </figcaption>
-                        </figure>
-                        <!-- product badge -->
-                        <span class="aa-badge aa-sale">- discount%</span>
-                      </li>
-
-                      <li>
-                        <figure>
-                          <a class="aa-product-img" href=""><img src="/static/assets/images/products/img-test/product-4_auto_x2.jpg"
-                              alt="polo shirt img"></a>
-                          <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Thêm vào giỏ
-                            hàng</a>
-                          <figcaption>
-                            <h4 class="aa-product-title"><a href="">name </a></h4>
-                            <span class="aa-product-price">price VNĐ</span>
-                            <span class="aa-product-price"><del>price VNĐ</del></span>
-                          </figcaption>
-                        </figure>
-                        <!-- product badge -->
-                        <span class="aa-badge aa-sale">- discount%</span>
-                      </li>
+                        <span class="aa-badge aa-sale">-${element.discount}%</span>
+                      	</li>                      	
+                      </c:forEach>
                       <!-- start single product item -->
                     </ul>
 
