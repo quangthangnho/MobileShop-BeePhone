@@ -20,8 +20,7 @@ import com.poly.entity.OrderEntity;
 public class OrderAController {
 	@Autowired
 	OrderDAO odao;
-//	@Autowired
-//	PagerService pager;
+
 	
 	@RequestMapping("index")
 	public String index(Model model) {

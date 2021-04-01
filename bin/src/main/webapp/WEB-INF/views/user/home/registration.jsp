@@ -1,4 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!--  content -->
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
@@ -28,23 +30,27 @@
             <div class="col-md-8 col-md-push-2">
               <div class="aa-myaccount-register">                 
                <h4>Đăng ký</h4>
-               <form name="" class="aa-login-form" method="post" action="" >
-                  <label for="">Họ tên<span>*</span></label>
-                  <input type="text" placeholder="Name" name="name" required>   
-                   <label for="">Email <span>*</span></label>
-                  <input type="text" placeholder="useremail@gmail.com" name="email" required>
-                  <label for="">Số điện thoại<span>*</span></label>
-                  <input type="text" placeholder="Số điện thoại" name="phone" required>   
-                   <label for="">Username<span>*</span></label>
-                  <input type="text" placeholder="Username" name="username" required>
-                  <label for="">Mật khẩu<span>*</span></label>  
-                  <input type="password" placeholder="Password" name="password" required>     
-                  <input type="date" style="display: none" placeholder="Password" name="created" id="the-date">             
-                    
-                  <p style="color:red; display: block;">Thông báo lỗi</p>    
-                   <button type="reset" class="aa-browse-btn" value="Reset">Đặt lại</button>  
-                    <button type="submit" class="aa-browse-btn">Đăng ký</button>                         
-                </form>
+               <form:form action="/home/registration" method="post" modelAttribute="formDangKi">
+               <div class="form-group">
+				    <label for="username">Tên đăng nhập</label>
+				    <input type="text" class="form-control" id="username" name="username" required="required">
+				  </div>
+				  <div class="form-group">
+				    <label for="fullname">Họ và tên</label>
+				    <input type="text" class="form-control" id="fullname" name="fullname" required="required">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Email</label>
+				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required="required">
+				    <small id="emailHelp" class="form-text text-muted">Chúng tôi sẽ không bao giờ chia sẽ cho bất cứ ai.</small>
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">Password</label>
+				    <input type="password" class="form-control" id="exampleInputPassword1" name="password" required="required">
+				  </div>
+				  <button type="submit" class="btn btn-primary">Submit</button>
+				  <c:if test="${!empty message}"><p>${message}</p></c:if>
+				</form:form>
               </div>
             </div>
           </div>          

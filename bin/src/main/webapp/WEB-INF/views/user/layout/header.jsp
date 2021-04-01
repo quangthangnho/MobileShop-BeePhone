@@ -38,12 +38,12 @@
 						  </button>
 						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						    
-						    <c:if test="${role == true}">
-						    	<a class="dropdown-item" href="#">Đổi mật khẩu</a>
+						    <c:if test="${role == 'ADMIN'}">
+						    	<a class="dropdown-item" href="/home/changepassword">Đổi mật khẩu</a>
 						    <a class="dropdown-item" href="#">Cập nhập tài khoản</a>
 						    <a class="dropdown-item" href="#">Trang quản trị</a>
 						    </c:if>
-						    <c:if test="${role == false}">
+						    <c:if test="${role == 'USER'}">
 						    	<a class="dropdown-item" href="#">Đổi mật khẩu</a>
 						    <a class="dropdown-item" href="#">Cập nhập tài khoản</a>
 						    </c:if>
@@ -80,7 +80,7 @@
               <div class="aa-logo">
                 <!-- Text based logo -->
                 <!-- img based logo -->
-                <a href="index.html"><img src="/static/assets/images/logo1.png" alt="logo img" width="100%"></a>
+                <a href="/home/index"><img src="/static/assets/images/logo1.png" alt="logo img" width="100%"></a>
               </div>
               <!-- / logo  -->
               <!-- Shipping service -->

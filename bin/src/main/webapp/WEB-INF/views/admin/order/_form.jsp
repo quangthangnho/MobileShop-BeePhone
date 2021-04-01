@@ -10,17 +10,46 @@
 	</div>
 	<div class="panel-body">
 	    <div class="row">
+	    
+	    	<div class="form-group col-sm-4">
+	            <label>Order Id</label>
+	            <div class="form-control">${form.id}</div>
+	            <form:hidden path="id"/>
+	
+	        </div>
+	        
+	         <div class="form-group col-sm-4">
+	            <label>AccountOrder</label>
+	            <div class="form-control">${form.accountOrder.id}</div>
+	             <form:hidden path="accountOrder.id"/>
+	        </div> 
+	        
 	    	<div class="col-sm-12">
 		    	<div class="row">
 				    <div class="form-group col-sm-6">
 				        <label>KHÁCH HÀNG</label>
 				        <div class="form-control">${form.accountOrder.username}</div>
-	            		<form:hidden path="accountOrder.username"/>
 				    </div>
-				    
+			
 				    <div class="form-group col-sm-6">
 				        <label>NGÀY ĐẶT</label>
-				        <div class="form-control">${form.orderDate}</div>
+				        <fmt:formatDate value="${form.orderDate}" pattern="dd-MM-yyyy"/>
+				         <form:hidden path="orderDate"/>
+				    </div>
+		    	
+		    	</div>
+		    </div>
+		    
+		    <div class="col-sm-12">
+		    	<div class="row">
+			
+				    <div class="form-group col-sm-6">
+				        <label>Số điện thoại</label>
+				       	 <div class="form-control">${form.phone}</div>
+				    </div>
+				    <div class="form-group col-sm-6">
+				        <label>Người nhận</label>
+				       	 <div class="form-control">${form.receiver}</div>
 				    </div>
 		    	
 		    	</div>
@@ -32,7 +61,7 @@
 				    <div class="form-group col-sm-6">
 				        <label>TỔNG TIỀN</label>
 				       <div class="form-control">
-			            	$<fmt:formatNumber value="${form.amount}" maxFractionDigits="2"/>
+			            	<fmt:formatNumber value="${form.amount}" maxFractionDigits="0"/> VNĐ
 			            </div>
 			            <form:hidden path="amount"/>
 				    </div>
@@ -40,10 +69,10 @@
 				    <div class="form-group col-sm-6">
 				        <label>TRẠNG THÁI</label>
 				        <form:select path="status" class="form-control">
-			            	<form:option value="0">CHƯA HOÀN THÀNH</form:option>
-			            	<form:option value="1">TRONG TIẾN TRÌNH</form:option>
-			            	<form:option value="2">ĐÃ HOÀN THÀNH</form:option>
-			            	<form:option value="-1">ĐÃ HỦY</form:option>
+			            	<form:option value="0">Chưa hoàn thành</form:option>
+			            	<form:option value="1">Đang xử lý</form:option>
+			            	<form:option value="2">Đã hoàn thành</form:option>
+			            	<form:option value="-1">Hủy</form:option>
 			            </form:select>
 				    </div>
 		    	
@@ -82,11 +111,11 @@
 			    <td>${item.productOrderDetail.id}</td>
 			    <td>${item.productOrderDetail.name}</td>
 			    <td>
-			    	$<fmt:formatNumber value="${item.unitPrice}"/>
+			    	<fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> VNĐ
 			    </td>
 			    <td>${item.quatity}</td>
 			    <td>
-			    	$<fmt:formatNumber value="${item.unitPrice*item.quatity}"/>
+			    	<fmt:formatNumber value="${(item.unitPrice*item.quatity *100)/100 * (100 - item.productOrderDetail.discount)/100}" minFractionDigits="0"/> VNĐ
 			    </td>
 			</tr>
 		</c:forEach>

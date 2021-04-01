@@ -13,7 +13,7 @@
 	<div class="sidebar-wrapper">
 
 		<ul class="nav">
-			<li><a href="/admin/home/index-a"><i class="fa fa-th-large"></i> <p>Tổng quan</p></a></li>
+			<li><a href="/admin/report/inventory-by-category"><i class="fa fa-th-large"></i> <p>Tổng quan</p></a></li>
 			
 			<li><a href="/admin/master/index"><i class="fa fa-user-circle-o"></i> <p>Quản lý Admin</p></a></li>	
 			

@@ -39,14 +39,14 @@
 				                        alt="user avatar" style="padding: 0px 35px;"></div>
 				                    <div class="media-body">
 				                      <h6 class="mt-2 user-title">Web dien thoai</h6>
-				                	<b> Admin:  Khải</b>                         
+				                	<b> Admin:  ${empty sessionScope.user ? '' : sessionScope.user.username } </b>                         
 				                    </div>
 				                  </div>
 				                </a>
 				              </li>
 				            
 				              <li class="dropdown-divider"></li>
-							  <li class="dropdown-item"> <a href=""><i class="fa fa-power-off"></i> Đăng xuất</a></li>		
+							  <li class="dropdown-item"> <a href="/account/logoff"><i class="fa fa-power-off"></i> Đăng xuất</a></li>		
 
 				            </ul>
                             

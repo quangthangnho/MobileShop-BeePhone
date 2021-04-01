@@ -1,6 +1,7 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<script src="/static/assets-a/assets/js/upload.js"></script>
 <form:form action="/admin/master/detail" modelAttribute="form" enctype="multipart/form-data">
 <div class="panel panel-danger">
 	<div class="panel-heading">
@@ -31,7 +32,7 @@
 					</div>
 					<input type="hidden" name="id" value="${indexForm.getId()}" />
 					<div class="form-group col-sm-6">
-						<label>Mật khẩu</label> 
+						<label>MẬT KHẨU</label> 
 						<input path="password" name="password" value="${indexForm.getPassword()}" class="form-control" />
 					</div>
 				</div>
@@ -54,7 +55,14 @@
 						  <input onchange="upload.change(this, 'img#photo')" name="photo_file" id="photo_file" type="file" class="form-control">
 						 <input name="image" type="hidden" value="${indexForm.getImage()}" />
 					</div>
+					<div class="form-group col-sm-6">
+						<label>SỐ ĐIỆN THOẠI</label> 
+						<input name="phoneNumber" value="${indexForm.getPhoneNumber()}" class="form-control" />
+					</div>
 
+					 
+				</div>
+				<div class="row">
 					<div class="form-group col-sm-3">
 			        <label>Is Active?</label>
 			        <div class="form-control">
@@ -65,10 +73,10 @@
 			    <div class="form-group col-sm-3">
 			        <label>Is Admin?</label>
 			        <div class="form-control">
-			        	<input type="radio" name="role" value="true" class="form-check-input"  checked="checked">Yes
-        				<input type="radio" name="role" value="false" class="form-check-input" >No
+			        	<input type="radio" name="role" value="ADMIN" class="form-check-input"  checked="checked">Yes
+        				<input type="radio" name="role" value="USER" class="form-check-input" >No
 			        </div>
-			    </div> 
+			    </div>
 				</div>
 			</div>
 

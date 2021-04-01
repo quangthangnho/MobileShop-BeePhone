@@ -13,7 +13,7 @@ public interface OrderDAO extends JpaRepository<OrderEntity, Long> {
 
 	List<OrderEntity> findByUsername(@Param("uid") Long id);
 
-	List<OrderEntity> findByUsername(@Param("uid") String username);
+//	List<OrderEntity> findByUsername(@Param("uid") String username);
 	
 	
 	  

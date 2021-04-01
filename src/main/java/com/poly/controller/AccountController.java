@@ -63,8 +63,8 @@ public class AccountController {
 				session.addUser(user);
 				model.addAttribute("message", "Đăng nhập thành công");
 				if (remember) {
-					Map<Object, Object> map = new HashMap<Object, Object>() {
-//					Map<String, String> map = new HashMap<String, String>() {
+//					Map<Object, Object> map = new HashMap<Object, Object>() {
+					Map<String, String> map = new HashMap<String, String>() {
 						{
 							put("email", user.getEmail());
 							put("password", user.getPassword());

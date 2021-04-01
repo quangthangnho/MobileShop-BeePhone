@@ -24,3 +24,15 @@
 		<jsp:include page="_list.jsp"/>
 	</div>
 </div>
+
+<script>
+$(function(){
+	if(location.search.includes('page')){
+		$("#edit").removeClass("in active");
+		$("#list").addClass("in active");
+		
+		$(".nav-tabs li:eq(0)").removeClass("active");
+		$(".nav-tabs li:eq(1)").addClass("active");
+	}
+})
+</script>

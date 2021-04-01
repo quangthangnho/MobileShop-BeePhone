@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.poly.Service.MailerService;
 import com.poly.Service.SessionService;
 import com.poly.dao.OrderDAO;
 import com.poly.dao.OrderDetailDAO;
@@ -42,7 +41,7 @@ public class OrderController {
 	@Autowired
 	SessionService session;
 	@Autowired
-	MailerService mailer;
+	com.poly.mailSender.MailerService mailer;
 	@Autowired
 	HttpServletRequest request;
 	
