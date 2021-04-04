@@ -1,4 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
+
 
 <!-- Cart view section -->
 <section id="cart-view">

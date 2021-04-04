@@ -9,14 +9,11 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.poly.entity.AccountEntity;
 import com.poly.model.AccountModel;
-import com.poly.Service.SessionService;
 import com.poly.utils.SessionUtil;
 import com.poly.utils.StrUtils;
 
 @Component
 public class SecurityInterceptor implements HandlerInterceptor{
-	@Autowired
-	SessionService session;
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -35,7 +32,8 @@ public class SecurityInterceptor implements HandlerInterceptor{
 			return true;
 		}
 		/*-- Có lỗi -> về đăng nhập --*/
-		session.addSecurityUrl(uri);
+//		session.addSecurityUrl(uri);
+		SessionUtil.getInstance().addSecurityUrl(request,uri);
 		response.sendRedirect("/account/login?message=" + StrUtils.encodeUrl(error) );
 		return false;
 	}

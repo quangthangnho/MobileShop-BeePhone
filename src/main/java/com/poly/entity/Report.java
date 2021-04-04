@@ -10,7 +10,6 @@ public class Report {
 	@Id
 	Serializable group;
 	Double sum; //double unitPrice, quantity
-//	String name;
 	Long count; //
 	Double min; //Double unitPrice
 	Double max; //double unitPrice
@@ -41,12 +40,7 @@ public class Report {
 	public void setSum(Double sum) {
 		this.sum = sum;
 	}
-//	public String getName() {
-//		return name;
-//	}
-//	public void setName(String name) {
-//		this.name = name;
-//	}
+
 	public Long getCount() {
 		return count;
 	}

@@ -43,20 +43,17 @@
 
 	</div>
 	<div class="panel-footer">
-		<button formaction="" class="btn btn-success" title="Create"
-			disabled="">
-			<i class="fa fa-plus-circle"></i> Create
-		</button>
-		<button formaction="" class="btn btn-primary" title="Update"
-			disabled="">
-			<i class="fa fa-check-circle"></i> Update
-		</button>
-		<button formaction="" class="btn btn-danger" title="Delete"
-			disabled="">
-			<i class="fa fa-trash-o"></i> Delete
-			<button>
-				<a href="" class="btn btn-info" title="Reset"> <i
-					class="fa fa-refresh"></i> Reset
-				</a>
-	</div>
+	        <button formaction="" class="btn btn-success" title="Create" disabled="">
+	        	<i class="fa fa-plus-circle"></i> Tạo mới
+	        <button>
+	        <button formaction="" class="btn btn-primary" title="Update" disabled="">
+	        	<i class="fa fa-check-circle"></i> Cập nhập
+	        <button>
+	        <button formaction="" class="btn btn-danger" title="Delete" disabled="">
+	        	<i class="fa fa-trash-o"></i> Xóa
+	        <button>
+	        <a href="" class="btn btn-info" title="Reset">
+	        	<i class="fa fa-refresh"></i> Tải lại
+	        </a>
+    </div>
 </div>

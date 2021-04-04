@@ -1,5 +1,4 @@
 <%@ page pageEncoding="utf-8"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <header id="aa-header">
     <!-- start header top  -->
@@ -40,12 +39,13 @@
 						    
 						    <c:if test="${role == 'ADMIN'}">
 						    	<a class="dropdown-item" href="/account/changepassword">Đổi mật khẩu</a>
-						    <a class="dropdown-item" href="/account/updateInformation">Cập nhập tài khoản</a>
-						    <a class="dropdown-item" href="/admin/report/inventory-by-category">Trang quản trị</a>
+						    	<a class="dropdown-item" href="/account/updateInformation">Cập nhập tài khoản</a>
+						    	<a class="dropdown-item" href="/admin/report/inventory-by-category">Trang quản trị</a>
 						    </c:if>
 						    <c:if test="${role == 'USER'}">
 						    	<a class="dropdown-item" href="/account/changepassword">Đổi mật khẩu</a>
-						    <a class="dropdown-item" href="/account/updateInformation">Cập nhập tài khoản</a>
+						    	<a class="dropdown-item" href="/account/updateInformation">Cập nhập tài khoản</a>
+						    	<a class="dropdown-item" href="/order/list">Đơn đặt hàng</a>
 						    </c:if>
 						  </div>
 						</div>

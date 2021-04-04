@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import com.poly.entity.AccountEntity;
 import com.poly.entity.OrderDetailEntity;
 import com.poly.entity.Report;
+import com.poly.model.AccountModel;
 
 public interface OrderDetailDAO extends JpaRepository<OrderDetailEntity, Long> {
 //	@Query("SELECT new Report(o.product.name, sum(o.unitPrice * o.quantity),  sum(o.quantity), min(o.unitPrice), max(o.unitPrice), avg(o.unitPrice)) "

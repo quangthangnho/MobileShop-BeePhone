@@ -23,5 +23,11 @@ public class SessionUtil {
 	public void removeValue(HttpServletRequest request, String key) {
 		request.getSession().removeAttribute(key);
 	}
+	
+	
+	public void addSecurityUrl(HttpServletRequest request, String securityUrl) {
+		request.setAttribute("security-url", securityUrl);
+	}
+	
 
 }

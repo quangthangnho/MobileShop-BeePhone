@@ -12,15 +12,13 @@
 	    <div class="row">
 	    
 	    	<div class="form-group col-sm-4">
-	            <label>Order Id</label>
-	            <div class="form-control">${form.id}</div>
+	      
 	            <form:hidden path="id"/>
 	
 	        </div>
 	        
 	         <div class="form-group col-sm-4">
-	            <label>AccountOrder</label>
-	            <div class="form-control">${form.accountOrder.id}</div>
+	          
 	             <form:hidden path="accountOrder.id"/>
 	        </div> 
 	        
@@ -33,8 +31,8 @@
 			
 				    <div class="form-group col-sm-6">
 				        <label>NGÀY ĐẶT</label>
-				        <fmt:formatDate value="${form.orderDate}" pattern="dd-MM-yyyy"/>
-				         <form:hidden path="orderDate"/>
+				        <div class="form-control"><fmt:formatDate value="${form.orderDate}" pattern="dd-MM-yyyy" /></div>
+				        <form:hidden path="orderDate"/>
 				    </div>
 		    	
 		    	</div>
@@ -46,10 +44,12 @@
 				    <div class="form-group col-sm-6">
 				        <label>Số điện thoại</label>
 				       	 <div class="form-control">${form.phone}</div>
+				       	 <form:hidden path="phone"/>
 				    </div>
 				    <div class="form-group col-sm-6">
 				        <label>Người nhận</label>
 				       	 <div class="form-control">${form.receiver}</div>
+				       	 <form:hidden path="receiver"/>
 				    </div>
 		    	
 		    	</div>
@@ -61,18 +61,20 @@
 				    <div class="form-group col-sm-6">
 				        <label>TỔNG TIỀN</label>
 				       <div class="form-control">
-			            	<fmt:formatNumber value="${form.amount}" maxFractionDigits="0"/> VNĐ
+			            	<fmt:formatNumber value="${form.amount}" minFractionDigits="0"/> VNĐ
 			            </div>
 			            <form:hidden path="amount"/>
 				    </div>
 				    
 				    <div class="form-group col-sm-6">
 				        <label>TRẠNG THÁI</label>
+				        <i class="fa fa-sort-desc"></i>
 				        <form:select path="status" class="form-control">
-			            	<form:option value="0">Chưa hoàn thành</form:option>
-			            	<form:option value="1">Đang xử lý</form:option>
-			            	<form:option value="2">Đã hoàn thành</form:option>
-			            	<form:option value="-1">Hủy</form:option>
+			            	<form:option value="0">CHỜ XÁC NHẬN</form:option>
+			            	<form:option value="1">CHỜ LẤY HÀNG</form:option>
+			            	<form:option value="2">ĐANG GIAO</form:option>
+			            	<form:option value="2">ĐÃ GIAO</form:option>
+			            	<form:option value="-1">ĐÃ HỦY</form:option>
 			            </form:select>
 				    </div>
 		    	
@@ -123,13 +125,13 @@
 	</table>
     <div class="panel-footer">
 	    <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Update" disabled="${empty form.id}">
-	    	<i class="fa fa-check-circle"></i> Update
+	    	<i class="fa fa-check-circle"></i> Cập nhập
 	    </form:button>
 	    <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Delete" disabled="${empty form.id}">
-	    	<i class="fa fa-trash-o"></i> Delete
+	    	<i class="fa fa-trash-o"></i> Xóa
 	    </form:button>
 	    <a href="${ctrl}/index" class="btn btn-info" title="Reset">
-	    	<i class="fa fa-refresh"></i> Reset
+	    	<i class="fa fa-refresh"></i> Tải lại
 	    </a>
     </div>
 	

@@ -2,6 +2,9 @@ package com.poly.admin.controller;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.poly.dao.CategoryDAO;
 
 import com.poly.entity.CategoryEntity;
+import com.poly.model.AccountModel;
+import com.poly.utils.SessionUtil;
 
 
 
@@ -20,11 +25,18 @@ import com.poly.entity.CategoryEntity;
 public class CategoryAController {
 	@Autowired
 	CategoryDAO cdao;
+	@Autowired
+	HttpServletRequest request;
 	
 	
 	
 	@RequestMapping("index")//@RequestMapping phần riêng
 	public String index(Model model) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		if (accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
 		model.addAttribute("form", new CategoryEntity());
 		model.addAttribute("list", cdao.findAll());
 		return "admin/category/index";
@@ -32,17 +44,25 @@ public class CategoryAController {
 	
 	@RequestMapping("edit/{id}")
 	public String edit(Model model, @PathVariable("id") long id) {
+		
 		model.addAttribute("form", cdao.getOne(id));
 		model.addAttribute("list", cdao.findAll());
 		return "admin/category/index";
 	}
 	
 	@RequestMapping("create")
-	public String create(Model model, @ModelAttribute("form") CategoryEntity entity) { 
+	public String create(Model model, @ModelAttribute("form") CategoryEntity entity, HttpServletRequest request,
+			HttpServletResponse response) { 
 		try {
+			
 			cdao.save(entity);
-			model.addAttribute("form", new CategoryEntity());
-			model.addAttribute("message", "Tạo mới loại hàng thành công!");
+			if(entity.getName().length() == 0 ) {
+				model.addAttribute("form", new CategoryEntity());
+				model.addAttribute("message", "Tên loại hàng không được để trống!");
+			}else {
+				model.addAttribute("message", "Tạo mới loại hàng thành công!");
+			}
+			
 		} catch (Exception e) {
 			model.addAttribute("message", "Tạo mới loại hàng thất bại!");
 		}
@@ -77,4 +97,5 @@ public class CategoryAController {
 		model.addAttribute("list", cdao.findAll());
 		return "admin/category/index";
 	}
+	
 }

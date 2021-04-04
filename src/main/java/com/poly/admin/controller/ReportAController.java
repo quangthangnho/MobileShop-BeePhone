@@ -2,6 +2,8 @@ package com.poly.admin.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -13,15 +15,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.poly.dao.ReportDAO;
 import com.poly.entity.Report;
+import com.poly.model.AccountModel;
+import com.poly.utils.SessionUtil;
 
 @Controller
 public class ReportAController {
 	@Autowired
 	ReportDAO dao;
+	@Autowired
+	HttpServletRequest request;
 	
 	//quản lý admin
 	@RequestMapping("/admin/report/index")
-	public String admin() {
+	public String admin(Model model) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		if (accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
 		return "admin/report/index";
 	}
 	
