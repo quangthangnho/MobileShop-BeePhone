@@ -2,6 +2,8 @@ package com.poly.admin.controller;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,16 +16,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.poly.dao.OrderDAO;
 import com.poly.entity.CategoryEntity;
 import com.poly.entity.OrderEntity;
+import com.poly.model.AccountModel;
+import com.poly.utils.SessionUtil;
 
 @Controller
 @RequestMapping("admin/order")
 public class OrderAController {
 	@Autowired
 	OrderDAO odao;
+	@Autowired
+	HttpServletRequest request;
 
 	
 	@RequestMapping("index")
 	public String index(Model model) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		if (accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
 		model.addAttribute("form", new OrderEntity());
 		model.addAttribute("list", odao.findAll());
 		return "admin/order/index";
@@ -43,13 +54,14 @@ public class OrderAController {
 			model.addAttribute("message", "Đơn hàng không tồn tại!");
 		}
 		else {
+			entity.getReceiver();
+			entity.getPhone();
 			odao.save(entity);
 			model.addAttribute("message", "Cập nhật đơn hàng thành công!");
 		}
 		model.addAttribute("list", odao.findAll());
 		return "admin/order/index";
 	}
-	
 	
 	
 	@RequestMapping("delete")

@@ -1,6 +1,7 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
+<!-- các đơn hàng ,bieu do char -->
 
 <section id="cart-view">
 	<div class="container">
@@ -10,6 +11,7 @@
 					<div class="cart-view-table">
 
 						<!--  -->
+						<jsp:include page="index.jsp"></jsp:include>
 
 						<div class="panel panel-success">
 							<div class="panel-heading">
@@ -35,17 +37,21 @@
 													
 											<td><c:choose>
 													<c:when test="${item.status == 0}">
-														<label class="label label-primary">Chưa hoàn thành</label>
+														<label class="label label-primary">CHỜ XÁC NHẬN</label>
 													</c:when>
 													<c:when test="${item.status == 1}">
-														<label class="label label-info">Đang xử lý</label>
+														<label class="label label-info">CHỜ LẤY HÀNG</label>
 													</c:when>
 													<c:when test="${item.status == 2}">
-														<label class="label label-success">Đã hoàn thành
+														<label class="label label-success">ĐANG GIAO
+														</label>
+													</c:when>
+													<c:when test="${item.status == 3}">
+														<label class="label label-success">ĐÃ GIAO
 														</label>
 													</c:when>
 													<c:when test="${item.status == -1}">
-														<label class="label label-danger">Hủy</label>
+														<label class="label label-danger">ĐÃ HỦY</label>
 													</c:when>
 												</c:choose></td>
 												

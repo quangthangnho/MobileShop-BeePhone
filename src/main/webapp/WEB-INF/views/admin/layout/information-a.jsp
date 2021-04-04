@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <head>
 <!--     Fonts and icons     -->
@@ -39,14 +40,17 @@
 				                        alt="user avatar" style="padding: 0px 35px;"></div>
 				                    <div class="media-body">
 				                      <h6 class="mt-2 user-title">Web dien thoai</h6>
-				                	<b> Admin:  ${empty sessionScope.user ? '' : sessionScope.user.username } </b>                         
+				                      <c:if test="${!empty userLogin}">
+				                      
+				                	<b> Admin:${userLogin}</b>    
+				                	</c:if>                     
 				                    </div>
 				                  </div>
 				                </a>
 				              </li>
 				            
 				              <li class="dropdown-divider"></li>
-							  <li class="dropdown-item"> <a href="/account/logoff"><i class="fa fa-power-off"></i> Đăng xuất</a></li>		
+							  <li class="dropdown-item"> <a href="/account/logout"><i class="fa fa-power-off"></i> Đăng xuất</a></li>		
 
 				            </ul>
                             

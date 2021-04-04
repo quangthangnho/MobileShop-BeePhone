@@ -156,9 +156,9 @@
                             hàng</a>
                           <figcaption>
                             <h4 class="aa-product-title"><a href="product-detail">${element.name}</a></h4>
-                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> VNĐ</span>
+                            <span class="aa-product-price"><fmt:formatNumber type = "number"  minFractionDigits= "0" value = "${element.price_discount}" /> VNĐ</span>
                             <span class="aa-product-price"><del>
-                            <fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.unitPrice}" />
+                            <fmt:formatNumber type = "number"  minFractionDigits  = "0" value = "${element.unitPrice}" />
                              VNĐ</del></span>
                           </figcaption>
                         </figure>

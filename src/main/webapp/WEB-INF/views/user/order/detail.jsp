@@ -1,8 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
 <section id="cart-view">
 	<div class="container">
 		<div class="row">
@@ -41,7 +39,8 @@
 							        
 							        <div class="form-group col-sm-6">
 							            <label>Tổng tiền</label>
-							            <div class="form-control">${order.amount} VNĐ</div>
+							            <div class="form-control"><fmt:formatNumber value="${order.amount}" minFractionDigits="0"/> VNĐ</div>
+							          
 							        </div>
 							        <div class="form-group col-sm-6">
 							            <label>Trạng thái</label>
