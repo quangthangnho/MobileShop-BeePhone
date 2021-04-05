@@ -2,6 +2,8 @@ package com.poly.dao;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,5 +17,14 @@ public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRep
 	
 	@Query("select c from ProductEntity c where c.categoryProduct.id = :categoryId order by c.discount desc")
 	List<ProductEntity> listProduct(Long categoryId);
+	
+	@Query("SELECT p from ProductEntity p order by p.createDate desc")
+	List<ProductEntity> listProductOrderByCreateDate();
+	
+	@Query("SELECT p from ProductEntity p order by p.count desc")
+	List<ProductEntity> listProductOrderByCount();
+	
+	@Query("SELECT p from ProductEntity p order by p.discount desc")
+	List<ProductEntity> listProductOrderByDiscount();
 
 }
