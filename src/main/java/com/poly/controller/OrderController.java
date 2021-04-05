@@ -24,7 +24,7 @@ import com.poly.convert.impl.AccountModelAndEntityConvert;
 import com.poly.dao.OrderDAO;
 import com.poly.dao.OrderDetailDAO;
 import com.poly.dao.ProductDAO;
-
+import com.poly.entity.AccountEntity;
 import com.poly.entity.OrderDetailEntity;
 import com.poly.entity.OrderEntity;
 import com.poly.entity.ProductEntity;
@@ -85,6 +85,19 @@ public class OrderController {
 //		 */
 		odao.save(order);
 		ddao.saveAll(details);
+		
+		/*
+		 * Gửi đơn hàng cho khách hàng
+		 */ 
+		/*--[http://.../order/checkout]--*/
+		String orderUrl = request.getRequestURL().toString();
+		/*--[http://.../order/detail/{id}]--*/
+		String orderDetailUrl = orderUrl.replace("checkout", "detail/" + order.getId());
+		AccountModel user = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		String to = user.getEmail();
+		String subject = "Shop MobilePhone";
+		String body = "Click <a href='" + orderDetailUrl + "'>tại đây</a> để xem đơn hàng bạn đã đặt!";
+		mailer.send(to, subject, body);
 
 
 		return "redirect:/order/detail/" + order.getId();

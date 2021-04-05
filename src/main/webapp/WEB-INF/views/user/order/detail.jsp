@@ -46,10 +46,11 @@
 							            <label>Trạng thái</label>
 							            <div class="form-control">
 							           <c:choose>
-									    	<c:when test="${order.status == 0}"><label class="label label-primary">Chưa hoàn thành</label></c:when>
-									    	<c:when test="${order.status == 1}"><label class="label label-info">Đang xử lý</label></c:when>
-									    	<c:when test="${order.status == 2}"><label class="label label-success">Đã hoàn thành</label></c:when>
-									    	<c:when test="${order.status == -1}"><label class="label label-danger">Hủy</label></c:when>
+									    	<c:when test="${order.status == 0}"><label class="label label-primary">CHỜ XÁC NHẬN</label></c:when>
+									    	<c:when test="${order.status == 1}"><label class="label label-info">CHỜ LẤY HÀNG</label></c:when>
+									    	<c:when test="${order.status == 2}"><label class="label label-success">ĐANG GIAO</label></c:when>
+									    	<c:when test="${order.status == 3}"><label class="label label-success">ĐÃ GIAO</label></c:when>
+									    	<c:when test="${order.status == -1}"><label class="label label-danger">ĐÃ HỦY</label></c:when>
 									 </c:choose>
 							            </div>
 							        </div>

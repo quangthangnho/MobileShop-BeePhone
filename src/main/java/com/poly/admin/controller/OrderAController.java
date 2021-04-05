@@ -27,18 +27,24 @@ public class OrderAController {
 	@Autowired
 	HttpServletRequest request;
 
-	
-	@RequestMapping("index")
-	public String index(Model model) {
+	public void USER_LOGIN(Model model) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		if (accountModel != null) {
 			model.addAttribute("userLogin", accountModel.getUsername());
 			model.addAttribute("role", accountModel.getRole());
 		}
+	}
+	
+	@RequestMapping("index")
+	public String index(Model model) {
+		USER_LOGIN(model);
 		model.addAttribute("form", new OrderEntity());
 		model.addAttribute("list", odao.findAll());
 		return "admin/order/index";
 	}
+	/**/
+	
+	/**/
 	
 	@RequestMapping("edit/{id}")
 	public String edit(Model model, @PathVariable("id") Long id) {
