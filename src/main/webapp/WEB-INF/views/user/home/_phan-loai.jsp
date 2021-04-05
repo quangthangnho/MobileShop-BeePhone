@@ -11,7 +11,7 @@
               <!-- start prduct navigation -->
               <ul class="nav nav-tabs aa-products-tab">
                 <li class="active"><a href="#sanphammoi" data-toggle="tab">Sản Phẩm Mới</a></li>
-                <li><a href="#sanphambanchay" data-toggle="tab">Sản Phẩm Bán Chạy</a></li>
+                <li><a href="#sanphambanchay" data-toggle="tab">Sản Phẩm Có Nhiều Lượt Xem</a></li>
                 <li><a href="#sanphamgiamgia" data-toggle="tab">Sản Phẩm Giảm Giá</a></li>
               </ul>
               <!-- Tab panes -->
@@ -20,89 +20,24 @@
                 <div class="tab-pane fade in active" id="sanphammoi">
                   <ul class="aa-product-catg aa-popular-slider">
                     <!-- start single product item -->
+                    <c:forEach items="${listSPM}" var="element" begin="0" end="7">
                     <li>
                       <figure>
-                        <a class="aa-product-img" href=""><img  src="/static/assets/images/products/img-test/600_600_7_plus_1.jpg"
-                            alt="polo shirt img"></a>
-                        <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Thêm vào giỏ
-                          hàng</a>
+                        <a class="aa-product-img" href="/product/-detail/${element.id}"><img src="/static/images/products/${element.image}"
+                              alt="polo shirt img"></a>
+                        <%@include file="_buttons.jsp"%>
                         <figcaption>
-                          <h4 class="aa-product-title"><a href="">product.name </a></h4>
-                          <span class="aa-product-price">1 VNĐ</span>
-                          <span class="aa-product-price"><del>1 VNĐ</del></span>
-                        </figcaption>
+                            <h4 class="aa-product-title"><a href="/product/detail/${element.id}">${element.name}</a></h4>
+                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> VNĐ</span>
+                            <span class="aa-product-price"><del>
+                            <fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.unitPrice}" />
+                             VNĐ</del></span>
+                          </figcaption>
                       </figure>
                       <!-- product badge -->
-                      <span class="aa-badge aa-sale">-1%</span>
+                      <span class="aa-badge aa-sale">-${element.discount}%</span>
                     </li>
-
-                    <li>
-                      <figure>
-                        <a class="aa-product-img" href=""><img src="/static/assets/images/products/img-test/product-1_auto_x2.jpg"
-                            alt="polo shirt img"></a>
-                        <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Thêm vào giỏ
-                          hàng</a>
-                        <figcaption>
-                          <h4 class="aa-product-title"><a href="">product.name </a></h4>
-                          <span class="aa-product-price">1 VNĐ</span>
-                          <span class="aa-product-price"><del>1 VNĐ</del></span>
-                        </figcaption>
-                      </figure>
-                      <!-- product badge -->
-                      <span class="aa-badge aa-sale">-1%</span>
-
-                    </li>
-
-                    <li>
-                      <figure>
-                        <a class="aa-product-img" href=""><img src="/static/assets/images/products/img-test/product-3.jpg"
-                            alt="polo shirt img"></a>
-                        <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Thêm vào giỏ
-                          hàng</a>
-                        <figcaption>
-                          <h4 class="aa-product-title"><a href="">product.name </a></h4>
-                          <span class="aa-product-price">1 VNĐ</span>
-                          <span class="aa-product-price"><del>1 VNĐ</del></span>
-                        </figcaption>
-                      </figure>
-                      <!-- product badge -->
-                      <span class="aa-badge aa-sale">-1%</span>
-                    </li>
-
-                    <li>
-                      <figure>
-                        <a class="aa-product-img" href=""><img src="/static/assets/images/products/img-test/product-4.jpg"
-                            alt="polo shirt img"></a>
-                        <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Thêm vào giỏ
-                          hàng</a>
-                        <figcaption>
-                          <h4 class="aa-product-title"><a href="">product.name </a></h4>
-                          <span class="aa-product-price">1 VNĐ</span>
-                          <span class="aa-product-price"><del>1 VNĐ</del></span>
-                        </figcaption>
-                      </figure>
-
-
-                      <!-- product badge -->
-                      <span class="aa-badge aa-sale">-1%</span>
-                    </li>
-
-                    <li>
-                      <figure>
-                        <a class="aa-product-img" href=""><img src="/static/assets/images/products/img-test/product-5.jpg"
-                            alt="polo shirt img"></a>
-                        <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Thêm vào giỏ
-                          hàng</a>
-                        <figcaption>
-                          <h4 class="aa-product-title"><a href="">product.name </a></h4>
-                          <span class="aa-product-price">1 VNĐ</span>
-                          <span class="aa-product-price"><del>1 VNĐ</del></span>
-                        </figcaption>
-                      </figure>
-                      <!-- product badge -->
-                      <span class="aa-badge aa-sale">-1%</span>
-                    </li>
-
+                     </c:forEach>
                     <!-- start single product item -->
                     <!-- start single product item -->
 
@@ -115,20 +50,24 @@
                   <ul class="aa-product-catg aa-popular-slider">
                     <!-- start single product item -->
 
+                    <c:forEach items="${listProduct_View}" var="element" begin="0" end="7">
                     <li>
                       <figure>
-                        <a class="aa-product-img" href=""><img src="/static/assets/images/products/img-test/product-6.jpg"
-                            alt="polo shirt img"></a>
-                        <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Thêm vào giỏ
-                          hàng</a>
+                        <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
+                              alt="polo shirt img"></a>
+                        <%@include file="_buttons.jsp"%>
                         <figcaption>
-                          <h4 class="aa-product-title"><a href="">name </a></h4>
-                          <span class="aa-product-price">price VNĐ</span>
-                          <span class="aa-product-price"><del>price VNĐ</del></span>
-                        </figcaption>
+                            <h4 class="aa-product-title"><a href="/product/detail">${element.name}</a></h4>
+                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> VNĐ</span>
+                            <span class="aa-product-price"><del>
+                            <fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.unitPrice}" />
+                             VNĐ</del></span>
+                          </figcaption>
                       </figure>
                       <!-- product badge -->
-                      <span class="aa-badge aa-sale">- 1%</span>
+                      <span class="aa-badge aa-sale">-${element.discount}%</span>
+                    </li>
+                     </c:forEach>
                       <!-- start single product item -->
                       <!-- start single product item -->
                   </ul>
@@ -141,22 +80,25 @@
 
                   <ul class="aa-product-catg aa-popular-slider">
                     <!-- start single product item -->
-
+						<c:forEach items="${listProduct_Discount}" var="element" begin="0" end="7">
                     <li>
                       <figure>
-                        <a class="aa-product-img" href=""><img src="/static/assets/images/products/img-test/product-1.jpg"
-                            alt="polo shirt img"></a>
-                        <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Thêm vào giỏ
-                          hàng</a>
+                        <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
+                              alt="polo shirt img"></a>
+                        <%@include file="_buttons.jsp"%>
                         <figcaption>
-                          <h4 class="aa-product-title"><a href="">name </a></h4>
-                          <span class="aa-product-price">price VNĐ</span>
-                          <span class="aa-product-price"><del>price VNĐ</del></span>
-                        </figcaption>
+                            <h4 class="aa-product-title"><a href="/product/detail">${element.name}</a></h4>
+                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> VNĐ</span>
+                            <span class="aa-product-price"><del>
+                            <fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.unitPrice}" />
+                             VNĐ</del></span>
+                          </figcaption>
                       </figure>
                       <!-- product badge -->
-                      <span class="aa-badge aa-sale">- 1%</span>
+                      <span class="aa-badge aa-sale">-${element.discount}%</span>
                     </li>
+                     </c:forEach>
+                 
                     <!-- start single product item -->
                     <!-- start single product item -->
                   </ul>
