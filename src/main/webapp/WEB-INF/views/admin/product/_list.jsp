@@ -1,5 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
 
 
  <div class="card-content">
@@ -10,7 +11,6 @@
 				<th>HÌNH</th>
 				<th>TÊN SẢN PHẨM</th>
 				<th>GIÁ</th>
-				<th>SỐ LƯỢNG</th>
 				<th class="disabled-sorting text-right">HÀNH ĐỘNG</th>
 			</tr>
              </thead>
@@ -20,8 +20,7 @@
              <tr>
                  <td><img src="/static/images/products/${item.image}" style="width:60px; height: 60px;"></td>
                  <td>${item.name}</td>
-                 <td>${(item.unitPrice *100)/100} VNĐ</td>
-                 <td>${item.stock}</td>
+                 <td><fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> VNĐ </td>
             
                  <td class="td-actions text-right">
                    

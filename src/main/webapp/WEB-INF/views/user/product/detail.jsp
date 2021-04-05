@@ -1,5 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%><!-- nhúng thư viện core -->
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
 
 <!--  content -->
 <!-- catg header banner section -->
@@ -54,9 +55,10 @@
 									<h3>${prod.name}</h3>
 									<div class="aa-price-block">
 
-										<span class="aa-product-price gach"><del>${prod.unitPrice}
-												VNĐ</del></span> <span class="aa-product-price 3e_UQT"><strong>${prod.unitPrice * (100- prod.discount)/100}
-												VNĐ</strong></span> <span class="aa-product-price abc"><strong>${prod.discount}%</strong></span>
+										<span class="aa-product-price gach">
+										<del><fmt:formatNumber value="${prod.unitPrice}" minFractionDigits="0" /> VNĐ</del></span> 
+										<span class="aa-product-price 3e_UQT"><strong><fmt:formatNumber value="${prod.unitPrice * (100- prod.discount)/100}" minFractionDigits="0" /> VNĐ</strong></span> 
+										<span class="aa-product-price abc"><strong>${prod.discount}%</strong></span>
 
 										<p class="aa-product-avilability">
 											Tình trạng: còn hàng <span> </span>
@@ -85,68 +87,69 @@
 
 					<div id="id01" class="modal">
 
-						<form class="modal-content animate" action=""
-							method="post">
+						<form class="modal-content animate" action="" method="post">
 							<div class="imgcontainer">
 								<span
 									onclick="document.getElementById('id01').style.display='none'"
-									class="close" title="Close Modal">&times;</span>
-								<img src="/static/assets-a/assets/images/products/${prod.image}" alt="Avatar" class="avatar">
+									class="close" title="Close Modal">&times;</span> <img
+									src="/static/assets-a/assets/images/products/${prod.image}"
+									alt="Avatar" class="avatar">
 							</div>
 
 							<div class="container bscroll">
 								<ul class="parameterfull">
-									<li data-id="29" data-index="1"><label>Thông số kỹ thuật</label></li>
+									<li data-id="29" data-index="1"><label>Thông số kỹ
+											thuật</label></li>
 
 									<li data-id="6459" data-index="1" class="g6459 p233130 ">
 										<span>Màn hình: </span>
 										<div>
 											<a href="" target="_blank">${prod.manHinh}</a>
 										</div>
-									</li> 
-									
+									</li>
+
 									<li data-id="6459" data-index="1" class="g6459 p233130 ">
 										<span>Hệ điều hành:</span>
 										<div>
 											<a href="" target="_blank">${prod.heDieuHanh}</a>
 										</div>
 									</li>
-									
+
 									<li data-id="6459" data-index="1" class="g6459 p233130 ">
 										<span>Camera sau: </span>
 										<div>
 											<a href="" target="_blank">${prod.cameraSau}</a>
 										</div>
 									</li>
-									
+
 									<li data-id="6459" data-index="1" class="g6459 p233130 ">
 										<span>Camera trước:</span>
 										<div>
 											<a href="" target="_blank">${prod.cameraTruoc}</a>
 										</div>
 									</li>
-									
+
 									<li data-id="6459" data-index="1" class="g6459 p233130 ">
 										<span>CPU:</span>
 										<div>
 											<a href="" target="_blank">${prod.cpu}</a>
 										</div>
 									</li>
-									
+
 									<li data-id="6459" data-index="1" class="g6459 p233130 ">
 										<span>RAM:</span>
 										<div>
 											<a href="" target="_blank">${prod.ram}</a>
 										</div>
 									</li>
-									
+
 									<li data-id="6459" data-index="1" class="g6459 p233130 ">
 										<span>Bộ nhớ trong:</span>
 										<div>
 											<a href="" target="_blank">${prod.boNhoTrong}</a>
 										</div>
 									</li>
-									
+
 									<li data-id="6459" data-index="1" class="g6459 p233130 ">
 										<span>Dung lượng pin:</span>
 										<div>
@@ -254,9 +257,9 @@
 											<h4 class="aa-product-title">
 												<a href="/product/detail/${p.id}">${p.name}"</a>
 											</h4>
-											<span class="aa-product-price">$${p.unitPrice} <u>VNĐ</u></span><span
+											<span class="aa-product-price"><fmt:formatNumber value="${p.unitPrice}" minFractionDigits="0" /> VNĐ</span><span
 												class="aa-product-price"></span> <span
-												class="aa-product-price"><del>$${p.unitPrice}</del></span>
+												class="aa-product-price"><del><fmt:formatNumber value="${p.unitPrice}" minFractionDigits="0" /> VNĐ</del></span>
 
 										</figcaption>
 									</figure> <!-- product badge --> <span class="aa-badge aa-sale">${p.discount}%</span>
@@ -264,7 +267,6 @@
 							</c:forEach>
 							<!-- start single product item -->
 						</ul>
-
 					</div>
 
 

@@ -1,5 +1,7 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 
 <script src="http://js.nicedit.com/nicEdit-latest.js"></script>
 <script>bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
@@ -80,12 +82,15 @@
 				    </div>
 				    <div class="form-group col-sm-4">
 				        <label>ĐƠN GIÁ</label>
+				        <div><fmt:formatNumber value="${form.unitPrice}" minFractionDigits="0"/> VNĐ</div>
 				        <form:input path="unitPrice" class="form-control"/>
 				    </div>
 				    <div class="form-group col-sm-4">
 				        <label>RAM</label>
 				        <form:input path="ram" class="form-control"/>
 				    </div>
+				    
+				     
 				    
 			    </div>
 			   
@@ -111,10 +116,14 @@
 				    </div>
 			    </div>
 			<div class="row">
-			    <div class="form-group col-sm-12">
+			    <div class="form-group col-sm-8">
 			        <label>Description</label>
 			        <form:textarea path="description" class="form-control" rows="4"/>
-			    </div>		    
+			    </div>	
+			    <div class="form-group col-sm-4">
+				        <label>New ID</label>
+				        <form:input path="newEntity.id" class="form-control"/>
+				    </div>	    
  			</div>
     	
     	</div>
@@ -122,16 +131,16 @@
 </div>
 <div class="panel-footer">
 	        <form:button formaction="${ctrl}/create" class="btn btn-success" title="Create" disabled="${!empty form.id}">
-	        	<i class="fa fa-plus-circle"></i> Create
+	        	<i class="fa fa-plus-circle"></i> Tạo mới
 	        </form:button>
 	        <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Update" disabled="${empty form.id}">
-	        	<i class="fa fa-check-circle"></i> Update
+	        	<i class="fa fa-check-circle"></i> Cập nhập
 	        </form:button>
 	        <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Delete" disabled="${empty form.id}">
-	        	<i class="fa fa-trash-o"></i> Delete
+	        	<i class="fa fa-trash-o"></i> Xóa
 	        </form:button>
 	        <a href="${ctrl}/index" class="btn btn-info" title="Reset">
-	        	<i class="fa fa-refresh"></i> Reset
+	        	<i class="fa fa-refresh"></i> Tải lại
 	        </a>
     </div>
 </form:form>

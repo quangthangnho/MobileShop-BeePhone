@@ -5,6 +5,7 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%> <!-- nhúng thư viện core -->
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
 
    <!--  content -->
     <!-- catg header banner section -->
@@ -33,13 +34,6 @@
                         <div class="aa-product-catg-body">
                             <ul class="aa-product-catg">
                                 <!-- start single product item -->
-                                			<%
-                                            	double a = 13000000;
-                                            	String.format("%1$,.0f", a);
-                                            	out.print(">>>> " + String.format("%1$,.0f", a));
-                                            %>
-                                            
-                                           
                                 <p style="margin-left: 30px">Thông báo lỗi: Chưa có sản phẩm!</p>
                                 <c:forEach var="prod" items="${list}">
                                 <li>
@@ -49,10 +43,11 @@
                                         
                                         <figcaption>
                                             <h4 class="aa-product-title"><a href="/product/detail/${prod.id}">${prod.name}</a></h4>
-                                            <span class="aa-product-price">${(prod.unitPrice) * (100- prod.discount)/100} VNĐ</span><span
-                                                class="aa-product-price"></span>
-                                            
-                                            <span class="aa-product-price"><del>${(prod.unitPrice) } VNĐc</del></span>
+                                            <span class="aa-product-price"><fmt:formatNumber value="${(prod.unitPrice) * (100- prod.discount)/100}" minFractionDigits="0" /> VNĐ</span>
+
+                                            <span class="aa-product-price"></span> 
+                                            <span class="aa-product-price"><del> <fmt:formatNumber value="${prod.unitPrice}" minFractionDigits="0" /> VNĐ</del></span>
+                                            <div></div>
                                
                                				
                                         

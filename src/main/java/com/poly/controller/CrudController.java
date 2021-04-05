@@ -21,6 +21,7 @@ import com.poly.entity.ProductEntity;
 public class CrudController {
 	@Autowired
 	ProductDAO dao;
+	 
 	
 	@Autowired
 	OrderDAO odao;
@@ -105,5 +106,23 @@ public class CrudController {
 	public void delete() {
 		long id =15;
 		odao.deleteById(id);
+	}
+	
+	@ResponseBody
+	@RequestMapping("/crud/find-one")
+	public void findOne() {
+		try {
+			long a = 100; 
+			OrderEntity entity = odao.getOne(a);
+			if(entity == null) {
+				System.out.println("ko có id");
+			}
+			System.out.println(">>" + entity.getId() + ">>>>"+entity.getAccountOrder());
+			
+		} catch (Exception e) {
+			System.out.println("Exception >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" +e);
+			e.printStackTrace();
+		}
+		
 	}
 }

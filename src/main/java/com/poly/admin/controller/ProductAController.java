@@ -4,7 +4,10 @@ import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +21,8 @@ import com.poly.dao.CategoryDAO;
 import com.poly.dao.ProductDAO;
 import com.poly.entity.CategoryEntity;
 import com.poly.entity.ProductEntity;
+import com.poly.model.AccountModel;
+import com.poly.utils.SessionUtil;
 
 @Controller
 @RequestMapping("admin/product")
@@ -26,9 +31,16 @@ public class ProductAController {
 	ProductDAO pdao;
 	@Autowired
 	UploadService upload;
+	@Autowired
+	HttpServletRequest request;
 	
 	@RequestMapping("index")
 	public String index(Model model) {
+		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		if (accountModel != null) {
+			model.addAttribute("userLogin", accountModel.getUsername());
+			model.addAttribute("role", accountModel.getRole());
+		}
 		model.addAttribute("form", new ProductEntity());
 		model.addAttribute("list", pdao.findAll());
 		return "admin/product/index";
