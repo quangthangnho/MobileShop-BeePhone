@@ -124,9 +124,11 @@
 	    </tbody>
 	</table>
     <div class="panel-footer">
+    <c:if test="item.status <= 0">
 	    <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Update" disabled="${empty form.id}">
 	    	<i class="fa fa-check-circle"></i> Cập nhập
 	    </form:button>
+	 </c:if>
 	    <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Delete" disabled="${empty form.id}">
 	    	<i class="fa fa-trash-o"></i> Xóa
 	    </form:button>
