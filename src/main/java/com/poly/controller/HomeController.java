@@ -27,6 +27,9 @@ import com.poly.utils.SessionUtil;
 public class HomeController {
 	
 	@Autowired
+	ProductDAO productDAO;
+	
+	@Autowired
 	CategoryDAO categoryDAO;
 	
 	@Autowired
@@ -47,9 +50,29 @@ private final IAccountService accountService;
 			model.addAttribute("role", accountModel.getRole());
 		}
 		
-		List<ProductModel> pr = productService.listProduct(1l);
-		model.addAttribute("listIphone", pr);
-		System.out.println(""+pr.get(0).getImage());
+		// get danh sach dien thoai ra index.
+		List<ProductModel> listIphone = productService.listProduct(1l);
+		List<ProductModel> listSamsung = productService.listProduct(2l);
+		List<ProductModel> listXiaomi = productService.listProduct(3l);
+		List<ProductModel> listOppo = productService.listProduct(4l);
+		List<ProductModel> listHuawei = productService.listProduct(5l);
+		model.addAttribute("listIphone", listIphone);
+		model.addAttribute("listSamsung", listSamsung);
+		model.addAttribute("listXiaomi", listXiaomi);
+		model.addAttribute("listOppo", listOppo);
+		model.addAttribute("listHuawei", listHuawei);
+		
+		/////// list san pham moi
+		List<ProductModel> listSPM = productService.listProductOderByCreateDate();
+		model.addAttribute("listSPM", listSPM);
+		
+		// LIST SP co nhieu luot xem
+		List<ProductModel> listProduct_View = productService.listProductOderByCount();
+		model.addAttribute("listProduct_View", listProduct_View);
+		
+		// list sp giam gia
+		List<ProductModel> listProduct_Discount = productService.listProductOderByDiscount();
+		model.addAttribute("listProduct_Discount", listProduct_Discount);
 		return "home/index";
 	}
 
