@@ -34,17 +34,24 @@ public class RegistrationController {
 	@PostMapping("/registration")
 	public String regis(Model model, @ModelAttribute("formDangKi") AccountModel accountModel ,HttpServletRequest request) {
 		String message = "Tên tài khoản hoặc email đã tồn tại";
+		String capcha = request.getParameter("g-recaptcha-response");
 		if(accountService.findByUsername(accountModel) == null && accountService.findByEmail(accountModel) == null) {
-			AccountModel acModel =  accountService.save(accountModel);	
-			try {
-				String activateUrl = request.getRequestURL().toString().replace("registration", "activate/" + acModel.getId());
-				String to = acModel.getEmail();
-				String subject = "Cửa hàng điện thoại BeePhone - Kích hoạt tài khoản";
-				String body = "Click to <a href='"+activateUrl+"'>Activate</a> your account!";
-				mailer.send(to, subject, body);
-			} catch (Exception e) {
-				e.printStackTrace();
-				message = "Lỗi, không gửi được email kích hoạt!";			
+			if(capcha.length() > 1) {
+				AccountModel acModel =  accountService.save(accountModel);	
+				try {
+					String activateUrl = request.getRequestURL().toString().replace("registration", "activate/" + acModel.getId());
+					String to = acModel.getEmail();
+					String subject = "Cửa hàng điện thoại BeePhone - Kích hoạt tài khoản";
+					String body = "Click to <a href='"+activateUrl+"'>Activate</a> your account!";
+					mailer.send(to, subject, body);
+				} catch (Exception e) {
+					e.printStackTrace();
+					message = "Lỗi, không gửi được email kích hoạt!";			
+				}
+			}else {
+				message = "Vui lòng xác nhận capcha!";
+				model.addAttribute("message", message);
+				return "account/registration";
 			}
 		}else {
 			model.addAttribute("message", message);

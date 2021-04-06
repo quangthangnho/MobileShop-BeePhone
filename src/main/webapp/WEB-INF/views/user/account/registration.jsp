@@ -49,6 +49,8 @@
 				    <input type="password" class="form-control" id="exampleInputPassword1" name="password" required="required">
 				    <input type="hidden" name="role" value="USER" />
 				  </div>
+				  <!-- reCAPTCHA -->
+     			 <div class="g-recaptcha" data-sitekey="6LfeHJ4aAAAAAAOdv9e8olz9N9LSMvjgCpDKn8vg"></div>
 				  <button type="submit" class="btn btn-primary">Submit</button>
 				  <c:if test="${!empty message}"><p>${message}</p></c:if>
 				</form:form>

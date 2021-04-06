@@ -58,6 +58,7 @@
                    <c:if test="${empty userLogin}">
                   	<li class="hidden-xs"><a href="/account/registration">Đăng ký</a></li>
                   <li><a href="/account/login">Đăng nhập</a></li>
+                  <li><a href="/account/forgotpassword">Quên mật khẩu</a></li>
                   </c:if>
                   
                   <!--  data-toggle="modal" data-target="#login-modal" -->
