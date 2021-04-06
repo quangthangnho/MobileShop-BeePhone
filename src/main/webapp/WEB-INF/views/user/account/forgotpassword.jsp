@@ -30,11 +30,13 @@
             <div class="col-md-5 col-md-push-2">
               <div class="aa-myaccount-register">                 
                <h4>Quên mật khẩu</h4>
-               <form:form action="/account/forgot" method="post" modelAttribute="formForgot">
+               <form:form action="/account/forgot" method="get" modelAttribute="formForgot">
                <div class="form-group">
 				    <label for="username">Email</label>
 				    <input type="email" class="form-control" id="email" name="email" required="required">
-				  </div>
+				  </div>			  
+				<!-- reCAPTCHA -->
+     			 <div class="g-recaptcha" data-sitekey="6LfeHJ4aAAAAAAOdv9e8olz9N9LSMvjgCpDKn8vg"></div>
 				  <button type="submit" class="btn btn-primary">Submit</button>
 				  <c:if test="${!empty message}"><p>${message}</p></c:if>
 				</form:form>
