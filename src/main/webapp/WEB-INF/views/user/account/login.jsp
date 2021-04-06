@@ -30,7 +30,7 @@
               <div class="aa-myaccount-login">
               <h4>Đăng nhập</h4>
                <form:form class="aa-login-form" name="loginform"  action="/account/login" method="post" modelAttribute="formLogin"> 
-                <label for="">Username<span>*</span></label>
+                <label for="">Tài khoản<span>*</span></label>
                  <input type="text"  name="username">
                  <label for="">Mật khẩu<span>*</span></label>
                   <input type="password"  name="password">

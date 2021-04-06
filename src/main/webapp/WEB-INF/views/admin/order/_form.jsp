@@ -42,12 +42,12 @@
 		    	<div class="row">
 			
 				    <div class="form-group col-sm-6">
-				        <label>Số điện thoại</label>
+				        <label>SỐ ĐIỆN THOẠIS</label>
 				       	 <div class="form-control">${form.phone}</div>
 				       	 <form:hidden path="phone"/>
 				    </div>
 				    <div class="form-group col-sm-6">
-				        <label>Người nhận</label>
+				        <label>NGƯỜI NHẬN</label>
 				       	 <div class="form-control">${form.receiver}</div>
 				       	 <form:hidden path="receiver"/>
 				    </div>
