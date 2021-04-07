@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.poly.dao.CategoryDAO;
 
 import com.poly.entity.CategoryEntity;
+import com.poly.entity.OrderEntity;
 import com.poly.model.AccountModel;
 import com.poly.utils.SessionUtil;
 
@@ -38,7 +39,7 @@ public class CategoryAController {
 			model.addAttribute("role", accountModel.getRole());
 		}
 		model.addAttribute("form", new CategoryEntity());
-		model.addAttribute("list", cdao.findAll());
+		model.addAttribute("list", cdao.fillAllStatus1());
 		return "admin/category/index";
 	}
 	
@@ -46,9 +47,18 @@ public class CategoryAController {
 	public String edit(Model model, @PathVariable("id") long id) {
 		
 		model.addAttribute("form", cdao.getOne(id));
-		model.addAttribute("list", cdao.findAll());
+		model.addAttribute("list", cdao.fillAllStatus1());
 		return "admin/category/index";
 	}
+	
+	/*thung rac*/
+	@RequestMapping("_thungRac")//@RequestMapping phần riêng
+	public String index1(Model model) {
+		model.addAttribute("form", new CategoryEntity());
+		model.addAttribute("liststatus2", cdao.fillAllStatus2());
+		return "admin/category/_thungRac";
+	}
+	/**/
 	
 	@RequestMapping("create")
 	public String create(Model model, @ModelAttribute("form") CategoryEntity entity, HttpServletRequest request,
@@ -66,12 +76,13 @@ public class CategoryAController {
 		} catch (Exception e) {
 			model.addAttribute("message", "Tạo mới loại hàng thất bại!");
 		}
-		model.addAttribute("list", cdao.findAll());
+		model.addAttribute("list", cdao.fillAllStatus1());
 		return "admin/category/index";
 	}
 	
 	@RequestMapping("update")
 	public String update(Model model, @ModelAttribute("form") CategoryEntity entity) {
+		entity.setStatus(1);
 		if(!cdao.existsById(entity.getId())) { 
 			model.addAttribute("message", "Loại hàng không tồn tại!");
 		}
@@ -79,22 +90,24 @@ public class CategoryAController {
 			cdao.save(entity);
 			model.addAttribute("message", "Cập nhật loại hàng thành công!");
 		}
-		model.addAttribute("list", cdao.findAll());
+		model.addAttribute("list", cdao.fillAllStatus1());
 		return "admin/category/index";
 	}
 	
+
 	@RequestMapping("delete")
 	public String delete(Model model, @ModelAttribute("form") CategoryEntity entity) {
+		entity.setStatus(2);
 		Optional<CategoryEntity> option = cdao.findById(entity.getId());
 		if(!option.isPresent()) {
 			model.addAttribute("message", "Loại hàng không tồn tại!");
 		}
 		else {
-			cdao.delete(option.get());
+			cdao.save(entity);
 			model.addAttribute("form", new CategoryEntity());
 			model.addAttribute("message", "Xóa loại hàng thành công!");
 		}
-		model.addAttribute("list", cdao.findAll());
+		model.addAttribute("list", cdao.fillAllStatus1());
 		return "admin/category/index";
 	}
 	

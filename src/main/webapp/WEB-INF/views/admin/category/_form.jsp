@@ -21,9 +21,6 @@
 	        <label>TÊN LOẠI HÀNG</label>
 	        <form:input path="name" class="form-control"/>
 	    </div>
-	    <div class="form-group">
-	        <form:input path="status" type="hidden" class="form-control"/>
-	    </div>
 
     </div>
     <div class="panel-footer">
@@ -39,6 +36,10 @@
 	        <a href="${ctrl}/index" class="btn btn-info" title="Reset">
 	        	<i class="fa fa-refresh"></i> Tải lại
 	        </a>
+	        
+	        <form:button formaction="${ctrl}/update" class="btn btn-success" title="Update" disabled="${empty form.id}">
+	        	<i class="fa fa-check-circle"></i> Lấy lại
+	        </form:button>
     </div>
 </div>
 </form:form>

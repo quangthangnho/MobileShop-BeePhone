@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,8 @@ import com.poly.dao.ProductDAO;
 import com.poly.entity.OrderDetailEntity;
 import com.poly.entity.OrderEntity;
 import com.poly.entity.ProductEntity;
+
+import ch.qos.logback.core.status.Status;
 
 @Controller
 public class CrudController {
@@ -92,14 +95,24 @@ public class CrudController {
 //		dao.save(entity);
 //	}
 //	
-	@ResponseBody
-	@RequestMapping("/crud/update")
-	public void update() {
-		long a =1;
-		OrderEntity entity = odao.getOne(a);
-		entity.setAddress("139 Esch Junction 123");
-		odao.save(entity);
-	}
+	/*count*/
+//	@RequestMapping("/crud/count")
+//	public void count() {
+//		OrderEntity entity = odao.AcountDangGiao();
+//		System.out.println();
+//
+//	}
+	/**/
+	
+	
+//	@ResponseBody
+//	@RequestMapping("/crud/update")
+//	public void update() {
+//		long a =1;
+//		OrderEntity entity = odao.getOne(a);
+//		entity.setAddress("139 Esch Junction 123");
+//		odao.save(entity);
+//	}
 //	
 	@ResponseBody
 	@RequestMapping("/crud/delete")

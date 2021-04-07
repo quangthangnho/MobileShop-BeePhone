@@ -2,6 +2,7 @@ package com.poly.dao;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -31,6 +32,12 @@ public interface OrderDAO extends JpaRepository<OrderEntity, Long> {
 	List<OrderEntity> Adahuy();
 	
 	
+	/*A count */
+//	@Query("SELECT COUNT(o) FROM OrderEntity o where o.status = 2")
+//	OrderEntity AcountDangGiao();
+	
+	
+	
 	//user
 	@Query("SELECT o FROM OrderEntity o WHERE o.accountOrder.id=:uid ORDER BY o.orderDate DESC")
 	List<OrderEntity> findByUsername(@Param("uid") Long id);
@@ -49,5 +56,7 @@ public interface OrderDAO extends JpaRepository<OrderEntity, Long> {
 	
 	@Query("SELECT o FROM OrderEntity o WHERE  o.status=-1 and o.accountOrder.id=:uid ORDER BY o.orderDate DESC")
 	List<OrderEntity> daHuy(@Param("uid") Long id);
+	
+
 
 }

@@ -42,7 +42,7 @@
 		    	<div class="row">
 			
 				    <div class="form-group col-sm-6">
-				        <label>SỐ ĐIỆN THOẠIS</label>
+				        <label>SỐ ĐIỆN THOẠI</label>
 				       	 <div class="form-control">${form.phone}</div>
 				       	 <form:hidden path="phone"/>
 				    </div>
