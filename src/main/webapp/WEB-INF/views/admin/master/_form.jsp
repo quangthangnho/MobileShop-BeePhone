@@ -87,12 +87,12 @@
 		<c:choose>
 			<c:when test="${empty indexForm.getId()}">
 			<button formaction="/admin/master/create" class="btn btn-success" title="Create">
-			<i class="fa fa-plus-circle"></i> Create
+			<i class="fa fa-plus-circle"></i> Tạo mới
 		</button>
 			</c:when>
 			<c:when test="${!empty indexForm.getId()}">
 			<button formaction="/admin/master/create" class="btn btn-success" title="Create" disabled="disabled">
-			<i class="fa fa-plus-circle"></i> Create
+			<i class="fa fa-plus-circle"></i> Tạo mới
 		</button>
 			</c:when>
 		</c:choose>
@@ -100,13 +100,13 @@
 		<c:choose>
 			<c:when test="${empty indexForm.getId()}">
 			<button type="submit" class="btn btn-primary" title="Update" disabled="disabled">
-			<i class="fa fa-check-circle"></i> Update
+			<i class="fa fa-check-circle"></i> Cập nhập
 		</button>
 		</button>
 			</c:when>
 			<c:when test="${!empty indexForm.getId()}">
 			<button type="submit" class="btn btn-primary" title="Update">
-			<i class="fa fa-check-circle"></i> Update
+			<i class="fa fa-check-circle"></i> Cập nhập
 		</button>
 		</button>
 			</c:when>
@@ -114,10 +114,10 @@
 
 		
 		<button formaction="/admin/master/delete" class="btn btn-danger" title="Delete">
-			<i class="fa fa-trash-o"></i> Delete 
+			<i class="fa fa-trash-o"></i> Xóa 
 		</button>
 		<button> <a href="/admin/master/index" class="btn btn-info" title="Reset"> 
-				<i class="fa fa-refresh"></i> Reset
+				<i class="fa fa-refresh"></i> Tải lại
 				</a> 
 		</button>
 	</div>

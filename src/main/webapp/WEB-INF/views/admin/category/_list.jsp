@@ -1,7 +1,7 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
-<h4 class="card-title">Hiển thị chuyên mục</h4>
+<h4 class="card-title">Danh sách loại hàng</h4>
 <div class="material-datatables">
 	<table id="datatables"
 		class="table table-striped table-no-bordered table-hover"
