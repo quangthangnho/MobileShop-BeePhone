@@ -20,10 +20,10 @@
                 <div class="tab-pane fade in active" id="sanphammoi">
                   <ul class="aa-product-catg aa-popular-slider">
                     <!-- start single product item -->
-                    <c:forEach items="${listSPM}" var="element" begin="0" end="7">
+                    <c:forEach items="${listSPM}" var="element" begin="0" end="11">
                     <li>
                       <figure>
-                        <a class="aa-product-img" href="/product/-detail/${element.id}"><img src="/static/images/products/${element.image}"
+                        <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
                               alt="polo shirt img"></a>
                         <%@include file="_buttons.jsp"%>
                         <figcaption>

@@ -42,7 +42,7 @@ public class NewEntity  implements Serializable{
 	@Column(nullable = false)
 	private String image;
 
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String content;
 	
 	@Column(columnDefinition = "int default 1")

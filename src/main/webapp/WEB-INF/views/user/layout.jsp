@@ -104,7 +104,6 @@
 	})();
 	</script>
 
-	
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="/static/assets/js/bootstrap.js"></script>  
   <!-- SmartMenus jQuery plugin -->
@@ -121,11 +120,29 @@
   <!-- Price picker slider -->
   <script type="text/javascript" src="/static/assets/js/nouislider.js"></script>
   <script type="text/javascript" src="/static/assets/js/validate.js"></script>
+  
   <!-- Custom js -->
   <script type="text/javascript" src="/static/assets/js/custom.js"></script> 
+  <script type="text/javascript" src="/static/assets/js/jquery.twbsPagination.min.js"></script>
 
 <!-- reCAPTCHA with Auto language -->
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+var totalPages = ${pageNew.getTotalPages()};
+var currentPage = ${pageNew.getNumber()}+1;
+$('#pagination').twbsPagination({
+	totalPages: totalPages,
+	visiblePages: 3,
+	startPage: currentPage,
+	onPageClick: function (event, page) {
+		if (currentPage != page) {
+			$('#page').val(page);
+			$('#formSubmit').submit();
+		}
+	}
+});
+
+  </script>
 </body>
 
 </html>
