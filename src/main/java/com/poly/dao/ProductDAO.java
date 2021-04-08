@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.poly.entity.CategoryEntity;
 import com.poly.entity.ProductEntity;
 
 public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRepository<kiểu thực thể, kiểu dữ liệu khóa chính >
@@ -27,4 +28,11 @@ public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRep
 	@Query("SELECT p from ProductEntity p order by p.discount desc")
 	List<ProductEntity> listProductOrderByDiscount();
 
+	
+	/*status*/
+	@Query("SELECT p FROM ProductEntity p WHERE p.status = 1 ")
+	List<ProductEntity> fillAllProductStatus1();
+	
+	@Query("SELECT p FROM ProductEntity p WHERE p.status = 2 ")
+	List<ProductEntity> fillAllProductStatus2();
 }

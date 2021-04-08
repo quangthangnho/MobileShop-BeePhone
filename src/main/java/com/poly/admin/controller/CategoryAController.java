@@ -39,7 +39,7 @@ public class CategoryAController {
 			model.addAttribute("role", accountModel.getRole());
 		}
 		model.addAttribute("form", new CategoryEntity());
-		model.addAttribute("list", cdao.fillAllStatus1());
+		model.addAttribute("list", cdao.fillAllCategoryStatus1());
 		return "admin/category/index";
 	}
 	
@@ -47,7 +47,7 @@ public class CategoryAController {
 	public String edit(Model model, @PathVariable("id") long id) {
 		
 		model.addAttribute("form", cdao.getOne(id));
-		model.addAttribute("list", cdao.fillAllStatus1());
+		model.addAttribute("list", cdao.fillAllCategoryStatus1());
 		return "admin/category/index";
 	}
 	
@@ -55,8 +55,21 @@ public class CategoryAController {
 	@RequestMapping("_thungRac")//@RequestMapping phần riêng
 	public String index1(Model model) {
 		model.addAttribute("form", new CategoryEntity());
-		model.addAttribute("liststatus2", cdao.fillAllStatus2());
+		model.addAttribute("liststatus2", cdao.fillAllCategoryStatus2());
 		return "admin/category/_thungRac";
+	}
+	@RequestMapping("update1")
+	public String update1(Model model, @ModelAttribute("form") CategoryEntity entity) {
+		entity.setStatus(1);
+		if(!cdao.existsById(entity.getId())) { 
+			model.addAttribute("message", "Loại hàng không tồn tại!");
+		}
+		else {
+			cdao.save(entity);
+			model.addAttribute("message", "Lấy lại loại hàng thành công!");
+		}
+		model.addAttribute("list", cdao.fillAllCategoryStatus1());
+		return "admin/category/index";
 	}
 	/**/
 	
@@ -76,13 +89,12 @@ public class CategoryAController {
 		} catch (Exception e) {
 			model.addAttribute("message", "Tạo mới loại hàng thất bại!");
 		}
-		model.addAttribute("list", cdao.fillAllStatus1());
+		model.addAttribute("list", cdao.fillAllCategoryStatus1());
 		return "admin/category/index";
 	}
 	
 	@RequestMapping("update")
 	public String update(Model model, @ModelAttribute("form") CategoryEntity entity) {
-		entity.setStatus(1);
 		if(!cdao.existsById(entity.getId())) { 
 			model.addAttribute("message", "Loại hàng không tồn tại!");
 		}
@@ -90,7 +102,7 @@ public class CategoryAController {
 			cdao.save(entity);
 			model.addAttribute("message", "Cập nhật loại hàng thành công!");
 		}
-		model.addAttribute("list", cdao.fillAllStatus1());
+		model.addAttribute("list", cdao.fillAllCategoryStatus1());
 		return "admin/category/index";
 	}
 	
@@ -107,7 +119,7 @@ public class CategoryAController {
 			model.addAttribute("form", new CategoryEntity());
 			model.addAttribute("message", "Xóa loại hàng thành công!");
 		}
-		model.addAttribute("list", cdao.fillAllStatus1());
+		model.addAttribute("list", cdao.fillAllCategoryStatus1());
 		return "admin/category/index";
 	}
 	

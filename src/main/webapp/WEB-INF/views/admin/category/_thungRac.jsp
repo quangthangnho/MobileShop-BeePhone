@@ -2,12 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
 <ul class="nav nav-tabs" style="font-variant: small-caps;">
-	<li class="active">
+	<li >
 		<a data-toggle="" href="/admin/category/index">
 			<span class="fa fa-list"></span> Cập nhật
 		</a>
-	</li>
-	<li>
+	</li >
+	<li class="active">
 		<a data-toggle="" href="/admin/category/_thungRac">
 			<span class="fa fa-pencil-square-o"></span> Thùng rác
 		</a>

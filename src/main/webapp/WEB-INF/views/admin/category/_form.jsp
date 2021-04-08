@@ -37,7 +37,7 @@
 	        	<i class="fa fa-refresh"></i> Tải lại
 	        </a>
 	        
-	        <form:button formaction="${ctrl}/update" class="btn btn-success" title="Update" disabled="${empty form.id}">
+	        <form:button formaction="${ctrl}/update1" class="btn btn-success" title="Lấy lại" disabled="${empty form.id}">
 	        	<i class="fa fa-check-circle"></i> Lấy lại
 	        </form:button>
     </div>
