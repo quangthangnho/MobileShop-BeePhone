@@ -297,7 +297,7 @@
   <!-- / Products section -->
 
   <!-- banner section -->
-  <section id="aa-banner"> họp
+  <section id="aa-banner">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -414,22 +414,27 @@
             <h2>TIN TỨC</h2>
             <div class="row">
               <!-- single latest blog -->
-
-              <div class="col-md-4 col-sm-4">
+				<c:forEach items="${listNew}" var="element" begin="0" end="5">
+				<div class="col-md-4 col-sm-4">
                 <div class="aa-latest-blog-single">
                   <figure class="aa-blog-img">
-                    <a href="new-detail"><img src="/static/assets/images/news/iphone-12-pro-va-iphone-12-pro-max-ra-mat-xung-danh-iphone-cao-cap-nhat-6.jpg" alt="Tin tức title"></a>
+                    <a href="new-detail">
+                    <img src="/static/assets/images/news/iphone-12-pro-va-iphone-12-pro-max-ra-mat-xung-danh-iphone-cao-cap-nhat-6.jpg" alt="Tin tức title"></a>
                     <figcaption class="aa-blog-img-caption">
-                      <span href="new-detail"><i class="fa fa-clock-o"></i>created</span>
+                      <span href="new-detail"><i class="fa fa-clock-o"></i>${element.startDate}</span>
                     </figcaption>
                   </figure>
                   <div class="aa-blog-info">
-                    <h3 class="aa-blog-title"><a href="new-detaill">title</a></h3>
-                    <p class="desc-boardnews">content</p>
+                    <h3 class="aa-blog-title" style="height: 30px;"><a href="new-detaill">${element.title}</a></h3>
+                    <p class="desc-boardnews" style="height: 50px;">${element.content}</p>
                     <a href="chiTietTinTuc.html" class="aa-read-mor-btn">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
                   </div>
                 </div>
               </div>
+				</c:forEach>
+              
+              
+              
 
             </div>
           </div>
