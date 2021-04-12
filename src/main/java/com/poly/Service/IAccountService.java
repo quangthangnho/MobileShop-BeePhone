@@ -16,11 +16,8 @@ public interface IAccountService {
     
     AccountModel findByUsername(AccountModel accountModel);
     
-
     AccountModel findByEmail(AccountModel accountModel);
     
     AccountModel findByUsernameAndPassword(LoginModel loginModel);
 
-    
-    
 }

@@ -19,8 +19,6 @@ import com.poly.entity.OrderEntity;
 import com.poly.model.AccountModel;
 import com.poly.utils.SessionUtil;
 
-
-
 @Controller
 @RequestMapping("admin/category") //@RequestMapping phần chung g
 public class CategoryAController {
@@ -28,8 +26,6 @@ public class CategoryAController {
 	CategoryDAO cdao;
 	@Autowired
 	HttpServletRequest request;
-	
-	
 	
 	@RequestMapping("index")//@RequestMapping phần riêng
 	public String index(Model model) {
@@ -51,38 +47,20 @@ public class CategoryAController {
 		return "admin/category/index";
 	}
 	
-	/*thung rac*/
-	@RequestMapping("_thungRac")//@RequestMapping phần riêng
-	public String index1(Model model) {
-		model.addAttribute("form", new CategoryEntity());
-		model.addAttribute("liststatus2", cdao.fillAllCategoryStatus2());
-		return "admin/category/_thungRac";
-	}
-	@RequestMapping("update1")
-	public String update1(Model model, @ModelAttribute("form") CategoryEntity entity) {
-		entity.setStatus(1);
-		if(!cdao.existsById(entity.getId())) { 
-			model.addAttribute("message", "Loại hàng không tồn tại!");
-		}
-		else {
-			cdao.save(entity);
-			model.addAttribute("message", "Lấy lại loại hàng thành công!");
-		}
-		model.addAttribute("list", cdao.fillAllCategoryStatus1());
-		return "admin/category/index";
-	}
-	/**/
+
 	
 	@RequestMapping("create")
-	public String create(Model model, @ModelAttribute("form") CategoryEntity entity, HttpServletRequest request,
+	public String create(Model model,  @ModelAttribute("form") CategoryEntity entity, HttpServletRequest request,
 			HttpServletResponse response) { 
 		try {
-			
+			entity.setStatus(1);
 			cdao.save(entity);
 			if(entity.getName().length() == 0 ) {
 				model.addAttribute("form", new CategoryEntity());
 				model.addAttribute("message", "Tên loại hàng không được để trống!");
+			
 			}else {
+				
 				model.addAttribute("message", "Tạo mới loại hàng thành công!");
 			}
 			
@@ -95,10 +73,12 @@ public class CategoryAController {
 	
 	@RequestMapping("update")
 	public String update(Model model, @ModelAttribute("form") CategoryEntity entity) {
+		
 		if(!cdao.existsById(entity.getId())) { 
 			model.addAttribute("message", "Loại hàng không tồn tại!");
 		}
 		else {
+			entity.setStatus(1);
 			cdao.save(entity);
 			model.addAttribute("message", "Cập nhật loại hàng thành công!");
 		}
@@ -109,12 +89,12 @@ public class CategoryAController {
 
 	@RequestMapping("delete")
 	public String delete(Model model, @ModelAttribute("form") CategoryEntity entity) {
-		entity.setStatus(2);
 		Optional<CategoryEntity> option = cdao.findById(entity.getId());
 		if(!option.isPresent()) {
 			model.addAttribute("message", "Loại hàng không tồn tại!");
 		}
 		else {
+			entity.setStatus(2);
 			cdao.save(entity);
 			model.addAttribute("form", new CategoryEntity());
 			model.addAttribute("message", "Xóa loại hàng thành công!");
@@ -123,4 +103,50 @@ public class CategoryAController {
 		return "admin/category/index";
 	}
 	
+
+	
+	/*thung rac*/
+	@RequestMapping("_thungRac")//@RequestMapping phần riêng
+	public String index1(Model model) {
+		model.addAttribute("form", new CategoryEntity());
+		model.addAttribute("listscategorytatus2", cdao.fillAllCategoryStatus2());
+		return "admin/category/_thungRac";
+	}
+	
+	@RequestMapping("laylai") //ok
+	public String laylai(Model model, @ModelAttribute("form") CategoryEntity entity) {
+		
+		if(!cdao.existsById(entity.getId())) { 
+			model.addAttribute("message", "Loại hàng không tồn tại!");
+		}
+		else {
+			entity.setStatus(1);
+			cdao.save(entity);
+			model.addAttribute("message", "Lấy lại loại hàng thành công!");
+		}
+		model.addAttribute("list", cdao.fillAllCategoryStatus1());
+		return "admin/category/index";
+	}
+	/**/
+	
+	/*lấy lại product ở thùng rác http://localhost:8086/admin/category/_thungRac*/
+	
+	/*xóa thùng product ở thùng rác  http://localhost:8086/admin/category/_thungRac*/
+	@RequestMapping("/{id}")
+	public String delete1(Model model, @PathVariable("id") long id, CategoryEntity entity) {
+		Optional<CategoryEntity> option = cdao.findById(entity.getId());
+		if(!option.isPresent()) {
+			model.addAttribute("message", "Loại hàng không tồn tại!");
+		}
+		else {
+			model.addAttribute(cdao.getOne(id));
+			cdao.delete(option.get());
+			model.addAttribute("message", "Xóa loại hàng thành công!");
+		}
+		model.addAttribute("listscategorytatus2", cdao.fillAllCategoryStatus2());
+		return "admin/category/_thungRac";
+	}
+	
+	
+
 }

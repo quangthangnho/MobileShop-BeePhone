@@ -29,7 +29,6 @@ public class AccountAdminController {
         this.accountService = accountService;
     }
 
-
     @GetMapping("/index")
     public String homeAdmin(Model model) {
         model.addAttribute("listAdmin", accountService.findAllByRole("ADMIN"));
@@ -44,7 +43,6 @@ public class AccountAdminController {
         return "admin/master/index";
     }
 
-    
     @PostMapping("/detail")
     public String updateAdmin(Model model, @ModelAttribute("form") AccountModel accountModel
     		, @RequestParam("photo_file") MultipartFile imageFile) {
@@ -57,9 +55,7 @@ public class AccountAdminController {
         	accountService.save(accountModel);
         	
         	model.addAttribute("listAdmin", accountService.findAllByRole("ADMIN"));
-    		return "admin/master/index";
-
-    	
+    		return "admin/master/index"; 	
     }
     
     @PostMapping("/delete")

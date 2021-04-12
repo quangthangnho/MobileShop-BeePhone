@@ -13,7 +13,13 @@
 		</a>
 	</li>
 </ul>
+
 <h4 class="card-title">Danh sách loại hàng đã xóa</h4>
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <div class="panel-title">${message}</div>
+    </div>
+</div>
 <div class="material-datatables">
 	<table id="datatables"
 		class="table table-striped table-no-bordered table-hover"
@@ -27,13 +33,16 @@
 		</thead>
 
 		<tbody>
-			<c:forEach var="item" items="${liststatus2}">
+			<c:forEach var="item" items="${listscategorytatus2}">
 				<tr>
 					<td>${item.id}</td>
 					<td>${item.name}</td>
 					<td class="td-actions text-right">
 						<a href="edit/${item.id}" class="btn btn-sm btn-warning" title="Lấy lại">
-			    			<i class="fa fa-pencil">Lấy lại</i>
+			    			<i class="fa fa-pencil"></i>
+			    		</a>
+			    		<a href="${item.id}" class="btn btn-sm btn-danger" title="Delete">
+			    			<i class="fa fa-trash-o"></i>
 			    		</a>
 					</td>
 				</tr>

@@ -30,6 +30,8 @@ public class ProductAController {
 	@Autowired
 	ProductDAO pdao;
 	@Autowired
+	CategoryDAO cdao;
+	@Autowired
 	UploadService upload;
 	@Autowired
 	HttpServletRequest request;
@@ -146,8 +148,7 @@ public class ProductAController {
 		return "admin/product/index";
 	}
 
-	@Autowired
-	CategoryDAO cdao;
+
 	@ModelAttribute("categories")
 	public List<CategoryEntity> getCategories(){
 		return cdao.findAll();// trả về toàn bộ loại
