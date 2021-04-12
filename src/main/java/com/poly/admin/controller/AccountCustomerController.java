@@ -38,7 +38,7 @@ public class AccountCustomerController {
 	}
 	
 	@GetMapping("/detail")
-    public String adminDetail(Model model, @RequestParam("id") Long id){
+    public String customerDetail(Model model, @RequestParam("id") Long id){
        model.addAttribute("indexForm", accountService.findById(id));
         model.addAttribute("listCustomer", accountService.findAllByRole("USER"));
         return "admin/customer/index";
@@ -46,7 +46,7 @@ public class AccountCustomerController {
 
     
     @PostMapping("/detail")
-    public String updateAdmin(Model model, @ModelAttribute("form") AccountModel accountModel
+    public String updateCustomer(Model model, @ModelAttribute("form") AccountModel accountModel
     		, @RequestParam("photo_file") MultipartFile imageFile) {
 		
 		File file = upload.save(imageFile, "/static/images/account/");
@@ -62,7 +62,7 @@ public class AccountCustomerController {
     }
     
     @PostMapping("/delete")
-    public String deleteAdmin(Model model, @ModelAttribute("form") AccountModel accountModel) {
+    public String deleteCustomer(Model model, @ModelAttribute("form") AccountModel accountModel) {
     	try {
     		accountService.delete(accountModel);
     		model.addAttribute("message", "Xoá khách hàng thành công!");
@@ -74,7 +74,7 @@ public class AccountCustomerController {
     }
     
     @PostMapping("/create")
-    public String createAdmin(Model model, @ModelAttribute("form") AccountModel accountModel,
+    public String createCustomer(Model model, @ModelAttribute("form") AccountModel accountModel,
     		@RequestParam("photo_file") MultipartFile imageFile) {
  	
 		File file = upload.save(imageFile, "/static/images/account/");

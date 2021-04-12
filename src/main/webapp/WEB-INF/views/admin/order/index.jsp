@@ -5,7 +5,7 @@
 	<div class="aa-product-details-bottom">
 	<ul class="nav nav-tabs aa-products-tab color" id="" style="background: #6600cc">
 		<li class="">
-			<a href="/admin/order/choxacnhan" data-toggle="" class="">CHỜ XÁC NHẬN</a>
+			<a href="/admin/order/choxacnhan" data-toggle="" class="">CHỜ XÁC NHẬN ()</a>
 		</li>	
 		<li>
 			<a href="/admin/order/cholayhang" data-toggle="">CHỜ LẤY HÀNG</a>

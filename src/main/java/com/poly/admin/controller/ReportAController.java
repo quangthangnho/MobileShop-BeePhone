@@ -21,13 +21,13 @@ import com.poly.utils.SessionUtil;
 @Controller
 public class ReportAController {
 	@Autowired
-	ReportDAO dao;
+	ReportDAO rdao;
 	@Autowired
 	HttpServletRequest request;
 	
 	//quản lý admin
 	@RequestMapping("/admin/report/index")
-	public String admin(Model model) {
+	public String index(Model model) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		if (accountModel != null) {
 			model.addAttribute("userLogin", accountModel.getUsername());
@@ -38,19 +38,19 @@ public class ReportAController {
 	
 	@GetMapping("/admin/report/inventory-by-category")
 	public String inventoryByCategory(Model model){
-		model.addAttribute("items", dao.inventoryByCategory());
+		model.addAttribute("items", rdao.inventoryByCategory());
 		return "admin/report/inventory-by-category";
 	}
 	
 	@GetMapping("/admin/report/revenue-by-category") // theo loại 
 	public String revenueByCategory(Model model){
-		model.addAttribute("items", dao.revenueByCategory());
+		model.addAttribute("items", rdao.revenueByCategory());
 		return "admin/report/revenue-by-category";
 	}
 	
 	@GetMapping("/admin/report/revenue-by-month") // theo tháng
 	public String revenueByMonth(Model model){
-		model.addAttribute("items", dao.revenueByMonth());
+		model.addAttribute("items", rdao.revenueByMonth());
 		return "admin/report/revenue-by-month";
 	}
 	
@@ -58,14 +58,14 @@ public class ReportAController {
 	@GetMapping("/admin/report/top10") // theo tháng
 	public List<Report> top10(Model model){
 		
-//		model.addAttribute("items", dao.revenueByMonth());
-		return dao.revenueTOP10Customer(PageRequest.of(0, 10));
+//		model.addAttribute("items", rdao.revenueByMonth());
+		return rdao.revenueTOP10Customer(PageRequest.of(0, 10));
 	}
 	
 	@GetMapping("/admin/report/revenue-by-customer") // khách hàng thân thiết
 	public String revenueByCustomer(Model model){
 		Pageable first10 = PageRequest.of(0, 10);
-		model.addAttribute("items", dao.revenueTOP10Customer(first10));
+		model.addAttribute("items", rdao.revenueTOP10Customer(first10));
 		return "admin/report/revenue-by-customer";
 	}
 	

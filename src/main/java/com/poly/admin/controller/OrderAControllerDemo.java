@@ -81,8 +81,14 @@ public class OrderAControllerDemo {
 	
 	
 	
-	/**/
-
+	/*counnt*/
+	
+//	@RequestMapping("/admin/order/count")
+//	public String countAdanggiao(Model model) {
+//		model.addAttribute("form", new OrderEntity());
+//		model.addAttribute("listdanggiao", odao.AcountDangGiao());
+//		return "admin/order/count";
+//	}
 	
 	
 	
