@@ -21,85 +21,68 @@
   <!-- / catg header banner section -->
 
   <!-- Blog Archive -->
-  <section id="aa-blog-archive">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="aa-blog-archive-area">
+   <!-- Blog Archive -->
+    <section id="aa-blog-archive">
+        <div class="container">
             <div class="row">
-              <div class="col-md-12">
-                <div class="aa-blog-content">
-                  <div class="row">
-                  <div class="col-md-6 col-sm-6">
-                  <c:forEach items="${pageNew.getContent()}" var="element">                    
-                        <article class="aa-blog-content-single">                          
-                          <div class="col-md-7">
-                          	<figure class="aa-blog-img">
-                            <a href="chiTietTinTuc.html"><img src="/static/images/news/d8acd3bf.jpg" alt="farm products" height="180px"
-                                width="300px"></a>
-                          </figure>
-                          </div>
-                          <div class="col-md-5">
-                           <h4 ><a style="height: 40px;" href="">${element.title}</a></h4>
-                          <p class="desc-boardnews" style="height: 50px;">${element.content}</p>
-                          </div>
-                         
-                          <div class="aa-article-bottom">
-                            <div class="aa-post-author" style="margin-left: 16px;">
-                              Đăng bởi <a href="#">${element.accountEntity.fullname}</a>
+                <div class="col-md-12">
+                    <div class="aa-blog-archive-area">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <!-- Blog details -->
+                                <c:forEach items="${pageNew.getContent()}" var="element">
+                                <div class="aa-blog-content aa-blog-details">
+                                    <article class="aa-blog-content-single">
+                                        <h2><a href="#">${element.title}</a></h2>
+                                        
+                                        <figure class="aa-blog-img">
+                                            <a href="#"><img height="250px" width="500px" src="/static/images/news/${element.image}" alt=""></a>
+                                        </figure>
+                                         <div class="des" style="width: 550px">${element.content}</div>
+											<div class="aa-article-bottom">
+                                            <div class="aa-post-author">
+                                                Đăng bởi <a href="#">${element.accountEntity.fullname}</a>
+                                            </div>
+                                            <div class="aa-post-date">${element.createDate}</div>
+                                        </div>
+                                    </article>
+                                </div>
+                                </c:forEach>
                             </div>
-                            <div class="aa-post-date">${element.startDate}</div>
-                          </div>
-                        </article>                   
-                      </c:forEach>
-                      </div>
-                      <div class="col-md-4 col-sm-6" style="float: right;">
-                      <div class="card">
-                      	<div class="card-header">
-                      		Bài viết mới nhất
-                      	</div>
-                      	<div class="card-body" style="font-size: 10px">
-							<c:forEach items="${listNew}" var="element" begin="0" end="3">                    
-                        <article class="aa-blog-content-single">                          
-                          <div class="col-md-4">
-                          	<figure class="aa-blog-img">
-                            <a href="chiTietTinTuc.html"><img src="/static/images/news/d8acd3bf.jpg" alt="farm products" height="50px"
-                                width="100%"></a>
-                          </figure>
-                          </div>
-                          <div class="col-md-8">
-                           
-                          <p class="desc-boardnews" style="height: 50px;">${element.title}</p>
-                          </div>
-                         
-                          <div class="aa-article-bottom">
-                            <div class="aa-post-author" style="margin-left: 16px;">
-                              Đăng bởi <a href="#">${element.accountEntity.fullname}</a>
-                            </div>
-                            <div class="aa-post-date">${element.startDate}</div>
-                          </div>
-                        </article>                   
-                      </c:forEach>        	
-                      	</div>
-                      </div>
-                      <div>
-                      </div>
-                  </div>
+                            <!-- blog sidebar -->
+                            <div class="col-md-3">
+                                <aside class="aa-blog-sidebar">
+                                    <div class="aa-sidebar-widget">
+                                        <h3>Bài đăng mới nhất</h3>
+                                        <c:forEach items="${listNew}" var="element" begin="0" end="4">
+                                        <div class="aa-recently-views">
+                                            <ul>
+                                                <li>
+                                                    <a class="aa-cartbox-img" href="#"><img src="/static/images/news/${element.image}"
+                                                            alt="img bài viết"></a>
+                                                    <div class="aa-cartbox-info">
+                                                        <h4><a href="chiTietTinTuc.html"><b>${element.title} </b></a></h4>
+                                                        <p>${element.createDate}</p>
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                       </c:forEach>
+                                    </div>
+                                </aside>
+                            </div>                  
+                        </div>
+                       
+                    </div>
                 </div>
-                <!-- Blog Pagination -->
-
-              </div>
-
-			<ul id="pagination" class="pagination-lg"></ul>
-			<input type="hidden" value="" id="page" name="page"/>
             </div>
-          </div>
+             <ul id="pagination" class="pagination-lg"></ul>
+			<input type="hidden" value="" id="page" name="page"/>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
   <!-- / Blog Archive -->
-
+			
   <!--  end content-->
   
   

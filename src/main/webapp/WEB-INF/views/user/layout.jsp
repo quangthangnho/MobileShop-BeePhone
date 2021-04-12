@@ -143,6 +143,20 @@ $('#pagination').twbsPagination({
 });
 
   </script>
+  <script>
+  
+  	const getParentDesElement = document.querySelectorAll(".des");
+  
+  	getParentDesElement.forEach(element => {
+  		const getChildrenPElement = element.querySelectorAll("p");
+  		getChildrenPElement.forEach((data, index) => {
+  			if (index > 0) {
+  				data.style.display = "none";
+  			}
+  		})
+  	})
+  	
+  </script>
 </body>
 
 </html>

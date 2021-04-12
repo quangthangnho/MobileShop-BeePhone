@@ -48,17 +48,12 @@ public class NewEntity  implements Serializable{
 	@Column(columnDefinition = "int default 1")
 	private int status;
 
-	@Column(name = "start_date", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP" )
-	private LocalDate startDate;
-
-	@Column(name = "end_date", nullable = false , columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	LocalDate endDate;
+	@Column(name = "create_date")
+	private String createDate;
 
 	@ManyToOne
 	@JoinColumn(name = "account_id" , nullable = false)
 	private AccountEntity accountEntity;
 
-	@OneToMany(mappedBy = "newEntity")
-	private List<ProductEntity> products;
 
 }
