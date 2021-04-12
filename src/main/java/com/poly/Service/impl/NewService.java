@@ -8,8 +8,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.poly.Service.INewService;
+import com.poly.convert.impl.AccountModelAndEntityConvert;
 import com.poly.convert.impl.NewModelAndEntityConvert;
 import com.poly.dao.NewDAO;
+import com.poly.entity.AccountEntity;
 import com.poly.entity.NewEntity;
 import com.poly.model.NewModel;
 
@@ -39,6 +41,35 @@ public class NewService implements INewService{
 			return list;
 		}
 		return null;
+	}
+
+	@Override
+	public NewModel save(NewModel newModel) {
+		// TODO Auto-generated method stub
+		NewEntity newEntity = newDAO.save(new NewModelAndEntityConvert().convertToEntity(newModel));
+		if(newEntity != null) {
+			return new NewModelAndEntityConvert().convertToModel(newEntity);
+		}
+		return null;
+	}
+
+	@Override
+	public NewModel findById(Long id) {
+		// TODO Auto-generated method stub
+		NewEntity newEntity = newDAO.findById(id).get();
+		if(newEntity != null) {
+			return new NewModelAndEntityConvert().convertToModel(newEntity);
+		}
+		return null;
+	}
+
+	@Override
+	public void delete(NewModel newModel) {
+		// TODO Auto-generated method stub
+		NewModelAndEntityConvert newModelAndEntityConvert = new NewModelAndEntityConvert();
+		NewEntity  newEntity =  newModelAndEntityConvert.convertToEntity(newModel);
+		newDAO.deleteById(newEntity.getId());
+		
 	}
 
 }

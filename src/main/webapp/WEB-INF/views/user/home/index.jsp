@@ -414,14 +414,14 @@
             <h2>TIN TỨC</h2>
             <div class="row">
               <!-- single latest blog -->
-				<c:forEach items="${listNew}" var="element" begin="0" end="5">
+				<c:forEach items="${listNew}" var="element" begin="0" end="2">
 				<div class="col-md-4 col-sm-4">
                 <div class="aa-latest-blog-single">
                   <figure class="aa-blog-img">
                     <a href="new-detail">
                     <img src="/static/assets/images/news/iphone-12-pro-va-iphone-12-pro-max-ra-mat-xung-danh-iphone-cao-cap-nhat-6.jpg" alt="Tin tức title"></a>
                     <figcaption class="aa-blog-img-caption">
-                      <span href="new-detail"><i class="fa fa-clock-o"></i>${element.startDate}</span>
+                      <span href="new-detail"><i class="fa fa-clock-o"></i>${element.createDate}</span>
                     </figcaption>
                   </figure>
                   <div class="aa-blog-info">

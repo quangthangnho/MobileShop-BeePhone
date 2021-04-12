@@ -96,9 +96,6 @@ public class ProductEntity implements Serializable{
 	@JoinColumn(name = "category_id" )
 	private CategoryEntity categoryProduct;
 
-	@ManyToOne
-	@JoinColumn(name = "new_id" )
-	private NewEntity newEntity;
 
 
 }

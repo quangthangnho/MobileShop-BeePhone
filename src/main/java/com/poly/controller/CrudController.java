@@ -47,8 +47,7 @@ public class CrudController {
 					entity.getStatus() + "--14\n" +		
 					entity.getStock() + "--15\n" +
 					entity.getUnitPrice() + "--16\n" +
-					entity.getCategoryProduct() + "--17\n" +
-					entity.getNewEntity()+ "--18\n" 
+					entity.getCategoryProduct() + "--17\n"
 
 					);
 			System.out.println("ID"+ entity.getId() + "Kq:>>>>>>>>>>>"+ String.format("%1$,.0f", entity.getUnitPrice()));

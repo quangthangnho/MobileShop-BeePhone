@@ -2,7 +2,7 @@ SELECT * FROM beephone.product;
 
 insert into beephone.accounorder_detailt (email, fullname, image, password, status, username) values ('tjeffree2@omniture.com', 'Townie Jeffree', 'http://dummyimage.com/178x178.jpg/cc0000/ffffff', 'YjH1YtgS', 1, 'tjeffree2');
 
-insert into beephone.account (email, fullname, image, password, status, username, role) values ('admin@gmail.com', 'admin', 'http://dummyimage.com/215x209.jpg/5fa2dd/ffffff', 'admin', 1, 'admin',1);
+insert into beephone.account (email, fullname, image, password, status, username, role) values ('admin@gmail.com', 'admin', 'http://dummyimage.com/215x209.jpg/5fa2dd/ffffff', 'admin', 1, 'admin','ADMIN');
 insert into beephone.account (email, fullname, image, password, status, username) values ('mbloxholm0@independent.co.uk', 'Maurene Bloxholm', 'http://dummyimage.com/215x209.jpg/5fa2dd/ffffff', 'khai', 1, 'khai');
 insert into beephone.account (email, fullname, image, password, status, username) values ('ldakin1@walmart.com', 'Lucienne Dakin', 'http://dummyimage.com/164x188.jpg/cc0000/ffffff', 'j4R1Ybccy', 1, 'ldakin1');
 insert into beephone.account (email, fullname, image, password, status, username) values ('lburlingame3@unicef.org', 'Lissa Burlingame', 'http://dummyimage.com/227x207.jpg/ff4444/ffffff', 'CbSX7FQ83', 1, 'lburlingame3');
