@@ -18,6 +18,6 @@ public interface INewService {
 	NewModel save(NewModel newModel);
 	
 	NewModel findById(Long id);
-	
+		
 	void delete(NewModel newModel);
 }

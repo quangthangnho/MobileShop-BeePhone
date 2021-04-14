@@ -426,7 +426,7 @@
                   </figure>
                   <div class="aa-blog-info">
                     <h3 class="aa-blog-title" style="height: 30px;"><a href="new-detaill">${element.title}</a></h3>
-                    <p class="desc-boardnews" style="height: 50px;">${element.content}</p>
+                    <div class="des">${element.content}</div>
                     <a href="chiTietTinTuc.html" class="aa-read-mor-btn">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
                   </div>
                 </div>

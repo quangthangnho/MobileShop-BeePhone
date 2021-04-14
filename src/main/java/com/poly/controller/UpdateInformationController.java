@@ -22,13 +22,13 @@ import com.poly.utils.SessionUtil;
 
 @Controller
 @RequestMapping("account")
-public class UpdateInformation {
+public class UpdateInformationController {
 	@Autowired
 	UploadService upload;
 
     private final IAccountService accountService;
 
-    public UpdateInformation(IAccountService accountService) {
+    public UpdateInformationController(IAccountService accountService) {
         this.accountService = accountService;
     }
 	

@@ -1,4 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
    <!--  content -->
     <!-- catg header banner section -->
     <section id="aa-catg-head-banner">
@@ -24,43 +26,45 @@
                 <div class="col-md-12">
                     <div class="aa-blog-archive-area">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 <!-- Blog details -->
                                 <div class="aa-blog-content aa-blog-details">
                                     <article class="aa-blog-content-single">
-                                        <h2><a href="#">title</a></h2>
+                                        <h2><a href="#">${newDetail.title}</a></h2>
                                         <div class="aa-article-bottom">
                                             <div class="aa-post-author">
-                                                Đăng bởi <a href="#">Hoa</a>
+                                                Đăng bởi <a href="#">${newDetail.accountEntity.fullname}</a>
                                             </div>
-                                            <div class="aa-post-date">2020-06-05</div>
+                                            <div class="aa-post-date">${newDetail.createDate}</div>
                                         </div>
                                         <figure class="aa-blog-img">
-                                            <a href="#"><img src="assets/images/news/blog_1.jpg" alt="fashion img"></a>
+                                            <a href="#"><img width="100%" height="350px" src="/static/images/news/${newDetail.image}" alt=""></a>
                                         </figure>
-                                        <p>content</p>
+                                        ${newDetail.content}
 
                                     </article>
                                 </div>
                             </div>
                             <!-- blog sidebar -->
-                            <div class="col-md-3">
+                            <div class="col-md-3" style="float: right;">
                                 <aside class="aa-blog-sidebar">
                                     <div class="aa-sidebar-widget">
-                                        <h3>Bài đăng gần đây</h3>
+                                        <h3>Bài đăng mới nhất</h3>
+                                        <c:forEach items="${listNew}" var="element" begin="0" end="4">
                                         <div class="aa-recently-views">
                                             <ul>
                                                 <li>
-                                                    <a class="aa-cartbox-img" href="chiTietTinTuc.html"><img src="assets/images/news/blog_2.jpg"
+                                                    <a class="aa-cartbox-img" href="#"><img src="/static/images/news/${element.image}"
                                                             alt="img bài viết"></a>
                                                     <div class="aa-cartbox-info">
-                                                        <h4><a href="chiTietTinTuc.html"><b>title </b></a></h4>
-                                                        <p>2020-06-05 </p>
+                                                        <h4><a href="chiTietTinTuc.html"><b>${element.title} </b></a></h4>
+                                                        <p>${element.createDate}</p>
                                                     </div>
                                                 </li>
 
                                             </ul>
                                         </div>
+                                       </c:forEach>
                                     </div>
                                 </aside>
                             </div>

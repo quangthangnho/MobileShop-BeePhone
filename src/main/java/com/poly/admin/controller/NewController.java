@@ -36,7 +36,7 @@ public class NewController {
 	}
 
 	@GetMapping("/index")
-    public String news(Model model) {
+    public String homeNew(Model model) {
         model.addAttribute("newForm", new NewModel());
         model.addAttribute("listNew", newService.findAll());
         return "admin/news/index";
@@ -87,7 +87,7 @@ public class NewController {
 	}
 	
 	@PostMapping("/delete")
-    public String deleteAdmin(Model model, @ModelAttribute("formNew") NewModel newModel) {
+    public String deleteNew(Model model, @ModelAttribute("formNew") NewModel newModel) {
     	try {
     		newService.delete(newModel);
     		model.addAttribute("message", "Xoá tài khoản thành công!");
