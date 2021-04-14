@@ -28,7 +28,7 @@ public class ForgotPassword {
 	}
 	
 	@GetMapping("/forgotpassword")
-	public String forgot() {
+	public String home() {
 		return "account/forgotpassword";
 	}
 	

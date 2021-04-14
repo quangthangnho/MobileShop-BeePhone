@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -109,38 +110,7 @@ public class HomeController {
 //		return "home/product-detail";
 //	}
 
-	@RequestMapping("/home/news") // tintuc
-	public String news(Model model, HttpServletRequest request, @RequestParam(value = "page", required = false) Integer pagee) {
-		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
-		String username = CookieUtil.checkCookie(request);
-		if (accountModel != null) {
-			model.addAttribute("userLogin", accountModel.getUsername());
-			model.addAttribute("role", accountModel.getRole());
-		}
-		// list tin tuc
-		List<NewModel> listNew = newService.findAll();
-		model.addAttribute("listNew", listNew);
-		
-		if(pagee == null) {
-			pagee = 1;
-		}
-		//pageable
-		Page<NewEntity> pageNew = newService.findAllNew(PageRequest.of(pagee-1, 5));
-         model.addAttribute("pageNew", pageNew);
-		return "home/news";
-	}
-
-	@RequestMapping("/home/new-detail") // new sanpham
-	public String newDetail(HttpServletRequest request, Model model) {
-		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
-		String username = CookieUtil.checkCookie(request);
-		if (accountModel != null) {
-			model.addAttribute("userLogin", accountModel.getUsername());
-			model.addAttribute("role", accountModel.getRole());
-		}
-
-		return "home/new-detail";
-	}
+	
 
 	@RequestMapping("/home/policy") // chính sach
 	public String policy(HttpServletRequest request, Model model) {

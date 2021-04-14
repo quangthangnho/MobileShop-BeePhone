@@ -15,16 +15,16 @@ import com.poly.utils.CookieUtil;
 import com.poly.utils.SessionUtil;
 
 @Controller
-public class ChangePassword {
+public class ChangePasswordController {
 	
 	private final IAccountService accountService;
 
-	public ChangePassword(IAccountService accountService) {
+	public ChangePasswordController(IAccountService accountService) {
 		this.accountService = accountService;
 	}
 
 	@RequestMapping("/account/changepassword")
-	public String doimatkhau(Model model, HttpServletRequest request) {
+	public String home(Model model, HttpServletRequest request) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		if (accountModel != null) {
 			model.addAttribute("userLogin", accountModel.getUsername());

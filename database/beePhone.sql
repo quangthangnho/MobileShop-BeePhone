@@ -1,28 +1,24 @@
-SELECT * FROM beephone.product;
-
-insert into beephone.accounorder_detailt (email, fullname, image, password, status, username) values ('tjeffree2@omniture.com', 'Townie Jeffree', 'http://dummyimage.com/178x178.jpg/cc0000/ffffff', 'YjH1YtgS', 1, 'tjeffree2');
-
-insert into beephone.account (email, fullname, image, password, status, username, role) values ('admin@gmail.com', 'admin', 'http://dummyimage.com/215x209.jpg/5fa2dd/ffffff', 'admin', 1, 'admin','ADMIN');
-insert into beephone.account (email, fullname, image, password, status, username) values ('mbloxholm0@independent.co.uk', 'Maurene Bloxholm', 'http://dummyimage.com/215x209.jpg/5fa2dd/ffffff', 'khai', 1, 'khai');
-insert into beephone.account (email, fullname, image, password, status, username) values ('ldakin1@walmart.com', 'Lucienne Dakin', 'http://dummyimage.com/164x188.jpg/cc0000/ffffff', 'j4R1Ybccy', 1, 'ldakin1');
-insert into beephone.account (email, fullname, image, password, status, username) values ('lburlingame3@unicef.org', 'Lissa Burlingame', 'http://dummyimage.com/227x207.jpg/ff4444/ffffff', 'CbSX7FQ83', 1, 'lburlingame3');
-insert into beephone.account (email, fullname, image, password, status, username) values ('osperski4@tamu.edu', 'Ole Sperski', 'http://dummyimage.com/195x118.png/cc0000/ffffff', 'xMBmINCV8TrM', 1, 'osperski4');
-insert into beephone.account (email, fullname, image, password, status, username) values ('cidiens5@odnoklassniki.ru', 'Corbett Idiens', 'http://dummyimage.com/217x250.bmp/5fa2dd/ffffff', 'RavMmsv', 1, 'cidiens5');
-insert into beephone.account (email, fullname, image, password, status, username) values ('pcrowson6@baidu.com', 'Pris Crowson', 'http://dummyimage.com/238x112.bmp/5fa2dd/ffffff', 'RxNJOvPNc', 1, 'pcrowson6');
-insert into beephone.account (email, fullname, image, password, status, username) values ('lkeppie7@sciencedaily.com', 'Lodovico Keppie', 'http://dummyimage.com/234x215.bmp/dddddd/000000', 'c33rYJ6k9e5', 1, 'lkeppie7');
-insert into beephone.account (email, fullname, image, password, status, username) values ('btibbetts8@linkedin.com', 'Blair Tibbetts', 'http://dummyimage.com/135x135.jpg/ff4444/ffffff', 'C3zXzYkd', 1, 'btibbetts8');
-insert into beephone.account (email, fullname, image, password, status, username) values ('kbartozzi9@jugem.jp', 'Kamila Bartozzi', 'http://dummyimage.com/228x111.png/dddddd/000000', 'EOAJum4DoKP9', 1, 'kbartozzi9');
-insert into beephone.account (email, fullname, image, password, status, username) values ('abrookesa@slate.com', 'Amelita Brookes', 'http://dummyimage.com/189x179.bmp/cc0000/ffffff', 'KjYNiezEAHO', 1, 'abrookesa');
-insert into beephone.account (email, fullname, image, password, status, username) values ('ndenziloeb@php.net', 'Nydia Denziloe', 'http://dummyimage.com/248x243.png/5fa2dd/ffffff', 'R0gXgD7NJk', 1, 'ndenziloeb');
-insert into beephone.account (email, fullname, image, password, status, username) values ('pclausenc@exblog.jp', 'Paxton Clausen', 'http://dummyimage.com/239x235.jpg/5fa2dd/ffffff', 'pdhaJKI', 1, 'pclausenc');
-insert into beephone.account (email, fullname, image, password, status, username) values ('jstoppardd@reference.com', 'Jennine Stoppard', 'http://dummyimage.com/241x161.png/cc0000/ffffff', 'VVFKuCpH6azq', 1, 'jstoppardd');
-insert into beephone.account (email, fullname, image, password, status, username) values ('vdilrewe@dot.gov', 'Vida Dilrew', 'http://dummyimage.com/166x240.jpg/ff4444/ffffff', '6DdhsZhtt48', 1, 'vdilrewe');
-insert into beephone.account (email, fullname, image, password, status, username) values ('gvickarf@123-reg.co.uk', 'Gilberto Vickar', 'http://dummyimage.com/161x243.png/cc0000/ffffff', 'PrGRmokiIPqu', 1, 'gvickarf');
-insert into beephone.account (email, fullname, image, password, status, username) values ('roloshking@1688.com', 'Richard Oloshkin', 'http://dummyimage.com/190x135.png/ff4444/ffffff', 'nqJetnn', 1, 'roloshking');
-insert into beephone.account (email, fullname, image, password, status, username) values ('jhaycoxh@forbes.com', 'Jae Haycox', 'http://dummyimage.com/127x139.bmp/dddddd/000000', 'cgl9yEyqJ9Kr', 1, 'jhaycoxh');
-insert into beephone.account (email, fullname, image, password, status, username) values ('gstranahani@pen.io', 'Gennifer Stranahan', 'http://dummyimage.com/235x174.jpg/cc0000/ffffff', '2IJMhoiA', 1, 'gstranahani');
-insert into beephone.account (email, fullname, image, password, status, username) values ('vmulcockj@jalbum.net', 'Violette Mulcock', 'http://dummyimage.com/202x209.jpg/cc0000/ffffff', 'Gk4NyH', 1, 'vmulcockj');
-
+insert into beephone.account (email, fullname, image, password, status, username, role) values ('admin@gmail.com', 'admin', 'd5cf9425.png', 'admin', 1, 'admin','ADMIN');
+insert into beephone.account (email, fullname, image, password, status, username) values ('mbloxholm0@independent.co.uk', 'Maurene Bloxholm', 'd5cf9425.png', 'khai', 1, 'khai');
+insert into beephone.account (email, fullname, image, password, status, username) values ('ldakin1@walmart.com', 'Lucienne Dakin', 'd5cf9425.png', 'j4R1Ybccy', 1, 'ldakin1');
+insert into beephone.account (email, fullname, image, password, status, username) values ('lburlingame3@unicef.org', 'Lissa Burlingame', 'd5cf9425.png', 'CbSX7FQ83', 1, 'lburlingame3');
+insert into beephone.account (email, fullname, image, password, status, username) values ('osperski4@tamu.edu', 'Ole Sperski', 'd5cf9425.png', 'xMBmINCV8TrM', 1, 'osperski4');
+insert into beephone.account (email, fullname, image, password, status, username) values ('cidiens5@odnoklassniki.ru', 'Corbett Idiens', 'd5cf9425.png', 'RavMmsv', 1, 'cidiens5');
+insert into beephone.account (email, fullname, image, password, status, username) values ('pcrowson6@baidu.com', 'Pris Crowson', 'd5cf9425.png', 'RxNJOvPNc', 1, 'pcrowson6');
+insert into beephone.account (email, fullname, image, password, status, username) values ('lkeppie7@sciencedaily.com', 'Lodovico Keppie', 'd5cf9425.png', 'c33rYJ6k9e5', 1, 'lkeppie7');
+insert into beephone.account (email, fullname, image, password, status, username) values ('btibbetts8@linkedin.com', 'Blair Tibbetts', 'd5cf9425.png', 'C3zXzYkd', 1, 'btibbetts8');
+insert into beephone.account (email, fullname, image, password, status, username) values ('kbartozzi9@jugem.jp', 'Kamila Bartozzi', 'd5cf9425.png', 'EOAJum4DoKP9', 1, 'kbartozzi9');
+insert into beephone.account (email, fullname, image, password, status, username) values ('abrookesa@slate.com', 'Amelita Brookes', 'd5cf9425.png', 'KjYNiezEAHO', 1, 'abrookesa');
+insert into beephone.account (email, fullname, image, password, status, username) values ('ndenziloeb@php.net', 'Nydia Denziloe', 'd5cf9425.png', 'R0gXgD7NJk', 1, 'ndenziloeb');
+insert into beephone.account (email, fullname, image, password, status, username) values ('pclausenc@exblog.jp', 'Paxton Clausen', 'd5cf9425.png', 'pdhaJKI', 1, 'pclausenc');
+insert into beephone.account (email, fullname, image, password, status, username) values ('jstoppardd@reference.com', 'Jennine Stoppard', 'd5cf9425.png', 'VVFKuCpH6azq', 1, 'jstoppardd');
+insert into beephone.account (email, fullname, image, password, status, username) values ('vdilrewe@dot.gov', 'Vida Dilrew', 'd5cf9425.png', '6DdhsZhtt48', 1, 'vdilrewe');
+insert into beephone.account (email, fullname, image, password, status, username) values ('gvickarf@123-reg.co.uk', 'Gilberto Vickar', 'd5cf9425.png', 'PrGRmokiIPqu', 1, 'gvickarf');
+insert into beephone.account (email, fullname, image, password, status, username) values ('roloshking@1688.com', 'Richard Oloshkin', 'd5cf9425.png', 'nqJetnn', 1, 'roloshking');
+insert into beephone.account (email, fullname, image, password, status, username) values ('jhaycoxh@forbes.com', 'Jae Haycox', 'd5cf9425.png', 'cgl9yEyqJ9Kr', 1, 'jhaycoxh');
+insert into beephone.account (email, fullname, image, password, status, username) values ('gstranahani@pen.io', 'Gennifer Stranahan', 'd5cf9425.png', '2IJMhoiA', 1, 'gstranahani');
+insert into beephone.account (email, fullname, image, password, status, username) values ('vmulcockj@jalbum.net', 'Violette Mulcock', 'd5cf9425.png', 'Gk4NyH', 1, 'vmulcockj');
+insert into beephone.account (email, fullname, image, password, status, username, role) values ('admin1@gmail.com', 'admin1', 'd5cf9425.png', 'admin1', 1, 'admin1','ADMIN');
 
 insert into beephone.category(name) values('APPLE');
 insert into beephone.category(name) values('SAMSUNG');

@@ -28,20 +28,20 @@
                 <div class="col-md-12">
                     <div class="aa-blog-archive-area">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 <!-- Blog details -->
                                 <c:forEach items="${pageNew.getContent()}" var="element">
                                 <div class="aa-blog-content aa-blog-details">
                                     <article class="aa-blog-content-single">
-                                        <h2><a href="#">${element.title}</a></h2>
+                                        <h2><a href="/home/new-detail/${element.id}">${element.title}</a></h2>
                                         
                                         <figure class="aa-blog-img">
-                                            <a href="#"><img height="250px" width="500px" src="/static/images/news/${element.image}" alt=""></a>
+                                            <a href="/home/new-detail/${element.id}"><img height="350px" width="100%" src="/static/images/news/${element.image}" alt=""></a>
                                         </figure>
-                                         <div class="des" style="width: 550px">${element.content}</div>
+                                         <div class="des" style="width: 100%">${element.content}</div>
 											<div class="aa-article-bottom">
                                             <div class="aa-post-author">
-                                                Đăng bởi <a href="#">${element.accountEntity.fullname}</a>
+                                                Đăng bởi ${element.accountEntity.fullname}
                                             </div>
                                             <div class="aa-post-date">${element.createDate}</div>
                                         </div>
@@ -50,7 +50,7 @@
                                 </c:forEach>
                             </div>
                             <!-- blog sidebar -->
-                            <div class="col-md-3">
+                            <div class="col-md-3" style="float: right;">
                                 <aside class="aa-blog-sidebar">
                                     <div class="aa-sidebar-widget">
                                         <h3>Bài đăng mới nhất</h3>

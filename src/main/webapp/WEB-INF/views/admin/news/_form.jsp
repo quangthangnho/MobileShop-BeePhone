@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8"%>
+<script src="/static/assets-a/assets/js/upload.js"></script>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <form:form method="post" action="/admin/news/create" modelAttribute="formNew"
@@ -9,7 +10,7 @@
 	</div>
 	<div class="panel-body">
 		<div class="row">
-			<div class="col-sm-5">
+			<div class="col-sm-7">
 			<div class="row">
 			<div class="form-group col-md-6">
 				    <label for="exampleInputPassword1">Tiêu đề</label>
@@ -37,18 +38,16 @@
 				  </div>
 				<input type="hidden" name="id" value="${newForm.id}" />
 			</div>
-			<div class="col-sm-8">
+			<div class="col-sm-5">
 					<c:if test="${!empty newForm.image}">
-					<div class="col-sm-3 text-center">
-						<label for="photo_file"> <img id="photo" style="width: 200px;height: 250px"
+						<img id="photo" style="width: 330px;height: 200px"
 							src="/static/images/news/${newForm.image}">
-						</label>
-					</div>
+
 				</c:if>
 			</div>
 
 		</div>
-		<div class="row">
+		<div class="row" style="margin-top: 20px">
 			<textarea  id="editor1" name="content"  rows="10" cols="80">${newForm.content}</textarea>
 		</div>
 

@@ -48,6 +48,7 @@
 				    <label for="exampleInputPassword1">Password</label>
 				    <input type="password" class="form-control" id="exampleInputPassword1" name="password" required="required">
 				    <input type="hidden" name="role" value="USER" />
+				    <input type="hidden" name="image" value="d5cf9425.png" />
 				  </div>
 				  <!-- reCAPTCHA -->
      			 <div class="g-recaptcha" data-sitekey="6LfeHJ4aAAAAAAOdv9e8olz9N9LSMvjgCpDKn8vg"></div>
