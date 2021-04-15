@@ -33,7 +33,7 @@ public class UpdateInformationController {
     }
 	
 	@GetMapping("/updateInformation")
-	public String update(Model model, HttpServletRequest request) {
+	public String home(Model model, HttpServletRequest request) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		if(accountModel != null) {
 			model.addAttribute("updateForm", accountModel);
