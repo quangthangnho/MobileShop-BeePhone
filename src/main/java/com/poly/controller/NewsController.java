@@ -27,7 +27,7 @@ public class NewsController {
 	INewService newService;
 	
 	@RequestMapping("/home/news") // tintuc
-	public String news(Model model, HttpServletRequest request, @RequestParam(value = "page", required = false) Integer pagee) {
+	public String home(Model model, HttpServletRequest request, @RequestParam(value = "page", required = false) Integer pagee) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		String username = CookieUtil.checkCookie(request);
 		if (accountModel != null) {

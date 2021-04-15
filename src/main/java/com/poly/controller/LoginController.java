@@ -27,7 +27,7 @@ public class LoginController {
 	}
 
 	@GetMapping("/login")
-	public String login(HttpServletRequest request, Model model) {
+	public String home(HttpServletRequest request, Model model) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		if (accountModel != null) {
 			return "redirect:/home/index";
