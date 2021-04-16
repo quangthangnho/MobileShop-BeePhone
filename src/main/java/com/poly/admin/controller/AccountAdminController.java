@@ -65,7 +65,7 @@ public class AccountAdminController {
     		model.addAttribute("message", "Xoá tài khoản thành công!");
     	model.addAttribute("listAdmin", accountService.findAllByRole("ADMIN"));
 		} catch (Exception e) {
-			model.addAttribute("message", "Tài khoản này không xóa được!");
+			model.addAttribute("message", "Tài khoản này không tồn tại!");
 		}
 		return "admin/master/index";
     }
