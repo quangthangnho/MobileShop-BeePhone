@@ -418,16 +418,16 @@
 				<div class="col-md-4 col-sm-4">
                 <div class="aa-latest-blog-single">
                   <figure class="aa-blog-img">
-                    <a href="new-detail">
-                    <img src="/static/assets/images/news/iphone-12-pro-va-iphone-12-pro-max-ra-mat-xung-danh-iphone-cao-cap-nhat-6.jpg" alt="Tin tức title"></a>
+                    <a href="/home/new-detail/${element.id}">
+                    <img src="/static/images/news/${element.image}" alt="Tin tức title"></a>
                     <figcaption class="aa-blog-img-caption">
-                      <span href="new-detail"><i class="fa fa-clock-o"></i>${element.createDate}</span>
+                      <span style="color: white; font-weight: bolder;"><i class="fa fa-clock-o"></i>${element.createDate}</span>
                     </figcaption>
                   </figure>
                   <div class="aa-blog-info">
-                    <h3 class="aa-blog-title" style="height: 30px;"><a href="new-detaill">${element.title}</a></h3>
+                    <h3 class="aa-blog-title" style="min-height: 30px;"><a href="new-detaill">${element.title}</a></h3>
                     <div class="des">${element.content}</div>
-                    <a href="chiTietTinTuc.html" class="aa-read-mor-btn">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
+                    <a href="/home/new-detail/${element.id}" class="aa-read-mor-btn">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
                   </div>
                 </div>
               </div>

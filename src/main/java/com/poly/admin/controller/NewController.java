@@ -79,7 +79,7 @@ public class NewController {
     	newModel.setCreateDate(java.time.LocalDate.now()+"");
     	AccountModel accountModel2 = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
     	newModel.setAccountEntity(new AccountModelAndEntityConvert().convertToEntity(accountModel2));
-    	model.addAttribute("message", "Cập nhập tài khoản thành công!");
+    	model.addAttribute("message", "Cập nhập tin tức thành công!");
     	newService.save(newModel);
     	
     	model.addAttribute("listNew", newService.findAll());
