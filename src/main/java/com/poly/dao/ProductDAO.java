@@ -35,4 +35,6 @@ public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRep
 	
 	@Query("SELECT p FROM ProductEntity p WHERE p.status = 2 ")
 	List<ProductEntity> fillAllProductStatus2();
+	
+
 }

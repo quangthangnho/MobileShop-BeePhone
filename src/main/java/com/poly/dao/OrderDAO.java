@@ -13,7 +13,7 @@ import com.poly.entity.OrderEntity;
 public interface OrderDAO extends JpaRepository<OrderEntity, Long> {
 	
 	//admin
-	@Query("SELECT o FROM OrderEntity o ORDER BY o.orderDate DESC")
+	@Query("SELECT o  FROM OrderEntity o ORDER BY o.orderDate DESC")
 	List<OrderEntity> AfillAllOrder();
 	
 	@Query("SELECT o FROM OrderEntity o WHERE o.status = 0 ORDER BY o.orderDate DESC")
@@ -33,8 +33,8 @@ public interface OrderDAO extends JpaRepository<OrderEntity, Long> {
 	
 	
 	/*A count */
-//	@Query("SELECT COUNT(o) FROM OrderEntity o where o.status = 2")
-//	OrderEntity AcountDangGiao();
+	@Query("SELECT COUNT(*) FROM OrderEntity o where o.status = 0")
+	List<OrderEntity> AchoXacNhannumBer();
 	
 	
 	

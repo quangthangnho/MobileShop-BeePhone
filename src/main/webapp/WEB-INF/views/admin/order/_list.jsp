@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
 
+
 <h4 class="card-title">THÔNG TIN ĐẶT HÀNG</h4>
 <div class="material-datatables">
 	<table id="datatables"
@@ -18,7 +19,7 @@
 			</tr>
 		</thead>
 
-		<tbody>
+		<tbody id="myTableallOrder">
 			<c:forEach var="item" items="${list}">
 				<tr>
 					<td>${item.id}</td>

@@ -116,14 +116,10 @@
 				    </div>
 			    </div>
 			<div class="row">
-			    <div class="form-group col-sm-8">
+			    <div class="form-group col-sm-12">
 			        <label>Description</label>
 			        <form:textarea path="description" class="form-control" rows="4"/>
-			    </div>	
-			    <div class="form-group col-sm-4">
-				        <label>New ID</label>
-				        <form:input path="newEntity.id" class="form-control"/>
-				    </div>	    
+			    </div>	  
  			</div>
     	
     	</div>

@@ -20,7 +20,7 @@
 			</tr>
 		</thead>
 
-		<tbody>
+		<tbody id=myTablechoLayhang>
 			<c:forEach var="item" items="${listcholayhang}">
 				<tr>
 					<td>${item.id}</td>

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 import com.poly.interceptor.SecurityInterceptor;
 
@@ -17,5 +18,10 @@ public class SecurityConfig implements WebMvcConfigurer {
 		registry.addInterceptor(interceptor)
 			.addPathPatterns("/account/changepassword", "/account/updateInformation", "/account/logout", "/order/**")
 			.addPathPatterns("/admin/**").excludePathPatterns("/admin/report/inventory-by-category");
+		
+//		LocaleChangeInterceptor localeChange = new LocaleChangeInterceptor();
+//		localeChange.setParamName("lang");
+//		registry.addInterceptor(localeChange).addPathPatterns("/**");
 	}
+
 }
