@@ -14,11 +14,6 @@
 			<span class="fa fa-pencil-square-o"></span> Danh sách
 		</a>
 	</li>
-	<li>
-		<a data-toggle="" href="/admin/category/_thungRac">
-			<span class="fa fa-pencil-square-o"></span> Thùng rác
-		</a>
-	</li>
 </ul>
 
 <div class="tab-content">
@@ -27,8 +22,5 @@
 	</div>
 	<div id="list" class="tab-pane fade">
 		<jsp:include page="_list.jsp"/>
-	</div>
-	<div id="thungrac" class="tab-pane fade">
-		<jsp:include page="_thungRac.jsp"/>
 	</div>
 </div>

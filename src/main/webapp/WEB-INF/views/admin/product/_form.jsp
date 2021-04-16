@@ -1,7 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
 
 <script src="http://js.nicedit.com/nicEdit-latest.js"></script>
 <script>bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
@@ -15,10 +14,10 @@
     	<div class="row">
     		<div class="col-sm-4 text-center">
 	    		<label for="image_file">
-	    			<img id="image" src="/static/images/products/${form.image}">
+	    			<img id="image" src="/static/assets-a/assets/images/products/${form.image}">
 	    		</label>
 			    <div class="form-group">
-			        <input onchange="upload.change(this, 'img#image')" name="image_file" id="image_file" type="file" class="form-control">
+			        <input onchange="upload.change(this, 'img#image')" name="image_file" id="image_file" type="file" value="" class="form-control">
 			        <form:hidden path="image"/>
 			    </div>    		
 	    	</div>
@@ -69,7 +68,7 @@
 				        <form:input path="heDieuHanh" class="form-control"/>
 				    </div>
 				    <div class="form-group col-sm-6">
-				        <label>MÀN HINH</label>
+				        <label>MÀN HÌNH</label>
 				        <form:input path="manHinh" class="form-control"/>
 				    </div>
 			    </div>
@@ -90,20 +89,19 @@
 				        <form:input path="ram" class="form-control"/>
 				    </div>
 				    
-				     
-				    
 			    </div>
 			   
 			    <div class="col-sm-12">
 				    <div class="row">
 						<div class="form-group col-sm-4">
 					        <label>NGÀY TẠO</label>
-					        <form:input path="createDate" class="form-control style" disabled="true"/>
+					       	<form:input path="createDate" class="form-control" readonly="true"/>
 					    </div>
 					    
 					    <div class="form-group col-sm-4">
 					        <label>NGƯỜI TẠO</label>
-					        <form:input path="createBy" class="form-control style" value="admin" disabled="true"/>
+					        <form:input path="createBy" class="form-control" value="admin" readonly="true"/>
+					        
 					    </div>
 					    <div class="form-group col-sm-4">
 				        <label>Category</label>
@@ -119,7 +117,7 @@
 			    <div class="form-group col-sm-12">
 			        <label>Description</label>
 			        <form:textarea path="description" class="form-control" rows="4"/>
-			    </div>	  
+			    </div>		    
  			</div>
     	
     	</div>
@@ -127,20 +125,17 @@
 </div>
 <div class="panel-footer">
 	        <form:button formaction="${ctrl}/create" class="btn btn-success" title="Create" disabled="${!empty form.id}">
-	        	<i class="fa fa-plus-circle"></i> Tạo mới
+	        	<i class="fa fa-plus-circle"></i> Create
 	        </form:button>
 	        <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Update" disabled="${empty form.id}">
-	        	<i class="fa fa-check-circle"></i> Cập nhập
+	        	<i class="fa fa-check-circle"></i> Update
 	        </form:button>
 	        <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Delete" disabled="${empty form.id}">
-	        	<i class="fa fa-trash-o"></i> Xóa
+	        	<i class="fa fa-trash-o"></i> Delete
 	        </form:button>
 	        <a href="${ctrl}/index" class="btn btn-info" title="Reset">
-	        	<i class="fa fa-refresh"></i> Tải lại
+	        	<i class="fa fa-refresh"></i> Reset
 	        </a>
-	         <form:button formaction="${ctrl}/update1" class="btn btn-primary" title="Lấy lại" disabled="${empty form.id}">
-	        	<i class="fa fa-check-circle"></i> Lấy lại
-	        </form:button>
     </div>
 </form:form>
 
@@ -151,7 +146,6 @@ input#createDate {
 input#createBy {
     background-color: #eee;
 }
-
 img#image{
 		max-width: 100%;
 		height: 325px;
