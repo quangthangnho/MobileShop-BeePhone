@@ -13,7 +13,7 @@
                 <img data-seq src="/static/assets/images/slide_5.PNG" alt="Men slide img" />
               </div>
               <div class="seq-title">
-                <a data-seq href="" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>
             <!-- single slide item -->
@@ -22,7 +22,7 @@
                 <img data-seq src="/static/assets/images/slide_6.PNG" alt="Wristwatch slide img" />
               </div>
               <div class="seq-title">
-                <a data-seq href="" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>
             <!-- single slide item -->
@@ -31,7 +31,7 @@
                 <img data-seq src="/static/assets/images/slide_7.PNG" alt="Women Jeans slide img" />
               </div>
               <div class="seq-title">
-                <a data-seq href="" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>
             <!-- single slide item -->
@@ -40,7 +40,7 @@
                 <img data-seq src="/static/assets/images/slide_8.PNG" alt="Shoes slide img" />
               </div>
               <div class="seq-title">
-                <a data-seq href="" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>
           </ul>
@@ -57,71 +57,6 @@
   <!-- / slider -->
 
   <!-- Start Promo section -->
-  <section id="aa-promo">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="aa-promo-area">
-            <div class="row">
-              <!-- promo left -->
-              <div class="col-md-5 no-padding">
-                <div class="aa-promo-left">
-                  <div class="aa-promo-banner">
-                    <img src="/static/assets/images/samsung-galaxy-s21-ultra-1_1.jpg" alt="dâu tây Đà Lạt">
-                    <div class="aa-prom-content">
-                      <span>Giảm giá 35%</span>
-                      <h4>Samsung Galaxy S21 Ultra</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- promo right -->
-              <div class="col-md-7 no-padding">
-                <div class="aa-promo-right">
-                  <div class="aa-single-promo-right">
-                    <div class="aa-promo-banner">
-                      <img src="/static/assets/images/samsung-galaxy-a31.jpg" alt="hạt tiêu daklak">
-                      <div class="aa-prom-content">
-                        <span>Sản Phẩm độc quyền</span>
-                        <h4>Samsung Galaxy A31</h4>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="aa-single-promo-right">
-                    <div class="aa-promo-banner">
-                      <img src="/static/assets/images/apple-iphone-xr-64-gb-chinh-hang-vn_3_.png" alt="img">
-                      <div class="aa-prom-content">
-                        <span>Sản phẩm nhập khẩu</span>
-                        <h4>Apple Iphone XR 64gb Chinh Hãng</h4>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="aa-single-promo-right">
-                    <div class="aa-promo-banner">
-                      <img src="/static/assets/images/iphone-12-pro-max_1__7.png" alt="img">
-                      <div class="aa-prom-content">
-                        <span>Giảm giá 25%</span>
-                        <h4>Iphone 12 Pro Max</h4>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="aa-single-promo-right">
-                    <div class="aa-promo-banner">
-                      <img src="/static/assets/images/section5_tc.jpg" alt="img">
-                      <div class="aa-prom-content">
-                        <span>Sản phẩm độc quyền</span>
-                        <h4>Mật ong rừng Tây Bắc</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- / Promo section -->
 
   <!-- Products section -->

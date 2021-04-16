@@ -3,7 +3,7 @@ package com.poly.entity;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
-
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -74,7 +76,8 @@ public class ProductEntity implements Serializable{
 	private String description;
 
 	@Column(name = "create_date", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP" )
-	private LocalDate createDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date createDate;
 
 	@Column(name = "create_by", columnDefinition = "varchar(255) default 'admin'")
 	private String createBy;

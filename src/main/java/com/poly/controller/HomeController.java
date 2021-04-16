@@ -33,13 +33,7 @@ import com.poly.utils.SessionUtil;
 public class HomeController {
 
 	@Autowired
-	ProductDAO productDAO;
-
-	@Autowired
 	INewService newService;
-
-	@Autowired
-	CategoryDAO categoryDAO;
 
 	@Autowired
 	IProductService productService;
@@ -100,18 +94,6 @@ public class HomeController {
 		return "home/about";
 	}
 
-//	@RequestMapping("/home/product")//sanpham
-//	public String product() {
-//		return "home/product";
-//	}
-
-//	@RequestMapping("/home/product-detail")//chi tiet sanpham
-//	public String productDetail() {
-//		return "home/product-detail";
-//	}
-
-	
-
 	@RequestMapping("/home/policy") // chính sach
 	public String policy(HttpServletRequest request, Model model) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
@@ -136,91 +118,6 @@ public class HomeController {
 		return "home/contact";
 	}
 
-//	@RequestMapping("/home/login")//dang nhap 
-//	public String login() {
-//		return "home/login";
-//	}
-//	
-//	@RequestMapping("/home/registration")//dang ky 
-//	public String registration() {
-//		return "home/registration";
-//	}
-
-//	@RequestMapping("/order/checkout")//checkout thanh toán
-//	public String checkout() {
-//		return "order/checkout";
-//	}
-
-	@RequestMapping("/home/checkout") // checkout thanh toán
-	public String checkout() {
-		return "home/checkout";
-	}
-
-	@RequestMapping("/home/hdanDatHang") //
-	public String hddathang() {
-		return "home/hdanDatHang";
-	}
-
-	@RequestMapping("/home/cart") // cart chitietdathang
-	public String cart() {
-		return "home/cart";
-	}
-
 	// *******admin**********///
-	@RequestMapping("/admin/layout")
-	public String index() {
-		return "admin/layout";
-	}
-
-//	//trang tổng quan
-//	@RequestMapping("/admin/home/index-a")
-//	public String index2() {
-//		return "admin/home/index-a";
-//	}
-
-	// quản lý admin
-
-	// trang tổng quan
-	@RequestMapping("/admin/home/index-a")
-	public String index2() {
-		return "admin/home/index-a";
-	}
-
-	// quản lý admin
-
-	@RequestMapping("/admin/master/index")
-	public String admin() {
-		return "admin/master/index";
-	}
-
-	// quản lý khách hàng
-	@RequestMapping("/admin/customer/index")
-	public String customer() {
-		return "admin/customer/index";
-	}
-
-	// quản lý sản phẩm
-//	@RequestMapping("/admin/product/index")
-//	public String listProduct() {
-//		return "admin/product/index";
-//	}
-//		
-	// dơn hàng
-//	@RequestMapping("/admin/order/index")
-//	public String order() {
-//		return "admin/order/index";
-//	}
-
-	// quản lý bản tin
-	@RequestMapping("/admin/news/index")
-	public String category() {
-		return "admin/news/index";
-	}
-
-	// quản lý demo
-	@RequestMapping("/admin/demo/index")
-	public String demo() {
-		return "admin/demo/index";
-	}
 
 }
