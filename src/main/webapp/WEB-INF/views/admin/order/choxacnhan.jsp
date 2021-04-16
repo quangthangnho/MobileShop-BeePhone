@@ -2,8 +2,9 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
 
-<h4 class="card-title">CHỜ XÁC NHẬN</h4>
+<h4 class="card-title">CHỜ XÁC NHẬN </h4>
 <div><jsp:include page="menu.jsp" flush="true" /></div>
+
 <div class="material-datatables">
 	<table id="datatables"
 		class="table table-striped table-no-bordered table-hover"
@@ -19,9 +20,9 @@
 			</tr>
 		</thead>
 
-		<tbody>
+		<tbody id="myTablechoXacnhan">
 			<c:forEach var="item" items="${listchoxacnhan}">
-				<tr>
+				<tr >
 					<td>${item.id}</td>
 					<td>${item.orderDate}</td>
 					<td>${item.address}</td>
@@ -56,4 +57,4 @@
 	</table>
 </div>
 
- 
+

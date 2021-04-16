@@ -1,31 +1,7 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
-<div>
-	<div class="aa-product-details-bottom">
-	<ul class="nav nav-tabs aa-products-tab color" id="" style="background: #6600cc">
-		<li class="">
-			<a href="/admin/order/choxacnhan" data-toggle="" class="">CHỜ XÁC NHẬN ()</a>
-		</li>	
-		<li>
-			<a href="/admin/order/cholayhang" data-toggle="">CHỜ LẤY HÀNG</a>
-		</li>
-		
-		<li>
-			<a href="/admin/order/danggiao" data-toggle="">ĐANG GIAO</a>
-		</li>
-		
-		<li>
-			<a href="/admin/order/dagiao" data-toggle="">ĐÃ GIAO</a>
-		</li>		
-		<li>
-			<a href="/admin/order/dahuy" data-toggle="">ĐÃ HỦY</a>
-		</li>
-	</ul>
-</div>
-</div>
-
-
+<div><jsp:include page="menu.jsp"/></div>
 <c:set var="ctrl" value="/admin/order" scope="request"/>
 <ul class="nav nav-tabs" style="font-variant: small-caps;">
 	<li class="active">
@@ -35,7 +11,7 @@
 	</li>
 	<li>
 		<a data-toggle="tab" href="#list">
-			<span class="fa fa-pencil-square-o"></span> Danh sách
+			<span class="fa fa-pencil-square-o"></span> Danh sách(<span class="card-infomation"></span>)
 		</a>
 	</li>
 	
@@ -63,3 +39,4 @@ $(function(){
 	}
 })
 </script>
+

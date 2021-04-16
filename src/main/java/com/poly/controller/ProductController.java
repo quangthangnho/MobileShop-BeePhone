@@ -17,6 +17,7 @@ import com.poly.dao.CategoryDAO;
 import com.poly.dao.ProductDAO;
 import com.poly.entity.ProductEntity;
 import com.poly.model.AccountModel;
+import com.poly.utils.CookieUtil;
 import com.poly.utils.SessionUtil;
 
 @Controller
@@ -26,6 +27,8 @@ public class ProductController {
 	CategoryDAO cdao;
 	@Autowired
 	HttpServletRequest request;
+//	@Autowired
+//	httpService http;
 	
 	@RequestMapping("/product/list")
 	public String product(Model model) {//sanpham
@@ -42,6 +45,7 @@ public class ProductController {
 	
 	@RequestMapping("/layout/category")
 	public String index(Model model) {// hiện danh mục trang sản phẩm 
+		
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		if (accountModel != null) {
 			model.addAttribute("userLogin", accountModel.getUsername());
@@ -88,6 +92,15 @@ public class ProductController {
 	// chuyển sang trang product detail
 	@RequestMapping("/product/detail/{id}")
 	public String detail(Model model, @PathVariable("id") Long id) {
+		/**/
+//		String ids = http.getCookieValue("clicks", id.toString());
+//		if(!ids.contains(id.toString())) {
+//			ids = ids + "," +id;
+//		}
+//		http.creatCookie("clicks", ids, 30);
+//		List<ProductEntity> list = pdao.findById(ids);
+		
+		/**/
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		if (accountModel != null) {
 			model.addAttribute("userLogin", accountModel.getUsername());

@@ -1,6 +1,9 @@
 <%@ page pageEncoding="utf-8"%>
 
 
+<!--<s:message code="lo.mn.home" var="home" />
+  -->
+
   <section id="menu">
     <div class="container">
       <div class="menu-area">
@@ -19,13 +22,7 @@
             <ul class="nav navbar-nav">
               <li><a href="/home/index">TRANG CHỦ</a></li>
               <li><a href="/home/about">GIỚI THIỆU</a></li>
-              <li><a href="/product/list">SẢN PHẨM</span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="">RAU CỦ QUẢ</a></li>
-                  <li><a href="">CÁC LOẠI HẠT</a></li>
-                  <li><a href="">TINH DẦU</a></li>
-                  <li><a href="">MẬT ONG</a></li>
-                </ul>
+              <li><a href="/product/list">SẢN PHẨM</a>
               </li>
               <li><a href="/home/news">TIN TỨC</a></li>
               <li><a href="/home/policy">CHÍNH SÁCH</a></li>

@@ -83,11 +83,11 @@ public class OrderAControllerDemo {
 	
 	/*counnt*/
 	
-//	@RequestMapping("/admin/order/count")
-//	public String countAdanggiao(Model model) {
+//	@RequestMapping("/admin/order/menu")
+//	public String countAdanggiaonumber(Model model) {
 //		model.addAttribute("form", new OrderEntity());
-//		model.addAttribute("listdanggiao", odao.AcountDangGiao());
-//		return "admin/order/count";
+//		model.addAttribute("listdanggiaonumBer", odao.AchoXacNhannumBer());
+//		return "admin/order/menu";
 //	}
 	
 	

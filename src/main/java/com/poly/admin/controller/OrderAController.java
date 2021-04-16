@@ -43,7 +43,6 @@ public class OrderAController {
 		return "admin/order/index";
 	}
 	/**/
-	
 	/**/
 	
 	@RequestMapping("edit/{id}")

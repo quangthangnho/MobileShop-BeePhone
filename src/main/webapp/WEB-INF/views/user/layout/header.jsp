@@ -21,6 +21,14 @@
                     </a>
                   </div>
                 </div>
+                <div class="aa-language">
+                  <div class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="true">
+                      <img src="/static/assets/img/flag/vietnam.png" alt="english flag">English
+                    </a>
+                  </div>
+                </div>
                 <!-- / language -->
                 <!-- start cellphone -->
                 <!-- / cellphone -->

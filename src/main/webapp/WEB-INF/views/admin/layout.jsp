@@ -215,6 +215,25 @@ window.onclick = function(event) {
     }
 }
 </script>
+
+
+<script>
+	var rowCountallOrder = $('#myTableallOrder tr').length;
+	$(".card-infomation").html(this.rowCountallOrder);
+</script> 
+
+<script>
+	var rowCountchoXacnhan = $('#myTablechoXacnhan tr').length;
+	$(".card-choXacnhan").html(this.rowCountchoXacnhan);
+
+</script> 
+
+<script>
+	var rowCountchoLayhang = $('#myTablechoLayhang tr').length;
+	$(".card-choLayhang").html(this.rowCountchoLayhang);
+</script> 
+
+
 </body>
 
 </html>
