@@ -18,8 +18,8 @@ import com.poly.utils.SessionUtil;
 
 //----------------------------------------------------hypercare
 @Controller
-@RequestMapping("admin/category") //@RequestMapping phần chung g
-public class CategoryAController {
+@RequestMapping("admin/demo") //@RequestMapping phần chung g
+public class DemoAController {
 	@Autowired
 	CategoryDAO cdao;
 	@Autowired
@@ -38,14 +38,14 @@ public class CategoryAController {
 		USER_LOGIN(model);
 		model.addAttribute("form", new CategoryEntity());
 		model.addAttribute("list", cdao.fillAllCategoryStatus1());
-		return "admin/category/index";
+		return "admin/demo/index";
 	}
 	
 	@RequestMapping("edit/{id}")
 	public String edit(Model model, @PathVariable("id") long id) {
 		model.addAttribute("form", cdao.getOne(id));
 		model.addAttribute("list", cdao.fillAllCategoryStatus1());
-		return "admin/category/index";
+		return "admin/demo/index";
 	}
 	
 	@RequestMapping("create")
@@ -61,7 +61,7 @@ public class CategoryAController {
 			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>" +e);
 		}
 		model.addAttribute("list", cdao.fillAllCategoryStatus1());
-		return "admin/category/index";
+		return "admin/demo/index";
 	}
 	
 	@RequestMapping("update")
@@ -76,7 +76,7 @@ public class CategoryAController {
 			model.addAttribute("message", "Cập nhật loại hàng thành công!");
 		}
 		model.addAttribute("list", cdao.fillAllCategoryStatus1());
-		return "admin/category/index";
+		return "admin/demo/index";
 	}
 	
 	@RequestMapping("delete")
@@ -92,7 +92,7 @@ public class CategoryAController {
 			model.addAttribute("message", "Xóa loại hàng thành công!");
 		}
 		model.addAttribute("list", cdao.fillAllCategoryStatus1());
-		return "admin/category/index";
+		return "admin/demo/index";
 	}
 	
 	/**/
@@ -101,14 +101,14 @@ public class CategoryAController {
 		USER_LOGIN(model);
 		model.addAttribute("form", new CategoryEntity());
 		model.addAttribute("list", cdao.fillAllCategoryStatus1());
-		return "admin/category/index";
+		return "admin/demo/index";
 	}
 	@RequestMapping("edit/_thungrac")//@RequestMapping phần riêng
 	public String editindex_thungrac(Model model) {
 		USER_LOGIN(model);
 		model.addAttribute("formt", new CategoryEntity());
 		model.addAttribute("listfillAllCategoryStatus2", cdao.fillAllCategoryStatus2());
-		return "admin/category/_thungrac";
+		return "admin/demo/_thungrac";
 	}
 	
 	@RequestMapping("_thungrac")//@RequestMapping phần riêng
@@ -116,7 +116,7 @@ public class CategoryAController {
 		USER_LOGIN(model);
 		model.addAttribute("formt", new CategoryEntity());
 		model.addAttribute("listfillAllCategoryStatus2", cdao.fillAllCategoryStatus2());
-		return "admin/category/_thungrac";
+		return "admin/demo/_thungrac";
 	}
 	
 //	@RequestMapping("update2")
@@ -131,7 +131,7 @@ public class CategoryAController {
 //			model.addAttribute("message", "Lấy lại loại hàng thành công!");
 //		}
 //		model.addAttribute("list", cdao.fillAllCategoryStatus1());
-//		return "admin/category/index";
+//		return "admin/demo/index";
 //	}
 	
 	@RequestMapping("laylai/{id}/{name}")
@@ -145,7 +145,7 @@ public class CategoryAController {
 			model.addAttribute("message", "Lấy lại loại hàng thành công!");
 		}
 		model.addAttribute("listfillAllCategoryStatus2", cdao.fillAllCategoryStatus2());
-		return "admin/category/_thungrac";
+		return "admin/demo/_thungrac";
 	}
 	
 	
@@ -161,7 +161,7 @@ public class CategoryAController {
 			model.addAttribute("message", "Xóa loại hàng thành công!");
 		}
 		model.addAttribute("listfillAllCategoryStatus2", cdao.fillAllCategoryStatus2());
-		return "admin/category/_thungrac";
+		return "admin/demo/_thungrac";
 	}
 
 	/**/

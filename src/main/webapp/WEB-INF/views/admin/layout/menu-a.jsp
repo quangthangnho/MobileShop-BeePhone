@@ -27,6 +27,8 @@
 			
 			<li><a href="/admin/news/index"><i class="fa fa-newspaper-o"></i> <p>Tin tức</p></a></li>
 			
+			<li><a href="/admin/demo/index"><i class="fa fa-newspaper-o"></i> <p>Demo</p></a></li>
+			
 		</ul>
 	</div>
 </div>

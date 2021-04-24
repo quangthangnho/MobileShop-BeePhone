@@ -24,8 +24,8 @@
 					<td>${item.name}</td>
 		
 					<td class="td-actions text-right">
-						<a href="${ctrl}/edit/${item.id}" class="btn btn-sm btn-warning" title="Chi tiết">
-			    			<i class="fa fa-pencil"></i>
+						<a href="${ctrl}/edit/${item.id}" class="btn btn-sm btn-warning" title="Detail">
+			    			<i class="fa fa-pencil">Detail</i>
 			    		</a>	
 					</td>
 				</tr>

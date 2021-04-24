@@ -85,6 +85,26 @@
 				<label>Số điện thoại</label>
 				<form:input path="phone" class="form-control" />
 			</div>
+			
+			 <div class="form-group col-sm-3">
+				<label>Phương thức thanh toán</label>
+				<div class="form-control">
+					<input type="radio" name="payment" value="0" class="form-check-input">Ví AirPay
+				</div>
+			</div>
+			<div class="form-group col-sm-3">
+				<label></label>
+				<div class="form-control">
+					<input type="radio" name="payment" value="1" class="form-check-input">Thẻ Tín dụng/Ghi nợ
+				</div>
+			</div>
+			<div class="form-group col-sm-3">
+				<label></label>
+				<div class="form-control">
+					<input type="radio" name="payment" value="2" class="form-check-input">Thanh toán khi nhận hàng
+				</div>
+			</div>
+			
 	        <div class="form-group col-sm-12">
 	            <label>Địa chỉ nhận hàng</label>
 	            <form:textarea path="address" class="form-control" rows="3"/>

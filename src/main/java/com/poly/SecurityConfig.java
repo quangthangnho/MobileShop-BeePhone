@@ -16,12 +16,10 @@ public class SecurityConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {	
 		registry.addInterceptor(interceptor)
-			.addPathPatterns("/account/changepassword", "/account/updateInformation", "/account/logout", "/order/**")
-			.addPathPatterns("/admin/**").excludePathPatterns("/admin/report/inventory-by-category");
+			.addPathPatterns("/account/changepassword", "/account/updateInformation", "/account/logout", "/order/**");
+//			.addPathPatterns("/admin/**").excludePathPatterns("/admin/report/inventory-by-category");
 		
-//		LocaleChangeInterceptor localeChange = new LocaleChangeInterceptor();
-//		localeChange.setParamName("lang");
-//		registry.addInterceptor(localeChange).addPathPatterns("/**");
+
 	}
 
 }

@@ -24,6 +24,7 @@
 										<th>Địa chỉ nhận hàng</th>
 										<th>Tổng tiền</th>
 										<th>Trạng thái</th>
+										<th>Phương thức thanh toán</th>
 										<th></th>
 									</tr>
 								</thead>
@@ -53,6 +54,18 @@
 													<c:when test="${item.status == -1}">
 														<label class="label label-danger">ĐÃ HỦY</label>
 													</c:when>
+												</c:choose>
+											</td>
+											<td><c:choose>
+													<c:when test="${item.payment == 0}">
+														<label class="label label-primary">Ví AirPay</label>
+													</c:when>
+													<c:when test="${item.payment == 1}">
+														<label class="label label-primary">Thẻ Tín dụng/Ghi nợ</label>
+													</c:when>
+													<c:when test="${item.payment == 2}">
+														<label class="label label-primary">Thanh toán khi nhận hàng</label>
+													</c:when>
 												</c:choose></td>
 												
 											<td class="text-right">
@@ -70,6 +83,7 @@
 												</a>
 												
 											</td>
+											
 												
 											
 										</tr>

@@ -25,17 +25,17 @@
 
     </div>
     <div class="panel-footer">
-	        <form:button formaction="${ctrl}/create" class="btn btn-success" title="Tạo mới" disabled="${!empty form.id}">
-	        	<i class="fa fa-plus-circle"></i> Tạo mới
+	        <form:button formaction="${ctrl}/create" class="btn btn-success" title="Create" disabled="${!empty form.id}">
+	        	<i class="fa fa-plus-circle"></i> Create
 	        </form:button>
-	        <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Cập nhật" disabled="${empty form.id}">
-	        	<i class="fa fa-check-circle"></i> Cập nhật
+	        <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Update" disabled="${empty form.id}">
+	        	<i class="fa fa-check-circle"></i> Update
 	        </form:button>
-	        <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Xóa" disabled="${empty form.id}">
-	        	<i class="fa fa-trash-o"></i> Xóa
+	        <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Delete" disabled="${empty form.id}">
+	        	<i class="fa fa-trash-o"></i> Delete
 	        </form:button>
-	        <a href="${ctrl}/index" class="btn btn-info" title="Tải lại">
-	        	<i class="fa fa-refresh"></i> Tải lại
+	        <a href="${ctrl}/index" class="btn btn-info" title="Reset">
+	        	<i class="fa fa-refresh"></i> Reset
 	        </a>
     </div>
 </div>

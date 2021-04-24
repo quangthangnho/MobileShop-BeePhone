@@ -27,10 +27,10 @@
 									<tbody class="cart-items">
 									</tbody>
 								</table>
-								<input onclick="cart.update(${item.id})" class="aa-cart-view-btn" type="submit" value="Cập nhật giỏ hàng">
+								<input onclick="cart.update(${item.id})" class="aa-cart-view-btn" type="submit" title="Cập nhật giỏ hàng" value="Cập nhật giỏ hàng">
 								<div class="">
-									<a onclick="cart.clear()" href="" class="btn btn-danger"> <span
-										class="glyphicon glyphicon-trash"></span> Clear
+									<a onclick="cart.clear()" href="" class="btn btn-danger" title="Xóa tất cả"> <span
+										class="glyphicon glyphicon-trash"></span> Xóa tất cả
 									</a>
 								</div>
 							</div>
@@ -55,7 +55,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<a href="/order/checkout" class="aa-cart-view-btn">Thanh toán</a>
+							<a href="/order/checkout" class="aa-cart-view-btn" title="Thanh toán">Thanh toán</a>
 						</div>
 						<!-- / Cart Total view-->
 					</div>

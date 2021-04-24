@@ -59,6 +59,7 @@ public class OrderAController {
 			model.addAttribute("message", "Đơn hàng không tồn tại!");
 		}
 		else {
+			entity.getPayment();
 			entity.getReceiver();
 			entity.getPhone();
 			odao.save(entity);
