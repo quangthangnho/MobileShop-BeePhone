@@ -47,6 +47,9 @@ public class OrderEntity {
 	
 	@Column(name = "amount")
 	private Double amount;
+	
+	@Column()
+	private String payment;
 
 	@Column(columnDefinition = "int default 1", nullable = false)
 	private int status;

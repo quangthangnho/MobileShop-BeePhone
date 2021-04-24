@@ -57,6 +57,17 @@
 							    </div>
 							    <div class="row">
 							        <div class="form-group col-sm-12">
+							            <label>Phương thức thanh toán</label>
+							            <c:choose>
+							            	<c:when test="${order.payment == 0}"><label class="label label-primary">Ví AirPay</label></c:when>
+									    	<c:when test="${order.payment == 1}"><label class="label label-primary">Thẻ Tín dụng/Ghi nợ</label></c:when>
+									    	<c:when test="${order.payment == 2}"><label class="label label-primary">Thanh toán khi nhận hàng</label></c:when>
+							            </c:choose>
+							          	
+							        </div>
+							    </div>
+							    <div class="row">
+							        <div class="form-group col-sm-12">
 							            <label>Địa chỉ nhận hàng</label>
 							            <textarea class="form-control" id="" name="" rows="3" cols="128" disabled>${order.address}</textarea>
 							        </div>

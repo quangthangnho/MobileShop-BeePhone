@@ -12,12 +12,12 @@
     </div>
     <div class="panel-body">
 	    <div class="form-group">
-	        <label>ID</label>
-	        <form:input path="id" class="form-control" readonly="true"/> <!-- id tự tăng nên để readonly -->
+	        
+	        <form:input path="id" type="hidden" class="form-control" readonly="true"/> <!-- id tự tăng nên để readonly -->
 	    </div>
 	    <div class="form-group">
 	        <label>TÊN LOẠI HÀNG</label>
-	        <form:input path="name" class="form-control" required/>
+	        <form:input path="name" class="form-control" required="required"/>
 	    </div>
 	    <div class="form-group">
 	        <form:input path="status" type="hidden" class="form-control"/>
@@ -25,17 +25,17 @@
 
     </div>
     <div class="panel-footer">
-	        <form:button formaction="${ctrl}/create" class="btn btn-success" title="Create" disabled="${!empty form.id}">
-	        	<i class="fa fa-plus-circle"></i> Create
+	        <form:button formaction="${ctrl}/create" class="btn btn-success" title="Tạo mới" disabled="${!empty form.id}">
+	        	<i class="fa fa-plus-circle"></i> Tạo mới
 	        </form:button>
-	        <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Update" disabled="${empty form.id}">
-	        	<i class="fa fa-check-circle"></i> Update
+	        <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Cập nhật" disabled="${empty form.id}">
+	        	<i class="fa fa-check-circle"></i> Cập nhật
 	        </form:button>
-	        <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Delete" disabled="${empty form.id}">
-	        	<i class="fa fa-trash-o"></i> Delete
+	        <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Xóa" disabled="${empty form.id}">
+	        	<i class="fa fa-trash-o"></i> Xóa
 	        </form:button>
-	        <a href="${ctrl}/index" class="btn btn-info" title="Reset">
-	        	<i class="fa fa-refresh"></i> Reset
+	        <a href="${ctrl}/index" class="btn btn-info" title="Tải lại">
+	        	<i class="fa fa-refresh"></i> Tải lại
 	        </a>
     </div>
 </div>

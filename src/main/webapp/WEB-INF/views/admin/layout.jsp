@@ -110,10 +110,14 @@
 	</div>
 	
 	
-	
+
+
+
+
 
 
     	<!--   Core JS Files   -->
+    	
 <script src="/static/assets-a/assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
 <script src="/static/assets-a/assets/js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="/static/assets-a/assets/js/bootstrap.min.js" type="text/javascript"></script>

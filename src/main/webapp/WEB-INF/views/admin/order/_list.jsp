@@ -15,6 +15,7 @@
 				<th>ĐỊA CHỈ</th>
 				<th>SỐ TIỀN</th>
 				<th>TRẠNG THÁI</th>
+				<th>THANH TOÁN</th>
 				<th class="disabled-sorting text-right">HÀNH ĐỘNG</th>
 			</tr>
 		</thead>
@@ -45,8 +46,21 @@
 							<label class="label label-danger">ĐÃ HỦY</label>
 						</c:when>
 					</c:choose></td>
+					
+					<td><c:choose>
+						<c:when test="${item.payment == 0}">
+							<label class="label label-primary">Ví AirPay</label>
+						</c:when>
+						<c:when test="${item.payment == 1}">
+							<label class="label label-primary">Thẻ Tín dụng/Ghi nợ</label>
+						</c:when>
+						<c:when test="${item.payment == 2}">
+							<label class="label label-primary">Thanh toán khi nhận hàng
+							</label>
+						</c:when>
+					</c:choose></td>
 					<td class="td-actions text-right">
-						<a href="${ctrl}/edit/${item.id}" class="btn btn-sm btn-warning" title="Detail">
+						<a href="${ctrl}/edit/${item.id}" class="btn btn-sm btn-warning" title="Chi tiết">
 			    			<i class="fa fa-pencil"></i>
 			    		</a>
 					</td>

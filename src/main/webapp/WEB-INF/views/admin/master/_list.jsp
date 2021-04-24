@@ -40,7 +40,7 @@
                 <td><span class="badge badge-info">${item.getRole() == 'ADMIN' ? "Admin" : "Customer"}</span></td>
                
                 <td class="td-actions text-right">
-                    <a href = "<c:url value = "/admin/master/detail?id=${item.getId()}"/>" class="btn btn-sm btn-warning" title="Detail">
+                    <a href = "<c:url value = "/admin/master/detail?id=${item.getId()}"/>" class="btn btn-sm btn-warning" title="Chi tiết">
                         <i class="fa fa-pencil"></i>
                     </a>
                 </td>

@@ -80,6 +80,19 @@
 		    	
 		    	</div>
 		    </div>
+		    <div class="col-sm-12">
+		    	<div class="row">
+				    <div class="form-group col-sm-12">
+				        <label>PHƯƠNG THỨC THANH TOÁN</label>
+				          <c:choose>
+				            	<c:when test="${form.payment == 0}"><label class="label label-primary">Ví AirPay</label></c:when>
+						    	<c:when test="${form.payment == 1}"><label class="label label-primary">Thẻ Tín dụng/Ghi nợ</label></c:when>
+						    	<c:when test="${form.payment == 2}"><label class="label label-primary">Thanh toán khi nhận hàng</label></c:when>
+				           </c:choose>
+				    </div>
+				    <form:hidden path="payment"/>
+		    	</div>
+		    </div>
 		    
 		    <div class="col-sm-12">
 		    	<div class="row">
@@ -125,17 +138,24 @@
 	</table>
     <div class="panel-footer">
   
-	    <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Update" disabled="${empty form.id}">
-	    	<i class="fa fa-check-circle"></i> Cập nhập
+	    <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Cập nhật" disabled="${empty form.id}">
+	    	<i class="fa fa-check-circle"></i> Cập nhật
 	    </form:button>
 
-	    <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Delete" disabled="${empty form.id}">
+	    <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Xóa" disabled="${empty form.id}">
 	    	<i class="fa fa-trash-o"></i> Xóa
 	    </form:button>
-	    <a href="${ctrl}/index" class="btn btn-info" title="Reset">
+	    <a href="${ctrl}/index" class="btn btn-info" title="Tải lại">
 	    	<i class="fa fa-refresh"></i> Tải lại
 	    </a>
     </div>
 	
 </div>
 </form:form>
+
+
+<style>
+label.label  {
+    color: #fff;
+}
+</style>

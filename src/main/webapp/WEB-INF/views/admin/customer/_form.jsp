@@ -66,7 +66,7 @@
 					</div>
 					<div class="row">
 						<div class="form-group col-sm-3">
-							<label>Is Active?</label>
+							<label>Kích hoạt?</label>
 							<div class="form-control">
 								<input type="radio" name="status" value="1"
 									class="form-check-input" checked="checked">Yes <input
@@ -74,7 +74,7 @@
 							</div>
 						</div>
 						<div class="form-group col-sm-3">
-							<label>Is Admin?</label>
+							<label>Admin?</label>
 							<div class="form-control">
 								<input type="radio" name="role" value="ADMIN"
 									class="form-check-input">Yes <input type="radio"
@@ -92,13 +92,13 @@
 			<c:choose>
 				<c:when test="${empty indexForm.getId()}">
 					<button formaction="/admin/customer/create" class="btn btn-success"
-						title="Create">
+						title="Tạo mới">
 						<i class="fa fa-plus-circle"></i> Tạo mới
 					</button>
 				</c:when>
 				<c:when test="${!empty indexForm.getId()}">
 					<button formaction="/admin/customer/create" class="btn btn-success"
-						title="Create" disabled="disabled">
+						title="Tạo mới" disabled="disabled">
 						<i class="fa fa-plus-circle"></i> Tạo mới
 					</button>
 				</c:when>
@@ -106,25 +106,25 @@
 
 			<c:choose>
 				<c:when test="${empty indexForm.getId()}">
-					<button type="submit" class="btn btn-primary" title="Update"
+					<button type="submit" class="btn btn-primary" title="Cập nhật"
 						disabled="disabled">
-						<i class="fa fa-check-circle"></i> Cập nhập
+						<i class="fa fa-check-circle"></i> Cập nhật
 					</button>
 					</button>
 				</c:when>
 				<c:when test="${!empty indexForm.getId()}">
-					<button type="submit" class="btn btn-primary" title="Update">
-						<i class="fa fa-check-circle"></i> Cập nhập
+					<button type="submit" class="btn btn-primary" title="Cập nhật">
+						<i class="fa fa-check-circle"></i> Cập nhật
 					</button>
 					</button>
 				</c:when>
 			</c:choose>
 			<button formaction="/admin/customer/delete" class="btn btn-danger"
-				title="Delete">
+				title="Xóa">
 				<i class="fa fa-trash-o"></i> Xóa
 			</button>
 			<button>
-				<a href="/admin/customer/index" class="btn btn-info" title="Reset">
+				<a href="/admin/customer/index" class="btn btn-info" title="Tải lại">
 					<i class="fa fa-refresh"></i> Tải lại
 				</a>
 			</button>

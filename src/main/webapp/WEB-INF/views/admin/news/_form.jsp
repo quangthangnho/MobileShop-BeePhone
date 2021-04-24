@@ -56,13 +56,13 @@
 			<c:choose>
 				<c:when test="${empty newForm.getId()}">
 					<button formaction="/admin/news/create" class="btn btn-success"
-						title="Create">
+						title="Tạo mới">
 						<i class="fa fa-plus-circle"></i> Tạo mới
 					</button>
 				</c:when>
 				<c:when test="${!empty newForm.getId()}">
 					<button formaction="/admin/news/create" class="btn btn-success"
-						title="Create" disabled="disabled">
+						title="Tạo mới" disabled="disabled">
 						<i class="fa fa-plus-circle"></i> Tạo mới
 					</button>
 				</c:when>
@@ -70,25 +70,25 @@
 
 			<c:choose>
 				<c:when test="${empty newForm.getId()}">
-					<button formaction="/admin/news/update" class="btn btn-primary" title="Update"
+					<button formaction="/admin/news/update" class="btn btn-primary" title="Cập nhật"
 						disabled="disabled">
-						<i class="fa fa-check-circle"></i> Cập nhập
+						<i class="fa fa-check-circle"></i> Cập nhật
 					</button>
 					</button>
 				</c:when>
 				<c:when test="${!empty newForm.getId()}">
-					<button formaction="/admin/news/update" class="btn btn-primary" title="Update">
-						<i class="fa fa-check-circle"></i> Cập nhập
+					<button formaction="/admin/news/update" class="btn btn-primary" title="Cập nhật">
+						<i class="fa fa-check-circle"></i> Cập nhật
 					</button>
 					</button>
 				</c:when>
 			</c:choose>
 			<button formaction="/admin/news/delete?id=${newForm.id}" class="btn btn-danger"
-				title="Delete">
+				title="Xóa">
 				<i class="fa fa-trash-o"></i> Xóa
 			</button>
 			<button>
-				<a href="/admin/news/index" class="btn btn-info" title="Reset">
+				<a href="/admin/news/index" class="btn btn-info" title="Tải lại">
 					<i class="fa fa-refresh"></i> Tải lại
 				</a>
 			</button>
