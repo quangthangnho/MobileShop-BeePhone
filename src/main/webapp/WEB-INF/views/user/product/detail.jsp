@@ -247,7 +247,7 @@
 										<a class="aa-product-img" href="/product/detail/${p.id}">
 											<img
 											src="/static/assets-a/assets/images/products/${prod.image}"
-											alt="">
+											alt="" style="padding: 40px 30px 20px 20px;">
 										</a>
 
 
