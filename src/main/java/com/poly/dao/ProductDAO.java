@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.poly.entity.CategoryEntity;
+import com.poly.entity.OrderEntity;
 import com.poly.entity.ProductEntity;
 
 public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRepository<kiểu thực thể, kiểu dữ liệu khóa chính >
@@ -35,6 +36,14 @@ public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRep
 	
 	@Query("SELECT p FROM ProductEntity p WHERE p.status = 2 ")
 	List<ProductEntity> fillAllProductStatus2();
+	
+	
+	/*tìm id*/
+
+	@Query("SELECT p FROM ProductEntity p WHERE p.id=:uid")
+	ProductEntity findByIDpr(@Param("uid") Long id);
+	
+
 	
 
 }

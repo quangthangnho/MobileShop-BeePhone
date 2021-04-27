@@ -1,3 +1,10 @@
+<%@page import="com.sun.mail.imap.protocol.Item"%>
+<%@page import="com.poly.dao.OrderDetailDAO"%>
+<%@page import="com.poly.dao.ProductDAO"%>
+<%@page import="com.poly.dao.OrderDAO"%>
+<%@page import="com.poly.entity.OrderDetailEntity"%>
+
+<%@page import="com.poly.entity.ProductEntity"%>
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
@@ -12,7 +19,7 @@
 	    <div class="row">
 	    
 	    	<div class="form-group col-sm-4">
-	      
+	      <div class="form-control">ID: ${form.id}</div>
 	            <form:hidden path="id"/>
 	
 	        </div>
@@ -85,9 +92,9 @@
 				    <div class="form-group col-sm-12">
 				        <label>PHƯƠNG THỨC THANH TOÁN</label>
 				          <c:choose>
-				            	<c:when test="${form.payment == 0}"><label class="label label-primary">Ví AirPay</label></c:when>
-						    	<c:when test="${form.payment == 1}"><label class="label label-primary">Thẻ Tín dụng/Ghi nợ</label></c:when>
-						    	<c:when test="${form.payment == 2}"><label class="label label-primary">Thanh toán khi nhận hàng</label></c:when>
+				            	<c:when test="${form.payment == 0}"><label class="label label-primary"  style=" background-color:#004400">Giao tận nơi</label></c:when>
+						    	<c:when test="${form.payment == 1}"><label class="label label-primary" style=" background-color:#0000FF">Nhận tại cửa hàng</label></c:when>
+						    	<c:when test="${form.payment == 2}"><label class="label label-primary" style=" background-color:#9c27b0">Thanh toán khi nhận hàng</label></c:when>
 				           </c:choose>
 				    </div>
 				    <form:hidden path="payment"/>
@@ -98,7 +105,7 @@
 		    	<div class="row">
 				    <div class="form-group col-sm-12">
 				        <label>ĐỊA CHỈ GIAO HÀNG</label>
-				        <form:textarea path="address" class="form-control" rows="3"/>
+				        <form:textarea path="address" onkeypress="return /[0-9a-zA-Z -]/i.test(event.key)" class="form-control" rows="3"/>
 				    </div>
 		    	</div>
 		    </div>
@@ -136,11 +143,16 @@
 		</c:forEach>
 	    </tbody>
 	</table>
+	
     <div class="panel-footer">
-  
-	    <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Cập nhật" disabled="${empty form.id}">
+	    <form:button formaction="${ctrl}/update" name="_type" value="UPDATE" class="btn btn-primary" title="Cập nhật" disabled="${empty form.id}">
 	    	<i class="fa fa-check-circle"></i> Cập nhật
 	    </form:button>
+	    
+	    <form:button formaction="${ctrl}/huydonhang/${id}" class="btn btn-primary" title="Cập nhật" disabled="${empty form.id}">
+	    	<i class="fa fa-check-circle"></i> Hủy đơn hàng demo
+	    </form:button>
+	    
 
 	    <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Xóa" disabled="${empty form.id}">
 	    	<i class="fa fa-trash-o"></i> Xóa
@@ -152,6 +164,13 @@
 	
 </div>
 </form:form>
+
+<script>
+	$(function(){
+		cart.show_all();
+		$("[name=details]").val(cart.details);
+	})
+</script>
 
 
 <style>

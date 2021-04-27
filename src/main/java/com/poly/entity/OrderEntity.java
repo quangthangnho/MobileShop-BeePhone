@@ -53,6 +53,9 @@ public class OrderEntity {
 
 	@Column(columnDefinition = "int default 1", nullable = false)
 	private int status;
+	
+	@Column(columnDefinition = "int default 1")
+	private int thungrac;
 
 
 	@ManyToOne

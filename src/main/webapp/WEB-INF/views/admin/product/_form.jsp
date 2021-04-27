@@ -28,48 +28,48 @@
 		
 				    <div class="form-group col-sm-6">
 				        <label>TÊN SẢN PHẨM</label>
-				        <form:input path="name" class="form-control" required="required"/>
+				        <form:input path="name" class="form-control" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" required="required"/>
 				    </div>
 				    <div class="form-group col-sm-6">
 				        <label>BỘ NHỚ TRONG</label>
-				        <form:input path="boNhoTrong" class="form-control" required="required"/>
+				        <form:input path="boNhoTrong" class="form-control" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" required="required"/>
 				    </div>
 				</div>
 				
 				<div class="row">
 					<div class="form-group col-sm-6">
 				        <label>CAMERA TRƯỚC</label>
-				        <form:input path="cameraTruoc" class="form-control" required="required"/>
+				        <form:input path="cameraTruoc" class="form-control" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" required="required"/>
 				    </div>
 				    <div class="form-group col-sm-3">
 				        <label>CAMERA SAU</label>
-				        <form:input path="cameraSau" class="form-control" required="required"/>
+				        <form:input path="cameraSau" class="form-control" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" required="required"/>
 				    </div>
 				    <div class="form-group col-sm-3">
 				        <label>Giảm giá(%)</label>
-				        <form:input path="discount" class="form-control"/>
+				        <form:input path="discount" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" class="form-control"/>
 				    </div>
 			    </div>
 			    
 			    <div class="row">
 					<div class="form-group col-sm-6">
 				        <label>CPU</label>
-				        <form:input path="cpu" class="form-control" required="required"/>
+				        <form:input path="cpu" class="form-control" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" required="required"/>
 				    </div>
 				    <div class="form-group col-sm-6">
 				        <label>DUNG LƯỢNG PIN</label>
-				        <form:input path="dungLuongPin" class="form-control" required="required"/>
+				        <form:input path="dungLuongPin" class="form-control" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" required="required"/>
 				    </div>
 			    </div>
 			    
 			    <div class="row">
 					<div class="form-group col-sm-6">
 				        <label>HỆ ĐIỀU HÀNH</label>
-				        <form:input path="heDieuHanh" class="form-control" required="required"/>
+				        <form:input path="heDieuHanh" class="form-control" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" required="required"/>
 				    </div>
 				    <div class="form-group col-sm-6">
 				        <label>MÀN HÌNH</label>
-				        <form:input path="manHinh" class="form-control" required="required"/>
+				        <form:input path="manHinh" class="form-control" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" required="required"/>
 				    </div>
 			    </div>
 			  </div>
@@ -77,16 +77,16 @@
 			    <div class="col-sm-12">
 					<div class="form-group col-sm-4">
 				        <label>SỐ LƯỢNG</label>
-				        <form:input path="stock" class="form-control" required="required"/>
+				        <form:input path="stock" class="form-control" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" required="required"/>
 				    </div>
 				    <div class="form-group col-sm-4">
 				        <label>ĐƠN GIÁ</label>
 				        <div><fmt:formatNumber value="${form.unitPrice}" minFractionDigits="0"/> VNĐ</div>
-				        <form:input path="unitPrice" class="form-control" required="required"/>
+				        <form:input path="unitPrice" class="form-control" onkeypress="return /[0-9]/i.test(event.key)" required="required"/>
 				    </div>
 				    <div class="form-group col-sm-4">
 				        <label>RAM</label>
-				        <form:input path="ram" class="form-control" required="required"/>
+				        <form:input path="ram" class="form-control" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" required="required"/>
 				    </div>
 				    
 			    </div>
@@ -116,7 +116,7 @@
 			<div class="row">
 			    <div class="form-group col-sm-12">
 			        <label>Description</label>
-			        <form:textarea path="description" class="form-control" rows="4"/>
+			        <form:textarea path="description" onkeypress="return /[0-9a-zA-Z -]/i.test(event.key)" class="form-control" rows="4"/>
 			    </div>		    
  			</div>
     	
@@ -129,6 +129,9 @@
 	        </form:button>
 	        <form:button formaction="${ctrl}/update" class="btn btn-primary" title="Cập nhật" disabled="${empty form.id}">
 	        	<i class="fa fa-check-circle"></i> Cập nhật
+	        </form:button>
+	        <form:button formaction="${ctrl}/laylai" class="btn btn-success" title="Lấy lại" >
+	        	<i class="fa fa-history"></i> Lấy lại
 	        </form:button>
 	        <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Xóa" disabled="${empty form.id}">
 	        	<i class="fa fa-trash-o"></i> Xóa

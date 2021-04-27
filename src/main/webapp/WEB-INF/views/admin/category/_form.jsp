@@ -16,8 +16,8 @@
 	        <form:input path="id" type="hidden" class="form-control" readonly="true"/> <!-- id tự tăng nên để readonly -->
 	    </div>
 	    <div class="form-group">
-	        <label>TÊN LOẠI HÀNG</label>
-	        <form:input path="name" class="form-control" required="required"/>
+	        <label>TÊN LOẠI HÀNG</label><p id="demo"></p>
+	        <form:input path="name" class="form-control" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)" required="required"/>
 	    </div>
 	    <div class="form-group">
 	        <form:input path="status" type="hidden" class="form-control"/>

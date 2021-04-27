@@ -2,7 +2,9 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
 
-
+<div id="myDIV">
+	<a href="http://localhost:8086/admin/order/index" class="btn btn-info" style="color: #333; background-color: #28609" role="button"><i class="fa fa-pencil-square-o"></i> Cập nhập</a>
+</div>
 <h4 class="card-title">THÔNG TIN ĐẶT HÀNG</h4>
 <div class="material-datatables">
 	<table id="datatables"
@@ -16,13 +18,13 @@
 				<th>SỐ TIỀN</th>
 				<th>TRẠNG THÁI</th>
 				<th>THANH TOÁN</th>
-				<th>thùng rac</th>
+				<th>Thùng rác</th>
 				<th class="disabled-sorting text-right">HÀNH ĐỘNG</th>
 			</tr>
 		</thead>
 
 		<tbody id="myTableallOrder">
-			<c:forEach var="item" items="${list}">
+			<c:forEach var="item" items="${listAthungrac2}">
 				<tr>
 					<td>${item.id}</td>
 					<td>${item.orderDate}</td>
@@ -62,8 +64,11 @@
 					</c:choose></td>
 					<td>${item.thungrac}</td>
 					<td class="td-actions text-right">
-						<a href="${ctrl}/edit/${item.id}" class="btn btn-sm btn-warning" title="Chi tiết">
+						<a href="edit/${item.id}" class="btn btn-sm btn-warning" title="Chi tiết">
 			    			<i class="fa fa-pencil"></i>
+			    		</a>
+			    		<a href="http://localhost:8086/admin/order/delete/${item.id}" class="btn btn-sm btn-danger" title="Xóa">
+			    			<i class="fa fa-trash-o"></i>
 			    		</a>
 					</td>
 				</tr>

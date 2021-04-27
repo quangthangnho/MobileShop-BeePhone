@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.poly.entity.CategoryEntity;
 import com.poly.entity.OrderEntity;
 
 public interface OrderDAO extends JpaRepository<OrderEntity, Long> {
@@ -32,9 +33,14 @@ public interface OrderDAO extends JpaRepository<OrderEntity, Long> {
 	List<OrderEntity> Adahuy();
 	
 	
-	/*A count */
-	@Query("SELECT COUNT(*) FROM OrderEntity o where o.status = 0")
-	List<OrderEntity> AchoXacNhannumBer();
+	/*thùng rác */
+	
+	
+	@Query("SELECT o FROM OrderEntity o WHERE o.thungrac = 1 ")
+	List<OrderEntity> Athungrac1();
+	
+	@Query("SELECT o FROM OrderEntity o WHERE o.thungrac = 2 ")
+	List<OrderEntity> Athungrac2();
 	
 	
 	
@@ -56,6 +62,10 @@ public interface OrderDAO extends JpaRepository<OrderEntity, Long> {
 	
 	@Query("SELECT o FROM OrderEntity o WHERE  o.status=-1 and o.accountOrder.id=:uid ORDER BY o.orderDate DESC")
 	List<OrderEntity> daHuy(@Param("uid") Long id);
+	
+
+	
+	
 	
 
 

@@ -41,7 +41,9 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     
-
+    <!--Thông báo Notification   -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+	<!--/ Thông báo Notification   -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -157,6 +159,20 @@ $('#pagination').twbsPagination({
   	})
   	
   </script>
+  
+  <!--Thông báo Notification   -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+	<script >
+		function notify() {
+
+			$.notify("Thêm vào giỏ hàng thành công!", "success");
+			
+		}
+	</script>
+	<!--/Thông báo Notification   -->
+	
+	<!-- validation.js -->
+	  <script type="text/javascript" src="/static/assets/js/validation.js"></script>
 </body>
 
 </html>

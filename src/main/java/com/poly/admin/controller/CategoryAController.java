@@ -1,5 +1,7 @@
 package com.poly.admin.controller;
 
+import java.util.Date;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,12 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.poly.convert.impl.AccountModelAndEntityConvert;
 import com.poly.dao.CategoryDAO;
 import com.poly.entity.CategoryEntity;
+import com.poly.entity.OrderEntity;
+import com.poly.entity.ProductEntity;
 import com.poly.model.AccountModel;
 import com.poly.utils.SessionUtil;
 
@@ -80,7 +87,7 @@ public class CategoryAController {
 	}
 	
 	@RequestMapping("delete")
-	public String delete(Model model, @ModelAttribute("form") CategoryEntity entity) {
+	public String deletet(Model model, @ModelAttribute("form") CategoryEntity entity) {
 		Optional<CategoryEntity> option = cdao.findById(entity.getId());
 		if(!option.isPresent()) {
 			model.addAttribute("message", "Loại hàng không tồn tại!");
@@ -95,22 +102,8 @@ public class CategoryAController {
 		return "admin/category/index";
 	}
 	
-	/**/
-	@RequestMapping("edit/index")//@RequestMapping phần riêng
-	public String editindex(Model model) {
-		USER_LOGIN(model);
-		model.addAttribute("form", new CategoryEntity());
-		model.addAttribute("list", cdao.fillAllCategoryStatus1());
-		return "admin/category/index";
-	}
-	@RequestMapping("edit/_thungrac")//@RequestMapping phần riêng
-	public String editindex_thungrac(Model model) {
-		USER_LOGIN(model);
-		model.addAttribute("formt", new CategoryEntity());
-		model.addAttribute("listfillAllCategoryStatus2", cdao.fillAllCategoryStatus2());
-		return "admin/category/_thungrac";
-	}
-	
+
+	/*------------------------------thùng rác*/	
 	@RequestMapping("_thungrac")//@RequestMapping phần riêng
 	public String index_thungrac(Model model) {
 		USER_LOGIN(model);
@@ -118,21 +111,6 @@ public class CategoryAController {
 		model.addAttribute("listfillAllCategoryStatus2", cdao.fillAllCategoryStatus2());
 		return "admin/category/_thungrac";
 	}
-	
-//	@RequestMapping("update2")
-//	public String update2(Model model, @ModelAttribute("form") CategoryEntity entity) {
-//		if(!cdao.existsById(entity.getId())) { 
-//			model.addAttribute("message", "Loại hàng không tồn tại!");
-//		}
-//		else {
-//			entity.setStatus(1);
-//			cdao.save(entity);
-//			model.addAttribute("form", new CategoryEntity());
-//			model.addAttribute("message", "Lấy lại loại hàng thành công!");
-//		}
-//		model.addAttribute("list", cdao.fillAllCategoryStatus1());
-//		return "admin/category/index";
-//	}
 	
 	@RequestMapping("laylai/{id}/{name}")
 	public String laylai_thungrac(Model model, @PathVariable("id") long id ,CategoryEntity entity) {
@@ -149,8 +127,8 @@ public class CategoryAController {
 	}
 	
 	
-	@RequestMapping("delete/{id}")// xóa bị lỗi
-	public String delete1(Model model,@PathVariable("id") long id, CategoryEntity entity) {
+	@RequestMapping("delete/{id}")//
+	public String deletethungrac(Model model,@PathVariable("id") long id, CategoryEntity entity) {
 		Optional<CategoryEntity> option = cdao.findById(entity.getId());
 		if(!option.isPresent()) {
 			model.addAttribute("message", "Loại hàng không tồn tại!");
@@ -163,7 +141,19 @@ public class CategoryAController {
 		model.addAttribute("listfillAllCategoryStatus2", cdao.fillAllCategoryStatus2());
 		return "admin/category/_thungrac";
 	}
-
-	/**/
 	
+
+	/*------------------------------thùng rác*/
+	
+	
+	/*validation*/
+//	public String getEmployeesByIdAndNameWithMapVariable(@PathVariable Map<String, String> pathVarsMap) {
+//	    String id = pathVarsMap.get("id");
+//	    String name = pathVarsMap.get("name");
+//	    if (id != null && name != null) {
+//	        return "ID: " + id + ", name: " + name;
+//	    } else {
+//	        return "Missing Parameters";
+//	    }
+//	}
 }

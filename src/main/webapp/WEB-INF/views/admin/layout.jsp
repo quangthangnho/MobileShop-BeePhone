@@ -227,8 +227,8 @@ window.onclick = function(event) {
 </script> 
 
 <script>
-	var rowCountchoXacnhan = $('#myTablechoXacnhan tr').length;
-	$(".card-choXacnhan").html(this.rowCountchoXacnhan);
+	var rowCountchoXacnhan = $('#myTablechLayHang tr').length;
+	$(".card-cholayhang").html(this.rowCountchoXacnhan);
 
 </script> 
 
