@@ -38,42 +38,47 @@
 													
 											<td><c:choose>
 													<c:when test="${item.status == 0}">
-														<label class="label label-primary">CHỜ XÁC NHẬN</label>
+														<label class="label label-primary" style="background-color:#43c801">CHỜ XÁC NHẬN</label>
 													</c:when>
 													<c:when test="${item.status == 1}">
-														<label class="label label-info">CHỜ LẤY HÀNG</label>
+														<label class="label label-info" style="background-color:#ffc801">CHỜ LẤY HÀNG</label>
 													</c:when>
 													<c:when test="${item.status == 2}">
-														<label class="label label-success">ĐANG GIAO
+														<label class="label label-success" style="background-color:#0072ab">ĐANG GIAO
 														</label>
 													</c:when>
 													<c:when test="${item.status == 3}">
-														<label class="label label-success">ĐÃ GIAO
+														<label class="label label-success" style="background-color:#6cf">ĐÃ GIAO
 														</label>
 													</c:when>
 													<c:when test="${item.status == -1}">
-														<label class="label label-danger">ĐÃ HỦY</label>
+														<label class="label label-danger" style="background-color:#c00">ĐÃ HỦY</label>
 													</c:when>
 												</c:choose>
 											</td>
-											<td><c:choose>
+										
+											<td>
+										
+												<c:choose>
+											
 													<c:when test="${item.payment == 0}">
-														<label class="label label-primary">Ví AirPay</label>
+														<label class="label label-primary" style=" background-color:#004400">Giao tận nơi</label>
 													</c:when>
 													<c:when test="${item.payment == 1}">
-														<label class="label label-primary">Thẻ Tín dụng/Ghi nợ</label>
+														<label class="label label-primary" style=" background-color:#0000FF">Nhận tại cửa hàng</label>
 													</c:when>
 													<c:when test="${item.payment == 2}">
-														<label class="label label-primary">Thanh toán khi nhận hàng</label>
+														<label class="label label-primary" style=" background-color:#9c27b0">Thanh toán khi nhận hàng</label>
 													</c:when>
-												</c:choose></td>
+												</c:choose>
+										
+											</td>
 												
 											<td class="text-right">
 												
 												<c:if test="${item.status <= 0}">
-													<a href="/order/cancel/${item.id}"
-														class="btn btn-sm btn-danger"> <span
-														class="glyphicon glyphicon-trash"></span>
+													<a href="/order/cancel/${item.id}" class="btn btn-sm btn-danger"> 
+														<span class="glyphicon glyphicon-trash"></span>
 													</a>
 													
 												</c:if> 

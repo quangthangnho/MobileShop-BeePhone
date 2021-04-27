@@ -53,9 +53,9 @@ public class OrderController {
 			model.addAttribute("userLogin", accountModel.getUsername());
 			model.addAttribute("role", accountModel.getRole());
 		}
-		OrderEntity order = new OrderEntity();// tạo ra order mới		
+		OrderEntity order = new OrderEntity();
 		order.setAccountOrder(new AccountModelAndEntityConvert().convertToEntity(accountModel));
-		order.setOrderDate(new Date());// đưa ngày hiện tại vào order
+		order.setOrderDate(new Date());
 		
 		model.addAttribute("form", order);
 		return "order/checkout";// chuyển về giao diện order/checkout
@@ -77,12 +77,23 @@ public class OrderController {
 			detail.setProductOrderDetail(item);
 			detail.setUnitPrice(item.getUnitPrice());
 			detail.setQuatity(qty);
+			
+
+
+//			item.setStock(item.getStock() - detail.getQuatity());
+//			pdao.save(item);
 			details.add(detail); /*-- add to List<ObjectDetail> --*/
+		
 		});
 //		
 //		/*
 //		 * Create Order (Insert to DB)
 //		 */
+		
+		/**/
+		 /**/
+		
+		order.setThungrac(1);
 		odao.save(order);
 		ddao.saveAll(details);
 		
@@ -90,14 +101,14 @@ public class OrderController {
 		 * Gửi đơn hàng cho khách hàng
 		 */ 
 		/*--[http://.../order/checkout]--*/
-		String orderUrl = request.getRequestURL().toString();
-		/*--[http://.../order/detail/{id}]--*/
-		String orderDetailUrl = orderUrl.replace("checkout", "detail/" + order.getId());
-		AccountModel user = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
-		String to = user.getEmail();
-		String subject = "Shop MobilePhone";
-		String body = "Click <a href='" + orderDetailUrl + "'>tại đây</a> để xem đơn hàng bạn đã đặt!";
-		mailer.send(to, subject, body);
+//		String orderUrl = request.getRequestURL().toString();
+//		/*--[http://.../order/detail/{id}]--*/
+//		String orderDetailUrl = orderUrl.replace("checkout", "detail/" + order.getId());
+//		AccountModel user = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+//		String to = user.getEmail();
+//		String subject = "Shop MobilePhone";
+//		String body = "Click <a href='" + orderDetailUrl + "'>tại đây</a> để xem đơn hàng bạn đã đặt!";
+//		mailer.send(to, subject, body);
 
 
 		return "redirect:/order/detail/" + order.getId();
@@ -137,13 +148,15 @@ public class OrderController {
 	}
 	
 	@RequestMapping("/order/cancel/{id}")// nhận id đơn hàng 
-	public String cancel(@PathVariable("id") Long id, Model model) {// lấy đơn hàng Integer id ra
+	public String cancel(Model model, @PathVariable("id") Long id) {// lấy đơn hàng Integer id ra
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		if (accountModel != null) {
 			model.addAttribute("userLogin", accountModel.getUsername());
 			model.addAttribute("role", accountModel.getRole());
 		}
+
 		odao.deleteById(id);// gọi hàng delete
 		return "redirect:/order/list";// xóa xong chuyển về order/list
 	}
+	
 }

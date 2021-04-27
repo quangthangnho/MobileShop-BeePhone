@@ -9,10 +9,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.poly.dao.OrderDAO;
+import com.poly.dao.OrderDetailDAO;
 import com.poly.dao.ProductDAO;
 import com.poly.entity.OrderDetailEntity;
 import com.poly.entity.OrderEntity;
@@ -24,68 +26,60 @@ import ch.qos.logback.core.status.Status;
 public class CrudController {
 	@Autowired
 	ProductDAO dao;
-	 
-	
+
+	@Autowired
+	OrderDetailDAO odetail;
+
 	@Autowired
 	OrderDAO odao;
-	
+
 	@ResponseBody
 	@RequestMapping("/crud/find-all")
 	public void findAll() {
 		List<ProductEntity> list = dao.findAll();
-		for(ProductEntity entity : list) {
-			System.out.println(">>" + entity.getId() + "--1\n" +
-					entity.getBoNhoTrong() + "--2\n" +
-					entity.getCameraSau() + "--3\n" +
-					entity.getCameraTruoc() + "--4\n" +
-					entity.getCount() + "--5\n" +
-					entity.getCpu() + "--6\n" +
-					entity.getCreateBy() + "--7\n" +
-					entity.getCreateDate() + "--8\n" +
-					entity.getDescription() + "--9\n" +
-					entity.getDungLuongPin() + "--10\n" +
-					entity.getHeDieuHanh()+ "--11\n" +
-					entity.getImage() + "--12\n" +
-					entity.getName()+ "--13\n" +
-					entity.getStatus() + "--14\n" +		
-					entity.getStock() + "--15\n" +
-					entity.getUnitPrice() + "--16\n" +
-					entity.getCategoryProduct() + "--17\n"
+		for (ProductEntity entity : list) {
+			System.out.println(">>" + entity.getId() + "--1\n" + entity.getBoNhoTrong() + "--2\n"
+					+ entity.getCameraSau() + "--3\n" + entity.getCameraTruoc() + "--4\n" + entity.getCount() + "--5\n"
+					+ entity.getCpu() + "--6\n" + entity.getCreateBy() + "--7\n" + entity.getCreateDate() + "--8\n"
+					+ entity.getDescription() + "--9\n" + entity.getDungLuongPin() + "--10\n" + entity.getHeDieuHanh()
+					+ "--11\n" + entity.getImage() + "--12\n" + entity.getName() + "--13\n" + entity.getStatus()
+					+ "--14\n" + entity.getStock() + "--15\n" + entity.getUnitPrice() + "--16\n"
+					+ entity.getCategoryProduct() + "--17\n"
 
-					);
-			System.out.println("ID"+ entity.getId() + "Kq:>>>>>>>>>>>"+ String.format("%1$,.0f", entity.getUnitPrice()));
+			);
+			System.out.println(
+					"ID" + entity.getId() + "Kq:>>>>>>>>>>>" + String.format("%1$,.0f", entity.getUnitPrice()));
 			double number = 13000000;
-			System.out.println(String.format("%1$,.0f", number));		
-		}	 
+			System.out.println(String.format("%1$,.0f", number));
+		}
 	}
-	
+
 	@ResponseBody
 	@GetMapping("/crud/find-all-order")
 	public void findAllOrder() {
 		List<OrderEntity> list = odao.findAll();
 		for (OrderEntity orderEntity : list) {
-			System.out.println(orderEntity.getId() + " >>>>"+ orderEntity.getStatus() + " >>>>"+ orderEntity.getReceiver());
+			System.out.println(
+					orderEntity.getId() + " >>>>" + orderEntity.getStatus() + " >>>>" + orderEntity.getReceiver());
 		}
-		
+
 	}
-	
-	
+
 	@ResponseBody
 	@RequestMapping("/getone")
-	public void getone () {
+	public void getone() {
 		long number = 18;
 		OrderEntity od = odao.getOne(number);
-		System.out.println(od.getId() + " >>>>"+ od.getStatus() + " >>>>"+ od.getReceiver());
+		System.out.println(od.getId() + " >>>>" + od.getStatus() + " >>>>" + od.getReceiver());
 	}
-	
-	
+
 //	@ResponseBody
 //	@RequestMapping("/crud/find-one")
 //	public void findOne() {
 //		ProductEntity entity = dao.getOne(1003);
 //		System.out.println(">>" + entity.getName());
 //	}
-	
+
 //	@ResponseBody
 //	@RequestMapping("/crud/create")
 //	public void insert() {
@@ -94,7 +88,7 @@ public class CrudController {
 //		dao.save(entity);
 //	}
 //	
-	/*count*/
+	/* count */
 //	@RequestMapping("/crud/count")
 //	public void count() {
 //		OrderEntity entity = odao.AcountDangGiao();
@@ -102,8 +96,7 @@ public class CrudController {
 //
 //	}
 	/**/
-	
-	
+
 //	@ResponseBody
 //	@RequestMapping("/crud/update")
 //	public void update() {
@@ -116,25 +109,48 @@ public class CrudController {
 	@ResponseBody
 	@RequestMapping("/crud/delete")
 	public void delete() {
-		long id =15;
+		long id = 15;
 		odao.deleteById(id);
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("/crud/find-one")
 	public void findOne() {
 		try {
-			long a = 100; 
+			long a = 100;
 			OrderEntity entity = odao.getOne(a);
-			if(entity == null) {
+			if (entity == null) {
 				System.out.println("ko có id");
 			}
-			System.out.println(">>" + entity.getId() + ">>>>"+entity.getAccountOrder());
-			
+			System.out.println(">>" + entity.getId() + ">>>>" + entity.getAccountOrder());
+
 		} catch (Exception e) {
-			System.out.println("Exception >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" +e);
+			System.out.println("Exception >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + e);
 			e.printStackTrace();
 		}
-		
+
 	}
+
+	@ResponseBody
+	@RequestMapping("/checkQuantity")//sai
+	public void checkQuantity() {
+		long id =3;
+		ProductEntity prentity = dao.getOne(id);
+		System.out.println(">>>>>>>>>>>>>>>>"+">>id:"+prentity.getId()+">>stock:"+prentity.getStock());
+		
+		
+		long idd =42;
+		OrderDetailEntity ordetail = odetail.getOne(idd);
+		System.out.println(">>>>>>>>>>>>>>>>"+">>idd:"+ordetail.getId()+">>Quatity:"+ordetail.getQuatity());
+		
+		
+		prentity.setStock(prentity.getStock() + ordetail.getQuatity());
+		dao.save(prentity);
+		odao.deleteById(idd);
+		
+
+			
+
+	}
+
 }

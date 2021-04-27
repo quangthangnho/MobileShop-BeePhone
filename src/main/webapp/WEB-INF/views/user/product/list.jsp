@@ -80,3 +80,5 @@
     </section>
     <!-- / product category -->
     <!--  end content-->
+    <button  onclick="notify()" >Notify</button>
+

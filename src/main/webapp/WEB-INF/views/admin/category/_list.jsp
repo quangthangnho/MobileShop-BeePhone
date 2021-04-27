@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<h4 class="card-title">Hiển thị chuyên mục</h4>
+<h4 class="card-title">Hiển thị loại hàng</h4>
 
 <div class="material-datatables">
 	<table id="datatables"

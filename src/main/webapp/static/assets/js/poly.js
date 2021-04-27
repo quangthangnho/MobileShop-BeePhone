@@ -54,6 +54,7 @@ cart = {
                 /*-- Xóa sách giỏ hàng --*/
 		clear(){
 			sessionStorage.removeItem("cart");
+			document.getElementById("skud").innerHTML = "Xóa thành công";		
 			this.items = {};
 			this.show_info();
 			this.show_all();
@@ -65,8 +66,8 @@ cart = {
 				var item = this.items[id];
 				var tr = `
 						<tr>
-							<td><a onclick="cart.remove(${item.id})"class="remove" href=""><fa
-										class="fa fa-close"></fa></a>
+							<td><div onclick="cart.remove(${item.id})"class="remove"><fa
+										class="fa fa-close"></fa></div>
 							</td>							
 							<td><img src="/static/assets-a/assets/images/products/${item.image}" style="width:60px; height: 60px;"><a class="aa-cart-title" href="">${item.name}</a>
 							</td>
@@ -86,6 +87,7 @@ cart = {
                 /*-- Cập nhật số lượng của một mật hàng --*/
 		update(id, newqty){
 			this.items[id].quantity = newqty;
+			document.getElementById("skud").innerHTML = "Cập nhập thành công";	
 			this.save();
 			this.show_info();
 			this.show_all();
@@ -93,6 +95,8 @@ cart = {
                 /*-- Xóa một mặt hàng khỏi giỏ --*/
 		remove(id){
 			delete this.items[id];
+			document.getElementById("skud").innerHTML = "Xóa thành công";
+			
 			this.save();
 			this.show_info();
 			this.show_all();
@@ -103,7 +107,9 @@ cart = {
 				details[id] = this.items[id].quantity;
 			}
 			return JSON.stringify(details);
-		}
+		},
+		
+
 }
 
 

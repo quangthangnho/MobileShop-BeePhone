@@ -29,25 +29,25 @@
 					<td><fmt:formatNumber value="${item.amount}" minFractionDigits="0"/> VNĐ</td>
 					<td><c:choose>
 						<c:when test="${item.status == 0}">
-							<label class="label label-primary">CHỜ XÁC NHẬN</label>
+							<label class="label label-primary" style=" background-color:#43c801">CHỜ XÁC NHẬN</label>
 						</c:when>
 						<c:when test="${item.status == 1}">
-							<label class="label label-info">CHỜ LẤY HÀNG</label>
+							<label class="label label-info" style=" background-color: #ffc801" >CHỜ LẤY HÀNG</label>
 						</c:when>
 						<c:when test="${item.status == 2}">
-							<label class="label label-success">ĐANG GIAO
+							<label class="label label-success" style=" background-color: #0072ab">ĐANG GIAO
 							</label>
 						</c:when>
 						<c:when test="${item.status == 3}">
-							<label class="label label-success">ĐÃ GIAO
+							<label class="label label-success" style=" background-color: #6cf">ĐÃ GIAO
 							</label>
 						</c:when>
 						<c:when test="${item.status == -1}">
-							<label class="label label-danger">ĐÃ HỦY</label>
+							<label class="label label-danger" style=" background-color: #c00">ĐÃ HỦY</label>
 						</c:when>
 					</c:choose></td>
 					<td class="td-actions text-right">
-						<a href="${ctrl}/edit/${item.id}" class="btn btn-sm btn-warning" title="Detail">
+						<a href="/admin/order/edit/${item.id}" class="btn btn-sm btn-warning" title="Detail">
 			    			<i class="fa fa-pencil"></i>
 			    		</a>
 					</td>
