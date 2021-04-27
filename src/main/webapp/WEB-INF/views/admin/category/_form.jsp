@@ -17,7 +17,7 @@
 	    </div>
 	    <div class="form-group">
 	        <label>TÊN LOẠI HÀNG</label>
-	        <form:input path="name" class="form-control" required/>
+	        <form:input path="name" class="form-control" required="required"/>
 	    </div>
 	    <div class="form-group">
 	        <form:input path="status" type="hidden" class="form-control"/>
