@@ -36,18 +36,21 @@ public class ProductAController {
 	@Autowired
 	HttpServletRequest request;
 	
-	@RequestMapping("index")
-	public String index(Model model) {
+	public void  USER_LOGIN(Model model) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		if (accountModel != null) {
 			model.addAttribute("userLogin", accountModel.getUsername());
 			model.addAttribute("role", accountModel.getRole());
 		}
+	}
+	
+	@RequestMapping("index")
+	public String index(Model model) {
+		USER_LOGIN(model);
 		ProductEntity productEntity = new ProductEntity();
-//		productEntity.setAccountOrder(new AccountModelAndEntityConvert().convertToEntity(accountModel));
 		productEntity.setCreateDate(new Date());
 		model.addAttribute("form", productEntity);
-		model.addAttribute("list", pdao.findAll());
+		model.addAttribute("list", pdao.fillAllProductStatus1());
 		return "admin/product/index";
 	}
 	
@@ -57,7 +60,7 @@ public class ProductAController {
 		productEntity.setCreateDate(new Date());
 		model.addAttribute("form", productEntity);
 		model.addAttribute("form", pdao.findById(id).get());
-		model.addAttribute("list", pdao.findAll());
+		model.addAttribute("list", pdao.fillAllProductStatus1());
 		return "admin/product/index";
 	}
 	
@@ -73,6 +76,7 @@ public class ProductAController {
 			}
 			ProductEntity productEntity = new ProductEntity();
 			productEntity.setCreateDate(new Date());
+			entity.setStatus(1);
 			pdao.save(entity);
 			model.addAttribute("form", productEntity);
 			model.addAttribute("message", "Tạo mới sản phẩm thành công!");
@@ -81,12 +85,80 @@ public class ProductAController {
 			System.out.println("error create: " +e);
 			model.addAttribute("message", "Tạo mới sản phẩm thất bại!");
 		}
-		model.addAttribute("list", pdao.findAll());
+		model.addAttribute("list", pdao.fillAllProductStatus1());
 		return "admin/product/index";
 	}
 	
 	@RequestMapping("update")
 	public String update(Model model, 
+			@ModelAttribute("form") ProductEntity entity,
+			@RequestParam("image_file") MultipartFile image) {
+		if(!pdao.existsById(entity.getId())) {
+			entity.setId(null);
+			model.addAttribute("message", "Sản phẩm không tồn tại!");
+			
+//		}else if(entity.getStock() == 0) {
+//			model.addAttribute("message", "Sản phẩm đã hết hàng!");
+		}
+		else {
+			ProductEntity productEntity = new ProductEntity();
+			productEntity.setCreateDate(new Date());
+			File file = upload.save(image, "/static/assets-a/assets/images/products/");
+			if(file != null) {
+				entity.setImage(file.getName());
+			}
+//			entity.setStock(entity.getStock() - 1 );
+			
+			entity.setStatus(1);
+			pdao.save(entity);
+			model.addAttribute("message", "Cập nhật sản phẩm thành công!");
+		}
+		model.addAttribute("list", pdao.fillAllProductStatus1());
+		return "admin/product/index";
+	}
+	
+	@RequestMapping("delete")
+	public String delete(Model model, @ModelAttribute("form") ProductEntity entity) {
+		Optional<ProductEntity> option = pdao.findById(entity.getId());
+		if(!option.isPresent()) {
+			model.addAttribute("message", "Sản phẩm không tồn tại!");
+		}
+		else {
+			try {
+				entity.setStatus(2);
+				pdao.save(entity);
+//				pdao.delete(option.get());
+				model.addAttribute("form", new ProductEntity());
+				model.addAttribute("message", "Xóa sản phẩm thành công!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("error delete: " +e);
+				model.addAttribute("message", "Sản phẩm này đã mua hàng, không xóa được!");
+			}
+		}
+		model.addAttribute("list", pdao.fillAllProductStatus1());
+		return "admin/product/index";
+	}
+
+	@Autowired
+	CategoryDAO cdao;
+	@ModelAttribute("categories")
+	public List<CategoryEntity> getCategories(){
+		return cdao.findAll();// trả về toàn bộ loại
+	}
+	
+	
+	/*------------------------------thùng rác*/
+	@RequestMapping("_thungrac")//@RequestMapping phần riêng
+	public String index_thungrac(Model model) {
+		USER_LOGIN(model);
+		model.addAttribute("form", new CategoryEntity());
+		model.addAttribute("listfillAllProductStatus2", pdao.fillAllProductStatus2());
+		return "admin/product/_thungrac";
+	}
+	
+	@RequestMapping("laylai")
+	public String laylai_thungrac(Model model, 
 			@ModelAttribute("form") ProductEntity entity,
 			@RequestParam("image_file") MultipartFile image) {
 		if(!pdao.existsById(entity.getId())) {
@@ -100,21 +172,23 @@ public class ProductAController {
 			if(file != null) {
 				entity.setImage(file.getName());
 			}
+			entity.setStatus(1);
 			pdao.save(entity);
-			model.addAttribute("message", "Cập nhật sản phẩm thành công!");
+			model.addAttribute("message","Lấy lại sản phẩm thành công!");
 		}
-		model.addAttribute("list", pdao.findAll());
+		model.addAttribute("list", pdao.fillAllProductStatus1());
 		return "admin/product/index";
 	}
 	
-	@RequestMapping("delete")
-	public String delete(Model model, @ModelAttribute("form") ProductEntity entity) {
+	@RequestMapping("delete/{id}")
+	public String delete_thungrac(Model model, @PathVariable("id") long id,  @ModelAttribute("form") ProductEntity entity) {
 		Optional<ProductEntity> option = pdao.findById(entity.getId());
 		if(!option.isPresent()) {
 			model.addAttribute("message", "Sản phẩm không tồn tại!");
 		}
 		else {
 			try {
+
 				pdao.delete(option.get());
 				model.addAttribute("form", new ProductEntity());
 				model.addAttribute("message", "Xóa sản phẩm thành công!");
@@ -124,14 +198,10 @@ public class ProductAController {
 				model.addAttribute("message", "Sản phẩm này đã mua hàng, không xóa được!");
 			}
 		}
-		model.addAttribute("list", pdao.findAll());
-		return "admin/product/index";
+		model.addAttribute("listfillAllProductStatus2", pdao.fillAllProductStatus2());
+		return "admin/product/_thungrac";
 	}
-
-	@Autowired
-	CategoryDAO cdao;
-	@ModelAttribute("categories")
-	public List<CategoryEntity> getCategories(){
-		return cdao.findAll();// trả về toàn bộ loại
-	}
+	
+	
+	/*------------------------------thùng rác*/
 }

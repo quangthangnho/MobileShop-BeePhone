@@ -12,6 +12,8 @@
 							
 							<!-- product infomation of the order -->
 							<a href="/product/list" style="color: red"> << Tiếp tục mua hàng</a>
+							<div id="skud" role="alert" class="alert " style=""></div>
+
 							<div class="table-responsive">
 								<table class="table">
 									<thead>
@@ -27,12 +29,8 @@
 									<tbody class="cart-items">
 									</tbody>
 								</table>
-								<input onclick="cart.update(${item.id})" class="aa-cart-view-btn" type="submit" value="Cập nhật giỏ hàng">
-								<div class="">
-									<a onclick="cart.clear()" href="" class="btn btn-danger"> <span
-										class="glyphicon glyphicon-trash"></span> Clear
-									</a>
-								</div>
+								<input onclick="cart.clear()" class="btn btn-danger" type="submit" title="Cập nhật giỏ hàng" value="Xóa tất cả">
+								<input onclick="cart.update(${item.id})" class="aa-cart-view-btn" type="submit" title="Cập nhật giỏ hàng" value="Cập nhật giỏ hàng">
 							</div>
 							<!-- / product infomation of the order-->
 					
@@ -55,7 +53,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<a href="/order/checkout" class="aa-cart-view-btn">Thanh toán</a>
+							<a href="/order/checkout" class="aa-cart-view-btn" title="Thanh toán">Thanh toán</a>
 						</div>
 						<!-- / Cart Total view-->
 					</div>

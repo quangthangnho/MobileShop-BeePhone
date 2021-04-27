@@ -1,6 +1,8 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <section id="cart-view">
 	<div class="container">
 		<div class="row">
@@ -45,14 +47,28 @@
 							        <div class="form-group col-sm-6">
 							            <label>Trạng thái</label>
 							            <div class="form-control">
+							            
 							           <c:choose>
-									    	<c:when test="${order.status == 0}"><label class="label label-primary">CHỜ XÁC NHẬN</label></c:when>
-									    	<c:when test="${order.status == 1}"><label class="label label-info">CHỜ LẤY HÀNG</label></c:when>
-									    	<c:when test="${order.status == 2}"><label class="label label-success">ĐANG GIAO</label></c:when>
-									    	<c:when test="${order.status == 3}"><label class="label label-success">ĐÃ GIAO</label></c:when>
-									    	<c:when test="${order.status == -1}"><label class="label label-danger">ĐÃ HỦY</label></c:when>
+									    	<c:when test="${order.status == 0}"><label class="label label-primary" style="background-color:#43c801">CHỜ XÁC NHẬN</label></c:when>
+									    	<c:when test="${order.status == 1}"><label class="label label-info" style="background-color:#ffc801">CHỜ LẤY HÀNG</label></c:when>
+									    	<c:when test="${order.status == 2}"><label class="label label-success" style="background-color:#0072ab">ĐANG GIAO</label></c:when>
+									    	<c:when test="${order.status == 3}"><label class="label label-success" style="background-color:#6cf">ĐÃ GIAO</label></c:when>
+									    	<c:when test="${order.status == -1}"><label class="label label-danger" style="background-color:#c00">ĐÃ HỦY</label></c:when>
 									 </c:choose>
 							            </div>
+							        </div>
+							    </div>
+							    <div class="row">
+							        <div class="form-group col-sm-12">
+							    
+							            <label>Phương thức thanh toán</label>
+							            
+							            <c:choose>
+							            	<c:when test="${order.payment == 0}"><label class="label label-primary" style=" background-color:#004400">Giao tận nơi</label></c:when>
+									    	<c:when test="${order.payment == 1}"><label class="label label-primary" style=" background-color:#0000FF">Nhận tại cửa hàng</label></c:when>
+									    	<c:when test="${order.payment == 2}"><label class="label label-primary">Thanh toán khi nhận hàng</label></c:when>
+							            </c:choose>
+							        
 							        </div>
 							    </div>
 							    <div class="row">
@@ -64,7 +80,7 @@
 						    </div>
 
 						    <div class="panel-heading">
-						        <div class="panel-title">ĐƠN HÀNG</div>
+						        <div class="panel-title">CHI TIẾT ĐƠN HÀNG</div>
 						    </div>
 							<table class="table table-hover">
 							    <thead class="bg-danger">
@@ -94,9 +110,12 @@
 							</table>
 							<div class="panel-footer text-right">
 								<c:if test="${order.status <= 0}">
-							        <a href="/order/cancel/${order.id}" class="btn btn-danger">
+								<div>
+									<input  name="details" type="hidden">
+							        <a href="/order/cancel/${order.id}"  class="btn btn-danger">
 							        	<span class="glyphicon glyphicon-trash"></span> Hủy đơn hàng
 							        </a>
+							     </div>
 						        </c:if>
 						        <a href="/order/list" class="btn btn-info">
 						        	<span class="glyphicon glyphicon-list"></span> Danh sách đơn hàng của bạn
@@ -111,3 +130,4 @@
 		</div>
 	</div>
 </section>
+

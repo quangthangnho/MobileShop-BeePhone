@@ -79,24 +79,52 @@
 	        </div>
 	        <div class="form-group col-sm-6">
 				<label>Họ và tên</label>
-				<form:input path="receiver" class="form-control"/>
+				<form:input path="receiver" onkeypress="return /[a-zA-Z ]/i.test(event.key)" class="form-control" required="required"/>
+				<small id="txtName"></small>
 			</div>
 	        <div class="form-group col-sm-6">
 				<label>Số điện thoại</label>
-				<form:input path="phone" class="form-control" />
+				<form:input path="phone" id="phone" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" required="required"/>
+				<small id="txtPhone"></small>
 			</div>
+			
+			 <div class="form-group col-sm-3">
+				<label>Phương thức thanh toán</label>
+				<div class="form-control">
+					<input type="radio" name="payment" id ="payment0" value="0" class="form-check-input" style=" background-color:#004400">Giao tận nơi
+				</div>
+			</div>
+			<div class="form-group col-sm-3">
+				<label></label>
+				<div class="form-control">
+					<input type="radio" name="payment" id ="payment1" value="1" class="form-check-input" style=" background-color:#0000FF">Nhận tại cửa hàng
+				</div>
+			</div>
+			<div class="form-group col-sm-3">
+				<label></label>
+				<div class="form-control">
+					<input type="radio" name="payment" id ="payment2" value="2" class="form-check-input">Thanh toán khi nhận hàng
+				</div>
+			</div>
+			<small id="txtPayment"></small>
+			
+			
 	        <div class="form-group col-sm-12">
 	            <label>Địa chỉ nhận hàng</label>
-	            <form:textarea path="address" class="form-control" rows="3"/>
+	            <form:textarea path="address" onkeypress="return /[0-9a-zA-Z -]/i.test(event.key)" class="form-control" rows="3" required="required"/>
 	        </div>
     </div>
     <div class="panel-footer text-right">
     	<!-- Order Details -->
-    	<input name="details" type="hidden"> <!-- tất cả giỏ hàng nằm trong 1 trường ẩn details-->
-        <button class="btn btn-primary">
+    	<input  name="details" type="hidden"> <!-- tất cả giỏ hàng nằm trong 1 trường ẩn details-->
+        <button class="btn btn-primary checkAll" >
         	<span class="glyphicon glyphicon-user"></span>  ĐẶT HÀNG
         </button>
+        
     </div>
+    <button class="checkAll" >
+        	<span class=""></span>  Kiểm tra
+        </button>
 </div>
 </form:form>
 
@@ -118,5 +146,11 @@
 		cart.show_all();
 		$("[name=amount]").val(cart.amount);
 		$("[name=details]").val(cart.details);
+	});
+	
+	$(function() {
+		validation.phone();
+		
+		validation.payment();
 	})
 </script>
