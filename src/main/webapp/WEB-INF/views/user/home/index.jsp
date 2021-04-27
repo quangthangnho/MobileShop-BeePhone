@@ -85,7 +85,7 @@
                      <c:forEach items="${listIphone}" var="element" begin="0" end="3">
                       	<li>
                       		<figure>
-                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
+                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/assets-a/assets/images/products/${element.image}"
                               alt="polo shirt img"></a>
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
@@ -113,7 +113,7 @@
                       <c:forEach items="${listSamsung}" var="element" begin="0" end="3">
                       	<li>
                       		<figure>
-                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
+                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/assets-a/assets/images/products/${element.image}"
                               alt="polo shirt img"></a>
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
@@ -140,7 +140,7 @@
 							 <c:forEach items="${listXiaomi}" var="element" begin="0" end="3">
                       	<li>
                       		<figure>
-                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
+                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/assets-a/assets/images/products/${element.image}"
                               alt="polo shirt img"></a>
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
@@ -169,7 +169,7 @@
                        <c:forEach items="${listOppo}" var="element" begin="0" end="3">
                       	<li>
                       		<figure>
-                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
+                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/assets-a/assets/images/products/${element.image}"
                               alt="polo shirt img"></a>
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
@@ -197,7 +197,7 @@
                        <c:forEach items="${listHuawei}" var="element" begin="0" end="3">
                       	<li>
                       		<figure>
-                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
+                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/assets-a/assets/images/products/${element.image}"
                               alt="polo shirt img"></a>
                           <%@include file="_buttons.jsp"%>
                           <figcaption>

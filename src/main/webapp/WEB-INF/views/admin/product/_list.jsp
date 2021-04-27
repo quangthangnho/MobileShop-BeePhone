@@ -9,8 +9,8 @@
              <tr>
 				<th>HÌNH</th>
 				<th>TÊN SẢN PHẨM</th>
-				<th>GIÁ</th>
-				<th>SỐ LƯỢNG</th>
+				<th>GIÁ</th>		
+				<th>HÃNG</th>
 				<th class="disabled-sorting text-right">HÀNH ĐỘNG</th>
 			</tr>
              </thead>
@@ -21,8 +21,7 @@
                  <td><img src="/static/assets-a/assets/images/products/${item.image}" style="width:60px; height: 60px;"></td>
                  <td>${item.name}</td>
                  <td><fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> VNĐ </td>
-                 <td>${item.stock}</td>
-            
+            	 <td>${item.categoryProduct.name}</td>
                  <td class="td-actions text-right">
                    
                      <a href="${ctrl}/edit/${item.id}" class="btn btn-sm btn-warning" title="Chi tiết">

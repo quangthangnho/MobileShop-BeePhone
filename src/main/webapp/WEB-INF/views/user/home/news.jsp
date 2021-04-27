@@ -61,7 +61,7 @@
                                                     <a class="aa-cartbox-img" href="#"><img src="/static/images/news/${element.image}"
                                                             alt="img bài viết"></a>
                                                     <div class="aa-cartbox-info">
-                                                        <h4><a href="chiTietTinTuc.html"><b>${element.title} </b></a></h4>
+                                                        <h4><a href="/home/new-detail/${element.id}"><b>${element.title} </b></a></h4>
                                                         <p>${element.createDate}</p>
                                                     </div>
                                                 </li>
