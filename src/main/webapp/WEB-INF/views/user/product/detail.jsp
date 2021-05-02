@@ -179,7 +179,6 @@
 						<ul class="nav nav-tabs aa-products-tab" id="myTab2">
 							<li class="active"><a href="#description" data-toggle="tab"
 								class="">MÔ TẢ</a></li>
-							<li><a href="#review" data-toggle="tab">ĐÁNH GIÁ</a></li>
 						</ul>
 
 						<!-- Tab panes -->
@@ -187,51 +186,6 @@
 							<div class="tab-pane fade in active" id="description">
 								<p>${prod.description}</p>
 
-							</div>
-							<div class="tab-pane fade " id="review">
-								<div class="aa-product-review-area">
-									<ul class="aa-review-nav">
-
-										<li>
-											<div class="media">
-												<div class="media-body">
-													<h4 class="media-heading">
-														<strong>name</strong> - <span>created</span>
-													</h4>
-													<div class="aa-product-rating">
-														<span class="fa fa-star"></span> <span class="fa fa-star"></span>
-														<span class="fa fa-star"></span> <span class="fa fa-star"></span>
-														<span class="fa fa-star"></span>
-													</div>
-													<p>WWS DÁNH GIÁ</p>
-												</div>
-											</div>
-										</li>
-
-									</ul>
-									<h4>Thêm đánh giá</h4>
-
-									<!-- review form -->
-									<form action="" method="post" class="aa-review-form">
-										<div class="form-group">
-											<label for="name">Tên</label> <input type="text"
-												class="form-control" id="name" placeholder="Name"
-												name="name">
-										</div>
-										<div class="form-group">
-											<label for="email">Email</label> <input type="email"
-												class="form-control" id="email"
-												placeholder="example@gmail.com" name="email">
-										</div>
-										<div class="form-group">
-											<label for="message">Đánh giá của bạn</label>
-											<textarea class="form-control" rows="3" id="content"
-												name="content"></textarea>
-										</div>
-
-										<button type="submit" class="btn btn-default aa-review-submit">Gửi</button>
-									</form>
-								</div>
 							</div>
 						</div>
 					</div>
