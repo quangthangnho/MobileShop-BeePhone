@@ -81,7 +81,7 @@
 				    </div>
 				    <div class="form-group col-sm-4">
 				        <label>ĐƠN GIÁ</label>
-				        <div><fmt:formatNumber value="${form.unitPrice}" minFractionDigits="0"/> VNĐ</div>
+				        <div><fmt:formatNumber value="${form.unitPrice}" minFractionDigits="0"/> &#8363;</div>
 				        <form:input path="unitPrice" class="form-control" onkeypress="return /[0-9]/i.test(event.key)" required="required"/>
 				    </div>
 				    <div class="form-group col-sm-4">

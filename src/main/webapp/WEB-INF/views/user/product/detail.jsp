@@ -56,8 +56,8 @@
 									<div class="aa-price-block">
 
 										<span class="aa-product-price gach">
-										<del><fmt:formatNumber value="${prod.unitPrice}" minFractionDigits="0" /> VNĐ</del></span> 
-										<span class="aa-product-price 3e_UQT"><strong><fmt:formatNumber value="${prod.unitPrice * (100- prod.discount)/100}" minFractionDigits="0" /> VNĐ</strong></span> 
+										<del><fmt:formatNumber value="${prod.unitPrice}" minFractionDigits="0" /> &#8363;</del></span> 
+										<span class="aa-product-price 3e_UQT"><strong><fmt:formatNumber value="${prod.unitPrice * (100- prod.discount)/100}" minFractionDigits="0" /> &#8363;</strong></span> 
 										<span class="aa-product-price abc"><strong>${prod.discount}%</strong></span>
 
 										<p class="aa-product-avilability">
@@ -257,9 +257,9 @@
 											<h4 class="aa-product-title">
 												<a href="/product/detail/${p.id}">${p.name}"</a>
 											</h4>
-											<span class="aa-product-price"><fmt:formatNumber value="${p.unitPrice}" minFractionDigits="0" /> VNĐ</span><span
+											<span class="aa-product-price"><fmt:formatNumber value="${p.unitPrice}" minFractionDigits="0" /> &#8363;</span><span
 												class="aa-product-price"></span> <span
-												class="aa-product-price"><del><fmt:formatNumber value="${p.unitPrice}" minFractionDigits="0" /> VNĐ</del></span>
+												class="aa-product-price"><del><fmt:formatNumber value="${p.unitPrice}" minFractionDigits="0" /> &#8363;</del></span>
 
 										</figcaption>
 									</figure> <!-- product badge --> <span class="aa-badge aa-sale">${p.discount}%</span>

@@ -8,12 +8,13 @@
         <div class="seq-screen">
           <ul class="seq-canvas">
             <!-- single slide item -->
+             <c:forEach items="${listIphone}" var="element" begin="0" end="3">
             <li>
               <div class="seq-model">
                 <img data-seq src="/static/assets/images/slide_5.PNG" alt="Men slide img" />
               </div>
               <div class="seq-title">
-                <a data-seq href="product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="/product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>
             <!-- single slide item -->
@@ -22,7 +23,7 @@
                 <img data-seq src="/static/assets/images/slide_6.PNG" alt="Wristwatch slide img" />
               </div>
               <div class="seq-title">
-                <a data-seq href="product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="/product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>
             <!-- single slide item -->
@@ -31,7 +32,7 @@
                 <img data-seq src="/static/assets/images/slide_7.PNG" alt="Women Jeans slide img" />
               </div>
               <div class="seq-title">
-                <a data-seq href="product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="/product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>
             <!-- single slide item -->
@@ -40,9 +41,10 @@
                 <img data-seq src="/static/assets/images/slide_8.PNG" alt="Shoes slide img" />
               </div>
               <div class="seq-title">
-                <a data-seq href="product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="/product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>
+             </c:forEach>
           </ul>
         </div>
         <!-- slider navigation btn -->
@@ -90,10 +92,10 @@
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
                             <h4 class="aa-product-title"><a href="/product/detail/${element.id}">${element.name}</a></h4>
-                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> VNĐ</span>
+                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> &#8363;</span>
                             <span class="aa-product-price"><del>
                             <fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.unitPrice}" />
-                             VNĐ</del></span>
+                             &#8363;</del></span>
                           </figcaption>
                         </figure>
                         <!-- product badge -->
@@ -118,10 +120,10 @@
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
                             <h4 class="aa-product-title"><a href="/product/detail/${element.id}">${element.name}</a></h4>
-                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> VNĐ</span>
+                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> &#8363;</span>
                             <span class="aa-product-price"><del>
                             <fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.unitPrice}" />
-                             VNĐ</del></span>
+                             &#8363;</del></span>
                           </figcaption>
                         </figure>
                         <!-- product badge -->
@@ -145,10 +147,10 @@
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
                             <h4 class="aa-product-title"><a href="/product/detail/${element.id}">${element.name}</a></h4>
-                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> VNĐ</span>
+                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> &#8363;</span>
                             <span class="aa-product-price"><del>
                             <fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.unitPrice}" />
-                             VNĐ</del></span>
+                             &#8363;</del></span>
                           </figcaption>
                         </figure>
                         <!-- product badge -->
@@ -174,10 +176,10 @@
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
                             <h4 class="aa-product-title"><a href="/product/detail/${element.id}">${element.name}</a></h4>
-                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> VNĐ</span>
+                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> &#8363;</span>
                             <span class="aa-product-price"><del>
                             <fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.unitPrice}" />
-                             VNĐ</del></span>
+                             &#8363;</del></span>
                           </figcaption>
                         </figure>
                         <!-- product badge -->
@@ -202,10 +204,10 @@
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
                             <h4 class="aa-product-title"><a href="/product/detail/${element.id}">${element.name}</a></h4>
-                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> VNĐ</span>
+                            <span class="aa-product-price"><fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.price_discount}" /> &#8363;</span>
                             <span class="aa-product-price"><del>
                             <fmt:formatNumber type = "number"  maxFractionDigits  = "6" value = "${element.unitPrice}" />
-                             VNĐ</del></span>
+                             &#8363;</del></span>
                           </figcaption>
                         </figure>
                         <!-- product badge -->
@@ -220,7 +222,7 @@
                   <!-- / electronic product category -->
                 </div>
                 <div class="more-product">
-                  <a class="aa-browse-btn" href="sanPham.html">Xem Tất Cả Sản Phẩm <span class="fa fa-long-arrow-right"></span></a>
+                  <a class="aa-browse-btn" href="/product/list">Xem Tất Cả Sản Phẩm <span class="fa fa-long-arrow-right"></span></a>
                 </div>
               </div>
             </div>
@@ -261,7 +263,7 @@
               <div class="aa-support-single">
                 <span class="fa fa-truck"></span>
                 <h4>MIỄN PHÍ VẬN CHUYỂN</h4>
-                <P>Chúng tôi đã áp dụng gói miễn phí vận chuyển cho đơn hàng trên 280.000VNĐ.</P>
+                <P>Chúng tôi đã áp dụng gói miễn phí vận chuyển cho đơn hàng trên 280.000&#8363;.</P>
               </div>
             </div>
             <!-- single support -->

@@ -1,32 +1,19 @@
 package com.poly.admin.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.websocket.server.PathParam;
 
-import org.apache.tiles.autotag.core.runtime.annotation.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.poly.dao.OrderDAO;
 import com.poly.dao.OrderDetailDAO;
 import com.poly.dao.ProductDAO;
-import com.poly.entity.CategoryEntity;
-import com.poly.entity.OrderDetailEntity;
 import com.poly.entity.OrderEntity;
 import com.poly.entity.ProductEntity;
 import com.poly.model.AccountModel;
@@ -56,16 +43,17 @@ public class OrderAController {
 	public String index(Model model) {
 		USER_LOGIN(model);
 		model.addAttribute("form", new OrderEntity());
-		model.addAttribute("list", odao.Athungrac1());
+		model.addAttribute("list", odao.findAllthungrac1());
 		return "admin/order/index";
 	}
+	
 	/**/
 	/**/
 	
 	@RequestMapping("edit/{id}")
 	public String edit(Model model, @PathVariable("id") Long id) {
 		model.addAttribute("form", odao.getOne(id));
-		model.addAttribute("list", odao.Athungrac1());
+		model.addAttribute("list", odao.findAllthungrac1());
 		return "admin/order/index";
 	}
 	
@@ -78,18 +66,16 @@ public class OrderAController {
 		}
 		else {
 			
-			long id =2;
-			ProductEntity item = pdao.getOne(id);
-			long idd =26;
-			OrderDetailEntity detail = ddao.getOne(idd);
-			item.setStock(item.getStock() - detail.getQuatity());
-			pdao.save(item);
-			System.out.println(">>>>>>>>ProductEntity>>>>>>"+item);
-			System.out.println(">>>>>>>>OrderDetailEntity>>>>>>"+detail);
 			
-			
-
-			
+//			long id =1;
+//			ProductEntity item = pdao.getOne(id);
+//			long idd =51;
+//			OrderDetailEntity detail = ddao.getOne(idd);
+//			item.setStock(item.getStock() - detail.getQuatity());
+//			pdao.save(item);
+//			System.out.println(">>>>>>>>ProductEntity>>>>>>"+item.getId());
+//			System.out.println(">>>>>>>>OrderDetailEntity>>>>>>"+detail.getId());
+				
 			entity.getPayment();
 			entity.getReceiver();
 			entity.getPhone();
@@ -97,23 +83,9 @@ public class OrderAController {
 			odao.save(entity);
 			model.addAttribute("message", "Cập nhật đơn hàng thành công!");
 		}
-		model.addAttribute("list", odao.Athungrac1());
+		model.addAttribute("list", odao.findAllthungrac1());
 		return "admin/order/index";
 	}
-	
-	/*tạo đơn hàng, trừ stock ở sản phẩm*/
-	@RequestMapping("huydonhang/{id}")//lay dk id order, 
-	public String huydonhang(Model model,@ModelAttribute("form") @PathVariable("id") Long id, ProductEntity item){
-		
-		item =  pdao.findByIDpr(id);
-		OrderDetailEntity detail = ddao.getOne(id);
-//		item.setStock(item.getStock() - detail.getQuatity());
-		pdao.save(item);
-//		model.addAttribute("form", new OrderDetailEntity());
-		return "admin/order/index";
-	}
-	/*/tạo đơn hàng, trừ stock ở sản phẩm*/
-	
 	
 	@RequestMapping("delete")
 	public String delete(Model model, @ModelAttribute("form") OrderEntity entity) {
@@ -127,17 +99,16 @@ public class OrderAController {
 			model.addAttribute("form", new OrderEntity());
 			model.addAttribute("message", "Xóa đơn hàng thành công!");
 		}
-		model.addAttribute("list", odao.Athungrac1());
+		model.addAttribute("list", odao.findAllthungrac1());
 		return "admin/order/index";
 	}
-	
 	
 	/*thùng rac*/
 	@RequestMapping("_thungrac")//@RequestMapping phần riêng
 	public String index_thungrac(Model model) {
 		USER_LOGIN(model);
 		model.addAttribute("form", new ProductEntity());
-		model.addAttribute("listAthungrac2", odao.Athungrac2());
+		model.addAttribute("listAthungrac2", odao.findAllthungrac2());
 		return "admin/order/_thungrac";
 	}
 	
@@ -152,10 +123,8 @@ public class OrderAController {
 				model.addAttribute("form", new OrderEntity());
 				model.addAttribute("message", "Xóa đơn hàng thành công!");
 			}
-			model.addAttribute("list", odao.Athungrac1());
+			model.addAttribute("listAthungrac2", odao.findAllthungrac2());
 			return "admin/order/_thungrac";
 		
 	}
-	
-	
 }

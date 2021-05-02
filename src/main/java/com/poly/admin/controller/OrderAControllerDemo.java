@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.poly.dao.OrderDAO;
@@ -21,6 +23,8 @@ public class OrderAControllerDemo {
 	@Autowired
 	HttpServletRequest request;
 	
+	@Autowired
+	private OrderDAO countStatus;
 	
 	public void USER_LOGIN(Model model) {
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
@@ -33,6 +37,7 @@ public class OrderAControllerDemo {
 	@RequestMapping("/admin/order/choxacnhan")
 	public String Achoxacnhan(Model model) {
 		USER_LOGIN(model);
+		int a = 12;
 		model.addAttribute("form", new OrderEntity());
 		model.addAttribute("listchoxacnhan", odao.AchoXacNhan());
 		return "admin/order/choxacnhan";
@@ -45,6 +50,15 @@ public class OrderAControllerDemo {
 		model.addAttribute("listcholayhang", odao.AchoLayHang());
 		return "admin/order/cholayhang";
 	}
+	
+//	@PostMapping("/admin/order/cholayhang")
+//	public String Acholayhang1(Model model) {
+//		USER_LOGIN(model);
+//		model.addAttribute("form", new OrderEntity());
+//		
+//		model.addAttribute("listcholayhang", odao.countByStatus1());
+//		return "admin/order/cholayhang";
+//	}
 	
 	@RequestMapping("/admin/order/danggiao")
 	public String Adanggiao(Model model) {
@@ -83,6 +97,9 @@ public class OrderAControllerDemo {
 	
 	/*counnt*/
 	
+	public long count() {
+        return countStatus.count();
+    }
 	
 
 	

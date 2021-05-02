@@ -20,7 +20,7 @@
 			</tr>
 		</thead>
 
-		<tbody id=myTablechLayHang>
+		<tbody id="myTablechoLayhang"> <!-- id="myTablechoLayhang" -->
 			<c:forEach var="item" items="${listcholayhang}">
 				<tr>
 					<td>${item.id}</td>
@@ -56,3 +56,8 @@
 		</tbody>
 	</table>
 </div>
+
+<script>
+
+
+</script>

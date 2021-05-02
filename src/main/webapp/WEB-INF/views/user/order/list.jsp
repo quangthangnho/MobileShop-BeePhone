@@ -12,11 +12,15 @@
 
 						<!--  -->
 						<jsp:include page="index.jsp"></jsp:include>
-
 						<div class="panel panel-success">
-							<div class="panel-heading">
-								<div class="panel-title">TẤT CẢ ĐƠN HÀNG</div>
-							</div>
+						    <div class="panel-heading">
+						         <div class="panel-title pull-left">
+						         TẤT CẢ ĐƠN HÀNG
+						         </div>
+						        <div class="panel-title pull-right">${message}</div>
+						        <div class="clearfix"></div>
+						    </div>
+						
 							<table class="table table-hover">
 								<thead class="bg-danger">
 									<tr>
@@ -80,7 +84,7 @@
 													<a href="/order/cancel/${item.id}" class="btn btn-sm btn-danger"> 
 														<span class="glyphicon glyphicon-trash"></span>
 													</a>
-													
+											
 												</c:if> 
 												<a href="/order/detail/${item.id}"
 												class="btn btn-sm btn-success"> <span

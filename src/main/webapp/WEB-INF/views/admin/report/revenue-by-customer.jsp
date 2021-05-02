@@ -22,11 +22,11 @@
 	    <c:forEach var="item" items="${items}">
 			<tr>
 			    <td>${item.group}</td>
-			    <td><fmt:formatNumber value="${item.sum}" minFractionDigits="0"/> VNĐ</td>
+			    <td><fmt:formatNumber value="${item.sum}" minFractionDigits="0"/> &#8363;</td>
 			    <td>${item.count}</td>
-			    <td><fmt:formatNumber value="${item.min}" minFractionDigits="0"/> VNĐ</td>
-			    <td><fmt:formatNumber value="${item.max}" minFractionDigits="0"/> VNĐ</td>
-			    <td><fmt:formatNumber value="${item.avg}" minFractionDigits="0"/> VNĐ</td>
+			    <td><fmt:formatNumber value="${item.min}" minFractionDigits="0"/> &#8363;</td>
+			    <td><fmt:formatNumber value="${item.max}" minFractionDigits="0"/> &#8363;</td>
+			    <td><fmt:formatNumber value="${item.avg}" minFractionDigits="0"/> &#8363;</td>
 			</tr>
 	    </c:forEach>
 	    </tbody>

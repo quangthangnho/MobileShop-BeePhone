@@ -41,7 +41,7 @@
 								<tbody>
 									<tr>
 										<th>Tổng tiền hàng</th>
-										<td><strong class="aa-cartbox-total-price"></strong><strong> VNĐ</strong></td>
+										<td><strong class="aa-cartbox-total-price"></strong></td>
 									</tr>
 									<tr>
 										<th>Phí vận chuyển</th>
@@ -49,7 +49,7 @@
 									</tr>
 									<tr>
 										<th>Tổng thanh toán</th>
-										<td><strong class="aa-cartbox-total-price"></strong><strong> VNĐ</strong></td>
+										<td><strong class="aa-cartbox-total-price"></strong></td>
 									</tr>
 								</tbody>
 							</table>
@@ -72,6 +72,4 @@
 $(function(){
 	cart.show_all();
 });
-
-
 </script>

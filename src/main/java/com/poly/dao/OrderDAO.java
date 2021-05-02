@@ -37,12 +37,16 @@ public interface OrderDAO extends JpaRepository<OrderEntity, Long> {
 	
 	
 	@Query("SELECT o FROM OrderEntity o WHERE o.thungrac = 1 ")
-	List<OrderEntity> Athungrac1();
+	List<OrderEntity> findAllthungrac1();
 	
 	@Query("SELECT o FROM OrderEntity o WHERE o.thungrac = 2 ")
-	List<OrderEntity> Athungrac2();
+	List<OrderEntity> findAllthungrac2();
 	
+	/*count*/
+//	@Query("SELECT Count(id) FROM OrderEntity o WHERE o.status = 1")
 	
+	@Query("SELECT COUNT(id) FROM OrderEntity o WHERE o.status=?1")
+    Long countOrderStatus();
 	
 	//user
 	@Query("SELECT o FROM OrderEntity o WHERE o.accountOrder.id=:uid ORDER BY o.orderDate DESC")

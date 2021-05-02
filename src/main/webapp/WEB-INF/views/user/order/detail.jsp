@@ -41,7 +41,7 @@
 							        
 							        <div class="form-group col-sm-6">
 							            <label>Tổng tiền</label>
-							            <div class="form-control"><fmt:formatNumber value="${order.amount}" minFractionDigits="0"/> VNĐ</div>
+							            <div class="form-control"><fmt:formatNumber value="${order.amount}" minFractionDigits="0"/> &#8363;</div>
 							          
 							        </div>
 							        <div class="form-group col-sm-6">
@@ -98,11 +98,11 @@
 				
 									    <td><img src="/static/assets-a/assets/images/products/${item.productOrderDetail.image}" style="width:60px; height: 60px;"> ${item.productOrderDetail.name}</td>
 									    <td> 
-									    	<span class="cart-item__unit-price--before"><fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> VNĐ</span> 
-									    	<fmt:formatNumber value="${(item.unitPrice* 100)/100 * (100 - item.productOrderDetail.discount)/100}" minFractionDigits="0"/> VNĐ
+									    	<span class="cart-item-unit-price-before"><fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> &#8363;</span> 
+									    	<fmt:formatNumber value="${(item.unitPrice* 100)/100 * (100 - item.productOrderDetail.discount)/100}" minFractionDigits="0"/> &#8363;
 									    </td>
 									    <td>${item.quatity}</td>
-									    <td><fmt:formatNumber value="${Math.round(item.unitPrice*item.quatity* 100)/100 * (100 - item.productOrderDetail.discount)/100}" minFractionDigits="0"/> VNĐ</td>
+									    <td><fmt:formatNumber value="${Math.round(item.unitPrice*item.quatity* 100)/100 * (100 - item.productOrderDetail.discount)/100}" minFractionDigits="0"/> &#8363;</td>
 						
 									</tr>
 							    </c:forEach>
@@ -110,12 +110,12 @@
 							</table>
 							<div class="panel-footer text-right">
 								<c:if test="${order.status <= 0}">
-								<div>
+								
 									<input  name="details" type="hidden">
 							        <a href="/order/cancel/${order.id}"  class="btn btn-danger">
 							        	<span class="glyphicon glyphicon-trash"></span> Hủy đơn hàng
 							        </a>
-							     </div>
+							     
 						        </c:if>
 						        <a href="/order/list" class="btn btn-info">
 						        	<span class="glyphicon glyphicon-list"></span> Danh sách đơn hàng của bạn
@@ -130,4 +130,3 @@
 		</div>
 	</div>
 </section>
-

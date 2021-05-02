@@ -64,5 +64,7 @@ public class OrderEntity {
 
 	@OneToMany(mappedBy = "orderEntity")
 	private List<OrderDetailEntity> orderDetails;
+	
+	
 
 }

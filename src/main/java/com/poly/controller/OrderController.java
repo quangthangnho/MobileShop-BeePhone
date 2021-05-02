@@ -7,10 +7,12 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,7 @@ import com.poly.dao.OrderDAO;
 import com.poly.dao.OrderDetailDAO;
 import com.poly.dao.ProductDAO;
 import com.poly.entity.AccountEntity;
+import com.poly.entity.CategoryEntity;
 import com.poly.entity.OrderDetailEntity;
 import com.poly.entity.OrderEntity;
 import com.poly.entity.ProductEntity;
@@ -78,10 +81,21 @@ public class OrderController {
 			detail.setUnitPrice(item.getUnitPrice());
 			detail.setQuatity(qty);
 			
+			/**/
+			String type = request.getParameter("_type");
+			switch(type) {
+				case "MINUS":
+					item.setStock(item.getStock() - detail.getQuatity());
+					pdao.save(item);
+				break;
+				
+				case "PLUS":
+					item.setStock(item.getStock() + detail.getQuatity());
+					pdao.save(item);
+				break;
+			}
 
-
-//			item.setStock(item.getStock() - detail.getQuatity());
-//			pdao.save(item);
+			/**/
 			details.add(detail); /*-- add to List<ObjectDetail> --*/
 		
 		});
@@ -92,7 +106,6 @@ public class OrderController {
 		
 		/**/
 		 /**/
-		
 		order.setThungrac(1);
 		odao.save(order);
 		ddao.saveAll(details);
@@ -101,14 +114,18 @@ public class OrderController {
 		 * Gửi đơn hàng cho khách hàng
 		 */ 
 		/*--[http://.../order/checkout]--*/
-//		String orderUrl = request.getRequestURL().toString();
-//		/*--[http://.../order/detail/{id}]--*/
-//		String orderDetailUrl = orderUrl.replace("checkout", "detail/" + order.getId());
-//		AccountModel user = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
-//		String to = user.getEmail();
-//		String subject = "Shop MobilePhone";
-//		String body = "Click <a href='" + orderDetailUrl + "'>tại đây</a> để xem đơn hàng bạn đã đặt!";
-//		mailer.send(to, subject, body);
+		String orderUrl = request.getRequestURL().toString();
+		/*--[http://.../order/detail/{id}]--*/
+		String orderDetailUrl = orderUrl.replace("checkout", "detail/" + order.getId());
+		
+		/**/
+		/**/
+		
+		AccountModel user = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+		String to = user.getEmail();
+		String subject = "Shop MobilePhone";
+		String body = "Click <a href='" + orderDetailUrl + "'>tại đây</a> để xem đơn hàng bạn đã đặt!";
+		mailer.send(to, subject, body);
 
 
 		return "redirect:/order/detail/" + order.getId();
@@ -125,7 +142,7 @@ public class OrderController {
 		if (accountModel != null) {
 			model.addAttribute("userLogin", accountModel.getUsername());
 			model.addAttribute("role", accountModel.getRole());
-		}
+		}	
 		OrderEntity order = odao.getOne(id);
 		model.addAttribute("order", order);
 		return "order/detail";
@@ -154,9 +171,15 @@ public class OrderController {
 			model.addAttribute("userLogin", accountModel.getUsername());
 			model.addAttribute("role", accountModel.getRole());
 		}
-
-		odao.deleteById(id);// gọi hàng delete
+		
+		model.addAttribute("form", new OrderEntity());
+		model.addAttribute("message", "Xóa đơn hàng thành công!");
+		odao.deleteById(id);// gsọi hàng delete
 		return "redirect:/order/list";// xóa xong chuyển về order/list
 	}
 	
+	
+	
+
+
 }
