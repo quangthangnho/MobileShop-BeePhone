@@ -19,16 +19,13 @@ public interface OrderDetailDAO extends JpaRepository<OrderDetailEntity, Long> {
 //			+ " WHERE o.order.customer=:user AND o.order.status=2"
 //			+ " GROUP BY o.product.name")
 //	List<Report> getPurchaseByUser(@Param("user") AccountEntity user);
-	@Query("SELECT new Report(o.productOrderDetail.name, "
-			+ "sum(o.unitPrice * o.quatity),  "
-			+ "sum(o.quatity), "
-			+ "min(o.unitPrice), "
-			+ "max(o.unitPrice), "
-			+ "avg(o.unitPrice)) "
-			+ " FROM OrderDetailEntity o "
-			+ " WHERE o.orderEntity.accountOrder=:user AND o.orderEntity.status=2"
-			+ " GROUP BY o.productOrderDetail.name")
-	List<Report> getPurchaseByUser(@Param("user") AccountEntity user);
-	
+
+//		@Query("SELECT new Report(o.productOrderDetail.name, sum(o.unitPrice * o.quantity),  sum(o.quantity), min(o.unitPrice), max(o.unitPrice), avg(o.unitPrice)) "
+//				+ " FROM OrderDetailEntity o "
+//				+ " WHERE o.orderEntity.accountOrder=:user AND o.orderEntity.status=2"
+//				+ " GROUP BY o.productOrderDetail.name")
+//		List<Report> getPurchaseByUser(@Param("user") AccountEntity user);
+//	
+//	
 
 }

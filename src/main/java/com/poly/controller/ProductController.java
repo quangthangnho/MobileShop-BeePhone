@@ -51,7 +51,7 @@ public class ProductController {
 			model.addAttribute("userLogin", accountModel.getUsername());
 			model.addAttribute("role", accountModel.getRole());
 		}
-		model.addAttribute("cates", cdao.findAll());
+		model.addAttribute("cates", cdao.fillAllCategoryStatus1() );
 		return "user/layout/category"; 
 	}
 	
@@ -92,21 +92,16 @@ public class ProductController {
 	// chuyển sang trang product detail
 	@RequestMapping("/product/detail/{id}")
 	public String detail(Model model, @PathVariable("id") Long id) {
-		/**/
-//		String ids = http.getCookieValue("clicks", id.toString());
-//		if(!ids.contains(id.toString())) {
-//			ids = ids + "," +id;
-//		}
-//		http.creatCookie("clicks", ids, 30);
-//		List<ProductEntity> list = pdao.findById(ids);
-		
-		/**/
 		AccountModel accountModel = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
 		if (accountModel != null) {
 			model.addAttribute("userLogin", accountModel.getUsername());
 			model.addAttribute("role", accountModel.getRole());
 		}
 		ProductEntity product = pdao.getOne(id);
+		
+		product.setCount(product.getCount() + 1);	/*tăng số lương count*/
+		pdao.save(product);
+		
 		model.addAttribute("prod", product);
 		return "product/detail";
 	}

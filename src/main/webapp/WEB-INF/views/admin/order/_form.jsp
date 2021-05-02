@@ -68,7 +68,7 @@
 				    <div class="form-group col-sm-6">
 				        <label>TỔNG TIỀN</label>
 				       <div class="form-control">
-			            	<fmt:formatNumber value="${form.amount}" minFractionDigits="0"/> VNĐ
+			            	<fmt:formatNumber value="${form.amount}" minFractionDigits="0"/> &#8363;
 			            </div>
 			            <form:hidden path="amount"/>
 				    </div>
@@ -115,13 +115,13 @@
 	
 	
 	<div class="panel-heading">
-        <div class="panel-title">CHI TIẾT HÓA ĐƠN</div>
+        <div class="panel-title">CHI TIẾT ĐƠN HÀNG</div>
     </div>
 	<table class="table table-hover">
 	    <thead class="bg-danger">
 	        <tr>
 				<th>ID</th>
-				<th>TÊN SẢN PHẨM</th>
+				<th>SẢN PHẨM</th>
 				<th>ĐƠN GIÁ</th>
 				<th>SỐ LƯỢNG</th>
 				<th>TỔNG TIỀN</th>
@@ -131,47 +131,38 @@
 	    <c:forEach var="item" items="${form.orderDetails}">
 			<tr>
 			    <td>${item.productOrderDetail.id}</td>
-			    <td>${item.productOrderDetail.name}</td>
+			    <td><img src="/static/assets-a/assets/images/products/${item.productOrderDetail.image}" style="width:60px; height: 60px;"> ${item.productOrderDetail.name}</td>
 			    <td>
-			    	<fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> VNĐ
+			    	<fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> &#8363;
 			    </td>
 			    <td>${item.quatity}</td>
 			    <td>
-			    	<fmt:formatNumber value="${(item.unitPrice*item.quatity *100)/100 * (100 - item.productOrderDetail.discount)/100}" minFractionDigits="0"/> VNĐ
+			    	<fmt:formatNumber value="${(item.unitPrice*item.quatity *100)/100 * (100 - item.productOrderDetail.discount)/100}" minFractionDigits="0"/> &#8363;
 			    </td>
 			</tr>
+			
 		</c:forEach>
 	    </tbody>
 	</table>
 	
     <div class="panel-footer">
+
 	    <form:button formaction="${ctrl}/update" name="_type" value="UPDATE" class="btn btn-primary" title="Cập nhật" disabled="${empty form.id}">
 	    	<i class="fa fa-check-circle"></i> Cập nhật
 	    </form:button>
-	    
-	    <form:button formaction="${ctrl}/huydonhang/${id}" class="btn btn-primary" title="Cập nhật" disabled="${empty form.id}">
-	    	<i class="fa fa-check-circle"></i> Hủy đơn hàng demo
-	    </form:button>
-	    
-
+		
+		
 	    <form:button formaction="${ctrl}/delete" class="btn btn-danger" title="Xóa" disabled="${empty form.id}">
 	    	<i class="fa fa-trash-o"></i> Xóa
 	    </form:button>
 	    <a href="${ctrl}/index" class="btn btn-info" title="Tải lại">
 	    	<i class="fa fa-refresh"></i> Tải lại
 	    </a>
+	    
     </div>
 	
 </div>
 </form:form>
-
-<script>
-	$(function(){
-		cart.show_all();
-		$("[name=details]").val(cart.details);
-	})
-</script>
-
 
 <style>
 label.label  {

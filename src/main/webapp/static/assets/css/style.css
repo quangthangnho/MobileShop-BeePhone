@@ -4583,9 +4583,30 @@ span.psw {
 }
 
 /*gia tien chuan http://localhost:8086/cart/index*/
-.cart-item__unit-price--before {
+.cart-item-unit-price-before {
     color: rgba(0,0,0,.54);
     text-decoration: line-through;
 }
 
+
+/*hiden nut thanh toán*/
+.hideee{
+	display: none;
+}
+
+/*quantity cart/index*/
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+ /*quantity cart/index*/
+ 
 

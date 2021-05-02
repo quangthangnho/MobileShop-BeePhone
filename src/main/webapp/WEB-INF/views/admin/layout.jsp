@@ -37,6 +37,7 @@
     <meta property="og:site_name" content="Creative Tim" />
     <!-- Bootstrap core CSS     -->
     <link href="/static/assets-a/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/TableExport/3.2.5/css/tableexport.min.css"><!-- Export HTML table to CSV file -->
     <!--  Material Dashboard CSS    -->
     <link href="/static/assets-a/assets/css/material-dashboard.css" rel="stylesheet" />
     <style>
@@ -227,15 +228,15 @@ window.onclick = function(event) {
 </script> 
 
 <script>
-	var rowCountchoXacnhan = $('#myTablechLayHang tr').length;
-	$(".card-cholayhang").html(this.rowCountchoXacnhan);
-
+	var rowCountchoLayhang = $('#myTablechoLayhang tr').length;
+	$(".card-cholayhang").html(this.rowCountchoLayhang);
 </script> 
 
 <script>
-	var rowCountchoLayhang = $('#myTablechoLayhang tr').length;
-	$(".card-choLayhang").html(this.rowCountchoLayhang);
+	var rowCountdaGiao = $('#myTabledaGiao tr').length;
+	$(".card-dagiao").html(this.rowCountdaGiao);
 </script> 
+
 
 
 </body>

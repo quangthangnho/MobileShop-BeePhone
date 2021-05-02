@@ -144,16 +144,4 @@ public class CategoryAController {
 	
 
 	/*------------------------------thùng rác*/
-	
-	
-	/*validation*/
-//	public String getEmployeesByIdAndNameWithMapVariable(@PathVariable Map<String, String> pathVarsMap) {
-//	    String id = pathVarsMap.get("id");
-//	    String name = pathVarsMap.get("name");
-//	    if (id != null && name != null) {
-//	        return "ID: " + id + ", name: " + name;
-//	    } else {
-//	        return "Missing Parameters";
-//	    }
-//	}
 }

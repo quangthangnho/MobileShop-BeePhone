@@ -1,8 +1,4 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.poly.dao.ProductDAO"%>
-<%@page import="java.util.List"%>
-<%@page import="com.poly.entity.ProductEntity"%>
-<%@page import="java.text.DecimalFormat"%>
+
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%> <!-- nhúng thư viện core -->
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
@@ -43,10 +39,10 @@
                                         
                                         <figcaption>
                                             <h4 class="aa-product-title"><a href="/product/detail/${prod.id}">${prod.name}</a></h4>
-                                            <span class="aa-product-price"><fmt:formatNumber value="${(prod.unitPrice) * (100- prod.discount)/100}" minFractionDigits="0" /> VNĐ</span>
+                                            <span class="aa-product-price"><fmt:formatNumber value="${(prod.unitPrice) * (100- prod.discount)/100}" minFractionDigits="0" /> &#8363;</span>
 
                                             <span class="aa-product-price"></span> 
-                                            <span class="aa-product-price"><del> <fmt:formatNumber value="${prod.unitPrice}" minFractionDigits="0" /> VNĐ</del></span>
+                                            <span class="aa-product-price"><del> <fmt:formatNumber value="${prod.unitPrice}" minFractionDigits="0" /> &#8363;</del></span>
                                             <div></div>
                                
                                				
@@ -80,5 +76,4 @@
     </section>
     <!-- / product category -->
     <!--  end content-->
-    <button  onclick="notify()" >Notify</button>
 

@@ -19,7 +19,7 @@
 			</tr>
 		</thead>
 
-		<tbody>
+		<tbody id="myTabledaGiao">
 			<c:forEach var="item" items="${listdagiao}">
 				<tr>
 					<td>${item.id}</td>

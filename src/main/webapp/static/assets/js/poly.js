@@ -10,7 +10,7 @@ cart = {
 			}
 			this.save();
 			this.show_info();
-			console.log(this.items)
+			console.log(this.items)		
 		},
                 /*-- Lưu hàng đã chọn vào sessionStorage --*/
 		save(){
@@ -39,7 +39,7 @@ cart = {
                 /*-- Lấy tổng số tiền trong giỏ --*/
 		get amount(){
 			var total = 0;
-	
+
 			for(var id in this.items){
 				total += (this.items[id].price * this.items[id].quantity *100 )/100 *(100 - this.items[id].discount)/100;
 			}
@@ -47,8 +47,10 @@ cart = {
 		},
                 /*-- Hiển thị thông tin tổng hợp giỏ hàng --*/
 		show_info(){
+			
 			$(".aa-cart-notify").html(this.count);
-			$(".aa-cartbox-total-price").html(this.amount);
+//			$(".aa-cartbox-total-price").html(this.amount);
+			$(".aa-cartbox-total-price").html(formatCurrency(this.amount));
 		
 		},
                 /*-- Xóa sách giỏ hàng --*/
@@ -64,6 +66,9 @@ cart = {
 			$("tbody.cart-items").empty();
 			for(var id in this.items){
 				var item = this.items[id];
+				var originPrice = formatCurrency((item.price *100)/100);
+				var discount = formatCurrency((item.price* 100)/100 * (100 - item.discount)/100);
+				var amountPrice = formatCurrency(Math.round(item.price*item.quantity* 100)/100 * (100 - item.discount)/100);
 				var tr = `
 						<tr>
 							<td><div onclick="cart.remove(${item.id})"class="remove"><fa
@@ -71,26 +76,47 @@ cart = {
 							</td>							
 							<td><img src="/static/assets-a/assets/images/products/${item.image}" style="width:60px; height: 60px;"><a class="aa-cart-title" href="">${item.name}</a>
 							</td>
-							<td><span class="cart-item__unit-price--before">${(item.price *100)/100} VNĐ</span> ${ (item.price* 100)/100 * (100 - item.discount)/100}  VNĐ  </td>
+							<td><span class="cart-item-unit-price-before">${originPrice}</span> ${discount}</td>
 							<td>
-								<input value="${item.quantity}" onchange="cart.update(${item.id}, this.value)" type="number" min="1" style="width:60px;">
+								<input value="${item.quantity}" onchange="cart.update(${item.id}, this.value)" aria-lable="quantity" class="cart-quantity-input" type="number" max="10" min="1" name=""  value="1">
 							</td>
-							<td>${Math.round(item.price*item.quantity* 100)/100 * (100 - item.discount)/100} VNĐ</td>	
+							<td>${amountPrice}</td>	
+						</tr>
 							
-
-						</tr>	
-						
+						<script>
+					        $("input.input-qty").each(function () {
+					            var $this = $(this),
+					                qty = $this.parent().find(".is-form"),
+					                min = Number($this.attr("min")),
+					                max = Number($this.attr("max"));
+					            if (min == 0) {
+					                var d = 0;
+					            } else d = min;
+					            $(qty).on("click", function () {
+					                    if ($(this).hasClass("minus")) {
+					                        if (d > min) d += -1;
+					                    } else if ($(this).hasClass("plus")) {
+					                        var x = Number($this.val()) + 1;
+					                        if (x <= max) d += 1;
+					                    }
+					                    $this.attr("value", d).val(d);
+					                });
+					        });
+					    </script>  						
 				`;
 				$("tbody.cart-items").append(tr);
 			}
 		},
                 /*-- Cập nhật số lượng của một mật hàng --*/
 		update(id, newqty){
-			this.items[id].quantity = newqty;
+			
+			this.items[id].quantity = parseInt(newqty);
 			document.getElementById("skud").innerHTML = "Cập nhập thành công";	
 			this.save();
 			this.show_info();
 			this.show_all();
+			console.log(newqty);
+			
 		},
                 /*-- Xóa một mặt hàng khỏi giỏ --*/
 		remove(id){
@@ -107,11 +133,13 @@ cart = {
 				details[id] = this.items[id].quantity;
 			}
 			return JSON.stringify(details);
-		},
+		}
 		
-
 }
 
+function formatCurrency(money) {
+    return money.toLocaleString('vi', {style: 'currency', currency:'VND'}).replaceAll(".", ",");
+}
 
 $(function(){
 	cart.read(); /*-- Đọc từ sessionStorage khi trang web chạy --*/

@@ -55,5 +55,4 @@ public class NewEntity  implements Serializable{
 	@JoinColumn(name = "account_id" , nullable = false)
 	private AccountEntity accountEntity;
 
-
 }
