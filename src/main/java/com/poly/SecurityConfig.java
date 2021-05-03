@@ -16,7 +16,7 @@ public class SecurityConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {	
 		registry.addInterceptor(interceptor)
-			.addPathPatterns("/account/changepassword", "/account/updateInformation", "/account/logout", "/order/**");
+			.addPathPatterns("/account/changepassword", "/account/updateInformation", "/account/logout", "/order/**", "/admin/**");
 //			.addPathPatterns("/admin/**").excludePathPatterns("/admin/report/inventory-by-category");
 		
 

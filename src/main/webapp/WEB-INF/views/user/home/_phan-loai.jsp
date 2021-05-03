@@ -23,7 +23,11 @@
                     <c:forEach items="${listSPM}" var="element" begin="0" end="11">
                     <li>
                       <figure>
+<<<<<<< HEAD
                         <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
+=======
+                        <a class="aa-product-img" href="/product/detail/${element.id}"><img style="padding: 40px 30px 20px 20px;" src="/static/assets-a/assets/images/products/${element.image}"
+>>>>>>> branch 'master' of https://github.com/quangthangnho/MobileShop-BeePhone.git
                               alt="polo shirt img"></a>
                         <%@include file="_buttons.jsp"%>
                         <figcaption>
@@ -53,7 +57,11 @@
                     <c:forEach items="${listProduct_View}" var="element" begin="0" end="7">
                     <li>
                       <figure>
+<<<<<<< HEAD
                         <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
+=======
+                        <a class="aa-product-img" href="/product/detail/${element.id}"><img style="padding: 40px 30px 20px 20px;" src="/static/assets-a/assets/images/products/${element.image}"
+>>>>>>> branch 'master' of https://github.com/quangthangnho/MobileShop-BeePhone.git
                               alt="polo shirt img"></a>
                         <%@include file="_buttons.jsp"%>
                         <figcaption>
@@ -83,7 +91,11 @@
 						<c:forEach items="${listProduct_Discount}" var="element" begin="0" end="7">
                     <li>
                       <figure>
+<<<<<<< HEAD
                         <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
+=======
+                        <a class="aa-product-img" href="/product/detail/${element.id}"><img style="padding: 40px 30px 20px 20px;" src="/static/assets-a/assets/images/products/${element.image}"
+>>>>>>> branch 'master' of https://github.com/quangthangnho/MobileShop-BeePhone.git
                               alt="polo shirt img"></a>
                         <%@include file="_buttons.jsp"%>
                         <figcaption>

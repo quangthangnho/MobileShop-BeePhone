@@ -200,8 +200,13 @@
 									<figure>
 										<a class="aa-product-img" href="/product/detail/${p.id}">
 											<img
+<<<<<<< HEAD
 											src="/static/images/products/${prod.image}"
 											alt="">
+=======
+											src="/static/assets-a/assets/images/products/${p.image}"
+											alt="" style="padding: 40px 30px 20px 20px;">
+>>>>>>> branch 'master' of https://github.com/quangthangnho/MobileShop-BeePhone.git
 										</a>
 
 

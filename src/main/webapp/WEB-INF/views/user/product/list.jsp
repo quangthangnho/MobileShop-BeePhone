@@ -44,11 +44,19 @@
                         <div class="aa-product-catg-body">
                             <ul class="aa-product-catg">
                                 <!-- start single product item -->
+<<<<<<< HEAD
                                 <p style="margin-left: 30px"></p>
                                 <c:forEach var="prod" items="${list}" >
+=======
+                                <c:forEach var="prod" items="${list}">
+>>>>>>> branch 'master' of https://github.com/quangthangnho/MobileShop-BeePhone.git
                                 <li>
                                     <figure>
+<<<<<<< HEAD
                                         <a class="aa-product-img" href="/product/detail/${prod.id}"><img src="/static/images/products/${prod.image}" alt=""></a>
+=======
+                                        <a class="aa-product-img" href="/product/detail/${prod.id}"><img style="padding: 40px 30px 20px 20px" src="/static/assets-a/assets/images/products/${prod.image}" alt=""></a>
+>>>>>>> branch 'master' of https://github.com/quangthangnho/MobileShop-BeePhone.git
                                         <%@include file="_buttons.jsp"%>
                                         
                                         <figcaption>
