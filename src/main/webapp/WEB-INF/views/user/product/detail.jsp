@@ -200,7 +200,7 @@
 									<figure>
 										<a class="aa-product-img" href="/product/detail/${p.id}">
 											<img
-											src="/static/assets-a/assets/images/products/${prod.image}"
+											src="/static/assets-a/assets/images/products/${p.image}"
 											alt="" style="padding: 40px 30px 20px 20px;">
 										</a>
 

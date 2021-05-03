@@ -30,11 +30,10 @@
                         <div class="aa-product-catg-body">
                             <ul class="aa-product-catg">
                                 <!-- start single product item -->
-                                <p style="margin-left: 30px">Thông báo lỗi: Chưa có sản phẩm!</p>
                                 <c:forEach var="prod" items="${list}">
                                 <li>
                                     <figure>
-                                        <a class="aa-product-img" href="/product/detail/${prod.id}"><img src="/static/assets-a/assets/images/products/${prod.image}" alt=""></a>
+                                        <a class="aa-product-img" href="/product/detail/${prod.id}"><img style="padding: 40px 30px 20px 20px" src="/static/assets-a/assets/images/products/${prod.image}" alt=""></a>
                                         <%@include file="_buttons.jsp"%>
                                         
                                         <figcaption>
