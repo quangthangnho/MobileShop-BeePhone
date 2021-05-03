@@ -46,7 +46,7 @@ public class AccountEntity implements Serializable{
 	private String email;
 
 	@Column(name = "image")
-	private String image;
+	private String image = "user2.png";
 	
 	@Column(name = "phoneNumber")
 	private String phoneNumber;

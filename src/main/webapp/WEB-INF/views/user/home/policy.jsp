@@ -6,7 +6,7 @@
         <div class="aa-catg-head-banner-content">
           <h2>Chính sách bảo mật</h2>
           <ol class="breadcrumb">
-            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="index">Trang chủ</a></li>
             <li style="color:#fff">Chính sách</li>
           </ol>
         </div>

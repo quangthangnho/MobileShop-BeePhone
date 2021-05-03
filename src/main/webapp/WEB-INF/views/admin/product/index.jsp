@@ -4,7 +4,7 @@
 <c:set var="ctrl" value="/admin/product" scope="request"/>
 
 <div id="myDIV">
-	<a href="_thungrac" class="btn btn-primary" style="color: #333; background-color:#ec971f " role="button"><i class="fa fa-trash-o"></i> Thùng rác</a>
+	<a href="http://localhost:8086/admin/product/_thungrac" class="btn btn-primary" style="color: #333; background-color:#ec971f " role="button"><i class="fa fa-trash-o"></i> Thùng rác</a>
 </div>
 
 

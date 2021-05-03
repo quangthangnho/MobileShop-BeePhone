@@ -8,7 +8,7 @@
 			<div class="aa-catg-head-banner-content">
 				<h2>Giới thiệu</h2>
 				<ol class="breadcrumb">
-					<li><a href="index.html">Trang chủ</a></li>
+					<li><a href="index">Trang chủ</a></li>
 					<li style="color: #fff">Giới thiệu</li>
 				</ol>
 			</div>
@@ -73,7 +73,7 @@
                 bao giờ hết.<br>
                 <br>
                 <div style="text-align: center;">
-                    <img alt="" src="/static/assets-a/assets/public/images/website-dien-thoai.jpg" style="width: 700px; height: 370px;"></div>
+                    <img alt="" src="/static/assets-a/public/images/website-dien-thoai.jpg" style="width: 700px; height: 370px;"></div>
                 <br>
                 Nếu mong muốn tăng doanh thu từ việc <a class="class-a"
                     href="#"
@@ -95,8 +95,8 @@
                 phẩm tối ưu nhất. Bạn sẽ bỏ lỡ đối tượng khách hàng đáng kể nếu thông tin sản phẩm sơ sài, thiếu đầy
                 đủ.<br>
                 <br>
-                Trên đây là những bí quyết <a class="class-a" href="#" title="Sky Việt Nam"
-                    type="Công ty Sky Việt Nam"><u><strong>Sky Việt Nam</strong></u></a> đưa ra để bạn có được website
+                Trên đây là những bí quyết <a class="class-a" href="#" title="BeePhone"
+                    type="Công ty BeePhone"><u><strong>BeePhone</strong></u></a> đưa ra để bạn có được website
                 bán điện thoại hiệu quả. Với kinh nghiệm của chúng tôi trong quá trình thiết kế các website cho khách
                 hàng, chúng tôi luôn nỗ lực hết sức để đem lại những tiện ích đáng kể cho cuộc sống của bạn.<br>
                 <br>
@@ -169,7 +169,7 @@ h3.title, h1.title {
     height: 49px;
     float: left;
     margin-right: 30px;
-    background: url(../images/line.png) repeat-x;
+    background: url() repeat-x;
     color: #e82c2b;
     font-size: 19px;
     border: 1px solid #e4e4e4;
@@ -211,13 +211,13 @@ h3.title, h1.title {
 }
 
 .contact-bt-post .phone {
-    background: url(/static/assets-a/assets/public/images/icon-phone-red.png) left center no-repeat;
+    background: url(/static/assets-a/public/images/icon-phone-red.png) left center no-repeat;
     padding-left: 35px;
     color: #e82c2b;
 }
 
 .contact-bt-post .email {
-    background: url(/static/assets-a/assets/public/images/icon-email-red.png) left center no-repeat;
+    background: url(/static/assets-a/public/images/icon-email-red.png) left center no-repeat;
     padding-left: 45px;
     color: #e82c2b;
 }

@@ -14,7 +14,7 @@
     	<div class="row">
     		<div class="col-sm-4 text-center">
 	    		<label for="image_file">
-	    			<img id="image" src="/static/assets-a/assets/images/products/${form.image}">
+	    			<img id="image" src="/static/images/products/${form.image}">
 	    		</label>
 			    <div class="form-group">
 			        <input onchange="upload.change(this, 'img#image')" name="image_file" id="image_file" type="file" value="" class="form-control" >
@@ -93,23 +93,24 @@
 			   
 			    <div class="col-sm-12">
 				    <div class="row">
+					    <div class="form-group col-sm-4">
+					        <label>Category</label>
+					        <i class="fa fa-sort-desc"></i>
+					        <form:select path="categoryProduct.id" class="form-control">
+					        	<form:options items="${categories}" itemValue="id" itemLabel="name" /> 	
+					        </form:select>
+					    </div>
 						<div class="form-group col-sm-4">
-					        <label>NGÀY TẠO</label>
-					       	<form:input path="createDate" class="form-control" readonly="true" />
+					        <label></label>
+					       	<form:hidden path="createDate" class="form-control" readonly="true" />
 					    </div>
 					    
 					    <div class="form-group col-sm-4">
-					        <label>NGƯỜI TẠO</label>
-					        <form:input path="createBy" class="form-control" value="admin" readonly="true"/>
+					        <label></label>
+					        <form:hidden path="createBy" class="form-control" value="admin" readonly="true" />
 					        
 					    </div>
-					    <div class="form-group col-sm-4">
-				        <label>Category</label>
-				        <i class="fa fa-sort-desc"></i>
-				        <form:select path="categoryProduct.id" class="form-control">
-				        	<form:options items="${categories}" itemValue="id" itemLabel="name" /> 	
-				        </form:select>
-				    </div>
+					
 					    
 				    </div>
 			    </div>
@@ -159,4 +160,4 @@ img#image{
 	}
 </style>
 
-<script src="/static/assets-a/assets/js/upload.js"></script>
+<script src="/static/assets-a/js/upload.js"></script>

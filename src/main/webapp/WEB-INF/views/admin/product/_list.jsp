@@ -18,7 +18,7 @@
              <tbody>
              <c:forEach var="item" items="${list}">
              <tr>
-                 <td><img src="/static/assets-a/assets/images/products/${item.image}" style="width:60px; height: 60px;"></td>
+                 <td><img src="/static/images/products/${item.image}" style="width:60px; height: 60px;"></td>
                  <td>${item.name}</td>
                  <td><fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> &#8363; </td>
             	 <td>${item.categoryProduct.name}</td>

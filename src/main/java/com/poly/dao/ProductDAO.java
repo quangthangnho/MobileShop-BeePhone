@@ -14,7 +14,7 @@ import com.poly.entity.ProductEntity;
 
 public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRepository<kiểu thực thể, kiểu dữ liệu khóa chính >
 
-	@Query("SELECT p FROM ProductEntity p "+" WHERE p.name LIKE %:kw% OR p.categoryProduct.name LIKE %:kw%")
+	@Query("SELECT p FROM ProductEntity p "+" WHERE p.name LIKE %:kw% OR p.categoryProduct.name LIKE %:kw% "+" and p.status = 1")
 	List<ProductEntity> findByKeywords(@Param("kw") String keywords); 
 	
 	@Query("select c from ProductEntity c where c.categoryProduct.id = :categoryId order by c.discount desc")
@@ -40,9 +40,6 @@ public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRep
 	
 	/*tìm id*/
 
-	@Query("SELECT p FROM ProductEntity p WHERE p.id=:uid")
-	ProductEntity findByIDpr(@Param("uid") Long id);
-	
 
 	
 

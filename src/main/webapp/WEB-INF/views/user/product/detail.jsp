@@ -12,7 +12,7 @@
 			<div class="aa-catg-head-banner-content">
 				<h2>Chi tiết sản phẩm</h2>
 				<ol class="breadcrumb">
-					<li><a href="/home/index">Trang chủ</a></li>
+					<li><a href="../../home/index">Trang chủ</a></li>
 					<li><a href="/product/list">Sản phẩm</a></li>
 					<li style="color: #fff">${prod.name}</li>
 				</ol>
@@ -38,9 +38,9 @@
 										<div class="simpleLens-container">
 											<div class="simpleLens-big-image-container">
 												<a
-													data-lens-image="/static/assets-a/assets/images/products/${prod.image}"
+													data-lens-image="/static/images/products/${prod.image}"
 													class="simpleLens-lens-image"><img
-													src="/static/assets-a/assets/images/products/${prod.image}"
+													src="/static/images/products/${prod.image}"
 													class="simpleLens-big-image"></a>
 											</div>
 										</div>
@@ -92,7 +92,7 @@
 								<span
 									onclick="document.getElementById('id01').style.display='none'"
 									class="close" title="Close Modal">&times;</span> <img
-									src="/static/assets-a/assets/images/products/${prod.image}"
+									src="/static/assets-a/images/products/${prod.image}"
 									alt="Avatar" class="avatar">
 							</div>
 
@@ -200,7 +200,7 @@
 									<figure>
 										<a class="aa-product-img" href="/product/detail/${p.id}">
 											<img
-											src="/static/assets-a/assets/images/products/${prod.image}"
+											src="/static/images/products/${prod.image}"
 											alt="">
 										</a>
 

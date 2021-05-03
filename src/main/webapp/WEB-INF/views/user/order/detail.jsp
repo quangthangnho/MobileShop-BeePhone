@@ -96,7 +96,7 @@
 							    <c:forEach var="item" items="${order.orderDetails}">
 									<tr>
 				
-									    <td><img src="/static/assets-a/assets/images/products/${item.productOrderDetail.image}" style="width:60px; height: 60px;"> ${item.productOrderDetail.name}</td>
+									    <td><img src="/static/assets-a/images/products/${item.productOrderDetail.image}" style="width:60px; height: 60px;"> ${item.productOrderDetail.name}</td>
 									    <td> 
 									    	<span class="cart-item-unit-price-before"><fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> &#8363;</span> 
 									    	<fmt:formatNumber value="${(item.unitPrice* 100)/100 * (100 - item.productOrderDetail.discount)/100}" minFractionDigits="0"/> &#8363;

@@ -87,7 +87,7 @@
                      <c:forEach items="${listIphone}" var="element" begin="0" end="3">
                       	<li>
                       		<figure>
-                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/assets-a/assets/images/products/${element.image}"
+                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
                               alt="polo shirt img"></a>
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
@@ -115,7 +115,7 @@
                       <c:forEach items="${listSamsung}" var="element" begin="0" end="3">
                       	<li>
                       		<figure>
-                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/assets-a/assets/images/products/${element.image}"
+                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
                               alt="polo shirt img"></a>
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
@@ -142,7 +142,7 @@
 							 <c:forEach items="${listXiaomi}" var="element" begin="0" end="3">
                       	<li>
                       		<figure>
-                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/assets-a/assets/images/products/${element.image}"
+                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
                               alt="polo shirt img"></a>
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
@@ -171,7 +171,7 @@
                        <c:forEach items="${listOppo}" var="element" begin="0" end="3">
                       	<li>
                       		<figure>
-                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/assets-a/assets/images/products/${element.image}"
+                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
                               alt="polo shirt img"></a>
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
@@ -199,7 +199,7 @@
                        <c:forEach items="${listHuawei}" var="element" begin="0" end="3">
                       	<li>
                       		<figure>
-                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/assets-a/assets/images/products/${element.image}"
+                          <a class="aa-product-img" href="/product/detail/${element.id}"><img src="/static/images/products/${element.image}"
                               alt="polo shirt img"></a>
                           <%@include file="_buttons.jsp"%>
                           <figcaption>
@@ -362,7 +362,7 @@
                     </figcaption>
                   </figure>
                   <div class="aa-blog-info">
-                    <h3 class="aa-blog-title" style="min-height: 30px;"><a href="new-detaill">${element.title}</a></h3>
+                    <h3 class="aa-blog-title" style="min-height: 30px;"><a href="/home/new-detail/${element.id}">${element.title}</a></h3>
                     <div class="des">${element.content}</div>
                     <a href="/home/new-detail/${element.id}" class="aa-read-mor-btn">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
                   </div>

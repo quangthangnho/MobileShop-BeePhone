@@ -1,4 +1,3 @@
-
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%> <!-- nhúng thư viện core -->
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
@@ -12,7 +11,7 @@
                 <div class="aa-catg-head-banner-content">
                     <h2>Sản phẩm</h2>
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="../home/index">Trang chủ</a></li>
                         <li style="color:#fff">Danh sách sản phẩm</li>
                     </ol>
                 </div>
@@ -27,14 +26,29 @@
             <div class="row">
                 <div class="col-lg-9 col-md-9 col-sm-8 col-md-push-3">
                     <div class="aa-product-catg-content">
+                    <div class="pull-right">
+		        		Page ${pager.page + 1} of ${pager.count} pages 
+			    		<a href="/admin/order/index?page=0" class="btn btn-xs btn-default">
+			    			<span class="glyphicon glyphicon-hand-up"></span>
+			    		</a>
+			    		<a href="/admin/order/index?page=${pager.page-1}" class="btn btn-xs btn-default">
+			    			<span class="glyphicon glyphicon-hand-left"></span>
+			    		</a>
+			    		<a href="/admin/order/index?page=${pager.page+1}" class="btn btn-xs btn-default">
+			    			<span class="glyphicon glyphicon-hand-right"></span>
+			    		</a>
+			    		<a href="/admin/order/index?page=${pager.count - 1}" class="btn btn-xs btn-default">
+			    			<span class="glyphicon glyphicon-hand-down"></span>
+			    		</a>
+			    	</div>
                         <div class="aa-product-catg-body">
                             <ul class="aa-product-catg">
                                 <!-- start single product item -->
-                                <p style="margin-left: 30px">Thông báo lỗi: Chưa có sản phẩm!</p>
-                                <c:forEach var="prod" items="${list}">
+                                <p style="margin-left: 30px"></p>
+                                <c:forEach var="prod" items="${list}" >
                                 <li>
                                     <figure>
-                                        <a class="aa-product-img" href="/product/detail/${prod.id}"><img src="/static/assets-a/assets/images/products/${prod.image}" alt=""></a>
+                                        <a class="aa-product-img" href="/product/detail/${prod.id}"><img src="/static/images/products/${prod.image}" alt=""></a>
                                         <%@include file="_buttons.jsp"%>
                                         
                                         <figcaption>
@@ -74,6 +88,8 @@
             </div>
         </div>
     </section>
+
     <!-- / product category -->
     <!--  end content-->
+
 

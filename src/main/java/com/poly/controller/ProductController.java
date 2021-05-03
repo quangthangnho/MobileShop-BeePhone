@@ -37,7 +37,7 @@ public class ProductController {
 		model.addAttribute("userLogin", accountModel.getUsername());
 		model.addAttribute("role", accountModel.getRole());
 	}
-	model.addAttribute("list", pdao.findAll());
+	model.addAttribute("list", pdao.fillAllProductStatus1());
 		return "product/list";
 	}
 	

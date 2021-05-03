@@ -145,6 +145,7 @@ $('#pagination').twbsPagination({
 });
 
   </script>
+  
   <script>
   
   	const getParentDesElement = document.querySelectorAll(".des");
