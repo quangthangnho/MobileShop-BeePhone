@@ -92,10 +92,6 @@
 							</table>
 						</div>
 
-						<jsp:include page="_report.jsp" />
-
-						<jsp:include page="_report-chart.jsp" />
-
 						<!--  -->
 
 					</div>

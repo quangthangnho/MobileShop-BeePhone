@@ -158,9 +158,6 @@ public class OrderController {
 		}
 		List<OrderEntity> orders = odao.findByUsername(user.getId());// tìm dơn hàng và tuyền id dô
 		model.addAttribute("orders", orders);// chuyển order ra giao hiện hiển thị ra
-		
-//		List<Report> reports = ddao.getPurchaseByUser(user);
-//		model.addAttribute("reports", reports);
 		return "order/list";
 	}
 	
