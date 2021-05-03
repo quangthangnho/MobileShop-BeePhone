@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.poly.entity.NewEntity;
+import com.poly.entity.ProductEntity;
 import com.poly.model.ProductModel;
 
 public interface IProductService {
@@ -16,4 +18,6 @@ public interface IProductService {
 	List<ProductModel> listProductOderByCount();
 	
 	List<ProductModel> listProductOderByDiscount();
+	
+	Page<ProductEntity> findAllProduct(Pageable pageable);
 }

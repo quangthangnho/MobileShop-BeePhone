@@ -5,7 +5,7 @@
 
    <!--  content -->
     <!-- catg header banner section -->
-<form method="get" action="/product/list" id="formSubmit1">
+<form method="get" action="/product/list-by-category/${idp}" id="formSubmit2">
     <section id="aa-catg-head-banner">
         <img src="/static/assets/images/banner1-product.png" alt="banner sản phẩm">
         <div class="aa-catg-head-banner-area">
@@ -72,7 +72,7 @@
                 </div>
 
             </div>
-             <ul style="margin-left: 478px;" id="pagination1" class="pagination-lg"></ul>
+             <ul style="margin-left: 478px;" id="pagination2" class="pagination-lg"></ul>
 			<input type="hidden" value="" id="page" name="page"/>
         </div>
         
