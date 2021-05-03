@@ -17,7 +17,7 @@
 							<div class="panel-heading">
 								<div class="panel-title">Đã hủy</div>
 							</div>
-							Thông báo: <c:if test="${!empty message}"><p style="color: red">${message}</p></c:if>
+							<c:if test="${!empty message}"><p style="color: red">${message}</p></c:if>
 							<table class="table table-hover">
 								<thead class="bg-danger">
 									<tr>
@@ -93,10 +93,6 @@
 								</tbody>
 							</table>
 						</div>
-
-						<jsp:include page="_report.jsp" />
-
-						<jsp:include page="_report-chart.jsp" />
 
 						<!--  -->
 

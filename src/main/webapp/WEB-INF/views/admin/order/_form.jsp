@@ -80,7 +80,7 @@
 			            	<form:option value="0">CHỜ XÁC NHẬN</form:option>
 			            	<form:option value="1">CHỜ LẤY HÀNG</form:option>
 			            	<form:option value="2">ĐANG GIAO</form:option>
-			            	<form:option value="2">ĐÃ GIAO</form:option>
+			            	<form:option value="3">ĐÃ GIAO</form:option>
 			            	<form:option value="-1">ĐÃ HỦY</form:option>
 			            </form:select>
 				    </div>
@@ -131,7 +131,7 @@
 	    <c:forEach var="item" items="${form.orderDetails}">
 			<tr>
 			    <td>${item.productOrderDetail.id}</td>
-			    <td><img src="/static/assets-a/assets/images/products/${item.productOrderDetail.image}" style="width:60px; height: 60px;"> ${item.productOrderDetail.name}</td>
+			    <td><img src="/static/images/products/${item.productOrderDetail.image}" style="width:60px; height: 60px;"> ${item.productOrderDetail.name}</td>
 			    <td>
 			    	<fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> &#8363;
 			    </td>

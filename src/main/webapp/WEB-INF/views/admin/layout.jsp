@@ -1,6 +1,5 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,10 +35,10 @@
     <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
     <meta property="og:site_name" content="Creative Tim" />
     <!-- Bootstrap core CSS     -->
-    <link href="/static/assets-a/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/assets-a/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/TableExport/3.2.5/css/tableexport.min.css"><!-- Export HTML table to CSV file -->
     <!--  Material Dashboard CSS    -->
-    <link href="/static/assets-a/assets/css/material-dashboard.css" rel="stylesheet" />
+    <link href="/static/assets-a/css/material-dashboard.css" rel="stylesheet" />
     <style>
         table.dataTable > thead > tr > th,
         table.dataTable > tbody > tr > th,
@@ -52,7 +51,7 @@
         }
     </style>
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="/static/assets-a/assets/css/demo.css" rel="stylesheet" />
+    <link href="/static/assets-a/css/demo.css" rel="stylesheet" />
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
@@ -119,51 +118,55 @@
 
     	<!--   Core JS Files   -->
     	
-<script src="/static/assets-a/assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
-<script src="/static/assets-a/assets/js/jquery-ui.min.js" type="text/javascript"></script>
-<script src="/static/assets-a/assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="/static/assets-a/assets/js/material.min.js" type="text/javascript"></script>
-<script src="/static/assets-a/assets/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+<script src="/static/assets-a/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="/static/assets-a/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/static/assets-a/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/assets-a/js/material.min.js" type="text/javascript"></script>
+<script src="/static/assets-a/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
 <!-- Forms Validations Plugin -->
-<script src="/static/assets-a/assets/js/jquery.validate.min.js"></script>
+<script src="/static/assets-a/js/jquery.validate.min.js"></script>
 <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-<script src="/static/assets-a/assets/js/moment.min.js"></script>
+<script src="/static/assets-a/js/moment.min.js"></script>
 <!--  Charts Plugin -->
-<script src="/static/assets-a/assets/js/chartist.min.js"></script>
+<script src="/static/assets-a/js/chartist.min.js"></script>
 <!--  Plugin for the Wizard -->
-<script src="/static/assets-a/assets/js/jquery.bootstrap-wizard.js"></script>
+<script src="/static/assets-a/js/jquery.bootstrap-wizard.js"></script>
 <!--  Notifications Plugin    -->
-<script src="/static/assets-a/assets/js/bootstrap-notify.js"></script>
+<script src="/static/assets-a/js/bootstrap-notify.js"></script>
 <!--   Sharrre Library    -->
-<script src="/static/assets-a/assets/js/jquery.sharrre.js"></script>
+<script src="/static/assets-a/js/jquery.sharrre.js"></script>
 <!-- DateTimePicker Plugin -->
-<script src="/static/assets-a/assets/js/bootstrap-datetimepicker.js"></script>
+<script src="/static/assets-a/js/bootstrap-datetimepicker.js"></script>
 <!-- Vector Map plugin -->
-<script src="/static/assets-a/assets/js/jquery-jvectormap.js"></script>
+<script src="/static/assets-a/js/jquery-jvectormap.js"></script>
 <!-- Sliders Plugin -->
-<script src="/static/assets-a/assets/js/nouislider.min.js"></script>
+<script src="/static/assets-a/js/nouislider.min.js"></script>
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <!-- Select Plugin -->
-<script src="/static/assets-a/assets/js/jquery.select-bootstrap.js"></script>
+<script src="/static/assets-a/js/jquery.select-bootstrap.js"></script>
 <!--  DataTables.net Plugin    -->
-<script src="/static/assets-a/assets/js/jquery.datatables.js"></script>
+<script src="/static/assets-a/js/jquery.datatables.js"></script>
 <!-- Sweet Alert 2 plugin -->
-<script src="/static/assets-a/assets/js/sweetalert2.js"></script>
+<script src="/static/assets-a/js/sweetalert2.js"></script>
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="/static/assets-a/assets/js/jasny-bootstrap.min.js"></script>
+<script src="/static/assets-a/js/jasny-bootstrap.min.js"></script>
 <!--  Full Calendar Plugin    -->
-<script src="/static/assets-a/assets/js/fullcalendar.min.js"></script>
+<script src="/static/assets-a/js/fullcalendar.min.js"></script>
 <!-- TagsInput Plugin -->
-<script src="/static/assets-a/assets/js/jquery.tagsinput.js"></script>
+<script src="/static/assets-a/js/jquery.tagsinput.js"></script>
 <!-- Material Dashboard javascript methods -->
-<script src="/static/assets-a/assets/js/material-dashboard.js"></script>
+<script src="/static/assets-a/js/material-dashboard.js"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="/static/assets-a/assets/js/demo.js"></script>
-<script src="/static/assets-a/assets/ckeditor/ckeditor.js"></script>
+<script src="/static/assets-a/js/demo.js"></script>
+<!--
+<script src="/static/assets-a/ckeditor/ckeditor.js"></script> 
+
 <script type="text/javascript">
 	CKEDITOR.replace('content');
 </script>
+
+ -->
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -220,7 +223,6 @@ window.onclick = function(event) {
     }
 }
 </script>
-
 
 <script>
 	var rowCountallOrder = $('#myTableallOrder tr').length;

@@ -36,7 +36,7 @@
 				              <li class="dropdown-item user-details">
 				                <a href="javaScript:void();">
 				                  <div class="media">
-				                    <div class="avatar"><img class="align-self-start mr-3" src="/static/assets-a/assets/img/avatar-admin.png"
+				                    <div class="avatar"><img class="align-self-start mr-3" src="/static/assets-a/img/avatar-admin.png"
 				                        alt="user avatar" style="padding: 0px 35px;"></div>
 				                    <div class="media-body">
 				                      <h6 class="mt-2 user-title">Web dien thoai</h6>

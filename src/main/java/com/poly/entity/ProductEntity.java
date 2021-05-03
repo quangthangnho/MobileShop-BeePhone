@@ -39,7 +39,7 @@ public class ProductEntity implements Serializable{
 	private String name;
 
 	@Column(nullable = false)
-	private String image;
+	private String image = "1716605.jpg";
 
 	@Column(name = "unit_price" ,nullable = false)
 	private Double unitPrice;

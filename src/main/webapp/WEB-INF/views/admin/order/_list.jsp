@@ -16,7 +16,7 @@
 				<th>SỐ TIỀN</th>
 				<th>TRẠNG THÁI</th>
 				<th>THANH TOÁN</th>
-				<th>thùng rac</th>
+			
 				<th class="disabled-sorting text-right">HÀNH ĐỘNG</th>
 			</tr>
 		</thead>
@@ -60,7 +60,6 @@
 							</label>
 						</c:when>
 					</c:choose></td>
-					<td>${item.thungrac}</td>
 					<td class="td-actions text-right">
 						<a href="${ctrl}/edit/${item.id}" class="btn btn-sm btn-warning" title="Chi tiết">
 			    			<i class="fa fa-pencil"></i>

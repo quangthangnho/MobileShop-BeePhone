@@ -1,7 +1,7 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<script src="/static/assets-a/assets/js/upload.js"></script>
+<script src="/static/assets-a/js/upload.js"></script>
 <form:form action="/admin/master/detail" modelAttribute="form" enctype="multipart/form-data">
 <div class="panel panel-danger">
 	<div class="panel-heading">

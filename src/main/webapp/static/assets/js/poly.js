@@ -74,7 +74,7 @@ cart = {
 							<td><div onclick="cart.remove(${item.id})"class="remove"><fa
 										class="fa fa-close"></fa></div>
 							</td>							
-							<td><img src="/static/assets-a/assets/images/products/${item.image}" style="width:60px; height: 60px;"><a class="aa-cart-title" href="">${item.name}</a>
+							<td><img src="/static/assets-a/images/products/${item.image}" style="width:60px; height: 60px;"><a class="aa-cart-title" href="">${item.name}</a>
 							</td>
 							<td><span class="cart-item-unit-price-before">${originPrice}</span> ${discount}</td>
 							<td>

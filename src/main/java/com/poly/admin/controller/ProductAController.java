@@ -8,6 +8,7 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.poly.Service.PagerService;
 import com.poly.Service.UploadService;
 import com.poly.convert.impl.AccountModelAndEntityConvert;
 import com.poly.dao.CategoryDAO;
@@ -70,7 +72,7 @@ public class ProductAController {
 			@ModelAttribute("form") ProductEntity entity,
 			@RequestParam("image_file") MultipartFile image) {
 		try {
-			File file = upload.save(image, "/static/assets-a/assets/images/products/");
+			File file = upload.save(image, "/static/images/products/");
 			if(file != null) {
 				entity.setImage(file.getName());
 			}
@@ -96,19 +98,15 @@ public class ProductAController {
 		if(!pdao.existsById(entity.getId())) {
 			entity.setId(null);
 			model.addAttribute("message", "Sản phẩm không tồn tại!");
-			
-//		}else if(entity.getStock() == 0) {
-//			model.addAttribute("message", "Sản phẩm đã hết hàng!");
+
 		}
 		else {
 			ProductEntity productEntity = new ProductEntity();
 			productEntity.setCreateDate(new Date());
-			File file = upload.save(image, "/static/assets-a/assets/images/products/");
+			File file = upload.save(image, "/static/images/products/");
 			if(file != null) {
 				entity.setImage(file.getName());
-			}
-//			entity.setStock(entity.getStock() - 1 );
-			
+			}			
 			entity.setStatus(1);
 			pdao.save(entity);
 			model.addAttribute("message", "Cập nhật sản phẩm thành công!");
@@ -144,7 +142,7 @@ public class ProductAController {
 	CategoryDAO cdao;
 	@ModelAttribute("categories")
 	public List<CategoryEntity> getCategories(){
-		return cdao.findAll();// trả về toàn bộ loại
+		return cdao.fillAllCategoryStatus1();// trả về toàn bộ loại
 	}
 	
 	
@@ -168,7 +166,7 @@ public class ProductAController {
 		else {
 			ProductEntity productEntity = new ProductEntity();
 			productEntity.setCreateDate(new Date());
-			File file = upload.save(image, "/static/assets-a/assets/images/products/");
+			File file = upload.save(image, "/static/assets-a/images/products/");
 			if(file != null) {
 				entity.setImage(file.getName());
 			}

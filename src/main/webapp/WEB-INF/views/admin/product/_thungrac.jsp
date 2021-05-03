@@ -30,14 +30,14 @@
              <tbody>
              <c:forEach var="item" items="${listfillAllProductStatus2}">
              <tr>
-                 <td><img src="/static/assets-a/assets/images/products/${item.image}" style="width:60px; height: 60px;"></td>
+                 <td><img src="/static/images/products/${item.image}" style="width:60px; height: 60px;"></td>
                  <td>${item.name}</td>
                  <td><fmt:formatNumber value="${item.unitPrice}" minFractionDigits="0"/> VNĐ </td>
                  <td>${item.stock}</td>
             
                  <td class="td-actions text-right">
                    
-						<a href="edit/${item.id}" class="btn btn-sm btn-warning" title="Chi tiết">
+						<a href="http://localhost:8086/admin/product/edit/${item.id}" class="btn btn-sm btn-warning" title="Chi tiết">
 				    			<i class="fa fa-pencil"></i>
 				    	</a>
 			    		
