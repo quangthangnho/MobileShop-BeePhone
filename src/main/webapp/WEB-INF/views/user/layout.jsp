@@ -147,6 +147,39 @@ $('#pagination').twbsPagination({
   </script>
   
   <script>
+var totalPages = ${pageProduct.getTotalPages()};
+var currentPage = ${pageProduct.getNumber()}+1;
+$('#pagination1').twbsPagination({
+	totalPages: totalPages,
+	visiblePages: 3,
+	startPage: currentPage,
+	onPageClick: function (event, page) {
+		if (currentPage != page) {
+			$('#page').val(page);
+			$('#formSubmit1').submit();
+		}
+	}
+});
+
+  </script>
+  
+    <script>
+var totalPages = ${pageProduct.getTotalPages()};
+var currentPage = ${pageProduct.getNumber()}+1;
+$('#pagination2').twbsPagination({
+	totalPages: totalPages,
+	visiblePages: 3,
+	startPage: currentPage,
+	onPageClick: function (event, page) {
+		if (currentPage != page) {
+			$('#page').val(page);
+			$('#formSubmit2').submit();
+		}
+	}
+});
+
+  </script>
+  <script>
   
   	const getParentDesElement = document.querySelectorAll(".des");
   

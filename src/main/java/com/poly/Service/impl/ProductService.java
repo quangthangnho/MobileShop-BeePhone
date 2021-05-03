@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.poly.Service.IProductService;
 import com.poly.convert.impl.ProductModelAndEntityConvert;
 import com.poly.dao.ProductDAO;
+import com.poly.entity.NewEntity;
 import com.poly.entity.ProductEntity;
 import com.poly.model.ProductModel;
 
@@ -52,6 +53,15 @@ public class ProductService implements IProductService{
 		List<ProductEntity> list = productDAO.listProductOrderByDiscount();
 		if(list != null) {
 			return list.stream().map(element -> new ProductModelAndEntityConvert().convertToModel(element)).collect(Collectors.toList());
+		}
+		return null;
+	}
+	@Override
+	public Page<ProductEntity> findAllProduct(Pageable pageable) {
+		// TODO Auto-generated method stub
+		Page<ProductEntity> list = productDAO.findAll(pageable);
+		if(list != null) {
+			return list;
 		}
 		return null;
 	}
