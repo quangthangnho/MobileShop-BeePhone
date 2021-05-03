@@ -166,7 +166,7 @@ public class ProductAController {
 		else {
 			ProductEntity productEntity = new ProductEntity();
 			productEntity.setCreateDate(new Date());
-			File file = upload.save(image, "/static/assets-a/images/products/");
+			File file = upload.save(image, "/static/images/products/");
 			if(file != null) {
 				entity.setImage(file.getName());
 			}
