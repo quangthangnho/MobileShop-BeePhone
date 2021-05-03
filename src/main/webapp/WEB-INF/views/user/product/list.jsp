@@ -34,7 +34,7 @@
                                 <c:forEach var="prod" items="${pageProduct.getContent()}">
                                 <li>
                                     <figure>
-                                        <a class="aa-product-img" href="/product/detail/${prod.id}"><img style="padding: 40px 30px 20px 20px" src="/static/assets-a/assets/images/products/${prod.image}" alt=""></a>
+                                        <a class="aa-product-img" href="/product/detail/${prod.id}"><img style="padding: 40px 30px 20px 20px" src="/static/images/products/${prod.image}" alt=""></a>
                                         <%@include file="_buttons.jsp"%>
                                         
                                         <figcaption>
