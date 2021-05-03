@@ -43,6 +43,8 @@ public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRep
 	@Query("SELECT p FROM ProductEntity p WHERE p.id=:uid")
 	ProductEntity findByIDpr(@Param("uid") Long id);
 	
+	Page<ProductEntity> findBycategoryProduct(CategoryEntity categoryId, Pageable pageable);
+	
 
 	
 
