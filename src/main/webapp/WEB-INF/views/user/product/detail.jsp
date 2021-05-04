@@ -92,7 +92,7 @@
 								<span
 									onclick="document.getElementById('id01').style.display='none'"
 									class="close" title="Close Modal">&times;</span> <img
-									src="/static/assets-a/images/products/${prod.image}"
+									src="/static/images/products/${prod.image}"
 									alt="Avatar" class="avatar">
 							</div>
 

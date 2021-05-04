@@ -11,7 +11,7 @@
              <c:forEach items="${listIphone}" var="element" begin="0" end="3">
             <li>
               <div class="seq-model">
-                <img data-seq src="/static/assets/images/slide_5.PNG" alt="Men slide img" />
+                <img data-seq src="/static/assets/images/slide_6pts.png" alt="Men slide img" />
               </div>
               <div class="seq-title">
                 <a data-seq href="/product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
@@ -29,7 +29,7 @@
             <!-- single slide item -->
             <li>
               <div class="seq-model">
-                <img data-seq src="/static/assets/images/slide_7.PNG" alt="Women Jeans slide img" />
+                <img data-seq src="/static/assets/images/slide_7pts.png" alt="Women Jeans slide img" />
               </div>
               <div class="seq-title">
                 <a data-seq href="/product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
@@ -38,7 +38,7 @@
             <!-- single slide item -->
             <li>
               <div class="seq-model">
-                <img data-seq src="/static/assets/images/slide_8.PNG" alt="Shoes slide img" />
+                <img data-seq src="/static/assets/images/slide_8pts.png" alt="Shoes slide img" />
               </div>
               <div class="seq-title">
                 <a data-seq href="/product/list" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
