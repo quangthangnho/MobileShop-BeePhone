@@ -109,10 +109,7 @@
 
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="/static/assets/js/bootstrap.js"></script>  
-  <!-- SmartMenus jQuery plugin -->
-  <!-- SmartMenus jQuery Bootstrap Addon -->
 
-  <!-- To Slider JS -->
   <script src="/static/assets/js/sequence.js"></script>
   <script src="/static/assets/js/sequence-theme.modern-slide-in.js"></script>  
   <!-- Product view slider -->

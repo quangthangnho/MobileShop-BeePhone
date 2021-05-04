@@ -159,14 +159,13 @@
 <script src="/static/assets-a/js/material-dashboard.js"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="/static/assets-a/js/demo.js"></script>
-<!--
+
 <script src="/static/assets-a/ckeditor/ckeditor.js"></script> 
 
 <script type="text/javascript">
 	CKEDITOR.replace('content');
 </script>
 
- -->
 
 <script type="text/javascript">
     $(document).ready(function() {
