@@ -199,7 +199,7 @@
 								<li>
 									<figure>
 										<a class="aa-product-img" href="/product/detail/${p.id}">
-											<img src="/static/images/products/${prod.image}"
+											<img src="/static/images/products/${p.image}"
 											alt="" style="padding: 40px 30px 20px 20px;">
 										</a>
 
