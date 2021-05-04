@@ -64,7 +64,7 @@
 											Tình trạng: còn hàng <span> </span>
 										</p>
 									</div>
-									<p>${prod.description}</p>
+									
 
 									<div class="aa-prod-quantity">
 										<p class="aa-prod-category">
