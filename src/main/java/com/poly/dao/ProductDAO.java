@@ -45,6 +45,7 @@ public interface ProductDAO extends JpaRepository<ProductEntity, Long> {//JpaRep
 	
 	Page<ProductEntity> findBycategoryProduct(CategoryEntity categoryId, Pageable pageable);
 	
+	
 
 	
 
