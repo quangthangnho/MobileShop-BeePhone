@@ -52,7 +52,7 @@ public class ProductController {
 	//pageable
 	Page<ProductEntity> pageProduct =productService.findAllProduct(PageRequest.of(pagee-1, 6));
 	model.addAttribute("pageProduct", pageProduct);
-		return "product/list";
+	return "product/list";
 	}
 	
 	

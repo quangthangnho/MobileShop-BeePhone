@@ -5,10 +5,8 @@
 <div class="aa-sidebar-widget">
 	<h3>Danh mục</h3>
 	<c:forEach var="c" items="${cates}">
-		<ul class="aa-catg-nav">
-		
+		<ul class="aa-catg-nav">	
 				<li><a href="/product/list-by-category/${c.id}">${c.name}</a></li>
-		
 		</ul>
 	</c:forEach>
 </div>
