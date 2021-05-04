@@ -2,7 +2,10 @@ package com.poly.admin.controller;
 
 import java.io.File;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +17,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.poly.Service.IAccountService;
 import com.poly.Service.UploadService;
+import com.poly.entity.AccountEntity;
 import com.poly.model.AccountModel;
+import com.poly.utils.SessionUtil;
 
 @Controller
 @RequestMapping("admin/master")
@@ -59,10 +64,16 @@ public class AccountAdminController {
     }
     
     @PostMapping("/delete")
-    public String deleteAdmin(Model model, @ModelAttribute("form") AccountModel accountModel) {
+    public String deleteAdmin(Model model, @ModelAttribute("form") AccountModel accountModel, HttpServletRequest request) {
     	try {
-    		accountService.delete(accountModel);
-    		model.addAttribute("message", "Xoá tài khoản thành công!");
+    		AccountModel sess = (AccountModel) SessionUtil.getInstance().getValue(request, "USER_LOGIN");
+    		if(accountModel.getUsername().equalsIgnoreCase(sess.getUsername())) {
+    			model.addAttribute("message", "Không được xóa chính mình!");
+    		}else {
+    			accountService.delete(accountModel);
+        		model.addAttribute("message", "Xoá tài khoản thành công!");
+    		}
+    		
     	model.addAttribute("listAdmin", accountService.findAllByRole("ADMIN"));
 		} catch (Exception e) {
 			model.addAttribute("message", "Tài khoản này không tồn tại!");

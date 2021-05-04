@@ -177,9 +177,7 @@ $('#pagination2').twbsPagination({
 
   </script>
   <script>
-  
   	const getParentDesElement = document.querySelectorAll(".des");
-  
   	getParentDesElement.forEach(element => {
   		const getChildrenPElement = element.querySelectorAll("p");
   		getChildrenPElement.forEach((data, index) => {
@@ -188,7 +186,6 @@ $('#pagination2').twbsPagination({
   			}
   		})
   	})
-  	
   </script>
   
   <!--Thông báo Notification   -->
