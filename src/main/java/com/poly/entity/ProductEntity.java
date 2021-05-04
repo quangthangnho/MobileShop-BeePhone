@@ -72,7 +72,7 @@ public class ProductEntity implements Serializable{
 	@Column(name = "dung_luong_pin")
 	private String dungLuongPin;
 
-	@Column
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String description;
 
 	@Column(name = "create_date", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP" )
