@@ -1,5 +1,5 @@
 <%@ page pageEncoding="utf-8"%>
-<script src="/static/assets-a/assets/js/upload.js"></script>
+<script src="/static/assets-a/js/upload.js"></script>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <form:form method="post" action="/admin/news/create" modelAttribute="formNew"
